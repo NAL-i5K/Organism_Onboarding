@@ -2,14 +2,14 @@
 
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: [wget, -i]
+baseCommand: [wget]
 inputs:
-  wget_list:
-    type: File
+  in_strings:
+    type: string[]
     inputBinding:
       position: 1
 outputs:
-  output_name:
+  out:
     type: File[]
     outputBinding:
       glob: '*'

@@ -4,30 +4,28 @@
 # 
 #!/usr/bin/env cwl-runner
 
+label : to decompress the gzip file
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: [gzip, -cd]
-label : to decompress the gzip file
-requirements:
-  - class: InlineJavascriptRequirement
+#requirements:
+#  - class: InlineJavascriptRequirement
 #  - class: InitialWorkDirRequirement
-#    listing: 
-#      - entry: $(inputs.files)
-#listing: $(inputs.files) #for type:File[]
+    #listing: 
+    #  - entry: $(inputs.in)
+#    listing: $(inputs.files) #for type:File[]
+baseCommand: [gzip, -cd]
 
-inputs:
-  files:
-    type: File
-    inputBinding:
-      position: 1
+inputs: []
+   
+arguments:
+  - valueFrom: $(runtime.tmpdir.GCF_002532875.1_vjacob_1.0_genomic.gff.gz)
+
+#  in:
+#    type: string
+#    inputBinding:
+#      position: 1
+#      valueFrom: '*.gz'
       #valueFrom: $(self.basename) #default
-#outputs:
-#  out:
-#    type: File[]
-#    streamable: true
-#    outputBinding:
-#      glob: $(inputs.files.nameroot)
-#stdout: $(inputs.files.nameroot)
 
 outputs:
   out:
@@ -35,7 +33,7 @@ outputs:
 #    secondaryFiles:
 #      - .gff
 #      - .fna
-stdout: $(inputs.files.nameroot)
+stdout: '*'
 
 #Note:
 #InlineJavascriptRequirement
