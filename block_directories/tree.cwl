@@ -2,13 +2,14 @@
 
 cwlVersion: v1.0
 class: CommandLineTool
-label: to create directory tree
+label: creating directory tree
+
 baseCommand: [mkdir, -p]
 inputs:
   info:
     type: string[]
     inputBinding:
-      position: 2
+      position: 1
 outputs:
   example_out:
     type: Directory[]
