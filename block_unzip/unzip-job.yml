@@ -1,9 +1,4 @@
-files: 
+files:
   class: File
   path: GCF_002532875.1_vjacob_1.0_genomic.gff.gz
-#
-#- {class: File, path: GCF_002532875.1_vjacob_1.0_genomic.gff.gz}
-#- {class: File, path: GCF_002532875.1_vjacob_1.0_cds_from_genomic.fna.gz}
 
-#- GCF_002532875.1_vjacob_1.0_genomic.gff
-#- GCF_002532875.1_vjacob_1.0_cds_from_genomic.fna
