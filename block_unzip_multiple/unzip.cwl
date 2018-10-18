@@ -6,14 +6,16 @@ label : to decompress the gzip file
 baseCommand: [gzip, -cd]
 requirements:
   - class: InlineJavascriptRequirement
-#  - class: InitialWorkDirRequirement
-#    listing: 
-#      - entry: $(inputs.files)
+  - class: InitialWorkDirRequirement
+    listing: 
+      - entry: $(inputs.files)
 #listing: $(inputs.files) #for type:File[]
 
 inputs:
   files:
-    type: File
+    type:
+      type: array
+      items: File
     inputBinding:
       position: 1
       itemSeparator: ","      
@@ -25,11 +27,19 @@ inputs:
 #    outputBinding:
 #      glob: $(inputs.files.nameroot)
 
-
 outputs:
-  out:
-    type: stdout
-stdout: $(inputs.files.nameroot)
+  - id: output
+    type: File[]
+    outputBinding:
+      glob: 'apple'
+stdout: 'apple'
+#      glob: $(inputs.files.path.split("/").slice(-1)[0].split(".").slice(0,-1).join("."))
+#stdout: $(inputs.files.path.split("/").slice(-1)[0].split(".").slice(0,-1).join("."))
+
+#outputs:
+#  out:
+#    type: stdout
+#stdout: $(inputs.files.nameroot)
 
 #Note:
 #InlineJavascriptRequirement
