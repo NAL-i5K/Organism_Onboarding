@@ -16,7 +16,7 @@ inputs:
     type: File
     inputBinding:
       position: 1
-      itemSeparator: ","      
+      #itemSeparator: ","      
       #valueFrom: $(self.basename) #default
 
 #outputs:
