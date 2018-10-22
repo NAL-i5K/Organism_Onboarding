@@ -1,6 +1,0 @@
-in_wget_yml:
-  class: File
-  path: production/wget-job.yml
-#in_unzip_yml:
-#  class: File
-#  path: block_unzip/unzip-job.yml

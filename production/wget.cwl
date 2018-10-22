@@ -8,7 +8,7 @@ inputs:
     inputBinding:
       position: 1
 outputs:
-  out:
+  out_gz:
     type: File[]
     outputBinding:
       glob: '*'

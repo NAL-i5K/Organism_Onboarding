@@ -7,23 +7,24 @@ requirements:
   - class: InlineJavascriptRequirement
   - class: InitialWorkDirRequirement
     listing:
-      - $(arguments)
+      - entry: $(inputs.current_dir)
+        writable: true
 
-baseCommand: [gzip, -cd]
+baseCommand: [gzip]
 
-inputs: []
+inputs:
+#  in_wget:
+#    type: string[] 
+  current_dir:
+    type: Directory
 
-arguments: [apple.gz]  
-#  - valueFrom: $(inputs.in)
+arguments: ['-d', gzfile/$(inputs.current_dir.listing.basename)]  
+#  - valueFrom: $(inputs.current_dir)
 
-#outputs: 
-#  out:
-#    type: File[]
-#    streamable: true
-#    outputBinding:
-#      glob: '*'
-
-outputs:
+outputs: 
   out:
-    type: stdout
-stdout: '*'
+    type: File[]
+    #streamable: true
+    outputBinding:
+      glob: $(inputs.current_dir.listing.nameroot)
+stdout: $(inputs.current_dir.listing.nameroot)
