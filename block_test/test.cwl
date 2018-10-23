@@ -1,16 +1,26 @@
 #!/usr/bin/env cwl-runner
 
+# a test for 
+# gzip -d *.gz
+
+# equivalent linux command:
+# touch file (name is based on file inside the input dir)
+
+
 cwlVersion: v1.0
 class: CommandLineTool
 
 requirements:
-  InlineJavascriptRequirement: {}
-  InitialWorkDirRequirement:
+  - class: InlineJavascriptRequirement
+  - class: InitialWorkDirRequirement
     listing:
-      - $(inputs.dir)
+      - entry: $(inputs.dir)
+#        ${return {'type': 'array', 'items': 'File'};}
+        #entryname: sample
+        writable: true
 
-baseCommand: [mkdir]
-arguments: ['-p', $(inputs.dir.listing.[basename])]
+baseCommand: [touch]
+arguments: [$(inputs.dir.listing.basename)]
 
 inputs:
   dir:
@@ -18,6 +28,11 @@ inputs:
 
 outputs:
   out:
-    type: Directory[]
-    outputBinding:
-      glob: '*'
+    type: stdout
+stdout: $(inputs.dir.listing.basename)
+
+#outputs:
+#  out:
+#    type: File
+#    outputBinding:
+#      glob: '*'
