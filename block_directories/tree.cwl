@@ -1,15 +1,16 @@
-
+#!usr/bin/env cwl-runner
 
 cwlVersion: v1.0
 class: CommandLineTool
 label: creating directory tree
 
-baseCommand: [mkdir, -p]
+baseCommand: [mkdir]
 inputs:
   info:
     type: string[]
     inputBinding:
       position: 1
+      prefix: -p
 outputs:
   example_out:
     type: Directory[]

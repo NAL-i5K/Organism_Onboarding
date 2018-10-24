@@ -20,7 +20,7 @@ requirements:
         writable: true
 
 baseCommand: [touch]
-arguments: [$(inputs.dir.listing.basename)]
+arguments: [$(inputs.dir.listing.'orange')]
 
 inputs:
   dir:
@@ -29,7 +29,7 @@ inputs:
 outputs:
   out:
     type: stdout
-stdout: $(inputs.dir.listing.basename)
+stdout: $(inputs.dir.listing.'orange')
 
 #outputs:
 #  out:

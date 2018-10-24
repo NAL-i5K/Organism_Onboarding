@@ -12,7 +12,7 @@ requirements:
   - class: InitialWorkDirRequirement
     listing:
       - entry: $(inputs.in)
-        entryname: inputDir
+        #entryname: inputDir
         writable: true #Default: Read-only Dir
 
 baseCommand: [find]
@@ -25,6 +25,7 @@ inputs:
 outputs:
   report:
     type: stdout
+#stdout: $(inputs.in.location)
 stdout: md5sum.txt
 
   #out:
