@@ -1,6 +1,6 @@
-in:
+dir:
   class: Directory
   path: data
 in_file:
   class: File
-  path: data/md5checksums.txt
+  path: data/md5checksums-fake.txt

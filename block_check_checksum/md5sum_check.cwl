@@ -10,20 +10,22 @@ requirements:
   - class: InlineJavascriptRequirement
   - class: InitialWorkDirRequirement
     listing:
-      - entry: $(inputs.in)
+      - entry: $(inputs.dir)
         #entryname: inputDir
         writable: true #Default: Read-only Dir
       - entry: $(inputs.in_file)
         writable: true
 
+
 baseCommand: [md5sum]
-arguments: ['-c', $(inputs.in.dirname)/$(inputs.in.basename)/$(inputs.in_file.basename)]
-# -c tmp/tmp.../data/md5checksums.txt
-# inputs.in.basename = data
-
-
+arguments: ['-c', $(inputs.dir.dirname)/$(inputs.dir.basename)/$(inputs.in_file.basename)]
+# $(inputs.dir.dirname) = /tmp/tmpABCD/
+# $(inputs.dir.basename) = data/
+# #(inputs.in_file) = /tmp/tmpABCD/filename.txt
+# $(inputs.in_file.basename) = filename.txt
+# 
 inputs: 
-  in:
+  dir:
     type: Directory
   in_file:
     type: File
@@ -31,10 +33,10 @@ inputs:
 #      position: 1
 #      prefix: -c
 
-outputs:
+outputs: 
   report:
     type: stderr
-stderr: check.log
+stderr: check-fake.log
 
   #out:
   #  type: File

@@ -25,7 +25,6 @@ inputs:
 outputs:
   report:
     type: stdout
-#stdout: $(inputs.in.location)
 stdout: md5sum.txt
 
   #out:
