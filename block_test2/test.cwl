@@ -1,10 +1,10 @@
 #!/usr/bin/env cwl-runner
 
 # a test for 
-# gzip -d *.gz
+# How to parse thing in listing if I pass a directory to inputs section
 
 # equivalent linux command:
-# touch file (name is based on file inside the input dir)
+# echo XX > YY 
 
 cwlVersion: v1.0
 class: CommandLineTool
@@ -14,22 +14,21 @@ requirements:
   - class: InitialWorkDirRequirement
     listing:
       - entry: $(inputs.dir)
-#        ${return {'type': 'array', 'items': 'File'};}
-        #entryname: sample
+        #${return {'type': 'array', 'items': 'File'};}
         writable: true
 
-baseCommand: [touch]
+baseCommand: [echo]
 arguments: [$(inputs.dir.listing)]
 
 inputs:
   dir:
     type: Directory
-
-outputs:
+  in_file:
+    type: File
+outputs: 
   out:
     type: stdout
-stdout: $(inputs.dir)
-
+stdout: hello.txt
 #outputs:
 #  out:
 #    type: File

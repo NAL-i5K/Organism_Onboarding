@@ -1,0 +1,1 @@
+/tmp/tmp1M1GyO/sample/fruit /tmp/tmp1M1GyO/sample/orange.txt /tmp/tmp1M1GyO/sample/pineapple.yml

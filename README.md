@@ -4,6 +4,6 @@
 - A single block in CWL language is composed of two files, that is, **<.cwl>** file + **<.yml>** file
 
 =============================================================================
-- production directory: the code which is okay to be used in the pipeline
+- production directory: the code which is okay to be used in the pipeline, and the code in this directory is just the copy from other block.  
 - storage directory: the code which is not used in pipeline,  but is still function
 - block directory: the code still under development

@@ -1,6 +1,6 @@
 dir:
   class: Directory
-  path: .
+  path: sample
 in_file:
   class: File
-  path: data/md5checksums-fake.txt
+  path: reference

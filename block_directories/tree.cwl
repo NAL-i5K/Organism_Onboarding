@@ -12,10 +12,10 @@ inputs:
       position: 1
       prefix: -p
 outputs:
-  example_out:
-    type: Directory[]
+  out_directories:
+    type: Directory
     outputBinding:
-      glob: "*"
+      glob: '*'
 
 #outputs:
 #  example_out:

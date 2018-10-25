@@ -1,0 +1,4 @@
+dir_gunzip: 
+  class: Directory
+  path: data
+
