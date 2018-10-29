@@ -20,7 +20,7 @@ inputs:
       valueFrom: $(self.listing)
       prefix: -d
 
-# This is alternative way to implement, but it is nicer to write in inputs section instead of arguments section
+# arguments section is alternative way to implement the -d, but it is nicer to write in inputs section instead of arguments section
 # arguments: ['-d', $(inputs.dir_gunzip.listing)]  
 # $(inputs.dir_gunzip.listing) return string[], which include all the files and subdirectories inside dir_gunzip
 
@@ -30,3 +30,6 @@ outputs:
     #streamable: true
     outputBinding:
       glob: $(inputs.dir_gunzip.basename)
+      #glob: '*'
+
+#stdout: $(inputs.dir_gunzip.basename)
