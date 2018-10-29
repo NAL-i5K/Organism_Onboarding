@@ -16,8 +16,7 @@ inputs:
   dir_gunzip:
     type: Directory
     inputBinding:
-      position: 1
-      valueFrom: $(self.listing)
+      position: 1     valueFrom: $(self.listing)
       prefix: -d
 
 # arguments section is alternative way to implement the -d, but it is nicer to write in inputs section instead of arguments section

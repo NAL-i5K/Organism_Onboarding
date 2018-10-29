@@ -4,6 +4,7 @@
 - A single block in CWL language is composed of at least one **<.cwl>** files, and some blocks with a **<.yml>** file
 
 =============================================================================
+- block_sample: the basic starting structure of building block. I copy from block_sample if I develope a new block.
 - production directory: the code which is okay to be used in the pipeline, and the code in this directory is just the copy from other block.  
 - storage directory: the code which is not used in pipeline,  but is still function
-- block directory: the code still under development
+

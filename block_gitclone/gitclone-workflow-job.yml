@@ -1,0 +1,5 @@
+in_strings_gitclone: [
+https://gitlab.com/i5k_Workspace/apollo2_data_build_scripts.git, 
+https://github.com/NAL-i5K/wiggle-tools
+#https://github.com/GMOD/jbrowse............jbrowse has soft link error now
+]
