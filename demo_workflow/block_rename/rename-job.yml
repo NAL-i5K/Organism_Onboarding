@@ -1,0 +1,3 @@
+in_rename:
+  class: File
+  path: README.md
