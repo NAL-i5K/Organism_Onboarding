@@ -12,7 +12,7 @@ inputs:
 
 outputs: 
   out_wget:
-    type: File[]
+    type: File
     outputBinding:
       glob: ['*']
 

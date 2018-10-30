@@ -13,11 +13,11 @@ requirements:
 baseCommand: [gzip]
 
 inputs:
-  dir_gunzip:
+  in_gunzip:
     type: Directory
     inputBinding:
       position: 1     
-      valueFrom: $(self.listing)
+      valueFrom: $(self.listing) #self = inputs.in_gunzip
       prefix: -d
 
 # arguments section is alternative way to implement the -d, but it is nicer to write in inputs section instead of arguments section
