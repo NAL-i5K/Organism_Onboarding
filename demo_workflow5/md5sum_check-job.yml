@@ -1,0 +1,3 @@
+in_md5sum_check: [
+  {class: File, path: md5checksums.txt}
+]
