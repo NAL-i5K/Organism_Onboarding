@@ -14,10 +14,10 @@ baseCommand: [gzip]
 
 inputs:
   in_gunzip:
-    type: File[]
+    type: File
     inputBinding:
       position: 1     
-      valueFrom: $(self[0].basename)
+      valueFrom: $(self.basename)
       prefix: -d
 
 # arguments section is alternative way to implement the -d, but it is nicer to write in inputs section instead of arguments section
@@ -26,7 +26,7 @@ inputs:
 
 outputs: 
   out_gunzip:
-    type: File[]
+    type: File
     outputBinding:
       glob: ['*']
       #glob: $(inputs.in_gunzip.basename)
