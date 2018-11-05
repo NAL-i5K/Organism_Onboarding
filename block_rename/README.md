@@ -1,19 +1,16 @@
 # Usage
 ```
-cwl-runner --debug md5sum_check.cwl md5sum_check-job.yml
+cwl-runner --debug rename.cwl rename-job.yml
 ```
 
 # Equivalent command: 
+Suppose that the version is vX.Y
+if Y == 9
 ```
-md5sum -c md5checksums.txt &> check.log
-md5sum -c md5checksums-fake.txt &> check-fake.log
+cp [Assembly Name]_vX.Y_updated.gff [Assembly Name]_v(X+1).0.gff
 ```
-
+else
 ```
-grep 'checksums did NOT match' check.log
-grep 'checksums did NOT match' check-fake.log
+cp [Assembly Name]_vX.Y_updated.gff [Assembly Name]_vX.(Y+1).gff
 ```
-
-# Structure:
-**md5checksums.txt**: the file form "Download the RefSeq assembly" on NCBI website.    
 

@@ -1,6 +1,0 @@
-dir:
-  class: Directory
-  path: .
-in_file:
-  class: File
-  path: data/md5checksums-fake.txt
