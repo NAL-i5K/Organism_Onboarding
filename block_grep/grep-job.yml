@@ -1,0 +1,3 @@
+in_grep:
+  class: File
+  path: md5checksums-fake.log
