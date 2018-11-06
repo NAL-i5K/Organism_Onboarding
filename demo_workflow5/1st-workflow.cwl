@@ -28,10 +28,10 @@ steps:
 #    out: [out_gunzip-workflow]
 
 outputs: 
-  #out_wget-workflow:
-  #  type: File[]
-  #  outputSource: step_wget/out_wget
+  out_wget-workflow:
+    type: File[]
+    outputSource: step_wget/out_wget
   out_md5sum_check-workflow:
-    type: File
+    type: Any
     outputSource: step_md5sum_check/out_md5sum_check
 

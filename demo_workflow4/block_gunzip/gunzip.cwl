@@ -17,8 +17,8 @@ inputs:
     type: File
     inputBinding:
       position: 1     
-      valueFrom: $(self.basename)
       prefix: -d
+      valueFrom: $(self.basename)
 
 outputs: 
   out_gunzip:

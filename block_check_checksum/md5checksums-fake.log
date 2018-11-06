@@ -1,40 +1,19 @@
 md5sum: ./GCF_002532875.1_vjacob_1.0_assembly_report.txt: No such file or directory
-./GCF_002532875.1_vjacob_1.0_assembly_report.txt: FAILED open or read
 md5sum: ./GCF_002532875.1_vjacob_1.0_assembly_stats.txt: No such file or directory
-./GCF_002532875.1_vjacob_1.0_assembly_stats.txt: FAILED open or read
 md5sum: ./GCF_002532875.1_vjacob_1.0_assembly_structure/Primary_Assembly/component_localID2acc: No such file or directory
-./GCF_002532875.1_vjacob_1.0_assembly_structure/Primary_Assembly/component_localID2acc: FAILED open or read
 md5sum: ./GCF_002532875.1_vjacob_1.0_assembly_structure/Primary_Assembly/scaffold_localID2acc: No such file or directory
-./GCF_002532875.1_vjacob_1.0_assembly_structure/Primary_Assembly/scaffold_localID2acc: FAILED open or read
 md5sum: ./GCF_002532875.1_vjacob_1.0_assembly_structure/Primary_Assembly/unplaced_scaffolds/AGP/unplaced.scaf.agp.gz: No such file or directory
-./GCF_002532875.1_vjacob_1.0_assembly_structure/Primary_Assembly/unplaced_scaffolds/AGP/unplaced.scaf.agp.gz: FAILED open or read
 md5sum: ./GCF_002532875.1_vjacob_1.0_assembly_structure/Primary_Assembly/unplaced_scaffolds/FASTA/unplaced.scaf.fna.gz: No such file or directory
-./GCF_002532875.1_vjacob_1.0_assembly_structure/Primary_Assembly/unplaced_scaffolds/FASTA/unplaced.scaf.fna.gz: FAILED open or read
 md5sum: ./GCF_002532875.1_vjacob_1.0_cds_from_genomic.fna.gz: No such file or directory
-./GCF_002532875.1_vjacob_1.0_cds_from_genomic.fna.gz: FAILED open or read
 md5sum: ./GCF_002532875.1_vjacob_1.0_feature_count.txt.gz: No such file or directory
-./GCF_002532875.1_vjacob_1.0_feature_count.txt.gz: FAILED open or read
 md5sum: ./GCF_002532875.1_vjacob_1.0_feature_table.txt.gz: No such file or directory
-./GCF_002532875.1_vjacob_1.0_feature_table.txt.gz: FAILED open or read
-./GCF_002532875.1_vjacob_1.0_genomic.fna.gz: OK
 md5sum: ./GCF_002532875.1_vjacob_1.0_genomic.gbff.gz: No such file or directory
-./GCF_002532875.1_vjacob_1.0_genomic.gbff.gz: FAILED open or read
-./GCF_002532875.1_vjacob_1.0_genomic.gff.gz: OK
 md5sum: ./GCF_002532875.1_vjacob_1.0_protein.faa.gz: No such file or directory
-./GCF_002532875.1_vjacob_1.0_protein.faa.gz: FAILED open or read
 md5sum: ./GCF_002532875.1_vjacob_1.0_protein.gpff.gz: No such file or directory
-./GCF_002532875.1_vjacob_1.0_protein.gpff.gz: FAILED open or read
 md5sum: ./GCF_002532875.1_vjacob_1.0_rm.out.gz: No such file or directory
-./GCF_002532875.1_vjacob_1.0_rm.out.gz: FAILED open or read
 md5sum: ./GCF_002532875.1_vjacob_1.0_rm.run: No such file or directory
-./GCF_002532875.1_vjacob_1.0_rm.run: FAILED open or read
 md5sum: ./GCF_002532875.1_vjacob_1.0_rna.fna.gz: No such file or directory
-./GCF_002532875.1_vjacob_1.0_rna.fna.gz: FAILED open or read
 md5sum: ./GCF_002532875.1_vjacob_1.0_rna.gbff.gz: No such file or directory
-./GCF_002532875.1_vjacob_1.0_rna.gbff.gz: FAILED open or read
-./GCF_002532875.1_vjacob_1.0_rna_from_genomic.fna.gz: OK
-./GCF_002532875.1_vjacob_1.0_translated_cds.faa.gz: FAILED
 md5sum: ./annotation_hashes.txt: No such file or directory
-./annotation_hashes.txt: FAILED open or read
 md5sum: WARNING: 17 of 21 listed files could not be read
 md5sum: WARNING: 1 of 4 computed checksums did NOT match

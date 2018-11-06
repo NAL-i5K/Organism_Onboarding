@@ -1,9 +1,10 @@
 # Usage
-block_wget --> block_check_checksum --> block_gunzip  
-
 ```
 cwl-runner 1st-workflow.cwl block_wget/wget-job.yml
 ```
+
+block_wget --> block_check_checksum --> (if the checksum pass) --> block_gunzip
+(if the check not pass) ??
 
 # Equivalent command: 
 none
