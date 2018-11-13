@@ -6,8 +6,8 @@ class: CommandLineTool
 requirements:
   - class: InlineJavascriptRequirement
 #  - class: InitialWorkDirRequirement
-#    listing: []
-    #  - entry: $(inputs.dir_gunzip)
+#    listing: 
+#      - entry: $(inputs.dir_gunzip)
     #    writable: true
 
 baseCommand: [gzip]

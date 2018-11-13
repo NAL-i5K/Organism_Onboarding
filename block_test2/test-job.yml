@@ -1,6 +1,0 @@
-dir:
-  class: Directory
-  path: sample
-in_file:
-  class: File
-  path: reference

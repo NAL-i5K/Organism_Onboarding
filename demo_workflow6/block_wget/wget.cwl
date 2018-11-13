@@ -12,7 +12,10 @@ inputs:
 
 outputs: 
   out_wget:
-    type: File
+    type: File[]
     outputBinding:
       glob: ['*']
-
+  #out123:
+  #  type: File
+   # outputBinding:
+   #   glob: 'md5checksums.txt' 

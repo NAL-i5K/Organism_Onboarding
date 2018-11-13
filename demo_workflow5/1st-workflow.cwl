@@ -2,19 +2,13 @@
 
 cwlVersion: v1.0
 class: Workflow
-requirements:
-  - class: SubworkflowFeatureRequirement
+#requirements:
+#  - class: SubworkflowFeatureRequirement
 
 inputs:
   in_wget: string[]
 
 steps:
-  step_grep:
-    run: grep.cwl
-    in:
-      in_grep: step_md5sum_check/out_md5sum_check
-    out: [out_grep]
-
   step_wget:
     run: block_wget/wget.cwl
     in:
@@ -29,14 +23,27 @@ steps:
     out:
       [out_md5sum_check]
 
-outputs: 
+  #step_grep:
+  #  run: grep.cwl
+  #  in:
+  #    in_grep: step_md5sum_check/out_md5sum_check
+  #  out: 
+  #    [out_grep]
+  #
+  step_echo:
+     run: echo.cwl
+     in: 
+       in_echo: step_md5sum_check/out_md5sum_check
+     out: []
+
+outputs: []
   #out_wget-workflow:
   #  type: File[]
   #  outputSource: step_wget/out_wget
   #out_md5sum_check-workflow:
   #  type: File
   #  outputSource: step_md5sum_check/out_md5sum_check
-  out_grep:
-    type: Any
-    outputSource: step_grep/out_grep
+  #out_grep:
+  #  type: Any
+  #  outputSource: step_grep/out_grep
 

@@ -9,7 +9,7 @@ requirements:
     listing:
       - entry: $(inputs.in_grep)
         #entryname: inputDir
-        #writable: true
+        writable: true
 
 baseCommand: [grep]
 arguments:
@@ -24,6 +24,9 @@ inputs:
       valueFrom: $(self.basename)
 
 outputs: 
-  out_grep:
+  out_grep_stdout:
     type: stdout
-stdout: $(inputs.in_grep.nameroot).grep
+#  out_grep_stderr:
+#    type: stderr
+stdout: $(inputs.in_grep.nameroot).stdout
+#stderr: $(inputs.in_grep.nameroot).stderr

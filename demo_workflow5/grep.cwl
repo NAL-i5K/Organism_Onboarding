@@ -18,7 +18,7 @@ arguments:
 
 inputs: 
   in_grep:
-    type: File
+    type: Any
     inputBinding:
       position: 2
       valueFrom: $(self.basename)
@@ -26,4 +26,5 @@ inputs:
 outputs: 
   out_grep:
     type: stdout
-stdout: $(inputs.in_grep.nameroot).grep
+stdout: report
+#stdout: $(inputs.in_grep.nameroot).grep

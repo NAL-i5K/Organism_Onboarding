@@ -18,6 +18,6 @@ steps:
     out: [out_gitclone]
 
 outputs:
-  out_workflow:
+  out_gitclone-workflow:
     type: Directory[]
     outputSource: step_gitclone/out_gitclone

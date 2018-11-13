@@ -19,7 +19,7 @@ inputs:
       prefix: -c
       valueFrom:
         ${
-          for (var i = 0; i <= self.length; i++) {
+          for (var i = 0; i < self.length; i++) {
             if (self[i].nameext == '.txt') {
               return self[i].basename;
             }    
@@ -32,7 +32,7 @@ outputs:
 stderr: 
   ${
     var inp = (inputs.in_md5sum_check);
-    for (var i = 0; i <= inp.length; i++) {
+    for (var i = 0; i < inp.length; i++) {
       if (inp[i].nameext == '.txt') {
         return inp[i].nameroot + '.log';
       }    

@@ -1,2 +1,2 @@
-b95b51aeae3e1708038f6939dc79166c  /tmp/tmpN4MCVJ/GCF_002532875.1_vjacob_1.0_genomic.fna.gz
-bcdfd7ff28a3b9aa48b1595a96a3ac91  /tmp/tmpN4MCVJ/GCF_002532875.1_vjacob_1.0_genomic.gff.gz
+b95b51aeae3e1708038f6939dc79166c  /tmp/tmpu6lFi9/GCF_002532875.1_vjacob_1.0_genomic.fna.gz
+bcdfd7ff28a3b9aa48b1595a96a3ac91  /tmp/tmpu6lFi9/GCF_002532875.1_vjacob_1.0_genomic.gff.gz
