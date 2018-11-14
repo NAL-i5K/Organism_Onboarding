@@ -1,20 +1,19 @@
 # Usage
 ```
-cwl-runner 1st-workflow.cwl block_wget/wget-job.yml
+cwl-runner 1st-workflow.cwl 1st-workflow.yml
 ```
 
-block_wget --> block_check_checksum --> (if the checksum pass) --> block_gunzip
-(if the check not pass) ??
+wget->extract_checksum->check_checksum
+
+if the check not pass,  pop out completed permanentFail.
+
+extract_checksum: 
+input: File[]
+
+check_checksum
+input: from the two previous steps
 
 # Equivalent command: 
-none
-
-# Gerneral description:
-
-  demo_workflow is used to demo how blocks connect.  
-temp: the files is not useful
-First block: input string[], output File[].  
-Second block: 
-Third block: input File[], output File[].  
-
-
+wget <url1> <url2> .... <urlN>
+grep <.gz1>|<.gz2>|...|<.gzN> md5checksums.txt 1> md5checksums.txt2
+md5sum -c md5checksums.txt2 1> md5checksums.log

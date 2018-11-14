@@ -14,5 +14,4 @@ outputs:
   out_wget:
     type: File[]
     outputBinding:
-      glob: ['*']
-
+      glob: '*'
