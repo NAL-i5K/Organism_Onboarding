@@ -2,7 +2,7 @@
 block_wget --> block_gunzip  
 multiple files
 ```
-cwl-runner 1st-workflow.cwl block_wget/wget-job.yml
+cwl-runner 1st-workflow.cwl 1st-workflow-job.yml
 ```
 
 # Equivalent command: 

@@ -24,6 +24,4 @@ outputs:
   out_gunzip:
     type: File
     outputBinding:
-      glob: ['*']
-      #glob: $(inputs.in_gunzip.basename)
-
+      glob: '*'

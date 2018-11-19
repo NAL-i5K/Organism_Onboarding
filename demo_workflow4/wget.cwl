@@ -11,7 +11,13 @@ inputs:
       position: 1
 
 outputs: 
-  out_wget:
+  out_wget_gz:
     type: File[]
     outputBinding:
-      glob: '*'
+      glob: '*.gz'
+
+  out_wget_txt:
+    type: File
+    outputBinding:
+      glob: '*.txt'
+    

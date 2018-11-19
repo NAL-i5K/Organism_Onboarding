@@ -1,5 +1,5 @@
 # Usage
-block_wget --> block_mv  
+block_wget --> block_gunzip --> block_mv  
 block_tree -->
 
 block_gitclone -->

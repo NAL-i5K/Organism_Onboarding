@@ -17,17 +17,11 @@ inputs:
     type: File
     inputBinding:
       position: 1     
-      valueFrom: $(self.basename)
       prefix: -d
-
-# arguments section is alternative way to implement the -d, but it is nicer to write in inputs section instead of arguments section
-# arguments: ['-d', $(inputs.in_gunzip.listing)]  
-# $(inputs.in_gunzip.listing) return string[], which include all the files and subdirectories inside in_gunzip
+      valueFrom: $(self.basename)
 
 outputs: 
   out_gunzip:
     type: File
     outputBinding:
-      glob: ['*']
-      #glob: $(inputs.in_gunzip.basename)
-
+      glob: '*'

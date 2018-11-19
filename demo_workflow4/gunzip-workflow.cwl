@@ -4,6 +4,7 @@ cwlVersion: v1.0
 class: Workflow
 
 requirements:
+  - class: InlineJavascriptRequirement
   - class: ScatterFeatureRequirement
 
 inputs:
@@ -15,8 +16,9 @@ steps:
     scatter: in_gunzip
     in:
       in_gunzip: in_gunzip-workflow
-    out: [out_gunzip]
-
+    out: 
+      [out_gunzip]
+      
 outputs:
   out_gunzip-workflow:
     type: File[]

@@ -11,11 +11,13 @@ inputs:
       position: 1
 
 outputs: 
-  out_wget:
+  out_wget_gz:
     type: File[]
     outputBinding:
-      glob: ['*']
-  #out123:
-  #  type: File
-   # outputBinding:
-   #   glob: 'md5checksums.txt' 
+      glob: '*.gz'
+
+  out_wget_txt:
+    type: File
+    outputBinding:
+      glob: '*.txt'
+    

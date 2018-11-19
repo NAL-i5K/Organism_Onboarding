@@ -10,20 +10,28 @@ inputs:
 
 steps:
   step_wget:
-    run: block_wget/wget.cwl
+    run: wget.cwl
     in:
       in_wget: in_wget
     out: 
-      [out_wget]
+      [out_wget_gz, out_wget_txt]
 
   step_gunzip:
-    run: block_gunzip/gunzip-workflow.cwl
+    run: gunzip-workflow.cwl
     in:
-      in_gunzip-workflow: step_wget/out_wget
+      in_gunzip-workflow: step_wget/out_wget_gz
     out: 
       [out_gunzip-workflow]
 
-outputs: 
-  out_gunzip-workflow-workflow:
+outputs:
+  final_wget_gz:
+    type: File[]
+    outputSource: step_wget/out_wget_gz
+
+  final_wget_txt:
+    type: File
+    outputSource: step_wget/out_wget_txt
+
+  final_gunzip:
     type: File[]
     outputSource: step_gunzip/out_gunzip-workflow
