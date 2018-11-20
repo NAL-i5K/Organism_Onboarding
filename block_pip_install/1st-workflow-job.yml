@@ -1,0 +1,37 @@
+in_rpm_install: [
+#http://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6/epel-6-x86_64/glibc-2.17-55.fc20/glibc-2.17-55.el6.x86_64.rpm,
+#http://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6/epel-6-x86_64/glibc-2.17-55.fc20/glibc-common-2.17-55.el6.x86_64.rpm,
+#http://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6/epel-6-x86_64/glibc-2.17-55.fc20/glibc-devel-2.17-55.el6.x86_64.rpm,
+#http://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6/epel-6-x86_64/glibc-headers-2.17-55.el6.x86_64.rpm,
+#http://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6/epel-6-x86_64/glibc-2.17-55.fc20/glibc-static-2.17-55.el6.x86_64.rpm,
+sudo rpm -Uvh --force --nodeps https://rpmfind.net/linux/centos/7.5.1804/os/x86_64/Packages/zlib-1.2.7-17.el7.x86_64.rpm
+]
+
+in_pip_install: [
+git+https://github.com/NAL-i5K/coordinates_conversion.git,
+git+https://github.com/NAL-i5K/remap-gff3.git,
+git+https://github.com/NAL-i5K/GFF3toolkit.git
+]
+
+in_gitclone-workflow: [
+#https://gitlab.com/i5k_Workspace/apollo2_data_build_scripts.git,
+https://github.com/NAL-i5K/wiggle-tools
+#https://github.com/GMOD/jbrowse............jbrowse has soft link error now
+]
+
+in_wget: [
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/532/875/GCF_002532875.1_vjacob_1.0/md5checksums.txt,
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/532/875/GCF_002532875.1_vjacob_1.0/GCF_002532875.1_vjacob_1.0_translated_cds.faa.gz,
+#ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/532/875/GCF_002532875.1_vjacob_1.0/GCF_002532875.1_vjacob_1.0_rna_from_genomic.fna.gz,
+#ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/532/875/GCF_002532875.1_vjacob_1.0/GCF_002532875.1_vjacob_1.0_genomic.fna.gz,
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/532/875/GCF_002532875.1_vjacob_1.0/GCF_002532875.1_vjacob_1.0_genomic.gff.gz
+]
+
+#gggsss
+##Assemblyname
+##Species full name*NCBI Release number
+in_tree: [
+vjacob,
+vjacob_1.0,
+Varroa_jacobsoni*100
+]
