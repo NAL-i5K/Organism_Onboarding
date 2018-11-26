@@ -16,7 +16,7 @@ arguments:
       ${
         var LIST = inputs.in_run_gff3_QC;
         for (var i = 0; i < LIST.length; i++) {
-          if (LIST[i].nameext == '.gff') {
+          if (LIST[i].nameext == '.gff3') {
             return LIST[i].basename;
           }
         }
@@ -28,7 +28,7 @@ arguments:
       ${
         var LIST = inputs.in_run_gff3_QC;
         for (var i = 0; i < LIST.length; i++) {
-          if (LIST[i].nameext == '.fna') {
+          if (LIST[i].nameext == '.fa') {
             return LIST[i].basename;
           }
         }
@@ -40,7 +40,7 @@ arguments:
       ${
         var LIST = inputs.in_run_gff3_QC;
         for (var i = 0; i < LIST.length; i++) {
-          if (LIST[i].nameext == '.gff') {
+          if (LIST[i].nameext == '.gff3') {
             return LIST[i].nameroot + '_QC.txt';
           }
         }

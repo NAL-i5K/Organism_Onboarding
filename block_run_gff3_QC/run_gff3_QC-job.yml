@@ -1,4 +1,4 @@
 in_run_gff3_QC: [
-{class: File, path: GCF_002532875.1_vjacob_1.0_genomic.fna},
-{class: File, path: GCF_002532875.1_vjacob_1.0_genomic.gff}
+{class: File, path: reference.fa},
+{class: File, path: reference.gff3}
 ]
