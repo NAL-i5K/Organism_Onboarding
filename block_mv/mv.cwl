@@ -8,15 +8,14 @@ requirements:
   - class: InitialWorkDirRequirement
     listing:
       - entry: $(inputs.in_mv)
-        #entryname: inputDir
         writable: true #Default: Read-only Dir
 
 baseCommand: [mv]
 arguments: 
   - position: 1
-    valueFrom: $(inputs.in_mv.basename)/apple
+    valueFrom: $(inputs.in_mv.basename)/GCF_002532875.1_vjacob_1.0_genomic.gff.gz
   - position: 2
-    valueFrom: $(inputs.in_mv.basename)/data
+    valueFrom: $(inputs.in_mv.basename)/dir
 
 # $(inputs.dir) = /tmp/tmpABCD/data
 # $(inputs.dir.dirname) = /tmp/tmpABCD/

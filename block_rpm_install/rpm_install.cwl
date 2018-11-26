@@ -5,13 +5,6 @@ class: CommandLineTool
 
 requirements:
   - class: InlineJavascriptRequirement
-  - class: InitialWorkDirRequirement
-    listing:
-      - entry: $(inputs.dir)
-        #entryname: inputDir
-        writable: true #Default: Read-only Dir
-      - entry: $(inputs.in_file)
-        writable: true
 
 baseCommand: [md5sum]
 arguments: ['-c', $(inputs.dir.dirname)/$(inputs.dir.basename)/$(inputs.in_file.basename)]

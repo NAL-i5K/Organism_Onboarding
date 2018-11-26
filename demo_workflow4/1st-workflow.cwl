@@ -28,9 +28,9 @@ outputs:
     type: File[]
     outputSource: step_wget/out_wget_gz
 
-  final_wget_txt:
-    type: File
-    outputSource: step_wget/out_wget_txt
+#  final_wget_txt:
+#    type: File
+#    outputSource: step_wget/out_wget_txt
 
   final_gunzip:
     type: File[]
