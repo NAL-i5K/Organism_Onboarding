@@ -1,8 +1,8 @@
-in_gitclone-workflow: [
+#in_gitclone-workflow: [
 #https://gitlab.com/i5k_Workspace/apollo2_data_build_scripts.git,
-https://github.com/NAL-i5K/wiggle-tools
+#https://github.com/NAL-i5K/wiggle-tools
 #https://github.com/GMOD/jbrowse............jbrowse has soft link error now
-]
+#]
 
 in_wget: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/532/875/GCF_002532875.1_vjacob_1.0/md5checksums.txt,
@@ -13,8 +13,8 @@ ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/532/875/GCF_002532875.1_vjacob_1.
 ]
 
 #gggsss
-##Assemblyname
-##Species full name*NCBI Release number
+#Assemblyname
+#Species full name*NCBI Release number
 in_tree: [
 vjacob,
 vjacob_1.0,

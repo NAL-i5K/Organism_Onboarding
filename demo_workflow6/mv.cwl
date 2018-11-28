@@ -7,35 +7,30 @@ requirements:
   - class: InlineJavascriptRequirement
   - class: InitialWorkDirRequirement
     listing:
-      - entry: 
-          ${
-            var R = [];
-            R = [inputs.in_mv_dir];
-            return R;
-          }
+      - entry: $(inputs.in_mv)
+        writable: true #Default: Read-only Dir
 
-       # var R = new Array(inputs.in_mv_gitclone, inputs.in_mv_dir);
 baseCommand: [mv]
 arguments: 
   - position: 1
-    valueFrom: $(inputs.in_mv_dir.basename)
+    valueFrom:
+      ${
+        LIST = inputs.in_mv.listing;
+        for (var i = 0; i < LIST.length; i++) {
+          if (LIST[i].nameext == '.gff') {
+             return LIST[i].basename;
+          }
+        }
+      }
   - position: 2
-    valueFrom: apple
+    valueFrom: $(inputs.in_mv.basename)/data/
 
-# $(inputs.dir) = /tmp/tmpABCD/data
-# $(inputs.dir.dirname) = /tmp/tmpABCD/
-# $(inputs.dir.basename) = data/
-# $(inputs.dir.listing) = return string[]
 inputs: 
-  in_mv_dir:
+  in_mv:
     type: Directory
-  in_mv_file:
-    type: File[]
-  in_mv_gitclone:
-    type: Directory[]  
- 
+      
 outputs: 
   out_mv:
     type: Directory
     outputBinding:
-      glob: apple
+      glob: '*'

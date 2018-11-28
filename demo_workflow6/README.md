@@ -2,8 +2,6 @@
 block_wget --> block_gunzip --> block_mv  
 block_tree -->
 
-block_gitclone -->
-
 ```
 cwl-runner 1st-workflow.cwl 1st-workflow-job.yml
 ```

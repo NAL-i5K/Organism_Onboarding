@@ -1,3 +1,8 @@
 in_mv:
   class: Directory
   path: .
+
+in_file: [
+{class: File, path: apple},
+{class: File, path: README.md}
+]                 

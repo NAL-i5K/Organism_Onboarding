@@ -1,0 +1,4 @@
+in_run_gff3_QC: [
+{class: File, path: reference.fa},
+{class: File, path: reference.gff3}
+]

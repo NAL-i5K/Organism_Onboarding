@@ -1,0 +1,3 @@
+in_gff3_sort: [
+{class: File, path: reference.gff3}
+]

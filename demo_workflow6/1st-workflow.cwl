@@ -6,18 +6,10 @@ requirements:
   - class: SubworkflowFeatureRequirement
 
 inputs:
-  in_gitclone-workflow: string[] 
   in_wget: string[]
   in_tree: string[]
 
 steps:
-  step_gitclone:
-    run: gitclone-workflow.cwl
-    in:
-      in_gitclone-workflow: in_gitclone-workflow
-    out:
-      [out_gitclone-workflow]
-
   step_wget:
     run: wget.cwl
     in:
@@ -44,15 +36,10 @@ steps:
     in:
       in_mv_dir: step_tree/out_tree
       in_mv_file: step_gunzip/out_gunzip-workflow
-      in_mv_gitclone: step_gitclone/out_gitclone-workflow
     out:
       [out_mv]
 
 outputs: 
-#  final_gitclone:
-#    type: Directory[]
-#    outputSource: step_gitclone/out_gitclone-workflow
-
   final_wget_gz:
     type: File[]
     outputSource: step_wget/out_wget_gz
