@@ -7,28 +7,22 @@ requirements:
   - class: InlineJavascriptRequirement
   - class: InitialWorkDirRequirement
     listing:
-      - entry: $(inputs.in_mv)
-        writable: true #Default: Read-only Dir
+      - entry: $(inputs.in_mv_dir)&&$(inputs.in_mv_file)
+#        writable: true #Default: Read-only Dir
 
 baseCommand: [mv]
 arguments: 
   - position: 1
-    valueFrom:
-      ${
-        LIST = inputs.in_mv.listing;
-        for (var i = 0; i < LIST.length; i++) {
-          if (LIST[i].nameext == '.gff') {
-             return LIST[i].basename;
-          }
-        }
-      }
+    valueFrom: $(inputs.in_mv_file[1].basename)
   - position: 2
-    valueFrom: $(inputs.in_mv.basename)/data/
+    valueFrom: $(inputs.in_mv_dir.basename)
 
 inputs: 
-  in_mv:
+  in_mv_dir:
     type: Directory
-      
+  in_mv_file:
+    type: File[]
+   
 outputs: 
   out_mv:
     type: Directory

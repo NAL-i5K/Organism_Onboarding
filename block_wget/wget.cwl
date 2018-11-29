@@ -15,4 +15,5 @@ outputs:
     type: File[]
     outputBinding:
       glob: ['*']
+    
 

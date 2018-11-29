@@ -6,24 +6,34 @@ class: CommandLineTool
 requirements:
   - class: InlineJavascriptRequirement
   - class: InitialWorkDirRequirement
-    listing:
-      - entry: $(inputs.in_mv)
-      #- entry: $(inputs.in_file)
+    listing: 
+      ${
+        var listing = inputs.in_mv_files;
+        listing.push(inputs.in_mv_dir); 
+        return listing; 
+      }
 baseCommand: [mv]
 arguments: 
   - position: 1
-    valueFrom: $(inputs.in_mv.basename)/apple
+    valueFrom: 
+      ${
+        var LIST = (inputs.in_mv_files);
+        for(var i=0; i<LIST.length; i++) {
+          if(LIST[i].nameext == '.txt')
+            return LIST[i].basename;
+        }
+      }
   - position: 2
-    valueFrom: $(inputs.in_mv.basename)/data/
+    valueFrom: $(inputs.in_mv_dir.basename)
 
 inputs: 
-  in_mv:
+  in_mv_dir:
     type: Directory
-  in_file:
+  in_mv_files:
     type: File[]
       
 outputs: 
   out_mv:
     type: Directory
     outputBinding:
-      glob: '*'
+      glob: $(inputs.in_mv_dir.basename)
