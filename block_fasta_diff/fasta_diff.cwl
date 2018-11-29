@@ -11,10 +11,10 @@ requirements:
 baseCommand: [fasta_diff]
 arguments: 
   - position: 1
-    valueFrom: 'Bombus_terrestris.1.0.fa'
+    valueFrom: 'old.fa'
 
   - position: 2
-    valueFrom: 'GCF_000214255.1_Bter_1.0_genomic.fna' 
+    valueFrom: 'new.fa' 
 
   - position: 3
     prefix: -o
