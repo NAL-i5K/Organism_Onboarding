@@ -1,4 +1,6 @@
 *.gz
 *.gff
+*.gff3
 *.faa
 *.fna
+*.fa
