@@ -11,9 +11,17 @@ inputs:
       position: 1
 
 outputs: 
-  out_wget:
+  out_wget_txt:
     type: File[]
     outputBinding:
-      glob: ['*']
+      glob: ['*.txt']
+  out_wget_fasta:
+    type: File[]
+    outputBinding:
+      glob: ['*.fa.gz', '*.faa.gz', '*.fna.gz']
+  out_wget_gff:
+    type: File[]
+    outputBinding:
+      glob: ['*.gff.gz', '*.gff3.gz']
     
 
