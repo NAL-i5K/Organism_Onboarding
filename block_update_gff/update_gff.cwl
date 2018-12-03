@@ -6,28 +6,30 @@ class: CommandLineTool
 requirements:
   - class: InlineJavascriptRequirement
   - class: InitialWorkDirRequirement
-    listing: $(inputs.in_sample)
+    listing: $(inputs.in_update_gff)
 
-baseCommand: [md5sum]
+baseCommand: [update_gff]
 arguments: 
   - position: 1
-    prefix: -g
-    valueFrom: 
+    prefix: -a
+    valueFrom: match.tsv 
+  - position: 2
+    valueFrom:
       ${
-        var LIST = inputs.in_run_gff3_QC;
+        var LIST = inputs.in_update_gff;
         for (var i = 0; i < LIST.length; i++) {
-          if (LIST[i].nameext == '.gff3') {
+          if ((LIST[i].nameext == '.gff3')|(LIST[i].nameext == '.gff')) {
             return LIST[i].basename;
           }
         }
       }
-
+    
 inputs: 
-  in_sample:
-    type: File
+  in_update_gff:
+    type: File[]
 
 outputs: 
-  out_sample:
-    type: File
+  out_update_gff:
+    type: File[]
     outputBinding:
       glob: '*'

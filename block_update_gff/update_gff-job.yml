@@ -1,0 +1,4 @@
+in_update_gff: [
+{class: File, path: match.tsv},
+{class: File, path: reference_sorted.gff}
+]
