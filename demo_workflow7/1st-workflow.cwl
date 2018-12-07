@@ -2,24 +2,34 @@
 
 cwlVersion: v1.0
 class: Workflow
+requirements:
+  - class: MultipleInputFeatureRequirement
+
 inputs:
-  in_wget: string[]
-#  in_unzip_yml: File
+  in_files: File[]
 
 steps:
-  step_wget:
-    run: block_wget/wget.cwl
+  step_fasta_diff:
+    run: fasta_diff.cwl
     in:
-      in_wget: in_wget
-    out: [out_wget]
-
-#  step_unzip:
-#    run: unzip.cwl
-#    in:
-#      in_gz: step_wget/out_gz
-#    out: [out_extracted_file]
-
+      in_files: in_files
+    out: 
+      [out_fasta_diff_match] 
+  step_gff3_sort:
+    run: gff3_sort.cwl
+    in:
+      in_files: in_files
+    out: 
+      [out_gff3_sort] 
+  step_update_gff:
+    run: update_gff.cwl
+    in:
+      in_update_gff: [step_fasta_diff/out_fasta_diff_match, step_gff3_sort/out_gff3_sort]
+    out: 
+      [out_update_gff_updated]
+#  step_gff3_QC:
+  
 outputs:
-  out_workflow:
-    type: File[]
-    outputSource: step_wget/out_wget
+  final_update_gff_updated:
+    type: File
+    outputSource: step_update_gff/out_update_gff_updated
