@@ -2,7 +2,7 @@
 ```
 cwl-runner 1st-workflow.cwl 1st-workflow-job.yml
 ```
-fasta_diff -> gff3_sort -> update_gff -> rename -> gff3_QC ->
+fasta_diff -> gff3_sort -> update_gff ->  gff3_QC ->
 
 # Equivalent command: 
 none

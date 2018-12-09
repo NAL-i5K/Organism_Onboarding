@@ -6,27 +6,21 @@ class: CommandLineTool
 requirements:
   - class: InlineJavascriptRequirement
   - class: InitialWorkDirRequirement
-    listing: $(inputs.in_update_gff) 
+    listing: $([inputs.in_update_gff_from_fasta_diff, inputs.in_update_gff_from_gff3_sort])
 
 baseCommand: [update_gff]
 arguments: 
   - position: 1
     prefix: -a
-    valueFrom: 'match.tsv'
+    valueFrom: $(inputs.in_update_gff_from_fasta_diff.basename)
   - position: 2
-    valueFrom: 
-      ${
-        var LIST = inputs.in_update_gff;
-        for(var i=0; i<LIST.length; i++) {
-          if((LIST[i].nameext == '.gff') | (LIST[i].nameext == '.gff3')) {
-            return LIST[i].basename;
-          }
-        }
-      }
+    valueFrom: $(inputs.in_update_gff_from_gff3_sort.basename)
 
 inputs: 
-  in_update_gff:
-    type: File[]
+  in_update_gff_from_fasta_diff:
+    type: File
+  in_update_gff_from_gff3_sort:
+    type: File
 
 outputs:
   out_update_gff_updated:
