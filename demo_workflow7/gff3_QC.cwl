@@ -18,12 +18,7 @@ arguments:
     prefix: -g
     valueFrom: 
       ${
-        var LIST = inputs.in_files;
-        for (var i = 0; i < LIST.length; i++) {
-          if ((LIST[i].nameext == '.gff3') | (LIST[i].nameext == '.gff')){
-            return LIST[i].basename;
-          }
-        }
+        return inputs.in_gff3_QC_from_update_gff.basename
       }
   - position: 2
     prefix: -f

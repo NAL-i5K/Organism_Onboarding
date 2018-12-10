@@ -26,4 +26,4 @@ outputs:
   out_update_gff_updated:
     type: File
     outputBinding:
-      glob: '*_updated*'
+      glob: '*_updated.*'

@@ -28,7 +28,7 @@ arguments:
         var LIST = inputs.in_files;
         for (var i = 0; i < LIST.length; i++) {
           if ((LIST[i].nameext == '.gff3')|(LIST[i].nameext == '.gff')) {
-            return LIST[i].nameroot + '_sorted.gff';
+            return LIST[i].nameroot + '_sorted' + LIST[i].nameext;
           }
         }
       }
@@ -41,4 +41,4 @@ outputs:
   out_gff3_sort:
     type: File
     outputBinding:
-      glob: '*_sorted.gff'
+      glob: '*_sorted.*'
