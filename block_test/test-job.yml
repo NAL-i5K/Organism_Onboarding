@@ -1,3 +1,6 @@
-in_dir:
+in_tree:
   class: Directory
   path: sample
+in_apollo:
+  class: Directory
+  path: apollo

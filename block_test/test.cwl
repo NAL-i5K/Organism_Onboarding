@@ -1,39 +1,34 @@
 #!/usr/bin/env cwl-runner
 
-# equivalent linux command:
-# touch file (name is based on file inside the input dir)
-
 cwlVersion: v1.0
 class: CommandLineTool
 
 requirements:
   - class: InlineJavascriptRequirement
-#  - class: InitialWorkDirRequirement
-#    listing:
-#      - entry: $(inputs.in_dir)
-        #entryname: sample
-#        writable: true
+  - class: InitialWorkDirRequirement
+    listing:
+#      - entry: 
+      ${
+        var LIST = (inputs.in_tree);
+        LIST = LIST.encode('utf-8')
+        return LIST;
+      }
 
 baseCommand: [touch]
 arguments: 
-  - valueFrom: 
-      ${
-        var x = (inputs.in_dir.listing);
-        var y = [];
-        for (var i=0; i<x.length; i++) {
-          if (x[i].nameext == '.log') {
-            y = x[i].nameroot;
-          }
-        }
-        return y;
-      }
-
+  - position: 1
+    valueFrom: 'haha'
+  - position: 2
+    valueFrom: '|'
+  - position: 3
+    valueFrom: mv
+  - position: 4
+    valueFrom: 'apollo'
+  - position: 5
+    valueFrom: 'aaa'
 inputs:
-  in_dir:
+  in_tree:
     type: Directory
-
-outputs:
-  out:
-    type: File
-    outputBinding:
-      glob: '*'
+  in_apollo:
+    type: Directory
+outputs: []

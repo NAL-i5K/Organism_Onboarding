@@ -2,7 +2,7 @@
 #Assemblyname
 #Species full name*NCBI Release number
 in_tree: [
-vjacob,
+varjac,
 vjacob_1.0,
 Varroa_jacobsoni*100
 ]
