@@ -12,7 +12,7 @@ requirements:
         listing.push(inputs.in_mv_dir); 
         return listing; 
       }
-baseCommand: [mv]
+baseCommand: [cp]
 arguments: 
   - position: 1
     valueFrom: 
