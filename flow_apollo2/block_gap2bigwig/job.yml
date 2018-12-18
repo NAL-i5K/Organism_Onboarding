@@ -7,12 +7,9 @@ in_fasta:
 in_faToTwoBit:
   class: File
   path: faToTwoBit
-in_prepare:
+in_gap2bigwig:
   class: File
-  path: prepare-refseqs.pl
-in_jbrowse:
-  class: Directory
-  path: jbrowse
+  path: gap2bigwig.py
 
 in_wget: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/532/875/GCF_002532875.1_vjacob_1.0/md5checksums.txt,
