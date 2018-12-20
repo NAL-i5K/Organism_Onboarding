@@ -13,6 +13,12 @@ in_prepare:
 in_jbrowse:
   class: Directory
   path: jbrowse
+in_fai:
+  class: File
+  path: old.fa.fai
+in_JBlibs:
+  class: File
+  path: JBlibs.pm
 
 in_wget: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/532/875/GCF_002532875.1_vjacob_1.0/md5checksums.txt,
