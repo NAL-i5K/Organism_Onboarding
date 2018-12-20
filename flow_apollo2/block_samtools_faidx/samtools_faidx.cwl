@@ -23,8 +23,8 @@ inputs:
   in_fasta:
     type: File
 
-outputs: []
-#  out_samtools_faidx:
-#    type: File
-#    outputBinding: 
-#      glob: '*.fai'
+outputs: 
+  out_samtools_faidx:
+    type: File
+    outputBinding: 
+      glob: '*.fai'

@@ -9,29 +9,35 @@ requirements:
     listing: 
       ${
         var LIST = [(inputs.in_dir),
-                    (inputs.in_fasta), 
-                    (inputs.in_GCcontent2bigwig)];
+                    (inputs.in_from_gaps),
+                    (inputs.in_from_gc), 
+                    (inputs.in_add_metadata)];
         return LIST;
       }
 
-baseCommand: [python]
+baseCommand: [perl]
 arguments: 
   - position: 1
-    valueFrom: $(inputs.in_GCcontent2bigwig.basename)
+    valueFrom: $(inputs.in_add_metadata.basename)
   - position: 3
-    prefix: -o
-    valueFrom: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/scaffold/bigwig/$(inputs.in_fasta.basename).gc.bigwig
+    valueFrom: 
   - position : 5
+    valueFrom: $(inputs.in_fasta.basename)
+  - position : 7
+    valueFrom: $(inputs.in_fasta.basename)
+  - position : 9
     valueFrom: $(inputs.in_fasta.basename)
     
 inputs:
-  in_fasta:
-    type: File
+#  in_fasta:
+#    type: File
   in_dir:
     type: Directory
-  in_tree:
-    type: string[]
-  in_GCcontent2bigwig:
+  in_from_gaps:
+    type: File
+  in_from_gc:
+    type: File
+  in_add_metadata:
     type: File
 
 outputs: [] 

@@ -18,9 +18,9 @@ baseCommand: [perl]
 arguments: 
   - position: 1
     valueFrom: prepare-refseqs.pl
-#  - position: 3
-#    prefix: --indexed_fasta
-#    valueFrom: $(inputs.in_fasta.basename)
+  - position: 3
+    prefix: --indexed_fasta
+    valueFrom: $(inputs.in_fasta.basename)
 #  - position: 5
 #    valueFrom: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data
     
