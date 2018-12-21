@@ -4,6 +4,10 @@ in_dir:
 in_fasta:
   class: File
   path: old.fa
+#Step 4
+in_gff:
+  class: File
+  path: example1.gff3
 in_faToTwoBit:
   class: File
   path: faToTwoBit

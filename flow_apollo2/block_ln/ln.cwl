@@ -13,7 +13,7 @@ baseCommand: [ln]
 arguments: 
   - position: 1
     prefix: -s
-    valueFrom: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/scaffold/bigwig
+    valueFrom: ../../scaffold/bigwig
   - position: 3
     valueFrom: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data/bigwig
     
