@@ -9,6 +9,7 @@ requirements:
     listing: 
       ${
         var LIST = [(inputs.in_from_gaps), 
+                    (inputs.in_JBlibs),
                     (inputs.in_add_track)];
         return LIST;
       }
@@ -40,6 +41,8 @@ inputs:
   in_from_gaps:
     type: File
   in_add_track:
+    type: File
+  in_JBlibs:
     type: File
 
 outputs: [] 

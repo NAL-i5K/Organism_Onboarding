@@ -10,26 +10,22 @@ requirements:
       ${
         var LIST = [(inputs.in_dir), 
                     (inputs.in_fasta), 
-                    (inputs.in_fai), 
-                    (inputs.in_JBlibs), 
-                    (inputs.in_prepare)];
+                    (inputs.in_fai), ];
         return LIST;
       }
 
-baseCommand: [perl]
+baseCommand: [prepare-refseqs.pl]
 arguments: 
   - position: 1
-    valueFrom: $(inputs.in_prepare.basename)
-  - position: 3
     prefix: --indexed_fasta
     valueFrom: $(inputs.in_fasta.basename)
-  - position: 5
+  - position: 3
     prefix: -o
     valueFrom: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data
     
 inputs:
-  in_prepare:
-    type: File
+#  in_prepare:
+#    type: File
   in_dir:
     type: Directory 
   in_tree:
@@ -37,8 +33,6 @@ inputs:
   in_fasta:
     type: File
   in_fai:
-    type: File
-  in_JBlibs:
     type: File
 
 outputs: []

@@ -4,6 +4,11 @@ in_dir:
 in_fasta:
   class: File
   path: old.fa
+in_JBlibs:
+  class: File
+  path: JBlibs.pm
+
+# Step 1
 in_faToTwoBit:
   class: File
   path: faToTwoBit
