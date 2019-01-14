@@ -10,34 +10,32 @@ requirements:
       ${
         var LIST = [(inputs.in_dir),
                     (inputs.in_from_gaps),
-                    (inputs.in_from_gc), 
-                    (inputs.in_add_metadata)];
+                    (inputs.in_from_gc),
+                    (inputs.in_trackList) ];
         return LIST;
       }
 
-baseCommand: [perl]
+baseCommand: [add_metadata_to_GC_gap_bigwig_tracks.pl]
 arguments: 
   - position: 1
-    valueFrom: $(inputs.in_add_metadata.basename)
+    valueFrom: $(inputs.in_trackList.basename)
   - position: 3
-    valueFrom: 
+    valueFrom: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data/trackList.json.bak-metadata
   - position : 5
-    valueFrom: $(inputs.in_fasta.basename)
+    valueFrom: $(inputs.in_from_gc.basename)
   - position : 7
-    valueFrom: $(inputs.in_fasta.basename)
-  - position : 9
-    valueFrom: $(inputs.in_fasta.basename)
+    valueFrom: $(inputs.in_from_gaps.basename)
     
 inputs:
-#  in_fasta:
-#    type: File
+  in_tree:
+    type: string[]
   in_dir:
     type: Directory
   in_from_gaps:
     type: File
   in_from_gc:
     type: File
-  in_add_metadata:
+  in_trackList:
     type: File
 
 outputs: [] 

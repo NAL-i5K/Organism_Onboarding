@@ -1,29 +1,55 @@
-in_dir:
-  class: Directory
-  path: data
+#Step 41
+#in_tree
 in_fasta:
   class: File
   path: old.fa
-in_faToTwoBit:
+in_dir:
+  class: Directory
+  path: data
+
+#Step 42
+#in_fasta
+#in_tree
+#in_dir
+
+#Step 43
+#in_fasta
+#in_tree
+#in_dir
+#in_fai from Step 42
+
+#Step 44
+#in_tree
+#in_dir
+in_gff:
   class: File
-  path: faToTwoBit
-in_gap2bigwig:
-  class: File
-  path: gap2bigwig.py
-in_GCcontent2bigwig:
-  class: File
-  path: GCcontent2bigwig.py
-# step 9 and 10 
-in_add_track:
-  class: File
-  path: add-bw-track.pl
-in_from_gaps:
-  class: File
-  path: old.fa.gaps.bigwig
-in_from_gc:
-  class: File
-  path: old.fa.gc.bigwig
-# step 11
+  path: example1.gff3
+
+#Step 45
+
+#Step 46
+#in_fasta
+#in_dir
+#in_tree
+
+#Step 47
+#in_fasta
+#in_dir
+#in_tree
+
+#Step 48
+#in_dir
+#in_tree
+
+#Step 49
+#in_gaps_bigwig from Step 46
+#in_trackList_json from Step 43
+
+#Step 50
+#in_gc_bigwig from Step 47
+#in_trackList_json from Step 49
+
+#Step 51
 in_add_metadata:
   class: File
   path: add_metadata_to_GC_gap_bigwig_tracks.pl

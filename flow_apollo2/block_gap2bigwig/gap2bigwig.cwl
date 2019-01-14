@@ -9,28 +9,28 @@ requirements:
     listing: 
       ${
         var LIST = [(inputs.in_fasta), 
-                    (inputs.in_gap2bigwig)];
+                    (inputs.in_dir)];
         return LIST;
       }
 
-baseCommand: [python]
+baseCommand: [gap2bigwig.py]
 arguments: 
   - position: 1
-    valueFrom: $(inputs.in_gap2bigwig.basename)
-  - position: 3
     prefix: -o
-    valueFrom: $(inputs.in_fasta.basename).gaps.bigwig
-  - position : 5
+    valueFrom: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/scaffold/bigwig/$(inputs.in_fasta.basename).gaps.bigwig
+  - position : 3
     valueFrom: $(inputs.in_fasta.basename)
-    
+
 inputs:
   in_fasta:
     type: File
-  in_gap2bigwig:
-    type: File
+  in_dir:
+    type: Directory
+  in_tree:
+    type: string[]
 
 outputs: 
-  out_gap2bigwig:
+  out_wildcard_gaps_bigwig:
     type: File
     outputBinding: 
-      glob: '*.gaps.bigwig'
+      glob: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/scaffold/bigwig/$(inputs.in_fasta.basename).gaps.bigwig

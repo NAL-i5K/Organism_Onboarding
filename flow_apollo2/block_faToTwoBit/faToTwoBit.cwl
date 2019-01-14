@@ -9,8 +9,7 @@ requirements:
     listing: 
       ${
         var LIST = [(inputs.in_dir), 
-                    (inputs.in_fasta), 
-                    (inputs.in_faToTwoBit)];
+                    (inputs.in_fasta)];
         return LIST;
       }
 
@@ -28,11 +27,10 @@ inputs:
     type: string[]
   in_fasta:
     type: File
-  in_faToTwoBit:
-    type: File
 
-outputs: []
-#  out_faToTwoBit:
-#    type: File
-#    outputBinding: 
-     # glob: '*.2bi'
+outputs: 
+  out_wildcard_2bi:
+    type: File
+    outputBinding:
+      glob: $(inputs.in_dir.basename)/blat/db/$(inputs.in_tree[0])/$(inputs.in_fasta.basename).2bi
+    

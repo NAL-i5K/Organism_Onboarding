@@ -1,33 +1,51 @@
-in_dir:
-  class: Directory
-  path: data
+#Step 42
 in_fasta:
   class: File
   path: old.fa
-in_JBlibs:
-  class: File
-  path: JBlibs.pm
 
-# Step 1
+#Step 43
+#in_fasta
+#in_tree
+#in_fai from Step 42
+in_dir:
+  class: Directory
+  path: data
+
+#Step 46
+#in_fasta
+#in_dir
+#in_tree
+
+#Step 47
+#in_fasta
+#in_dir
+#in_tree
+
+#Step 49
+#in_*.gaps.bigwig
+#in_trackList.json from Step 43
+in_trackList_json:
+  class: File
+  path: trackList.json
+in_gaps_bigwig:
+  class: File
+  path: old.fa.gaps.bigwig
+
+
+#Step 50
+#in_*.gc.bigwig
+#in_trackList.json from Step 49
+
+in_gff:
+  class: File
+  path: example1.gff3
 in_faToTwoBit:
   class: File
   path: faToTwoBit
-in_gap2bigwig:
+#51
+in_add_metadata:
   class: File
-  path: gap2bigwig.py
-in_GCcontent2bigwig:
-  class: File
-  path: GCcontent2bigwig.py
-# step 9 and 10 
-in_add_track:
-  class: File
-  path: add-bw-track.pl
-in_from_gaps:
-  class: File
-  path: old.fa.gaps.bigwig
-in_from_gc:
-  class: File
-  path: old.fa.gc.bigwig
+  path: add_metadata_to_GC_gap_bigwig_tracks.pl
 
 in_wget: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/532/875/GCF_002532875.1_vjacob_1.0/md5checksums.txt,

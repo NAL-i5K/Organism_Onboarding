@@ -17,17 +17,17 @@ in_gap2bigwig:
 in_GCcontent2bigwig:
   class: File
   path: GCcontent2bigwig.py
-# step 9 and 10 
-in_add_track:
+#49 and #50 
+in_trackList:
   class: File
-  path: add-bw-track.pl
+  path: trackList.json
 in_from_gaps:
   class: File
   path: old.fa.gaps.bigwig
 in_from_gc:
   class: File
   path: old.fa.gc.bigwig
-# step 11
+#51
 in_add_metadata:
   class: File
   path: add_metadata_to_GC_gap_bigwig_tracks.pl

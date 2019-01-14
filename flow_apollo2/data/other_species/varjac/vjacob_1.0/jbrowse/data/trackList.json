@@ -1,0 +1,43 @@
+{
+   "refSeqs" : "seq/old.fa.fai",
+   "tracks" : [
+      {
+         "seqType" : "dna",
+         "key" : "Reference sequence",
+         "useAsRefSeqStore" : 1,
+         "storeClass" : "JBrowse/Store/SeqFeature/IndexedFasta",
+         "urlTemplate" : "seq/old.fa",
+         "type" : "SequenceTrack",
+         "label" : "DNA",
+         "category" : "Reference sequence",
+         "faiUrlTemplate" : "seq/old.fa.fai"
+      },
+      {
+         "style" : {
+            "pos_color" : "black",
+            "neg_color" : "white"
+         },
+         "bicolor_pivot" : "zero",
+         "autoscale" : "local",
+         "key" : "Gaps in assembly",
+         "storeClass" : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate" : "old.fa.gaps.bigwig",
+         "label" : "Gaps in assembly",
+         "type" : "JBrowse/View/Track/Wiggle/Density"
+      },
+      {
+         "storeClass" : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate" : "old.fa.gc.bigwig",
+         "style" : {
+            "neg_color" : "rgba(255,255,0,50)",
+            "pos_color" : "rgba(0,0,255,50)"
+         },
+         "label" : "GC Content",
+         "type" : "JBrowse/View/Track/Wiggle/Density",
+         "bicolor_pivot" : "0.5",
+         "key" : "GC Content",
+         "autoscale" : "local"
+      }
+   ],
+   "formatVersion" : 1
+}

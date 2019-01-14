@@ -1,0 +1,29 @@
+{
+   "tracks" : [
+      {
+         "seqType" : "dna",
+         "key" : "Reference sequence",
+         "useAsRefSeqStore" : 1,
+         "storeClass" : "JBrowse/Store/Sequence/IndexedFasta",
+         "urlTemplate" : "seq/old.fa",
+         "type" : "SequenceTrack",
+         "label" : "DNA",
+         "category" : "Reference sequence",
+         "faiUrlTemplate" : "seq/old.fa.fai"
+      },
+      {
+         "style" : {
+            "neg_color" : "white",
+            "pos_color" : "black"
+         },
+         "bicolor_pivot" : "zero",
+         "key" : "Gaps in assembly",
+         "autoscale" : "local",
+         "storeClass" : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate" : "old.fa.gaps.bigwig",
+         "label" : "Gaps in assembly",
+         "type" : "JBrowse/View/Track/Wiggle/Density"
+      }
+   ],
+   "formatVersion" : 1
+}

@@ -4,6 +4,10 @@ in_dir:
 in_fasta:
   class: File
   path: old.fa
+#Step 4
+in_gff:
+  class: File
+  path: example1.gff3
 in_faToTwoBit:
   class: File
   path: faToTwoBit
@@ -13,6 +17,17 @@ in_gap2bigwig:
 in_GCcontent2bigwig:
   class: File
   path: GCcontent2bigwig.py
+#49 and #50 
+in_trackList_json:
+  class: File
+  path: trackList.json
+in_gc_bigwig:
+  class: File
+  path: old.fa.gc.bigwig
+#51
+in_add_metadata:
+  class: File
+  path: add_metadata_to_GC_gap_bigwig_tracks.pl
 
 in_wget: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/532/875/GCF_002532875.1_vjacob_1.0/md5checksums.txt,

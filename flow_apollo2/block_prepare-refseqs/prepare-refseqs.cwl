@@ -24,8 +24,6 @@ arguments:
     valueFrom: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data
     
 inputs:
-#  in_prepare:
-#    type: File
   in_dir:
     type: Directory 
   in_tree:
@@ -35,8 +33,8 @@ inputs:
   in_fai:
     type: File
 
-outputs: []
-#  out_faToTwoBit:
-#    type: File
-#    outputBinding: 
-     # glob: '*.2bi'
+outputs: 
+  out_trackList_json:
+    type: File
+    outputBinding: 
+      glob: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data/trackList.json

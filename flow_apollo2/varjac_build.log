@@ -1,7 +1,0 @@
-Configuring WebApollo2 for data/other_species/varjac/vjacob_1.0
-Configuring WebApollo for data/other_species/varjac/vjacob_1.0
-Set up Blat databases ...
-./apollo2_data_build_scripts/build_apollo2_flatfiles.sh: line 84: ./data/blat/faToTwoBit: No such file or directory
-Creating data/other_species/varjac/vjacob_1.0/jbrowse/data
-mkdir: cannot create directory `data/other_species/varjac/vjacob_1.0/jbrowse': No such file or directory
-Cannot create jbrowse dir
