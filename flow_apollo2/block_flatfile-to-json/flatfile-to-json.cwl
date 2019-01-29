@@ -9,6 +9,7 @@ requirements:
     listing: 
       ${
         var LIST = [(inputs.in_dir), 
+                    (inputs.in_trackList_json),
                     (inputs.in_gff)];
         return LIST;
       }
@@ -35,7 +36,7 @@ arguments:
     valueFrom: $(inputs.in_tree[0])_current_models 
   - position: 13
     prefix: --key
-    valueFrom: GENE_MODEL_LABEL
+    valueFrom: $(inputs.in_tree[0])_annotation
     
 inputs:
   in_dir:
@@ -43,6 +44,8 @@ inputs:
   in_tree:
     type: string[]
   in_gff:
+    type: File
+  in_trackList_json:
     type: File
 
 outputs: []

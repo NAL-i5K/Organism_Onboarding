@@ -48,3 +48,7 @@ varjac,
 vjacob_1.0,
 Varroa_jacobsoni*100
 ]
+
+in_trackList_json:
+  class: File
+  path: trackList.json

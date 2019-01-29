@@ -9,33 +9,43 @@ requirements:
     listing: 
       ${
         var LIST = [(inputs.in_dir), 
-                    (inputs.in_fasta), 
-                    (inputs.in_prepare)];
+                    (inputs.in_trackList_json),
+                    (inputs.in_gff)];
         return LIST;
       }
 
-baseCommand: [perl]
+baseCommand: [generate-names.pl]
 arguments: 
   - position: 1
-    valueFrom: prepare-refseqs.pl
-#  - position: 3
-#    prefix: --indexed_fasta
-#    valueFrom: $(inputs.in_fasta.basename)
-#  - position: 5
-#    valueFrom: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data
+    prefix: --gff
+    valueFrom: $(inputs.in_gff.basename)
+  - position: 3
+    prefix: --arrowheadClass
+    valueFrom: trellis-arrowhead
+  - position: 5
+    prefix: --getSubfeatures --subfeatureClasses
+    valueFrom: '{"wholeCDS": null, "CDS":"primary_gene_set-cds", "UTR": "primary_gene_set-utr", "exon":"container-100pct"}'
+  - position: 7
+    prefix: --cssClass
+    valueFrom: container-16px
+  - position: 9
+    prefix: --type
+    valueFrom: mRNA
+  - position: 11
+    prefix: --trackLabel
+    valueFrom: $(inputs.in_tree[0])_current_models 
+  - position: 13
+    prefix: --key
+    valueFrom: $(inputs.in_tree[0])_annotation
     
 inputs:
-  in_prepare:
-    type: File
   in_dir:
     type: Directory 
   in_tree:
     type: string[]
-  in_fasta:
+  in_gff:
+    type: File
+  in_trackList_json:
     type: File
 
 outputs: []
-#  out_faToTwoBit:
-#    type: File
-#    outputBinding: 
-     # glob: '*.2bi'
