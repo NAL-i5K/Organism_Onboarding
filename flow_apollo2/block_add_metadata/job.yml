@@ -21,12 +21,12 @@ in_GCcontent2bigwig:
 in_trackList:
   class: File
   path: trackList.json
-in_from_gaps:
-  class: File
-  path: old.fa.gaps.bigwig
-in_from_gc:
-  class: File
-  path: old.fa.gc.bigwig
+in_from_gaps: [
+old.fa.gaps.bigwig
+]
+in_from_gc: [
+old.fa.gc.bigwig
+]
 #51
 in_add_metadata:
   class: File

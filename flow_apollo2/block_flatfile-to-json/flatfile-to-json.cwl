@@ -9,7 +9,7 @@ requirements:
     listing: 
       ${
         var LIST = [(inputs.in_dir), 
-                    (inputs.in_trackList_json),
+                    (inputs.in_jbrowse),
                     (inputs.in_gff)];
         return LIST;
       }
@@ -37,6 +37,9 @@ arguments:
   - position: 13
     prefix: --key
     valueFrom: $(inputs.in_tree[0])_annotation
+  - position: 15
+    prefix: --out
+    valueFrom: data/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data/
     
 inputs:
   in_dir:
@@ -45,7 +48,7 @@ inputs:
     type: string[]
   in_gff:
     type: File
-  in_trackList_json:
-    type: File
+  in_jbrowse:
+    type: Directory
 
 outputs: []

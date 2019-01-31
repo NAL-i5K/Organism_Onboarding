@@ -4,12 +4,6 @@ in_dir:
 in_fasta:
   class: File
   path: old.fa
-in_faToTwoBit:
-  class: File
-  path: faToTwoBit
-in_prepare:
-  class: File
-  path: prepare-refseqs.pl
 in_jbrowse:
   class: Directory
   path: jbrowse

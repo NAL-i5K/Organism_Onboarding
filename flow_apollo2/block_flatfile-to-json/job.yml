@@ -49,6 +49,6 @@ vjacob_1.0,
 Varroa_jacobsoni*100
 ]
 
-in_trackList_json:
-  class: File
-  path: trackList.json
+in_jbrowse:
+  class: Directory
+  path: data/other_species/varjac/vjacob_1.0/jbrowse/data/
