@@ -20,7 +20,7 @@ arguments:
     prefix: --indexed_fasta
     valueFrom: $(inputs.in_fasta.basename)
   - position: 3
-    prefix: -o
+    prefix: --out
     valueFrom: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data
     
 inputs:
@@ -38,3 +38,7 @@ outputs:
     type: File
     outputBinding: 
       glob: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data/trackList.json
+  out_seq:
+    type: Directory
+    outputBinding: 
+      glob: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data/seq

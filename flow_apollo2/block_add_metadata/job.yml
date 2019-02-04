@@ -17,13 +17,8 @@ in_gap2bigwig:
 in_GCcontent2bigwig:
   class: File
   path: GCcontent2bigwig.py
-#49 and #50 
-in_gaps: [
-old.fa.gaps.bigwig
-]
-in_gc: [
-old.fa.gc.bigwig
-]
+#49 and #50
+ 
 #51
 in_add_metadata:
   class: File

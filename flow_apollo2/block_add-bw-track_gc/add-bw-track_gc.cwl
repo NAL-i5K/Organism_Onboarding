@@ -41,6 +41,8 @@ inputs:
     type: string[]
   in_gc_bigwig:
     type: File
+  in_trackList_json:
+    type: File
 
 outputs:
   out_trackList_json:

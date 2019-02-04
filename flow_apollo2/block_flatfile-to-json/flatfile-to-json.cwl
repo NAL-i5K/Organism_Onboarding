@@ -47,9 +47,14 @@ inputs:
     type: string[]
   in_gff:
     type: File
-
+  in_trackList_json:
+    type: File
 outputs: 
   out_trackList_json:
     type: File
     outputBinding: 
       glob: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data/trackList.json
+  out_tracks:
+    type: Directory
+    outputBinding: 
+      glob: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data/tracks

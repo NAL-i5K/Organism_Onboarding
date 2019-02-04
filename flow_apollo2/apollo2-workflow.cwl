@@ -11,6 +11,7 @@ inputs:
   in_tree: string[]
   in_fasta: File
   in_gff: File
+
 steps:
   #step 41
   step_faToTwoBit:
@@ -37,7 +38,7 @@ steps:
       in_fasta: in_fasta
       in_fai: step_samtools_faidx/out_wildcard_fai
     out: 
-      [out_trackList_json] 
+      [out_trackList_json, out_seq] 
   #step 44
   step_flatfile-to-json:
     run: block_flatfile-to-json/flatfile-to-json.cwl
@@ -45,10 +46,18 @@ steps:
       in_dir: in_dir
       in_tree: in_tree
       in_gff: in_gff
+      in_trackList_json: step_prepare-refseqs/out_trackList_json
     out:
-      [out_trackList_json]
+      [out_trackList_json, out_tracks]
   #step 45
-  #step_generate-names:
+  step_generate-names:
+    run: block_generate-names/generate-names.cwl
+    in:
+      in_dir: in_dir
+      in_tree: in_tree
+      in_tracks: step_flatfile-to-json/out_tracks
+    out:
+      [out_names]
   #step 46
   step_gap2bigwig:
     run: block_gap2bigwig/gap2bigwig.cwl
@@ -82,6 +91,7 @@ steps:
       in_dir: in_dir
       in_tree: in_tree
       in_gaps_bigwig: step_gap2bigwig/out_wildcard_gaps_bigwig
+      in_trackList_json: step_flatfile-to-json/out_trackList_json
     out:
       [out_trackList_json]
   #step 50
@@ -91,11 +101,19 @@ steps:
       in_dir: in_dir
       in_tree: in_tree
       in_gc_bigwig: step_GCcontent2bigwig/out_wildcard_gc_bigwig
+      in_trackList_json: step_add-bw-track_gaps/out_trackList_json
     out:
       [out_trackList_json]
-#  #step 51
-  #step_add_metadata:
-
+  #step 51
+  step_add_metadata:
+    run: block_add_metadata/add_metadata.cwl
+    in:
+      in_tree: in_tree
+      in_dir: in_dir
+      in_fasta: in_fasta
+      in_trackList_json: step_add-bw-track_gc/out_trackList_json
+    out:
+      []
 outputs: []
 #  final_trackList_json:
 #    type: File

@@ -12,25 +12,6 @@
          "type" : "SequenceTrack",
          "urlTemplate" : "seq/old.fa",
          "useAsRefSeqStore" : 1
-      },
-      {
-         "compress" : 0,
-         "key" : "varjac_annotation",
-         "label" : "varjac_current_models",
-         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
-         "style" : {
-            "arrowheadClass" : "trellis-arrowhead",
-            "className" : "container-16px",
-            "subfeatureClasses" : {
-               "CDS" : "primary_gene_set-cds",
-               "UTR" : "primary_gene_set-utr",
-               "exon" : "container-100pct",
-               "wholeCDS" : null
-            }
-         },
-         "trackType" : null,
-         "type" : "FeatureTrack",
-         "urlTemplate" : "tracks/varjac_current_models/{refseq}/trackData.json"
       }
    ]
 }

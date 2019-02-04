@@ -33,28 +33,28 @@
       },
       {
          "style" : {
-            "pos_color" : "rgba(0,0,255,50)",
-            "neg_color" : "rgba(255,255,0,50)"
+            "pos_color" : "black",
+            "neg_color" : "white"
          },
-         "bicolor_pivot" : "0.5",
+         "bicolor_pivot" : "zero",
          "autoscale" : "local",
-         "key" : "GC Content",
+         "key" : "Gaps in assembly",
          "storeClass" : "JBrowse/Store/SeqFeature/BigWig",
-         "urlTemplate" : "old.fa.gc.bigwig",
-         "label" : "GC Content",
+         "urlTemplate" : "old.fa.gaps.bigwig",
+         "label" : "Gaps in assembly",
          "type" : "JBrowse/View/Track/Wiggle/Density"
       },
       {
          "storeClass" : "JBrowse/Store/SeqFeature/BigWig",
-         "urlTemplate" : "old.fa.gaps.bigwig",
+         "urlTemplate" : "old.fa.gc.bigwig",
          "style" : {
-            "neg_color" : "white",
-            "pos_color" : "black"
+            "neg_color" : "rgba(255,255,0,50)",
+            "pos_color" : "rgba(0,0,255,50)"
          },
-         "label" : "Gaps in assembly",
+         "label" : "GC Content",
          "type" : "JBrowse/View/Track/Wiggle/Density",
-         "bicolor_pivot" : "zero",
-         "key" : "Gaps in assembly",
+         "bicolor_pivot" : "0.5",
+         "key" : "GC Content",
          "autoscale" : "local"
       }
    ],

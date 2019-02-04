@@ -1,0 +1,66 @@
+{
+   "formatVersion" : 1,
+   "names" : {
+      "type" : "Hash",
+      "url" : "names/"
+   },
+   "refSeqs" : "seq/old.fa.fai",
+   "tracks" : [
+      {
+         "compress" : 0,
+         "key" : "varjac_annotation",
+         "label" : "varjac_current_models",
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "style" : {
+            "arrowheadClass" : "trellis-arrowhead",
+            "className" : "container-16px",
+            "subfeatureClasses" : {
+               "CDS" : "primary_gene_set-cds",
+               "UTR" : "primary_gene_set-utr",
+               "exon" : "container-100pct",
+               "wholeCDS" : null
+            }
+         },
+         "trackType" : null,
+         "type" : "FeatureTrack",
+         "urlTemplate" : "tracks/varjac_current_models/{refseq}/trackData.json"
+      },
+      {
+         "autoscale" : "local",
+         "bicolor_pivot" : "0.5",
+         "key" : "GC Content",
+         "label" : "GC Content",
+         "storeClass" : "JBrowse/Store/SeqFeature/BigWig",
+         "style" : {
+            "neg_color" : "rgba(255,255,0,50)",
+            "pos_color" : "rgba(0,0,255,50)"
+         },
+         "type" : "JBrowse/View/Track/Wiggle/Density",
+         "urlTemplate" : "old.fa.gc.bigwig"
+      },
+      {
+         "category" : "Reference sequence",
+         "faiUrlTemplate" : "seq/old.fa.fai",
+         "key" : "Reference sequence",
+         "label" : "DNA",
+         "seqType" : "dna",
+         "storeClass" : "JBrowse/Store/SeqFeature/IndexedFasta",
+         "type" : "SequenceTrack",
+         "urlTemplate" : "seq/old.fa",
+         "useAsRefSeqStore" : 1
+      },
+      {
+         "autoscale" : "local",
+         "bicolor_pivot" : "zero",
+         "key" : "Gaps in assembly",
+         "label" : "Gaps in assembly",
+         "storeClass" : "JBrowse/Store/SeqFeature/BigWig",
+         "style" : {
+            "neg_color" : "white",
+            "pos_color" : "black"
+         },
+         "type" : "JBrowse/View/Track/Wiggle/Density",
+         "urlTemplate" : "old.fa.gaps.bigwig"
+      }
+   ]
+}

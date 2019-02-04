@@ -38,6 +38,8 @@ inputs:
     type: string[]
   in_gaps_bigwig:
     type: File
+  in_trackList_json:
+    type: File
 
 outputs:
   out_trackList_json:

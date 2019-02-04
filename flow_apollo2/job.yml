@@ -47,25 +47,14 @@ in_gff:
 #in_gaps_bigwig from Step 46
 
 #Step 50
+#in_dir
+#in_tree
 #in_gc_bigwig from Step 47
-#in_trackList_json from Step 49
 
 #Step 51
-in_gaps: [
-old.fa.gaps.bigwig
-]
-in_gc: [
-old.fa.gc.bigwig
-]
-
-
-in_wget: [
-ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/532/875/GCF_002532875.1_vjacob_1.0/md5checksums.txt,
-ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/532/875/GCF_002532875.1_vjacob_1.0/GCF_002532875.1_vjacob_1.0_translated_cds.faa.gz,
-#ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/532/875/GCF_002532875.1_vjacob_1.0/GCF_002532875.1_vjacob_1.0_rna_from_genomic.fna.gz,
-#ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/532/875/GCF_002532875.1_vjacob_1.0/GCF_002532875.1_vjacob_1.0_genomic.fna.gz,
-ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/532/875/GCF_002532875.1_vjacob_1.0/GCF_002532875.1_vjacob_1.0_genomic.gff.gz
-]
+#in_dir
+#in_tree
+#in_fasta
 
 #gggsss
 ##Assemblyname
@@ -75,3 +64,12 @@ varjac,
 vjacob_1.0,
 Varroa_jacobsoni*100
 ]
+
+in_wget: [
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/532/875/GCF_002532875.1_vjacob_1.0/md5checksums.txt,
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/532/875/GCF_002532875.1_vjacob_1.0/GCF_002532875.1_vjacob_1.0_translated_cds.faa.gz,
+#ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/532/875/GCF_002532875.1_vjacob_1.0/GCF_002532875.1_vjacob_1.0_rna_from_genomic.fna.gz,
+#ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/532/875/GCF_002532875.1_vjacob_1.0/GCF_002532875.1_vjacob_1.0_genomic.fna.gz,
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/532/875/GCF_002532875.1_vjacob_1.0/GCF_002532875.1_vjacob_1.0_genomic.gff.gz
+]
+
