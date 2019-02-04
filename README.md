@@ -4,6 +4,6 @@
 - A single block in CWL language is composed of at least one **<.cwl>** files, and some blocks with a **<.yml>** file
 - One thing worth mentioning when developing, so not write to many comment in cwl files, it may probably cause permanentfail.
 =============================================================================
-- **block_\* **: the basic starting structure of building block. I copy from block_sample if I develope a new block.
-- **demo_workflow\* **: These demo directory try to see how the connecting block work, and the most important file is \*-workflow.cwl. Other cwl files are copy from block\* folder.
+- **block_* **: the basic starting structure of building block. I copy from block_sample if I develope a new block.
+- **demo_workflow* **: These demo directory try to see how the connecting block work, and the most important file is \*-workflow.cwl. Other cwl files are copy from block\* folder.
 - **storage**: It is a recycle bin.  
