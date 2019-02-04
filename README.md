@@ -5,6 +5,6 @@
 - One thing worth mentioning when developing, so not write to many comment in cwl files, it may probably cause permanentfail.
 =============================================================================
 - **demo_workflow directory**: see how the connecting block work. Every block inside the folder is a copy from the same level directtory.
-- **block_sample**: the basic starting structure of building block. I copy from block_sample if I develope a new block.
+- **block_***: the basic starting structure of building block. I copy from block_sample if I develope a new block.
 - **flow_**: basically contain more than one block, but express a function.  
 - **storage directory**: It is a recycle bin.  
