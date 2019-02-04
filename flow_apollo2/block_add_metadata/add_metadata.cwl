@@ -20,18 +20,18 @@ arguments:
   - position: 3
     valueFrom: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data/trackList.json.bak-metadata
   - position : 5
-    valueFrom: $(inputs.in_from_gc)
+    valueFrom: $(inputs.in_gc)
   - position : 7
-    valueFrom: $(inputs.in_from_gaps)
+    valueFrom: $(inputs.in_gaps)
     
 inputs:
   in_tree:
     type: string[]
   in_dir:
     type: Directory
-  in_from_gaps:
+  in_gaps:
     type: string[]
-  in_from_gc:
+  in_gc:
     type: string[]
   in_trackList:
     type: File

@@ -9,7 +9,7 @@ requirements:
     listing: 
       ${
         var LIST = [(inputs.in_gc_bigwig),
-                    (inputs.in_trackList_json)];
+                    (inputs.in_dir)];
         return LIST;
       }
 
@@ -30,15 +30,20 @@ arguments:
   - position: 9
     prefix: --bw_url 
     valueFrom: $(inputs.in_gc_bigwig.basename)
-    
+  - position: 11
+    prefix: --in
+    valueFrom: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data/trackList.json
+
 inputs:
-  in_trackList_json:
-    type: File
+  in_dir:
+    type: Directory
+  in_tree:
+    type: string[]
   in_gc_bigwig:
     type: File
 
 outputs:
   out_trackList_json:
     type: File
-    outputBinding: 
-      glob: trackList.json
+    outputBinding:
+      glob: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data/trackList.json

@@ -9,7 +9,6 @@ requirements:
     listing: 
       ${
         var LIST = [(inputs.in_dir), 
-                    (inputs.in_jbrowse),
                     (inputs.in_gff)];
         return LIST;
       }
@@ -23,7 +22,7 @@ arguments:
     prefix: --arrowheadClass
     valueFrom: trellis-arrowhead
   - position: 5
-    prefix: --getSubfeatures --subfeatureClasses
+    prefix: --subfeatureClasses
     valueFrom: '{"wholeCDS": null, "CDS":"primary_gene_set-cds", "UTR": "primary_gene_set-utr", "exon":"container-100pct"}'
   - position: 7
     prefix: --cssClass
@@ -48,7 +47,9 @@ inputs:
     type: string[]
   in_gff:
     type: File
-  in_jbrowse:
-    type: Directory
 
-outputs: []
+outputs: 
+  out_trackList_json:
+    type: File
+    outputBinding: 
+      glob: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data/trackList.json

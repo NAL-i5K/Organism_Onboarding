@@ -1,43 +1,62 @@
 {
-   "formatVersion" : 1,
    "refSeqs" : "seq/old.fa.fai",
    "tracks" : [
       {
-         "category" : "Reference sequence",
-         "faiUrlTemplate" : "seq/old.fa.fai",
-         "key" : "Reference sequence",
-         "label" : "DNA",
-         "seqType" : "dna",
-         "storeClass" : "JBrowse/Store/SeqFeature/IndexedFasta",
-         "type" : "SequenceTrack",
-         "urlTemplate" : "seq/old.fa",
-         "useAsRefSeqStore" : 1
+         "trackType" : null,
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "urlTemplate" : "tracks/varjac_current_models/{refseq}/trackData.json",
+         "style" : {
+            "className" : "container-16px",
+            "subfeatureClasses" : {
+               "wholeCDS" : null,
+               "exon" : "container-100pct",
+               "CDS" : "primary_gene_set-cds",
+               "UTR" : "primary_gene_set-utr"
+            },
+            "arrowheadClass" : "trellis-arrowhead"
+         },
+         "compress" : 0,
+         "type" : "FeatureTrack",
+         "label" : "varjac_current_models",
+         "key" : "varjac_annotation"
       },
       {
-         "autoscale" : "local",
+         "useAsRefSeqStore" : 1,
+         "storeClass" : "JBrowse/Store/SeqFeature/IndexedFasta",
+         "urlTemplate" : "seq/old.fa",
+         "type" : "SequenceTrack",
+         "label" : "DNA",
+         "category" : "Reference sequence",
+         "seqType" : "dna",
+         "faiUrlTemplate" : "seq/old.fa.fai",
+         "key" : "Reference sequence"
+      },
+      {
+         "storeClass" : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate" : "old.fa.gaps.bigwig",
+         "style" : {
+            "pos_color" : "black",
+            "neg_color" : "white"
+         },
+         "type" : "JBrowse/View/Track/Wiggle/Density",
+         "label" : "Gaps in assembly",
          "bicolor_pivot" : "zero",
          "key" : "Gaps in assembly",
-         "label" : "Gaps in assembly",
-         "storeClass" : "JBrowse/Store/SeqFeature/BigWig",
-         "style" : {
-            "neg_color" : "white",
-            "pos_color" : "black"
-         },
-         "type" : "JBrowse/View/Track/Wiggle/Density",
-         "urlTemplate" : "old.fa.gaps.bigwig"
+         "autoscale" : "local"
       },
       {
-         "autoscale" : "local",
-         "bicolor_pivot" : "0.5",
-         "key" : "GC Content",
-         "label" : "GC Content",
          "storeClass" : "JBrowse/Store/SeqFeature/BigWig",
+         "urlTemplate" : "old.fa.gc.bigwig",
          "style" : {
-            "neg_color" : "rgba(255,255,0,50)",
-            "pos_color" : "rgba(0,0,255,50)"
+            "pos_color" : "rgba(0,0,255,50)",
+            "neg_color" : "rgba(255,255,0,50)"
          },
          "type" : "JBrowse/View/Track/Wiggle/Density",
-         "urlTemplate" : "old.fa.gc.bigwig"
+         "label" : "GC Content",
+         "bicolor_pivot" : "0.5",
+         "key" : "GC Content",
+         "autoscale" : "local"
       }
-   ]
+   ],
+   "formatVersion" : 1
 }

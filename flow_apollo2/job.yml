@@ -20,7 +20,7 @@ in_dir:
 
 #Step 44
 #in_tree
-#in_dir
+#in_dir (there is trackList.json inside in_dir to be modified)
 in_gff:
   class: File
   path: example1.gff3
@@ -42,17 +42,22 @@ in_gff:
 #in_tree
 
 #Step 49
+#in_dir
+#in_tree
 #in_gaps_bigwig from Step 46
-#in_trackList_json from Step 43
 
 #Step 50
 #in_gc_bigwig from Step 47
 #in_trackList_json from Step 49
 
 #Step 51
-in_add_metadata:
-  class: File
-  path: add_metadata_to_GC_gap_bigwig_tracks.pl
+in_gaps: [
+old.fa.gaps.bigwig
+]
+in_gc: [
+old.fa.gc.bigwig
+]
+
 
 in_wget: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/532/875/GCF_002532875.1_vjacob_1.0/md5checksums.txt,

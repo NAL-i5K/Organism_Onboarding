@@ -20,7 +20,13 @@
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
          "style" : {
             "arrowheadClass" : "trellis-arrowhead",
-            "className" : "container-16px"
+            "className" : "container-16px",
+            "subfeatureClasses" : {
+               "CDS" : "primary_gene_set-cds",
+               "UTR" : "primary_gene_set-utr",
+               "exon" : "container-100pct",
+               "wholeCDS" : null
+            }
          },
          "trackType" : null,
          "type" : "FeatureTrack",
