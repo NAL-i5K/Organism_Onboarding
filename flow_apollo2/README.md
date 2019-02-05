@@ -19,15 +19,15 @@ cwl-runner ../apollo2-workflow.cwl job.yml
 
 - samtools
 
-- jbrowse
+- jbrowse  
 https://github.com/GMOD/jbrowse
 
-- wiggle-tool
+- wiggle-tool  
 https://github.com/NAL-i5K/wiggle-tools
 
 ## Testing example
 - **testdata** 
-Download link
+Download link  
 https://github.com/NAL-i5K/GFF3toolkit/tree/master/example_file
 
 Input list: 
