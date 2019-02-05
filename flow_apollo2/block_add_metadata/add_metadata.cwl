@@ -33,8 +33,12 @@ inputs:
   in_trackList_json:
     type: File
 
-outputs: [] 
-#  out_GCcontent2bigwig:
-#    type: File
-#    outputBinding: 
-#      glob: '*.gc.bigwig'
+outputs:
+  out_trackList_json:
+    type: File
+    outputBinding: 
+      glob: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data/trackList.json
+  out_trackList_json_bak:
+    type: File
+    outputBinding: 
+      glob: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data/trackList.json.bak-metadata
