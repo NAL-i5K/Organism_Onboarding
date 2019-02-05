@@ -1,11 +1,10 @@
+###########################################################
 #Step 41
+#in_dir
 #in_tree
 in_fasta:
   class: File
   path: old.fa
-in_dir:
-  class: Directory
-  path: data
 
 #Step 42
 #in_fasta
@@ -60,9 +59,9 @@ in_gff:
 ##Assemblyname
 ##Species full name*NCBI Release number
 in_tree: [
-varjac,
-vjacob_1.0,
-Varroa_jacobsoni*100
+gggsss,
+Assemblyname,
+Full_name*100
 ]
 
 in_wget: [

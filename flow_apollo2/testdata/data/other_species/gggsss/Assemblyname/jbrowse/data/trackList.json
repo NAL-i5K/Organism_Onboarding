@@ -2,20 +2,21 @@
    "refSeqs" : "seq/old.fa.fai",
    "tracks" : [
       {
+         "seqType" : "dna",
+         "key" : "Reference sequence",
          "useAsRefSeqStore" : 1,
          "storeClass" : "JBrowse/Store/SeqFeature/IndexedFasta",
          "urlTemplate" : "seq/old.fa",
          "type" : "SequenceTrack",
          "label" : "DNA",
          "category" : "Reference sequence",
-         "seqType" : "dna",
-         "faiUrlTemplate" : "seq/old.fa.fai",
-         "key" : "Reference sequence"
+         "faiUrlTemplate" : "seq/old.fa.fai"
       },
       {
-         "trackType" : null,
          "storeClass" : "JBrowse/Store/SeqFeature/NCList",
-         "urlTemplate" : "tracks/varjac_current_models/{refseq}/trackData.json",
+         "trackType" : null,
+         "urlTemplate" : "tracks/gggsss_current_models/{refseq}/trackData.json",
+         "compress" : 0,
          "style" : {
             "className" : "container-16px",
             "subfeatureClasses" : {
@@ -26,12 +27,18 @@
             },
             "arrowheadClass" : "trellis-arrowhead"
          },
-         "compress" : 0,
+         "label" : "gggsss_current_models",
          "type" : "FeatureTrack",
-         "label" : "varjac_current_models",
-         "key" : "varjac_annotation"
+         "key" : "gggsss_annotation"
       },
       {
+         "style" : {
+            "pos_color" : "black",
+            "neg_color" : "white"
+         },
+         "bicolor_pivot" : "zero",
+         "autoscale" : "local",
+         "key" : "Gaps in assembly",
          "storeClass" : "JBrowse/Store/SeqFeature/BigWig",
          "urlTemplate" : "old.fa.gaps.bigwig",
 	"category" : "Reference Assembly",
@@ -40,15 +47,8 @@
 		"Track legend" : "Visualization of gaps in the reference assembly.  Basecalls of N are colored black. All other regions are left blank",
 		"Track contact" : "The i5k workspace@NAL"
 		},
-         "style" : {
-            "pos_color" : "black",
-            "neg_color" : "white"
-         },
-         "type" : "JBrowse/View/Track/Wiggle/Density",
          "label" : "Gaps in assembly",
-         "bicolor_pivot" : "zero",
-         "key" : "Gaps in assembly",
-         "autoscale" : "local"
+         "type" : "JBrowse/View/Track/Wiggle/Density"
       },
       {
          "storeClass" : "JBrowse/Store/SeqFeature/BigWig",
