@@ -4,3 +4,6 @@
 *.faa
 *.fna
 *.fa
+
+test*
+flow_apollo2/test*
