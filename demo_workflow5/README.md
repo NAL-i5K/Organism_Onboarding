@@ -3,8 +3,6 @@
 cwl-runner 1st-workflow.cwl 1st-workflow.yml
 ```
 
-if the check not pass, pop out completed permanentFail.
-
 extract_checksum: 
 input: File[]
 
