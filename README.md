@@ -34,5 +34,8 @@ Related link: https://www.commonwl.org/user_guide/22-nested-workflows/index.html
 ## Miscellaneous :rocket:
 - One thing worth mentioning when developing, so not write to many comment in cwl files, it may probably cause permanentfail.
 
+## How could CWL benefit our organism onboarding pipeline?
+![workflow](https://user-images.githubusercontent.com/32384566/52444131-864c1d00-2af5-11e9-8ed3-b2a046d4a50b.PNG)
+<br>
 ![workflow2](https://user-images.githubusercontent.com/32384566/52444010-3bcaa080-2af5-11e9-9555-6b6a202a502a.PNG)
 
