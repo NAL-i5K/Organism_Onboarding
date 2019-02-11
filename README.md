@@ -14,7 +14,7 @@ cwl-runner final-workflow.cwl job.yml
 ```
 
 ## File explanation :tada:
-- **block** : It is the basic functional structure, like a building brick. I copy from block_sample if I develope a new block.
+- **block** : It is the basic functional structure, like a building brick. I copy from block sample if I develope a new block.
 <br>
 - **demo_workflow**: These demo directory try to see how the connecting block work, and the most important file is \*-workflow.cwl. Other cwl files are copy from block\* folder.
 - **storage**: It is a recycle bin.  
@@ -31,11 +31,24 @@ Related link: https://www.commonwl.org/user_guide/22-nested-workflows/index.html
 <br>
 <br>
 
-## Miscellaneous :rocket:
-- One thing worth mentioning when developing, so not write to many comment in cwl files, it may probably cause permanentfail.
-
 ## How could CWL benefit our organism onboarding pipeline?
 ![workflow](https://user-images.githubusercontent.com/32384566/52444131-864c1d00-2af5-11e9-8ed3-b2a046d4a50b.PNG)
 <br>
 ![workflow2](https://user-images.githubusercontent.com/32384566/52444010-3bcaa080-2af5-11e9-9555-6b6a202a502a.PNG)
 
+## Test data
+- testdata_apimel
+<br>
+Apis Mellifera (honey bee) 
+<br>
+Download link: 
+<br>
+https://www.ncbi.nlm.nih.gov/genome/?term=Apis+mellifera 
+<br>
+https://www.ncbi.nlm.nih.gov/assembly/GCF_003254395.2
+<br>
+<br>
+<br>
+
+## Miscellaneous :rocket:
+- One thing worth mentioning when developing, so not write to many comment in cwl files, it may probably cause permanentfail.
