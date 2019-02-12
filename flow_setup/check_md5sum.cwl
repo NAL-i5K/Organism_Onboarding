@@ -6,8 +6,12 @@ class: CommandLineTool
 requirements:
   - class: InlineJavascriptRequirement
   - class: InitialWorkDirRequirement
-    listing: $(inputs.in_gz) 
-
+    listing:
+      ${
+        var LIST = inputs.in_gz;
+        LIST.push(inputs.in_txt2);
+        return LIST;
+      }
 baseCommand: [md5sum]
 
 arguments: 

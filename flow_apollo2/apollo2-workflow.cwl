@@ -8,22 +8,16 @@ requirements:
 
 inputs:
   in_tree: string[]
+  in_dir: Directory
   in_fasta: File
   in_gff: File
 
 steps:
-  #step tree
-  tree:
-    run: block_tree/tree.cwl
-    in:
-      in_tree: in_tree
-    out:
-      [out_tree]
   #step 41
   faToTwoBit:
     run: block_faToTwoBit/faToTwoBit.cwl
     in:
-      in_dir: tree/out_tree
+      in_dir: in_dir
       in_tree: in_tree
       in_fasta: in_fasta
     out:
@@ -39,7 +33,7 @@ steps:
   prepare-refseqs:
     run: block_prepare-refseqs/prepare-refseqs.cwl
     in:
-      in_dir: tree/out_tree
+      in_dir: in_dir
       in_tree: in_tree
       in_fasta: in_fasta
       in_fai: samtools_faidx/out_wildcard_fai
@@ -49,7 +43,7 @@ steps:
   flatfile-to-json:
     run: block_flatfile-to-json/flatfile-to-json.cwl
     in:
-      in_dir: tree/out_tree
+      in_dir: in_dir
       in_tree: in_tree
       in_gff: in_gff
       in_trackList_json: prepare-refseqs/out_trackList_json
@@ -59,7 +53,7 @@ steps:
   generate-names:
     run: block_generate-names/generate-names.cwl
     in:
-      in_dir: tree/out_tree
+      in_dir: in_dir
       in_tree: in_tree
       in_tracks: flatfile-to-json/out_tracks
     out:
@@ -68,7 +62,7 @@ steps:
   gap2bigwig:
     run: block_gap2bigwig/gap2bigwig.cwl
     in:
-      in_dir: tree/out_tree
+      in_dir: in_dir
       in_tree: in_tree
       in_fasta: in_fasta
     out:
@@ -77,7 +71,7 @@ steps:
   GCcontent2bigwig:
     run: block_GCcontent2bigwig/GCcontent2bigwig.cwl
     in:
-      in_dir: tree/out_tree
+      in_dir: in_dir
       in_tree: in_tree
       in_fasta: in_fasta
     out:
@@ -86,7 +80,7 @@ steps:
   ln:
     run: block_ln/ln.cwl
     in:
-      in_dir: tree/out_tree
+      in_dir: in_dir
       in_tree: in_tree
     out:
       []
@@ -94,7 +88,7 @@ steps:
   add-bw-track_gaps:
     run: block_add-bw-track_gaps/add-bw-track_gaps.cwl
     in:
-      in_dir: tree/out_tree
+      in_dir: in_dir
       in_tree: in_tree
       in_gaps_bigwig: gap2bigwig/out_wildcard_gaps_bigwig
       in_trackList_json: flatfile-to-json/out_trackList_json
@@ -104,7 +98,7 @@ steps:
   add-bw-track_gc:
     run: block_add-bw-track_gc/add-bw-track_gc.cwl
     in:
-      in_dir: tree/out_tree
+      in_dir: in_dir
       in_tree: in_tree
       in_gc_bigwig: GCcontent2bigwig/out_wildcard_gc_bigwig
       in_trackList_json: add-bw-track_gaps/out_trackList_json
@@ -114,13 +108,13 @@ steps:
   add_metadata:
     run: block_add_metadata/add_metadata.cwl
     in:
-      in_dir: tree/out_tree
+      in_dir: in_dir
       in_tree: in_tree
       in_fasta: in_fasta
       in_trackList_json: add-bw-track_gc/out_trackList_json
     out:
       [out_trackList_json, out_trackList_json_bak]
-outputs:
-  final_dir:
-    type: Directory
-    outputSource: tree/out_tree
+outputs: []
+#  apollo2_dir:
+#    type: Directory
+#    outputSource: tree/out_tree

@@ -16,7 +16,7 @@ cwl-runner final-workflow.cwl job.yml
 ## File explanation :tada:
 - **block** : It is the basic functional structure, like a building brick. I copy from block sample if I develope a new block.
 <br>
-- **demo_workflow**: These demo directory try to see how the connecting block work, and the most important file is \*-workflow.cwl. Other cwl files are copy from block\* folder.
+- **demo_workflow**: These demo directory try to see how the connecting block work, and the most important file is -workflow.cwl. Other cwl files are copy from block folder.
 - **storage**: It is a recycle bin.  
 <br>
 - **flow_apollo2**: I break down the apollo2 onstage step in data wrangling into 11 CWL steps.   

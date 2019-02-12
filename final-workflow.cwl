@@ -9,21 +9,30 @@ requirements:
 
 inputs:
   in_tree: string[]
-  in_fasta: File
-  in_gff: File
+  in_wget: string[]
 
 steps:
+  setup:
+    run: flow_setup/setup-workflow.cwl
+    in:
+      in_tree: in_tree
+      in_wget: in_wget
+    out:
+      [OUT_dir,
+       OUT_genomic_gff,
+       OUT_genomic_fasta]
   apollo2:
     run: flow_apollo2/apollo2-workflow.cwl
     in: 
       in_tree: in_tree
-      in_fasta: in_fasta
-      in_gff: in_gff
+      in_dir: setup/OUT_dir
+      in_gff: setup/OUT_genomic_gff
+      in_fasta: setup/OUT_genomic_fasta
     out:
-      [final_dir]
+      []
 
 outputs:
   final_dir:
     type: Directory
-    outputSource: apollo2/final_dir
+    outputSource: setup/OUT_dir
 

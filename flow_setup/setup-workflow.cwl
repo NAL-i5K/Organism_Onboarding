@@ -11,12 +11,12 @@ inputs:
   in_wget: string[]
 
 steps:
-#  tree:
-#    run: tree.cwl
-#    in:
-#      in_tree: in_tree
-#    out:
-#      [out_tree]
+  tree:
+    run: tree.cwl
+    in:
+      in_tree: in_tree
+    out:
+      [out_tree]
   wget:
     run: wget.cwl
     in:
@@ -39,15 +39,30 @@ steps:
       in_gz: wget/out_gz
     out:
       [out_check_log]
-  
+  gunzip:
+    run: gunzip.cwl
+    in:
+      in_gz: wget/out_gz
+    out:
+      [out_genomic_fasta,
+       out_genomic_gff,
+       out_rna_from,
+       out_translated_cds
+      ]
+    
 outputs:
-#  final_dir:
-#    type: Directory
-#    outputSource: tree/out_tree
+  OUT_dir:
+    type: Directory
+    outputSource: tree/out_tree
 #  final_txt2:
 #    type: File
 #    outputSource: extract_md5checksums/out_txt2
-  final_check_log:
+#  final_check_log:
+#    type: File
+#    outputSource: check_md5sum/out_check_log
+  OUT_genomic_fasta:
     type: File
-    outputSource: check_md5sum/out_check_log
-        
+    outputSource: gunzip/out_genomic_fasta
+  OUT_genomic_gff:
+    type: File
+    outputSource: gunzip/out_genomic_gff
