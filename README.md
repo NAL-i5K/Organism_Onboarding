@@ -14,9 +14,9 @@ cwl-runner final-workflow.cwl job.yml
 ```
 
 ## File explanation :tada:
-- **block** : It is the basic functional structure, like a building brick. I copy from block sample if I develope a new block.
+- **block** : It is the basic functional structure, like a building brick. I copy from block sample if I develope a new block.  
 <br>
-- **demo_workflow**: These demo directory try to see how the connecting block work, and the most important file is -workflow.cwl. Other cwl files are copy from block folder.
+- **demo workflow**: These demo directory try to see how the connecting block work, and the most important file is -workflow.cwl. Other cwl files are copy from block folder.
 - **storage**: It is a recycle bin.  
 <br>
 - **flow_apollo2**: I break down the apollo2 onstage step in data wrangling into 11 CWL steps.   
@@ -39,13 +39,13 @@ Related link: https://www.commonwl.org/user_guide/22-nested-workflows/index.html
 ## Test data
 - testdata_apimel
 <br>
-Apis Mellifera (honey bee) 
+	Apis Mellifera (honey bee) 
 <br>
-Download link: 
+	Download link: 
 <br>
-https://www.ncbi.nlm.nih.gov/genome/?term=Apis+mellifera 
+	https://www.ncbi.nlm.nih.gov/genome/?term=Apis+mellifera 
 <br>
-https://www.ncbi.nlm.nih.gov/assembly/GCF_003254395.2
+	https://www.ncbi.nlm.nih.gov/assembly/GCF_003254395.2
 <br>
 <br>
 <br>
