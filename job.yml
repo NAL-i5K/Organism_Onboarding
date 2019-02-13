@@ -1,10 +1,12 @@
 #gggsss
-##Assemblyname
-##Species full name*NCBI Release number
+#Assemblyname
+#Species full name
+#*NCBI Release number
 in_tree: [
 apimel,
 Amel_HAv3.1,
-Apis_mellifera*104
+Apis_mellifera,
+Release_104
 ]
 in_wget: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/md5checksums.txt,

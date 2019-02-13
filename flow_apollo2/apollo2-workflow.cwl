@@ -114,6 +114,14 @@ steps:
       in_trackList_json: add-bw-track_gc/out_trackList_json
     out:
       [out_trackList_json, out_trackList_json_bak]
+  #create
+  createOrganism:
+    run: createOrganism.cwl
+    in:
+      in_tree: in_tree
+      in_2bi: faToTwoBit/out_wildcard_2bi
+    out:
+      []
 outputs: []
 #  apollo2_dir:
 #    type: Directory
