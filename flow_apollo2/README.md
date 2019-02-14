@@ -1,14 +1,4 @@
 # flow_apollo2
-## Usage
-```
-cwl-runner apollo2-workflow.cwl testdata/job.yml
-```
-or
-```
-cd testdata
-cwl-runner ../apollo2-workflow.cwl job.yml
-```
-
 ## Hint
 - the place run the ```cwl-runner``` command is the place be expected output a folder called **data**
 <br>

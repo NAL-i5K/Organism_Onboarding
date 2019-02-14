@@ -9,11 +9,11 @@ requirements:
 baseCommand: [createOrganism.py]
 arguments: 
   - position: 1
-    prefix: -publicMode -host
+    prefix: -host
     valueFrom: https://apollo-dev.nal.usda.gov
   - position: 3
     prefix: -organism
-    valueFrom: $(inputs.in_tree[2].split('_')[0]) + ' ' + $(inputs.in_tree[2].split('_')[1])
+    valueFrom: $(inputs.in_tree[2].split('_')[0]) $(inputs.in_tree[2].split('_')[1])
   - position: 5
     prefix: -genus
     valueFrom: $(inputs.in_tree[2].split('_')[0])
@@ -26,6 +26,8 @@ arguments:
   - position: 11
     prefix: -blatdb
     valueFrom: data/blat/db/$(inputs.in_tree[0])/$(inputs.in_2bi.basename)
+  - position: 13
+    valueFrom: -publicMode
 
 inputs:
   in_tree:
