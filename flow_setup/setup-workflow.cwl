@@ -44,11 +44,7 @@ steps:
     in:
       in_gz: wget/out_gz
     out:
-      [out_genomic_fasta,
-       out_genomic_gff,
-       out_rna_from,
-       out_translated_cds
-      ]
+      [out_gunzip]
     
 outputs:
   OUT_dir:
@@ -60,9 +56,6 @@ outputs:
 #  final_check_log:
 #    type: File
 #    outputSource: check_md5sum/out_check_log
-  OUT_genomic_fasta:
-    type: File
-    outputSource: gunzip/out_genomic_fasta
-  OUT_genomic_gff:
-    type: File
-    outputSource: gunzip/out_genomic_gff
+  OUT_gunzip:
+    type: File[]
+    outputSource: gunzip/out_gunzip

@@ -18,21 +18,24 @@ steps:
       in_tree: in_tree
       in_wget: in_wget
     out:
-      [OUT_dir,
-       OUT_genomic_gff,
-       OUT_genomic_fasta]
-  apollo2:
-    run: flow_apollo2/apollo2-workflow.cwl
-    in: 
-      in_tree: in_tree
-      in_dir: setup/OUT_dir
-      in_gff: setup/OUT_genomic_gff
-      in_fasta: setup/OUT_genomic_fasta
-    out:
-      []
+      [
+        OUT_dir,
+        OUT_gunzip
+      ]
+#  apollo2:
+#    run: flow_apollo2/apollo2-workflow.cwl
+#    in: 
+#      in_tree: in_tree
+#      in_dir: setup/OUT_dir
+#      in_gff: setup/OUT_genomic_gff
+#      in_fasta: setup/OUT_genomic_fasta
+#    out:
+#      []
 
 outputs:
   final_dir:
     type: Directory
     outputSource: setup/OUT_dir
-
+  final_gunzip:
+    type: File[]
+    outputSource: setup/OUT_gunzip
