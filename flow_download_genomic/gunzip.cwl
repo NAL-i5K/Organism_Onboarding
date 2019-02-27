@@ -22,10 +22,14 @@ inputs:
     type: File[]
 
 outputs: 
-  out_gunzip:
-    type: File[]
+  out_genomic_fasta:
+    type: File
     outputBinding:
-      glob: '*'
+      glob: '*.fna'
+  out_genomic_gff:
+    type: File
+    outputBinding:
+      glob: '*.gff'
 #        ${
 #          var A = inputs.in_gz;
 #          var B = [];

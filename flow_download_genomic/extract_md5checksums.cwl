@@ -8,7 +8,7 @@ requirements:
   - class: InitialWorkDirRequirement
     listing: 
       ${
-        var LIST = [(inputs.in_md5checksums_txt)];
+        var LIST = [(inputs.in_txt)];
         return LIST;
       }
 
@@ -28,10 +28,10 @@ arguments:
         return B;
       }
   - position: 2
-    valueFrom: $(inputs.in_md5checksums_txt.basename)
+    valueFrom: $(inputs.in_txt.basename)
     
 inputs: 
-  in_md5checksums_txt:
+  in_txt:
     type: File
   in_gz:
     type: File[]

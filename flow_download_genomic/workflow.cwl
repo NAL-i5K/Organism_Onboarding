@@ -7,28 +7,21 @@ requirements:
   - class: InlineJavascriptRequirement
 
 inputs:
-  in_tree: string[]
-  in_wget: string[]
-
+  in_wget_genomic: string[]
+  
 steps:
-  tree:
-    run: tree.cwl
-    in:
-      in_tree: in_tree
-    out:
-      [out_tree]
   wget:
     run: wget.cwl
     in:
-      in_wget: in_wget
+      in_wget_genomic: in_wget_genomic
     out:
-      [out_md5checksums_txt,
+      [out_txt,
        out_gz
       ]
   extract_md5checksums:
     run: extract_md5checksums.cwl
     in:
-      in_md5checksums_txt: wget/out_md5checksums_txt
+      in_txt: wget/out_txt
       in_gz: wget/out_gz
     out:
      [out_txt2]
@@ -44,18 +37,24 @@ steps:
     in:
       in_gz: wget/out_gz
     out:
-      [out_gunzip]
+      [out_genomic_fasta,
+       out_genomic_gff]
+  #fasta_validator    
+  #gff_validator
     
 outputs:
-  OUT_dir:
-    type: Directory
-    outputSource: tree/out_tree
-#  final_txt2:
-#    type: File
-#    outputSource: extract_md5checksums/out_txt2
-#  final_check_log:
-#    type: File
-#    outputSource: check_md5sum/out_check_log
-  OUT_gunzip:
-    type: File[]
-    outputSource: gunzip/out_gunzip
+  OUT_txt:
+    type: File
+    outputSource: wget/out_txt
+  OUT_txt2:
+    type: File
+    outputSource: extract_md5checksums/out_txt2
+  OUT_check_log:
+    type: File
+    outputSource: check_md5sum/out_check_log
+  OUT_genomic_fasta:
+    type: File
+    outputSource: gunzip/out_genomic_fasta
+  OUT_genomic_gff:
+    type: File
+    outputSource: gunzip/out_genomic_gff

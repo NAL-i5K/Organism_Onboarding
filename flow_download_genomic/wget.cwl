@@ -5,13 +5,13 @@ class: CommandLineTool
 baseCommand: [wget]
 
 inputs:
-  in_wget:
+  in_wget_genomic:
     type: string[]
     inputBinding:
       position: 1
 
 outputs: 
-  out_md5checksums_txt:
+  out_txt:
     type: File
     outputBinding:
       glob: ['md5checksums.txt']
