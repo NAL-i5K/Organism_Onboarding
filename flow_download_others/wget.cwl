@@ -5,7 +5,7 @@ class: CommandLineTool
 baseCommand: [wget]
 
 inputs:
-  in_wget_genomic:
+  in_wget_others:
     type: string[]
     inputBinding:
       position: 1

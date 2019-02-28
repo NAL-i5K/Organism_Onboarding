@@ -123,6 +123,3 @@ steps:
     out:
       []
 outputs: []
-#  apollo2_dir:
-#    type: Directory
-#    outputSource: tree/out_tree

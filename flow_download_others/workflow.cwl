@@ -7,13 +7,13 @@ requirements:
   - class: InlineJavascriptRequirement
 
 inputs:
-  in_wget_genomic: string[]
+  in_wget_others: string[]
   
 steps:
   wget:
     run: wget.cwl
     in:
-      in_wget_genomic: in_wget_genomic
+      in_wget_others: in_wget_others
     out:
       [out_txt,
        out_gz
@@ -37,21 +37,17 @@ steps:
     in:
       in_gz: wget/out_gz
     out:
-      [out_genomic_fasta,
-       out_genomic_gff]
+      [out_others]
   #fasta_validator    
   #gff_validator
     
 outputs:
-  OUT_txt2:
-    type: File
-    outputSource: extract_md5checksums/out_txt2
-  OUT_check_log:
-    type: File
-    outputSource: check_md5sum/out_check_log
-  OUT_genomic_fasta:
-    type: File
-    outputSource: gunzip/out_genomic_fasta
-  OUT_genomic_gff:
-    type: File
-    outputSource: gunzip/out_genomic_gff
+#  OUT_txt2:
+#    type: File
+#    outputSource: extract_md5checksums/out_txt2
+#  OUT_check_log:
+#    type: File
+#    outputSource: check_md5sum/out_check_log
+  OUT_others:
+    type: File[]
+    outputSource: gunzip/out_others

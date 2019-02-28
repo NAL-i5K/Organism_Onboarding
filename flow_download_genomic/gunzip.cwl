@@ -25,11 +25,11 @@ outputs:
   out_genomic_fasta:
     type: File
     outputBinding:
-      glob: '*.fna'
+      glob: ['*.fna', '*.faa', '*.fa']
   out_genomic_gff:
     type: File
     outputBinding:
-      glob: '*.gff'
+      glob: ['*.gff', '*.gff3']
 #        ${
 #          var A = inputs.in_gz;
 #          var B = [];

@@ -19,6 +19,7 @@ inputs:
   in_txt: File
   in_txt2: File
   in_check_log: File 
+  in_others: File[]
 
 steps:
   #To other_species
@@ -57,6 +58,13 @@ steps:
       in_dir: in_dir
       in_tree: in_tree
       in_check_log: in_check_log
+    out: []
+  others:
+    run: others.cwl
+    in:
+      in_dir: in_dir
+      in_tree: in_tree
+      in_others: in_others
     out: []
 
 outputs: []
