@@ -1,0 +1,33 @@
+#small brown planthopper
+#gggsss
+#Assemblyname
+#Species full name
+#NCBI Release number
+in_tree: [
+laostr,
+ASM333518v2,
+Laodelphax_striatella,
+Release_100
+]
+in_wget_genomic: [
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/335/185/GCA_003335185.2_ASM333518v2/md5checksums.txt,
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/335/185/GCA_003335185.2_ASM333518v2/GCA_003335185.2_ASM333518v2_genomic.fna.gz,
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/335/185/GCA_003335185.2_ASM333518v2/GCA_003335185.2_ASM333518v2_genomic.gff.gz
+]
+#Protein fasta(_translated_cds*)
+#CDS fasta
+#RNA fasta
+in_wget_others: [
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/335/185/GCA_003335185.2_ASM333518v2/md5checksums.txt,
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/335/185/GCA_003335185.2_ASM333518v2/GCA_003335185.2_ASM333518v2_translated_cds.faa.gz,
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/335/185/GCA_003335185.2_ASM333518v2/GCA_003335185.2_ASM333518v2_cds_from_genomic.fna.gz,
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/335/185/GCA_003335185.2_ASM333518v2/GCA_003335185.2_ASM333518v2_rna_from_genomic.fna.gz
+]
+
+#in_fasta:
+#  class: File
+#  path: GCF_003254395.2_Amel_HAv3.1_genomic.fna
+#in_gff:
+#  class: File
+#  path: GCF_003254395.2_Amel_HAv3.1_genomic.gff
+#################################################################
