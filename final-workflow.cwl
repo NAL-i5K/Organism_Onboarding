@@ -56,8 +56,7 @@ steps:
       in_dir: setup_tree/out_tree
       in_gff: download_genomic/OUT_genomic_gff
       in_fasta: download_genomic/OUT_genomic_fasta
-    out:
-      []
+    out: []
 
 outputs:
   final_dir:

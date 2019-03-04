@@ -15,7 +15,7 @@ inputs:
 steps:
   #step 41
   faToTwoBit:
-    run: block_faToTwoBit/faToTwoBit.cwl
+    run: faToTwoBit.cwl
     in:
       in_dir: in_dir
       in_tree: in_tree
@@ -24,14 +24,14 @@ steps:
       [out_wildcard_2bi] 
   #step 42
   samtools_faidx:
-    run: block_samtools_faidx/samtools_faidx.cwl
+    run: samtools_faidx.cwl
     in:
       in_fasta: in_fasta
     out:
       [out_wildcard_fai]  
   #step 43
   prepare-refseqs:
-    run: block_prepare-refseqs/prepare-refseqs.cwl
+    run: prepare-refseqs.cwl
     in:
       in_dir: in_dir
       in_tree: in_tree
@@ -41,7 +41,7 @@ steps:
       [out_trackList_json, out_seq, out_tracks_conf] 
   #step 44
   flatfile-to-json:
-    run: block_flatfile-to-json/flatfile-to-json.cwl
+    run: flatfile-to-json.cwl
     in:
       in_dir: in_dir
       in_tree: in_tree
@@ -51,7 +51,7 @@ steps:
       [out_trackList_json, out_tracks]
   #step 45
   generate-names:
-    run: block_generate-names/generate-names.cwl
+    run: generate-names.cwl
     in:
       in_dir: in_dir
       in_tree: in_tree
@@ -60,7 +60,7 @@ steps:
       [out_names]
   #step 46
   gap2bigwig:
-    run: block_gap2bigwig/gap2bigwig.cwl
+    run: gap2bigwig.cwl
     in:
       in_dir: in_dir
       in_tree: in_tree
@@ -69,7 +69,7 @@ steps:
       [out_wildcard_gaps_bigwig]
   #step 47
   GCcontent2bigwig:
-    run: block_GCcontent2bigwig/GCcontent2bigwig.cwl
+    run: GCcontent2bigwig.cwl
     in:
       in_dir: in_dir
       in_tree: in_tree
@@ -78,7 +78,7 @@ steps:
       [out_wildcard_gc_bigwig]
   #step 48
   ln:
-    run: block_ln/ln.cwl
+    run: ln.cwl
     in:
       in_dir: in_dir
       in_tree: in_tree
@@ -86,7 +86,7 @@ steps:
       []
   #step 49
   add-bw-track_gaps:
-    run: block_add-bw-track_gaps/add-bw-track_gaps.cwl
+    run: add-bw-track_gaps.cwl
     in:
       in_dir: in_dir
       in_tree: in_tree
@@ -96,7 +96,7 @@ steps:
       [out_trackList_json]
   #step 50
   add-bw-track_gc:
-    run: block_add-bw-track_gc/add-bw-track_gc.cwl
+    run: add-bw-track_gc.cwl
     in:
       in_dir: in_dir
       in_tree: in_tree
@@ -106,7 +106,7 @@ steps:
       [out_trackList_json]
   #step 51
   add_metadata:
-    run: block_add_metadata/add_metadata.cwl
+    run: add_metadata.cwl
     in:
       in_dir: in_dir
       in_tree: in_tree
@@ -115,11 +115,10 @@ steps:
     out:
       [out_trackList_json, out_trackList_json_bak]
   #create
-  createOrganism:
-    run: createOrganism.cwl
-    in:
-      in_tree: in_tree
-      in_2bi: faToTwoBit/out_wildcard_2bi
-    out:
-      []
+#  createOrganism:
+#    run: createOrganism.cwl
+#    in:
+#      in_tree: in_tree
+#      in_2bi: faToTwoBit/out_wildcard_2bi
+#    out: []
 outputs: []

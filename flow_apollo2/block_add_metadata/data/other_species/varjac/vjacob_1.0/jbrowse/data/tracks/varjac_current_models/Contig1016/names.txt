@@ -1,3 +1,0 @@
-[["EVM prediction Contig1016.1","evm.model.Contig1016.1"],"varjac_current_models","EVM prediction Contig1016.1","Contig1016",43,14360]
-[["EVM prediction Contig1016.2","evm.model.Contig1016.2"],"varjac_current_models","EVM prediction Contig1016.2","Contig1016",22946,25316]
-[["EVM prediction Contig1016.3","evm.model.Contig1016.3"],"varjac_current_models","EVM prediction Contig1016.3","Contig1016",25651,33396]
