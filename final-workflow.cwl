@@ -49,14 +49,14 @@ steps:
       in_check_log: download_genomic/OUT_check_log
       in_others: download_others/OUT_others
     out: []
-#  apollo2:
-#    run: flow_apollo2/workflow.cwl
-#    in: 
-#      in_tree: in_tree
-#      in_dir: setup_tree/out_tree
-#      in_gff: download_genomic/OUT_genomic_gff
-#      in_fasta: download_genomic/OUT_genomic_fasta
-#    out: []
+  apollo2:
+    run: flow_apollo2/workflow.cwl
+    in: 
+      in_tree: in_tree
+      in_dir: setup_tree/out_tree
+      in_gff: download_genomic/OUT_genomic_gff
+      in_fasta: download_genomic/OUT_genomic_fasta
+    out: []
 
 outputs:
   final_dir:

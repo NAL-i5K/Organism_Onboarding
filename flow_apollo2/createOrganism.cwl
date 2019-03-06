@@ -22,7 +22,7 @@ arguments:
     valueFrom: $(inputs.in_tree[2].split('_')[1])
   - position: 9
     prefix: -directory
-    valueFrom: /app/data/other_species/$(inputs.in_tree[0])/jbrowse/data
+    valueFrom: /app/data/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data
   - position: 11
     prefix: -blatdb
     valueFrom: data/blat/db/$(inputs.in_tree[0])/$(inputs.in_2bi.basename)

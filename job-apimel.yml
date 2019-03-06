@@ -6,7 +6,7 @@ in_tree: [
 apimel,
 Amel_HAv3.1,
 Apis_mellifera,
-Release_104
+Apis_mellifera_Annotation_100
 ]
 in_wget_genomic: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/md5checksums.txt,

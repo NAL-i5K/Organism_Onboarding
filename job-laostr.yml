@@ -1,13 +1,14 @@
 #small brown planthopper
+#============================================
 #gggsss
 #Assemblyname
-#Species full name
-#NCBI Release number
+#Species full naime
+#scaffold/analyses/XX
 in_tree: [
 laostr,
 ASM333518v2,
 Laodelphax_striatella,
-Release_100
+laostr_OGSv1.1
 ]
 in_wget_genomic: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/335/185/GCA_003335185.2_ASM333518v2/md5checksums.txt,
