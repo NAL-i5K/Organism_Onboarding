@@ -118,6 +118,7 @@ steps:
 #  createOrganism:
 #    run: createOrganism.cwl
 #    in:
+#      in_host: in_host
 #      in_tree: in_tree
 #      in_2bi: faToTwoBit/out_wildcard_2bi
 #    out: []

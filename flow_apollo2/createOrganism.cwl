@@ -10,7 +10,7 @@ baseCommand: [createOrganism.py]
 arguments: 
   - position: 1
     prefix: -host
-    valueFrom: https://apollo-dev.nal.usda.gov
+    valueFrom: $(inputs.in_host)
   - position: 3
     prefix: -organism
     valueFrom: $(inputs.in_tree[2].split('_')[0]) $(inputs.in_tree[2].split('_')[1])
@@ -30,6 +30,8 @@ arguments:
     valueFrom: -publicMode
 
 inputs:
+  in_host:
+    type: string
   in_tree:
     type: string[]
   in_2bi:

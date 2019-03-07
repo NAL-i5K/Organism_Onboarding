@@ -51,7 +51,8 @@ steps:
     out: []
   apollo2:
     run: flow_apollo2/workflow.cwl
-    in: 
+    in:
+      in_host: in_host 
       in_tree: in_tree
       in_dir: setup_tree/out_tree
       in_gff: download_genomic/OUT_genomic_gff
