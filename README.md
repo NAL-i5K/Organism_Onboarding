@@ -1,29 +1,35 @@
 
 # CWL, Common-Workflow-Language 
+## Quick start
+Step1.
+create your own job-[gggsss].yml. Take example.yml as a reference.
+Step2.
+```
+cwl-runner final-workflow.cwl job-[gggsss].yml
+```
+Finish!
+
 ## What is CWL? :octocat:
 - a tool to make our organism onboarding pipeline easy to maintain
 - design functional blocks, and concatenate them to make a complete working pipeline
 - an I/O pipeline
 
 ## How does CWL look like? :metal:
-- All **<.cwl>** files are same between organism, and **<.yml>** file need to be customize for specific organism.
+- All Organisms share same **<.cwl>** files, and **<.yml>** file need to be customize for every single specific organism.
 
 ##  Ultimate goal :+1:
 - finish all works with only one single command
 ```
-cwl-runner final-workflow.cwl job.yml
+cwl-runner final-workflow.cwl job-[gggsss].yml
 ```
 
 ## File explanation :tada:
 - **final-workflow.cwl** : Take the cwl file inside flow folder, which is basically nested workflow(workflow of workflow).
 - **block** : It is the basic functional structure, like a building brick. I copy from block sample if I develope a new block.  
-<br>
 - **demo workflow** : These demo directory try to see how the connecting block work, and the most important file is -workflow.cwl. Other cwl files are copy from block folder.
 - **storage** : It is a recycle bin.  
-<br>
 - **flow_apollo2** : I break down the apollo2 onstage step in data wrangling into 11 CWL steps.   
 [Here is the link of original shell script file](https://gitlab.com/i5k_Workspace/apollo2_data_build_scripts/blob/master/build_apollo2_flatfiles.sh)
-<br>
 - **flow_setup** : Download data, checksums, gunzip, create initial data folder strcture.
 <br>
 <br>

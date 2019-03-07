@@ -9,8 +9,10 @@ requirements:
 inputs:
   in_tree: string[]
   in_dir: Directory
-  in_fasta: File
   in_gff: File
+  in_fasta: File
+  in_host: string
+  in_login_apollo2: string[]
 
 steps:
   #step 41
@@ -115,11 +117,14 @@ steps:
     out:
       [out_trackList_json, out_trackList_json_bak]
   #create
-#  createOrganism:
-#    run: createOrganism.cwl
-#    in:
-#      in_host: in_host
-#      in_tree: in_tree
-#      in_2bi: faToTwoBit/out_wildcard_2bi
-#    out: []
+  createOrganism:
+    run: createOrganism.cwl
+    in:
+      in_dir: in_dir
+      in_tree: in_tree
+      in_2bi: faToTwoBit/out_wildcard_2bi
+      in_host: in_host
+      in_login_apollo2: in_login_apollo2
+    out: [out_createOrganism_log]
+
 outputs: []

@@ -28,6 +28,6 @@ in_host: https://apollo-dev.nal.usda.gov
 #username
 #password
 in_login_apollo2: [
-i5k@ars.usda.gov,
-demo
+example@ars.usda.gov,
+thisismypasswordandiknowitissuperlong
 ]

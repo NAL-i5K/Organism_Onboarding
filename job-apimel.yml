@@ -18,9 +18,8 @@ ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_rna_from_genomic.fna.gz,
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_translated_cds.faa.gz
 ]
-in_host: [
-https://apollo-dev.nal.usda.gov
-]
+in_host: https://apollo-dev.nal.usda.gov
+
 #in_fasta:
 #  class: File
 #  path: GCF_003254395.2_Amel_HAv3.1_genomic.fna

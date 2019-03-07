@@ -5,6 +5,12 @@ class: CommandLineTool
 
 requirements:
   - class: InlineJavascriptRequirement
+  - class: InitialWorkDirRequirement
+    listing: 
+      ${
+        var LIST = [(inputs.in_dir)];
+        return LIST;
+      }
 
 baseCommand: [createOrganism.py]
 arguments: 
@@ -22,19 +28,32 @@ arguments:
     valueFrom: $(inputs.in_tree[2].split('_')[1])
   - position: 9
     prefix: -directory
-    valueFrom: /app/data/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data
+    valueFrom: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data
   - position: 11
     prefix: -blatdb
-    valueFrom: data/blat/db/$(inputs.in_tree[0])/$(inputs.in_2bi.basename)
+    valueFrom: $(inputs.in_2bi.basename)
   - position: 13
+    prefix: -username
+    valueFrom: $(inputs.in_login_apollo2[0])
+  - position: 15
+    valueFrom: -password
+    valueFrom: $(inputs.in_login_apollo2[1])
+  - position: 17
     valueFrom: -publicMode
 
 inputs:
-  in_host:
-    type: string
+  in_dir:
+    type: Directory
   in_tree:
     type: string[]
   in_2bi:
     type: File
+  in_host:
+    type: string
+  in_login_apollo2:
+    type: string[]
 
-outputs: []
+outputs:
+  out_createOrganism_log:
+    type: stdout
+stdout: $(inputs.in_dir.basename)/working_files/$(inputs.in_tree[0])/$(inputs.in_tree[1])/createOrganism.log

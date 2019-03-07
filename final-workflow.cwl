@@ -11,6 +11,8 @@ inputs:
   in_tree: string[]
   in_wget_genomic: string[]
   in_wget_others: string[]
+  in_host: string
+  in_login_apollo2: string[] 
 
 steps:
   setup_tree:
@@ -52,11 +54,12 @@ steps:
   apollo2:
     run: flow_apollo2/workflow.cwl
     in:
-      in_host: in_host 
       in_tree: in_tree
       in_dir: setup_tree/out_tree
       in_gff: download_genomic/OUT_genomic_gff
       in_fasta: download_genomic/OUT_genomic_fasta
+      in_host: in_host
+      in_login_apollo2: in_login_apollo2 
     out: []
 
 outputs:
