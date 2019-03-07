@@ -32,3 +32,5 @@ outputs:
     type: Directory
     outputBinding:
       glob: '*'
+
+#If in_tree[] change. flow_copy2data need to change
