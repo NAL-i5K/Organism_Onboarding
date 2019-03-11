@@ -36,7 +36,7 @@ arguments:
     prefix: -username
     valueFrom: $(inputs.in_login_apollo2[0])
   - position: 15
-    valueFrom: -password
+    prefix: -password
     valueFrom: $(inputs.in_login_apollo2[1])
   - position: 17
     valueFrom: -publicMode
