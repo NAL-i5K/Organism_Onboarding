@@ -28,10 +28,10 @@ arguments:
     valueFrom: $(inputs.in_tree[2].split('_')[1])
   - position: 9
     prefix: -directory
-    valueFrom: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data
+    valueFrom: /app/data/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data
   - position: 11
     prefix: -blatdb
-    valueFrom: $(inputs.in_2bi.basename)
+    valueFrom: /usr/local/blat/db/$(inputs.in_tree[0])/$(inputs.in_2bi.basename)
   - position: 13
     prefix: -username
     valueFrom: $(inputs.in_login_apollo2[0])

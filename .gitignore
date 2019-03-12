@@ -11,3 +11,4 @@ flow_apollo2/test*
 data
 job-*.yml
 cwl-*.log
+storage/

@@ -50,18 +50,26 @@ steps:
       in_txt2: download_genomic/OUT_txt2
       in_check_log: download_genomic/OUT_check_log
       in_others: download_others/OUT_others
-    out: []
+    out: 
+      []
+    
   apollo2:
     run: flow_apollo2/workflow.cwl
     in:
-      in_tree: in_tree
       in_dir: setup_tree/out_tree
+      in_tree: in_tree
       in_gff: download_genomic/OUT_genomic_gff
       in_fasta: download_genomic/OUT_genomic_fasta
-      in_host: in_host
-      in_login_apollo2: in_login_apollo2 
-    out: []
-
+    out: 
+      []
+#  copy2apollo-dev:
+#    run: flow_copy2apollo-dev/workflow.cwl
+#    in:
+#      in_dir: apollo2/OUT_dir
+#      in_tree: in_tree
+#    out:
+#      [OUT_dir]
+      
 outputs:
   final_dir:
     type: Directory

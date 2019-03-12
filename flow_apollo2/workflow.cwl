@@ -11,8 +11,6 @@ inputs:
   in_dir: Directory
   in_gff: File
   in_fasta: File
-  in_host: string
-  in_login_apollo2: string[]
 
 steps:
   #step 41
@@ -116,15 +114,6 @@ steps:
       in_trackList_json: add-bw-track_gc/out_trackList_json
     out:
       [out_trackList_json, out_trackList_json_bak]
-  #create
-  createOrganism:
-    run: createOrganism.cwl
-    in:
-      in_dir: in_dir
-      in_tree: in_tree
-      in_2bi: faToTwoBit/out_wildcard_2bi
-      in_host: in_host
-      in_login_apollo2: in_login_apollo2
-    out: [out_createOrganism_log]
 
 outputs: []
+   
