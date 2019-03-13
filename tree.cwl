@@ -28,7 +28,7 @@ inputs:
     type: string[]
 
 outputs:
-  out_tree:
+  out_dir:
     type: Directory
     outputBinding:
       glob: '*'

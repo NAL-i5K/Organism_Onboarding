@@ -25,5 +25,9 @@ inputs:
     type: string[]
   in_fasta:
     type: File
-      
-outputs: [] 
+
+outputs:
+  out_dir:
+    type: Directory
+    outputBinding:
+      glob: $(inputs.in_dir.basename)

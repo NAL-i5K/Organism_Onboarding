@@ -26,4 +26,8 @@ inputs:
   in_txt2:
     type: File
       
-outputs: [] 
+outputs:
+  out_dir:
+    type: Directory
+    outputBinding:
+      glob: $(inputs.in_dir.basename)

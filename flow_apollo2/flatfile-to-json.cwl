@@ -51,6 +51,10 @@ inputs:
     type: File
 
 outputs: 
+  out_dir:
+    type: Directory
+    outputBinding:
+      glob: $(inputs.in_dir.basename)/
   out_trackList_json:
     type: File
     outputBinding: 
@@ -58,4 +62,4 @@ outputs:
   out_tracks:
     type: Directory
     outputBinding: 
-      glob: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data/tracks
+      glob: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data/tracks/

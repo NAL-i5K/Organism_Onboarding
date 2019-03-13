@@ -29,14 +29,14 @@ steps:
       in_dir: in_dir
       in_tree: in_tree
       in_fasta: in_fasta
-    out: []
+    out: [out_dir]
   genomic_gff:
     run: genomic_gff.cwl
     in:
       in_dir: in_dir
       in_tree: in_tree
       in_gff: in_gff
-    out: []
+    out: [out_dir]
   #To working_files
   txt:
     run: txt.cwl
@@ -44,27 +44,30 @@ steps:
       in_dir: in_dir
       in_tree: in_tree
       in_txt: in_txt
-    out: []
+    out: [out_dir]
   txt2:
     run: txt2.cwl
     in:
       in_dir: in_dir
       in_tree: in_tree
       in_txt2: in_txt2
-    out: []
+    out: [out_dir]
   check_log:
     run: check_log.cwl
     in:
       in_dir: in_dir
       in_tree: in_tree
       in_check_log: in_check_log
-    out: []
+    out: [out_dir]
   others:
     run: others.cwl
     in:
       in_dir: in_dir
       in_tree: in_tree
       in_others: in_others
-    out: []
+    out: [out_dir]
 
-outputs: []
+outputs:
+  OUT_dir:
+    type: Directory
+    outputSource: others/out_dir

@@ -30,6 +30,10 @@ inputs:
     type: string[]
 
 outputs: 
+  out_dir:
+    type: Directory
+    outputBinding:
+      glob: $(inputs.in_dir.basename)/
   out_wildcard_gc_bigwig:
     type: File
     outputBinding: 

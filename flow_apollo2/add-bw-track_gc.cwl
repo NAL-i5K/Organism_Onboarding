@@ -45,6 +45,10 @@ inputs:
     type: File
 
 outputs:
+  out_dir:
+    type: Directory
+    outputBinding:
+      glob: $(inputs.in_dir.basename)/
   out_trackList_json:
     type: File
     outputBinding:

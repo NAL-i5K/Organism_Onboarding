@@ -27,4 +27,8 @@ inputs:
   in_others:
     type: File[]
       
-outputs: [] 
+outputs:
+  out_dir:
+    type: Directory
+    outputBinding:
+      glob: $(inputs.in_dir.basename)/ 

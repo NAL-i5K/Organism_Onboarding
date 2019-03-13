@@ -20,7 +20,7 @@ steps:
     in:
       in_tree: in_tree 
     out:
-      [out_tree]
+      [out_dir]
   download_genomic:
     run: flow_download_genomic/workflow.cwl
     in:
@@ -40,7 +40,7 @@ steps:
   copy2data:
     run: flow_copy2data/workflow.cwl  
     in:
-      in_dir: setup_tree/out_tree
+      in_dir: setup_tree/out_dir
       in_tree: in_tree
       #To other_species
       in_fasta: download_genomic/OUT_genomic_fasta
@@ -51,17 +51,17 @@ steps:
       in_check_log: download_genomic/OUT_check_log
       in_others: download_others/OUT_others
     out: 
-      []
-    
+      [OUT_dir]
   apollo2:
     run: flow_apollo2/workflow.cwl
     in:
-      in_dir: setup_tree/out_tree
+      in_dir: copy2data/OUT_dir
+#      in_dir: setup_tree/out_dir
       in_tree: in_tree
       in_gff: download_genomic/OUT_genomic_gff
       in_fasta: download_genomic/OUT_genomic_fasta
     out: 
-      []
+      [OUT_dir]
 #  copy2apollo-dev:
 #    run: flow_copy2apollo-dev/workflow.cwl
 #    in:
@@ -73,4 +73,4 @@ steps:
 outputs:
   final_dir:
     type: Directory
-    outputSource: setup_tree/out_tree
+    outputSource: copy2data/OUT_dir

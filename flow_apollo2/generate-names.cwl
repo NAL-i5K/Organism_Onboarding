@@ -19,9 +19,8 @@ arguments:
   - position: 3
     prefix: --out
     valueFrom: data/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data/
-#  - position: 1
+#  - position: 5
 #    prefix: --tracks
-#    valueFrom: data/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data/tracks/$(inputs.in_tree[0])_current_models
     
 inputs:
   in_dir:
@@ -31,7 +30,11 @@ inputs:
   in_tracks:
     type: Directory
 outputs:
+  out_dir:
+    type: Directory
+    outputBinding:
+      glob: $(inputs.in_dir.basename)/
   out_names:
     type: Directory
     outputBinding: 
-      glob: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data/names
+      glob: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data/names/
