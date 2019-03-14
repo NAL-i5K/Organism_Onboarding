@@ -6,7 +6,7 @@
 in_tree: [
 gggsss,
 AssemblyName,
-Genus_Species,
+Genus Species,
 FolderName
 ]
 in_wget_genomic: [

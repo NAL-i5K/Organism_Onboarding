@@ -4,5 +4,6 @@
 in_tree: [
 varjac,
 vjacob_1.0,
-Varroa_jacobsoni*100
+Varroa jacobsoni,
+FolderName
 ]
