@@ -56,21 +56,28 @@ steps:
     run: flow_apollo2/workflow.cwl
     in:
       in_dir: copy2data/OUT_dir
-#      in_dir: setup_tree/out_dir
       in_tree: in_tree
       in_gff: download_genomic/OUT_genomic_gff
       in_fasta: download_genomic/OUT_genomic_fasta
     out: 
-      [OUT_dir]
-#  copy2apollo-dev:
-#    run: flow_copy2apollo-dev/workflow.cwl
-#    in:
-#      in_dir: apollo2/OUT_dir
-#      in_tree: in_tree
-#    out:
-#      [OUT_dir]
-      
+      [OUT_dir, OUT_2bi]
+  copy2apollo-dev:
+    run: flow_copy2apollo-dev/workflow.cwl
+    in:
+      in_dir: apollo2/OUT_dir
+      in_tree: in_tree
+    out: []
+  createOrganism:
+    run: createOrganism.py
+    in:  
+      in_dir: apollo2/OUT_dir
+      in_tree: in_tree
+      in_2bi: apollo2/OUT_2bi
+      in_host: in_host
+      in_login_apollo2: in_login_apollo2
+    out:
+      [out_createOrganism_log]
 outputs:
   final_dir:
     type: Directory
-    outputSource: copy2data/OUT_dir
+    outputSource: apollo2/OUT_dir  #log file of createOrganism?? Exist or not??

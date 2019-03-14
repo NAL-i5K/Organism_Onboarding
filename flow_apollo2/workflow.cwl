@@ -119,4 +119,7 @@ outputs:
   OUT_dir:
     type: Directory
     outputSource: add_metadata/out_dir
-   
+  OUT_2bi:
+    type: File
+    outputSource: faToTwoBit/out_wildcard_2bi
+     
