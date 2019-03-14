@@ -67,16 +67,16 @@ steps:
       in_dir: apollo2/OUT_dir
       in_tree: in_tree
     out: []
-  createOrganism:
-    run: createOrganism.py
-    in:  
-      in_dir: apollo2/OUT_dir
-      in_tree: in_tree
-      in_2bi: apollo2/OUT_2bi
-      in_host: in_host
-      in_login_apollo2: in_login_apollo2
-    out:
-      [out_createOrganism_log]
+#  createOrganism:
+#    run: createOrganism.cwl
+#    in:  
+#      in_dir: apollo2/OUT_dir
+#      in_tree: in_tree
+#      in_2bi: apollo2/OUT_2bi
+#      in_host: in_host
+#      in_login_apollo2: in_login_apollo2
+#    out:
+#      [out_createOrganism_log]
 outputs:
   final_dir:
     type: Directory
