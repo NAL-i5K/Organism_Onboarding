@@ -29,7 +29,7 @@ arguments:
     valueFrom: "GC Content"
   - position: 9
     prefix: --bw_url 
-    valueFrom: $(inputs.in_gc_bigwig.basename)
+    valueFrom: bigwig/$(inputs.in_gc_bigwig.basename)
   - position: 11
     prefix: --in
     valueFrom: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data/trackList.json
