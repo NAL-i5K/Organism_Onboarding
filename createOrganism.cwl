@@ -19,13 +19,13 @@ arguments:
     valueFrom: $(inputs.in_host)
   - position: 3
     prefix: -organism
-    valueFrom: $(inputs.in_tree[2].split('_')[0]) $(inputs.in_tree[2].split('_')[1])
+    valueFrom: $(inputs.in_tree[3]) $(inputs.in_tree[4])
   - position: 5
     prefix: -genus
-    valueFrom: $(inputs.in_tree[2].split('_')[0])
+    valueFrom: $(inputs.in_tree[3])
   - position: 7
     prefix: -species
-    valueFrom: $(inputs.in_tree[2].split('_')[1])
+    valueFrom: $(inputs.in_tree[4])
   - position: 9
     prefix: -directory
     valueFrom: /app/data/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data

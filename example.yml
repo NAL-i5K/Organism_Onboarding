@@ -1,13 +1,15 @@
 #============================================
 #gggsss
 #Assemblyname
-#Species full naime
 #scaffold/analyses/XX
+#Genus name
+#Species name
 in_tree: [
 gggsss,
 AssemblyName,
-Genus Species,
-FolderName
+FolderName,
+Genus,
+Species
 ]
 in_wget_genomic: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/335/185/GCA_003335185.2_ASM333518v2/md5checksums.txt,
