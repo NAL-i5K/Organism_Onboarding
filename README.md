@@ -7,15 +7,15 @@ cwl-runner final-workflow.cwl job-[gggsss].yml
 ```
 
 ## Quick start
-Step1.  
+- Step1.  
 create a file named **job-[gggsss].yml** for the specific organism. Take **example.yml** as reference.
 
-Step2.  
+- Step2.  
 ```
 cwl-runner final-workflow.cwl job-[gggsss].yml
 ```
 
-Step3.  
+- Step3.  
 Finish!
 
 ## What is CWL? :octocat:
