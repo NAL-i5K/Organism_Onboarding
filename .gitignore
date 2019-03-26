@@ -10,7 +10,7 @@ __pycache__
 test*
 flow_apollo2/test*
 
-data
+data/
 job-*.yml
 cwl-*.log
 storage/
