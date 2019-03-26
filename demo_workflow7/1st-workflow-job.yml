@@ -1,7 +1,0 @@
-in_files: [
-{class: File, path: example_file/old.fa},
-{class: File, path: example_file/new.fa},
-{class: File, path: example_file/example1.gff3}
-#{class: File, path: example_file/example2.gff3}
-]
-

@@ -1,8 +1,0 @@
-in_md5sum_check: [
-#{class: File, path: md5checksums.txt},
-{class: File, path: md5checksums-fake.txt},
-{class: File, path: GCF_002532875.1_vjacob_1.0_rna_from_genomic.fna.gz},
-{class: File, path: GCF_002532875.1_vjacob_1.0_translated_cds.faa.gz},
-{class: File, path: GCF_002532875.1_vjacob_1.0_genomic.fna.gz},
-{class: File, path: GCF_002532875.1_vjacob_1.0_genomic.gff.gz}
-]

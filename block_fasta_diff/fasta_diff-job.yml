@@ -1,4 +1,0 @@
-in_fasta_diff: [
-{class: File, path: old.fa},
-{class: File, path: new.fa}
-]

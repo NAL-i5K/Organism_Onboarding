@@ -1,6 +1,0 @@
-files: [
-ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/532/875/GCF_002532875.1_vjacob_1.0/GCF_002532875.1_vjacob_1.0_genomic.fna.gz,
-\nftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/532/875/GCF_002532875.1_vjacob_1.0/GCF_002532875.1_vjacob_1.0_genomic.gff.gz,
-\nftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/532/875/GCF_002532875.1_vjacob_1.0/GCF_002532875.1_vjacob_1.0_rna_from_genomic.fna.gz,\nftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/532/875/GCF_002532875.1_vjacob_1.0/GCF_002532875.1_vjacob_1.0_translated_cds.faa.gz,
-\nftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/532/875/GCF_002532875.1_vjacob_1.0/GCF_002532875.1_vjacob_1.0_cds_from_genomic.fna.gz
-]

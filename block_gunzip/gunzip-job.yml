@@ -1,4 +1,0 @@
-in_gunzip: 
-  class: Directory
-  path: data
-

@@ -1,7 +1,0 @@
-in_faToTwoBit_tree:
-  class: Directory
-  path: data
-in_faToTwoBit:
-  class: File
-  path: faToTwoBit
-
