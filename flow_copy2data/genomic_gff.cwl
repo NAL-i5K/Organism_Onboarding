@@ -16,7 +16,7 @@ arguments:
   - position: 1
     valueFrom: $(inputs.in_gff.basename)
   - position: 2
-    valueFrom: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/scaffold/analyses/$(inputs.in_tree[3])
+    valueFrom: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/scaffold/analyses/$(inputs.in_tree[2])/
 
 inputs: 
   in_dir:
@@ -30,4 +30,4 @@ outputs:
   out_dir:
     type: Directory
     outputBinding:
-      glob: $(inputs.in_dir.basename)
+      glob: $(inputs.in_dir.basename)/

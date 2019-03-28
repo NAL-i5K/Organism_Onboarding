@@ -17,7 +17,7 @@ arguments:
   - position: 1
     valueFrom: $(inputs.in_others)
   - position: 2
-    valueFrom: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/scaffold
+    valueFrom: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/scaffold/
 
 inputs: 
   in_dir:

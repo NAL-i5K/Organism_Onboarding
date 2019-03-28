@@ -1,7 +1,8 @@
 #============================================
+#in_tree:
 #gggsss
 #Assemblyname
-#scaffold/analyses/XX
+#scaffold/analyses/[Foldername]
 #Genus name
 #Species name
 in_tree: [

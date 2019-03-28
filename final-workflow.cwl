@@ -77,7 +77,11 @@ steps:
       in_login_apollo2: in_login_apollo2
     out:
       [out_createOrganism_log]
+
+  # The flow for BLAST setup 
+  # python manage.py addOrganism AAA BBB CCC 
+
 outputs:
   final_dir:
     type: Directory
-    outputSource: apollo2/OUT_dir  #log file of createOrganism?? Exist or not??
+    outputSource: apollo2/OUT_dir
