@@ -12,10 +12,12 @@ cwl-runner final-workflow.cwl job-[gggsss].yml
 
 ## Quick start
 - Step1.
-```pip install cwlref-runner```
+```
+pip install cwlref-runner
+```
 
-- Step2.
-Create a file named **job-[gggsss].yml** for the specific organism. Take **example.yml** as reference.
+- Step2.  
+Create a file named **job-[gggsss].yml** for the specific organism. Take **example.yml** as reference.  
 
 - Step3.  
 ```
@@ -43,7 +45,6 @@ Finish!
 <br>
 <br>
 Related link: https://www.commonwl.org/user_guide/22-nested-workflows/index.html
-<br>
 <br>
 <br>
 
