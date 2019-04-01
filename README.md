@@ -21,7 +21,7 @@ Create a file named **job-[gggsss].yml** for the specific organism. Take **examp
 
 - Step3.  
 ```
-cwl-runner final-workflow.cwl job-[gggsss].yml
+cwl-runner final-workflow.cwl job-[gggsss].yml &> [gggsss].CWLlog
 ```
 
 - Step4.  

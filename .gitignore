@@ -16,3 +16,5 @@ data/
 job-*.yml
 cwl-*.log
 storage/
+
+*.CWLlog
