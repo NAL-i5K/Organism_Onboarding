@@ -1,5 +1,7 @@
 __pycache__
 
+env/
+
 *.gz
 *.gff
 *.gff3

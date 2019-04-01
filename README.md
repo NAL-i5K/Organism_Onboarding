@@ -6,16 +6,23 @@
 cwl-runner final-workflow.cwl job-[gggsss].yml
 ```
 
-## Quick start
-- Step1.  
-create a file named **job-[gggsss].yml** for the specific organism. Take **example.yml** as reference.
+## Prerequisite
+- python 2.7 and 3.x {x = 4, 5, 6, 7}
+- a text editor
 
-- Step2.  
+## Quick start
+- Step1.
+```pip install cwlref-runner```
+
+- Step2.
+Create a file named **job-[gggsss].yml** for the specific organism. Take **example.yml** as reference.
+
+- Step3.  
 ```
 cwl-runner final-workflow.cwl job-[gggsss].yml
 ```
 
-- Step3.  
+- Step4.  
 Finish!
 
 ## What is CWL? :octocat:
