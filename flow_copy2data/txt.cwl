@@ -30,4 +30,4 @@ outputs:
   out_dir:
     type: Directory
     outputBinding:
-      glob: $(inputs.in_dir.basename)
+      glob: $(inputs.in_dir.basename)/

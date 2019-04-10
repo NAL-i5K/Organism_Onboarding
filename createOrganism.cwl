@@ -13,6 +13,14 @@ requirements:
       }
 
 baseCommand: [createOrganism.py]
+
+$namespaces:
+  cwltool: "http://commonwl.org/cwltool#"
+
+hints:
+  cwltool:LoadListingRequirement:
+    loadListing: shallow_listing
+
 arguments: 
   - position: 1
     prefix: -host
@@ -57,3 +65,4 @@ outputs:
   out_createOrganism_log:
     type: stdout
 stdout: $(inputs.in_dir.basename)/working_files/$(inputs.in_tree[0])/$(inputs.in_tree[1])/createOrganism.log
+

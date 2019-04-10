@@ -1,5 +1,7 @@
 __pycache__
 
+env/
+
 *.gz
 *.gff
 *.gff3
@@ -14,3 +16,5 @@ data/
 job-*.yml
 cwl-*.log
 storage/
+
+*.CWLlog
