@@ -25,12 +25,12 @@ outputs:
   out_others:
     type: File[]
     outputBinding:
-      glob: '*'
-#        ${
-#          var A = inputs.in_gz;
-#          var B = [];
-#          for(var i = 0; i < A.length; i++){
-#              B = B + A[i].nameroot;
-#          }
-#          return B;  
-#        }
+      glob: 
+        ${
+          var A = inputs.in_gz;
+          var B = [];
+          for(var i = 0; i < A.length; i++){
+              B.push(A[i].nameroot);
+          }
+          return B;  
+        }

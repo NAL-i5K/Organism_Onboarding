@@ -5,6 +5,7 @@ class: CommandLineTool
 
 requirements:
   - class: InlineJavascriptRequirement
+#  - class: LoadListingRequirement
   - class: InitialWorkDirRequirement
     listing: 
       - $(inputs.in_dir)

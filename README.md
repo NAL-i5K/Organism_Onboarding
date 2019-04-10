@@ -6,16 +6,25 @@
 cwl-runner final-workflow.cwl job-[gggsss].yml
 ```
 
+## Prerequisite
+- python 2.7 and 3.x {x = 4, 5, 6, 7}
+- a text editor
+
 ## Quick start
-- Step1.  
-create a file named **job-[gggsss].yml** for the specific organism. Take **example.yml** as reference.
+- Step1.
+```
+pip install cwlref-runner
+```
 
 - Step2.  
-```
-cwl-runner final-workflow.cwl job-[gggsss].yml
-```
+Create a file named **job-[gggsss].yml** for the specific organism. Take **example.yml** as reference.  
 
 - Step3.  
+```
+cwl-runner final-workflow.cwl job-[gggsss].yml &> [gggsss].CWLlog
+```
+
+- Step4.  
 Finish!
 
 ## What is CWL? :octocat:
@@ -36,7 +45,6 @@ Finish!
 <br>
 <br>
 Related link: https://www.commonwl.org/user_guide/22-nested-workflows/index.html
-<br>
 <br>
 <br>
 
