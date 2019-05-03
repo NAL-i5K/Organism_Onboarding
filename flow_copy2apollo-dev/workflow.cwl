@@ -11,6 +11,13 @@ inputs:
   in_dir: Directory
   in_tree: string[]  
 
+$namespaces:
+  cwltool: "http://commonwl.org/cwltool#"
+
+hints:
+  cwltool:LoadListingRequirement:
+    loadListing: shallow_listing
+
 steps:
   #To /app/data/other_species/
   data:

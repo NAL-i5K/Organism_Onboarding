@@ -11,6 +11,14 @@ requirements:
       - $(inputs.in_dir)
 
 baseCommand: [cp, -r]
+
+$namespaces:
+  cwltool: "http://commonwl.org/cwltool#"
+
+hints:
+  cwltool:LoadListingRequirement:
+    loadListing: shallow_listing
+
 arguments: 
   - position: 1
     valueFrom: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])
