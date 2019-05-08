@@ -3,14 +3,13 @@ __pycache__
 env/
 
 *.gz
+
 *.gff
 *.gff3
+
 *.faa
 *.fna
 *.fa
-
-test*
-flow_apollo2/test*
 
 data/
 job-*.yml

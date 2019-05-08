@@ -37,6 +37,6 @@ inputs:
     type: File[]
 
 outputs: 
-  out_txt2:
+  out_extract:
     type: stdout
 stdout: md5checksums.txt2 

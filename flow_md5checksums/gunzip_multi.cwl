@@ -18,11 +18,13 @@ arguments:
     valueFrom: $(inputs.in_gz)
 
 inputs:
+  in_dummy:
+    type: File
   in_gz:
     type: File[]
 
 outputs: 
-  out_others:
+  out_gz:
     type: File[]
     outputBinding:
       glob: 

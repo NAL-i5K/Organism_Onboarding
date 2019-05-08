@@ -4,20 +4,19 @@ cwlVersion: v1.0
 class: CommandLineTool
 baseCommand: [wget]
 
+#requirements:
+#  - class: InlineJavascriptRequirement
+
 inputs:
-  in_wget_genomic:
+  in_url:
     type: string[]
     inputBinding:
       position: 1
 
 outputs: 
-  out_txt:
+  out_wget:
     type: File
     outputBinding:
-      glob: ['md5checksums.txt']
-  out_gz:
-    type: File[]
-    outputBinding:
-      glob: ['*.gz']
+      glob: ['*']
     
 
