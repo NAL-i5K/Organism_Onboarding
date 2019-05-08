@@ -8,6 +8,7 @@ requirements:
   - class: InlineJavascriptRequirement
 
 inputs:
+  HOME: string[]
   in_tree: string[]
   in_url_md5checksums: string[]
   in_url_genomic_fasta: string[]
@@ -44,7 +45,26 @@ steps:
        OUT_genomic_gff,   #'*.gff', '*.gff3'
        OUT_others 
       ]
-  
+  #verify:
+  #fasta_diff,gff3_QC......
+#  apollo2:
+  #django_app:
+  #BLAST, hmmer.....
+  #All the operations we do on admin page. Turn into script method, worked contributed by deming
+  copy2local:
+    run: flow_copy2local/workflow.cwl
+    in:
+      HOME: HOME
+      in_tree: in_tree
+      in_md5checksums: download/OUT_md5checksums
+      in_extract: md5checksums/OUT_extract
+      in_check: md5checksums/OUT_check
+      in_genomic_fasta: md5checksums/OUT_genomic_fasta
+      in_genomic_gff: md5checksums/OUT_genomic_gff
+      in_others: md5checksums/OUT_others
+    out:
+      []
+
 outputs: 
   final_extract:
     type: File

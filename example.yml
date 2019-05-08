@@ -1,8 +1,15 @@
 #============================================
+#DATA_HOME = '/app/data'
+#BLAT_HOME = '/usr/local'
+HOME: [
+/app/data,
+/usr/local
+]
 #in_tree:
 #gggsss
 #Assemblyname
 #OGS-folder-name
+#[DATAHOME]/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/scaffold/analyses/$(inputs.in_tree[2])
 #Genus name
 #Species name
 in_tree: [
