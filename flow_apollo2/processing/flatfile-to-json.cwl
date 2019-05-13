@@ -8,8 +8,7 @@ requirements:
   - class: InitialWorkDirRequirement
     listing: 
       ${
-        var LIST = [(inputs.in_dir), 
-                    (inputs.in_gff)];
+        var LIST = [(inputs.in_gff)];
         return LIST;
       }
 
@@ -38,7 +37,7 @@ arguments:
     valueFrom: $(inputs.in_tree[0])_annotation
   - position: 15
     prefix: --out
-    valueFrom: data/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data/
+    valueFrom: jbrowse/data/
     
 inputs:
   in_dir:
@@ -54,12 +53,12 @@ outputs:
   out_dir:
     type: Directory
     outputBinding:
-      glob: $(inputs.in_dir.basename)/
+      glob: 'jbrowse/data'
   out_trackList_json:
     type: File
     outputBinding: 
-      glob: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data/trackList.json
+      glob: jbrowse/data/trackList.json
   out_tracks:
     type: Directory
     outputBinding: 
-      glob: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data/tracks/
+      glob: jbrowse/data/tracks/

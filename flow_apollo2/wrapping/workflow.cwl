@@ -13,6 +13,7 @@ inputs:
   in_genomic_fasta: File
   in_genomic_gff: File
   in_others: File[]
+  in_apollo2: Diectory
 
 steps:
   cp_genomic_fasta:
@@ -35,6 +36,13 @@ steps:
       HOME: HOME
       in_tree: in_tree
       in_others: in_others
+    out: []
+  cp_apollo2:
+    run: cp_apollo2.cwl
+    in:
+      HOME: HOME
+      in_tree: in_tree
+      in_apollo2: in_apollo2
     out: []
 
 outputs: []

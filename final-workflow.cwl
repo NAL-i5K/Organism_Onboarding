@@ -45,14 +45,25 @@ steps:
        OUT_genomic_gff,   #'*.gff', '*.gff3'
        OUT_others 
       ]
+
   #verify:
   #fasta_diff,gff3_QC......
-#  apollo2:
+  
+  apollo2:
+    run: flow_apollo2/workflow.cwl
+    in:
+      in_tree: in_tree
+      in_fasta: md5checksums/OUT_genomic_fasta
+      in_gff: md5checksums/OUT_genomic_gff
+    out:
+      [OUT_dir, OUT_2bi]
+  
   #django_app:
   #BLAST, hmmer.....
   #All the operations we do on admin page. Turn into script method, worked contributed by deming
-  copy2local:
-    run: flow_copy2local/workflow.cwl
+  
+  dispatch:
+    run: flow_dispatch/workflow.cwl
     in:
       HOME: HOME
       in_tree: in_tree
@@ -62,22 +73,23 @@ steps:
       in_genomic_fasta: md5checksums/OUT_genomic_fasta
       in_genomic_gff: md5checksums/OUT_genomic_gff
       in_others: md5checksums/OUT_others
+      in_apollo2: apollo2/OUT_dir
     out:
       []
 
-outputs: 
-  final_extract:
-    type: File
-    outputSource: md5checksums/OUT_extract
-  final_check:
-    type: File
-    outputSource: md5checksums/OUT_check
-  final_genomic_fasta:
-    type: File
-    outputSource: md5checksums/OUT_genomic_fasta
-  final_genomic_gff:
-    type: File
-    outputSource: md5checksums/OUT_genomic_gff
-  final_others:
-    type: File[]
-    outputSource: md5checksums/OUT_others
+outputs: []
+#  final_extract:
+#    type: File
+#    outputSource: md5checksums/OUT_extract
+#  final_check:
+#    type: File
+#    outputSource: md5checksums/OUT_check
+#  final_genomic_fasta:
+#    type: File
+#    outputSource: md5checksums/OUT_genomic_fasta
+#  final_genomic_gff:
+#    type: File
+#    outputSource: md5checksums/OUT_genomic_gff
+#  final_others:
+#    type: File[]
+#    outputSource: md5checksums/OUT_others

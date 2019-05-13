@@ -10,44 +10,39 @@ requirements:
 inputs:
   HOME: string[]
   in_tree: string[]
-  in_md5checksums: File
-  in_extract: File
-  in_check: File
   in_genomic_fasta: File
   in_genomic_gff: File
   in_others: File[]
+  in_apollo2: Diectory
 
 steps:
-  setup_folder_structure:
-    run: tree.cwl
-    in:
-      HOME: HOME
-      in_tree: in_tree
-    out: []
-  #To other_species
-  2other_species: 
-    run: 2other_species/workflow.cwl
+  cp_genomic_fasta:
+    run: cp_genomic_fasta.cwl
     in:
       HOME: HOME
       in_tree: in_tree
       in_genomic_fasta: in_genomic_fasta
-      in_genomic_gff: in_genomic_gff
-      in_others: in_others
     out: []
-  #To working_files
-  2working_files:
-    run: 2working_files/workflow.cwl
+  cp_genomic_gff:
+    run: cp_genomic_gff.cwl
     in:
       HOME: HOME
       in_tree: in_tree
-      in_md5checksums: in_md5checksums
-      in_extract: in_extract
-      in_check: in_check
-    out: [] 
-  #To blat/db/
-  #2blat:
-  
+      in_genomic_gff: in_genomic_gff
+    out: []
+  cp_others:
+    run: cp_others.cwl
+    in:
+      HOME: HOME
+      in_tree: in_tree
+      in_others: in_others
+    out: []
+  cp_apollo2:
+    run: cp_apollo2.cwl
+    in:
+      HOME: HOME
+      in_tree: in_tree
+      in_apollo2: in_apollo2
+    out: []
+
 outputs: []
-#  OUT_dir:
-#    type: Directory
-#    outputSource: others/out_dir
