@@ -18,14 +18,14 @@ steps:
     in:
       in_fasta: in_fasta
     out:
-      [out_wildcard_2bi] 
+      [out_2bi] 
   #step 42
   samtools_faidx:
     run: samtools_faidx.cwl
     in:
       in_fasta: in_fasta
     out:
-      [out_wildcard_fai]  
+      [out_fai]  
   #step 43
   prepare-refseqs:
     run: prepare-refseqs.cwl
@@ -51,17 +51,7 @@ steps:
       in_tracks: flatfile-to-json/out_tracks
     out:
       [out_names]
-  #Last
-  wrapping:
-    run: wrapping.cwl
-    in:
-       
-    out:
-      [out_dir]
 outputs: 
-  OUT_dir:
-    type: Directory
-    outputSource: wrapping/out_dir
   OUT_2bi:
     type: File
     outputSource: faToTwoBit/out_wildcard_2bi

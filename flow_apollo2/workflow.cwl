@@ -12,11 +12,6 @@ inputs:
   in_fasta: File
 
 steps:
-  setup_folder:
-    run: tree.cwl
-    in: []
-    out:
-      [out_dir]
   processing:
     run: processing/workflow.cwl
     in:
@@ -25,15 +20,23 @@ steps:
       in_fasta: in_fasta
     out:
       [
-        
+        out_seq,
+        out_tracks_conf,
+        out_trackList_json,
+        out_tracks,
+        out_names 
       ]
   wrapping:
     run: wrapping/workflow.cwl
     in:      
+      in_seq: processing/out_seq
+      in_tracks_conf: processing/out_tracks_conf
+      in_trackList_json: processing/out_trackList_json
+      in_tracks: processing/out_tracks
+      in_names: processing/out_names
     out:
-
+      [out_dir]
 outputs: 
   OUT_dir:
     type: Directory
-    outputSource: setup_folder/out_dir
-     
+    outputSource: wrapping/out_dir
