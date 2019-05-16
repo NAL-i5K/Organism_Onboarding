@@ -31,10 +31,10 @@ steps:
     run: prepare-refseqs.cwl
     in:
       in_fasta: in_fasta
-      in_fai: samtools_faidx/out_wildcard_fai
+      in_fai: samtools_faidx/out_fai
     out: 
       [out_trackList_json, out_seq, out_tracks_conf] 
-  #step 44
+  #step 44, different gff ??????
   flatfile-to-json:
     run: flatfile-to-json.cwl
     in:
@@ -47,12 +47,26 @@ steps:
   generate-names:
     run: generate-names.cwl
     in:
-      in_tree: in_tree
       in_tracks: flatfile-to-json/out_tracks
     out:
       [out_names]
+
 outputs: 
-  OUT_2bi:
+  out_2bi:
     type: File
-    outputSource: faToTwoBit/out_wildcard_2bi
-     
+    outputSource: faToTwoBit/out_2bi
+  out_seq:
+    type: Directory
+    outputSource: prepare-refseqs/out_seq
+  out_tracks_conf:
+    type: File
+    outputSource: prepare-refseqs/out_tracks_conf
+  out_trackList_json:
+    type: File
+    outputSource: prepare-refseqs/out_trackList_json
+  out_tracks:
+    type: Directory
+    outputSource: flatfile-to-json/out_tracks
+  out_names:
+    type: Directory
+    outputSource: generate-names/out_names

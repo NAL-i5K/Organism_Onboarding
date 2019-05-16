@@ -37,11 +37,9 @@ arguments:
     valueFrom: $(inputs.in_tree[0])_annotation
   - position: 15
     prefix: --out
-    valueFrom: jbrowse/data/
+    valueFrom: data/
     
 inputs:
-  in_dir:
-    type: Directory 
   in_tree:
     type: string[]
   in_gff:
@@ -50,15 +48,11 @@ inputs:
     type: File
 
 outputs: 
-  out_dir:
-    type: Directory
-    outputBinding:
-      glob: 'jbrowse/data'
   out_trackList_json:
     type: File
     outputBinding: 
-      glob: jbrowse/data/trackList.json
+      glob: 'data/trackList.json'
   out_tracks:
     type: Directory
     outputBinding: 
-      glob: jbrowse/data/tracks/
+      glob: 'data/tracks/'

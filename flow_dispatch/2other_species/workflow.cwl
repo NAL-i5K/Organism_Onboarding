@@ -13,7 +13,7 @@ inputs:
   in_genomic_fasta: File
   in_genomic_gff: File
   in_others: File[]
-  in_apollo2: Diectory
+  in_apollo2: Directory
 
 steps:
   cp_genomic_fasta:

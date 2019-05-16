@@ -8,41 +8,31 @@ requirements:
   - class: InlineJavascriptRequirement
 
 inputs:
-  HOME: string[]
-  in_tree: string[]
-  in_genomic_fasta: File
-  in_genomic_gff: File
-  in_others: File[]
-  in_apollo2: Diectory
+  in_seq: Directory
+  in_tracks_conf: File
+  in_trackList_json: File
+  in_tracks: Directory
+  in_names: Directory
 
 steps:
-  cp_genomic_fasta:
-    run: cp_genomic_fasta.cwl
+  setup_folder:
+    run: tree.cwl
+    in: []
+    out:
+      [out_dir]
+  cp:
+    run: cp.cwl
     in:
-      HOME: HOME
-      in_tree: in_tree
-      in_genomic_fasta: in_genomic_fasta
-    out: []
-  cp_genomic_gff:
-    run: cp_genomic_gff.cwl
-    in:
-      HOME: HOME
-      in_tree: in_tree
-      in_genomic_gff: in_genomic_gff
-    out: []
-  cp_others:
-    run: cp_others.cwl
-    in:
-      HOME: HOME
-      in_tree: in_tree
-      in_others: in_others
-    out: []
-  cp_apollo2:
-    run: cp_apollo2.cwl
-    in:
-      HOME: HOME
-      in_tree: in_tree
-      in_apollo2: in_apollo2
-    out: []
+      in_dir: setup_folder/out_dir
+      in_seq: in_seq
+      in_tracks_conf: in_tracks_conf
+      in_trackList_json: in_trackList_json
+      in_tracks: in_tracks
+      in_names: in_names
+    out: 
+      [out_dir]
 
-outputs: []
+outputs: 
+  out_dir:
+    type: Directory
+    outputSource: cp/out_dir

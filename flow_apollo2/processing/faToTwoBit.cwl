@@ -24,7 +24,7 @@ inputs:
     type: File
 
 outputs: 
-  out_wildcard_2bi:
+  out_2bi:
     type: File
     outputBinding:
       glob: '*.2bi'

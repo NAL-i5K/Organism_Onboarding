@@ -20,6 +20,7 @@ steps:
       in_fasta: in_fasta
     out:
       [
+        out_2bi,
         out_seq,
         out_tracks_conf,
         out_trackList_json,
@@ -36,7 +37,11 @@ steps:
       in_names: processing/out_names
     out:
       [out_dir]
+
 outputs: 
+  OUT_2bi:
+    type: File
+    outputSource: processing/out_2bi
   OUT_dir:
     type: Directory
     outputSource: wrapping/out_dir

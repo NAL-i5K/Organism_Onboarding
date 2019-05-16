@@ -14,12 +14,12 @@ requirements:
 
 baseCommand: [generate-names.pl]
 
-$namespaces:
-  cwltool: "http://commonwl.org/cwltool#"
+#$namespaces:
+#  cwltool: "http://commonwl.org/cwltool#"
 
-hints:
-  cwltool:LoadListingRequirement:
-    loadListing: shallow_listing
+#hints:
+#  cwltool:LoadListingRequirement:
+#    loadListing: shallow_listing
 
 arguments: 
   - position: 1
@@ -31,12 +31,13 @@ arguments:
 #    prefix: --tracks
     
 inputs:
-  in_tree:
-    type: string[]
+#  in_tree:
+#    type: string[]
   in_tracks:
     type: Directory
+
 outputs:
   out_names:
     type: Directory
     outputBinding: 
-      glob: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data/names/
+      glob: 'data/names/'

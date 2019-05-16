@@ -24,7 +24,7 @@ inputs:
     type: File
 
 outputs: 
-  out_wildcard_fai:
+  out_fai:
     type: File
     outputBinding: 
       glob: '*.fai'

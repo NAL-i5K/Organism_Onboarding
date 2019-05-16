@@ -58,10 +58,6 @@ steps:
     out:
       [OUT_dir, OUT_2bi]
   
-  #django_app:
-  #BLAST, hmmer.....
-  #All the operations we do on admin page. Turn into script method, worked contributed by deming
-  
   dispatch:
     run: flow_dispatch/workflow.cwl
     in:
@@ -76,6 +72,12 @@ steps:
       in_apollo2: apollo2/OUT_dir
     out:
       []
+  
+#  apollo2_createOrganism:
+#    run: createOrganism.cwl
+
+  #django_app:
+  #BLAST, hmmer.....
 
 outputs: []
 #  final_extract:
