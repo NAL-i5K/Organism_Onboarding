@@ -1,11 +1,11 @@
 #!/bin/sh
 
-#We assuming that data wrangler has two things already install
+#Assuming that data wrangler has two things already install
 #1. python 
 #2. pip
 
 echo "[Step1.] Clone all the remote repos to local"
-git clone https://github.com/r06942072/pro_emoji.git
+#git clone https://github.com/r06942072/pro_emoji.git
 
 echo
 echo "[Step2.] Installing pipenv for python environment"
