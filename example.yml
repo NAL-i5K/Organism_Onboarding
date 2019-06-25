@@ -22,15 +22,15 @@ Genus,
 Species
 ]
 #######################################################################
-in_url_md5checksums: [
+url_md5checksums: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/335/185/GCA_003335185.2_ASM333518v2/md5checksums.txt
 ]
 #######################################################################
-in_url_genomic_fasta: [
+url_genomic_fasta: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/335/185/GCA_003335185.2_ASM333518v2/GCA_003335185.2_ASM333518v2_genomic.fna.gz
 ]
 #######################################################################
-in_url_genomic_gff: [
+url_genomic_gff: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/335/185/GCA_003335185.2_ASM333518v2/GCA_003335185.2_ASM333518v2_genomic.gff.gz
 ]
 #######################################################################
@@ -39,7 +39,7 @@ ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/335/185/GCA_003335185.2_ASM333518
 #Protein fasta(_translated_cds*)
 #CDS fasta
 #RNA fasta
-in_url_others: [
+url_others: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/335/185/GCA_003335185.2_ASM333518v2/GCA_003335185.2_ASM333518v2_translated_cds.faa.gz,
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/335/185/GCA_003335185.2_ASM333518v2/GCA_003335185.2_ASM333518v2_cds_from_genomic.fna.gz,
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/335/185/GCA_003335185.2_ASM333518v2/GCA_003335185.2_ASM333518v2_rna_from_genomic.fna.gz
