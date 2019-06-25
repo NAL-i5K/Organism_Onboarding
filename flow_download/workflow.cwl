@@ -7,31 +7,31 @@ requirements:
   - class: InlineJavascriptRequirement
 
 inputs:
-  in_url_md5checksums: string[]
-  in_url_genomic_fasta: string[]
-  in_url_genomic_gff: string[]
-  in_url_others: string[]
+  url_md5checksums: string[]
+  url_genomic_fasta: string[]
+  url_genomic_gff: string[]
+  url_others: string[]
 
 steps:
   wget_md5checksums:
     run: wget_single.cwl
     in:
-      in_url: in_url_md5checksums
+      in_url: url_md5checksums
     out: [out_wget]
   wget_genomic_fasta:
     run: wget_single.cwl
     in:
-      in_url: in_url_genomic_fasta
+      in_url: url_genomic_fasta
     out: [out_wget]
   wget_genomic_gff:
     run: wget_single.cwl
     in:
-      in_url: in_url_genomic_gff
+      in_url: url_genomic_gff
     out: [out_wget]
   wget_others:
     run: wget_multi.cwl
     in:
-      in_url: in_url_others
+      in_url: url_others
     out: [out_wget]
    
 outputs:  

@@ -10,10 +10,10 @@ requirements:
 inputs:
   HOME: string[]
   in_tree: string[]
-  in_url_md5checksums: string[]
-  in_url_genomic_fasta: string[]
-  in_url_genomic_gff: string[]
-  in_url_others: string[]
+  url_md5checksums: string[]
+  url_genomic_fasta: string[]
+  url_genomic_gff: string[]
+  url_others: string[]
   in_host: string[]
   in_login_apollo2: string[] 
 
@@ -21,10 +21,10 @@ steps:
   download:
     run: flow_download/workflow.cwl
     in:
-      in_url_md5checksums: in_url_md5checksums
-      in_url_genomic_fasta: in_url_genomic_fasta
-      in_url_genomic_gff: in_url_genomic_gff
-      in_url_others: in_url_others
+      url_md5checksums: url_md5checksums
+      url_genomic_fasta: url_genomic_fasta
+      url_genomic_gff: url_genomic_gff
+      url_others: url_others
     out:
       [OUT_md5checksums,   #'*.txt'
        OUT_genomic_fasta,  #'*.gz'
