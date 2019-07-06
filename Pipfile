@@ -7,6 +7,7 @@ verify_ssl = true
 
 [packages]
 cwltool = "*"
+cwlref-runner = "*"
 
 [requires]
 python_version = "2.7"
