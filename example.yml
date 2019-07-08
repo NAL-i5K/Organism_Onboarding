@@ -1,11 +1,16 @@
 #example yml file for specific organism
 
 #HOME variable is about PATH config on the server
-#DATA_HOME is the root PATH to store data 
-#BLAT_HOME is the root PATH to store blat
-HOME: [
-/app/data,
-/usr/local
+PATH_HOME: [
+/app/data,  #DATA_HOME is the root PATH to store data 
+/usr/local  #BLAT_HOME is the root PATH to store blat
+]
+#######################################################################
+PATH_dispatch2other_species: [
+
+]
+PATH_dispatch2working_files: [
+
 ]
 #######################################################################
 #gggsss
