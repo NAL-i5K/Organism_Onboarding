@@ -8,33 +8,34 @@ requirements:
   - class: InlineJavascriptRequirement
 
 inputs:
-  HOME: string[]
+  in_dummy: File
+  PATH: string[]
   in_tree: string[]
   in_md5checksums: File
   in_extract: File
   in_check: File
-
+  
 steps:
   cp_md5checksums:
-    run: cp_md5checksums.cwl
+    run: cp_file.cwl
     in:
-      HOME: HOME
+      PATH: PATH
       in_tree: in_tree
-      in_md5checksums: in_md5checksums
+      in_data: in_md5checksums
     out: []
   cp_extract:
-    run: cp_extract.cwl
+    run: cp_file.cwl
     in:
-      HOME: HOME
+      PATH: PATH
       in_tree: in_tree
-      in_extract: in_extract
+      in_data: in_extract
     out: []
   cp_check:
-    run: cp_check.cwl
+    run: cp_file.cwl
     in:
-      HOME: HOME
+      PATH: PATH
       in_tree: in_tree
-      in_check: in_check
+      in_data: in_check
     out: []
 
 outputs: []

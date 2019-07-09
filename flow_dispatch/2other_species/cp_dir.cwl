@@ -12,14 +12,7 @@ requirements:
 baseCommand: [cp]
 arguments: 
   - position: 1
-    valueFrom: ${
-      var dataset = (inputs.in_data);
-      var list = [];
-      for(var i=0; i<=dataset.length; i++) {
-        list.push(dataset[i].basename);
-      }
-      return list;
-    }
+    valueFrom: $(inputs.in_data.basename)
   - position: 3
     valueFrom: $(inputs.PATH[0])/$(inputs.in_tree[0])/$(inputs.in_tree[1])/$(inputs.deepPATH[0])/
 
@@ -31,6 +24,6 @@ inputs:
   deepPATH:
     type: string[]
   in_data:
-    type: File[]
+    type: Directory
 
 outputs: []

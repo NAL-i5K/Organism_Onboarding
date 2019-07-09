@@ -6,6 +6,7 @@ requirements:
   - class: SubworkflowFeatureRequirement
   - class: MultipleInputFeatureRequirement
   - class: InlineJavascriptRequirement
+  - class: ScatterFeatureRequirement
 
 inputs:
   in_dummy: File
@@ -15,12 +16,13 @@ inputs:
   in_genomic_fasta: File
   deepPATH_genomic_gff: string[]
   in_genomic_gff: File
-  #in_others: File[]
+  deepPATH_others: string[]
+  in_others: File[]
   #in_apollo2: Directory
 
 steps:
   cp_genomic_fasta:
-    run: cp_single.cwl
+    run: cp_file.cwl
     in:
       PATH: PATH
       in_tree: in_tree
@@ -28,26 +30,27 @@ steps:
       in_data: in_genomic_fasta
     out: []
   cp_genomic_gff:
-    run: cp_single.cwl
+    run: cp_file.cwl
     in:
       PATH: PATH
       in_tree: in_tree
       deepPATH: deepPATH_genomic_gff
       in_data: in_genomic_gff
     out: []
-  #cp_others:
-   # run: cp_others.cwl
-  #  in:
-  #    HOME: HOME
-  #    in_tree: in_tree
-  #    in_others: in_others
-  #  out: []
+  cp_others:
+    run: cp_file.cwl
+    scatter: in_data
+    in:
+      PATH: PATH
+      in_tree: in_tree
+      deepPATH: deepPATH_others
+      in_data: in_others
+    out: []
+
   #cp_apollo2:
-  #  run: cp_apollo2.cwl
+  #  run: cp_dir.cwl
   #  in:
   #    HOME: HOME
-  #    in_tree: in_tree
-  #    in_apollo2: in_apollo2
   #  out: []
 
 outputs: []

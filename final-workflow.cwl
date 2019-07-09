@@ -15,6 +15,7 @@ inputs:
   in_tree: string[]
   deepPATH_genomic_fasta: string[]
   deepPATH_genomic_gff: string[]
+  deepPATH_others: string[]
   #in_host: string[]
   #in_login_apollo2: string[]
 
@@ -64,15 +65,17 @@ steps:
     in:
       PATH: PATH
       in_tree: in_tree
-      in_genomic_fasta: md5checksums/OUT_genomic_fasta
       deepPATH_genomic_fasta: deepPATH_genomic_fasta
-      in_genomic_gff: md5checksums/OUT_genomic_gff
+      in_genomic_fasta: md5checksums/OUT_genomic_fasta
       deepPATH_genomic_gff: deepPATH_genomic_gff
-  #    in_md5checksums: download/OUT_md5checksums
-  #    in_extract: md5checksums/OUT_extract
-  #    in_check: md5checksums/OUT_check  
-  #    in_others: md5checksums/OUT_others
-  #    in_apollo2: apollo2/OUT_dir
+      in_genomic_gff: md5checksums/OUT_genomic_gff
+      deepPATH_others: deepPATH_others
+      in_others: md5checksums/OUT_others
+      #in_apollo2: apollo2/OUT_dir
+      in_md5checksums: download/OUT_md5checksums
+      in_extract: md5checksums/OUT_extract
+      in_check: md5checksums/OUT_check
+      #in_2bi: apollo2/OUT_2bi
     out:
       []
   
