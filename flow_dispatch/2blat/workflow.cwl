@@ -8,13 +8,13 @@ requirements:
   - class: InlineJavascriptRequirement
 
 inputs:
-  in_dummy: File
+  in_dir: Directory
   PATH: string[]
   in_tree: string[]
-  deepPATH_genomic_fasta: string[]
   in_genomic_fasta: File
-  deepPATH_genomic_gff: string[]
+  deepPATH_genomic_fasta: string[]
   in_genomic_gff: File
+  deepPATH_genomic_gff: string[]
   #in_others: File[]
   #in_apollo2: Directory
 
@@ -24,19 +24,19 @@ steps:
     in:
       PATH: PATH
       in_tree: in_tree
-      deepPATH: deepPATH_genomic_fasta
       in_data: in_genomic_fasta
+      deepPATH: deepPATH_genomic_fasta
     out: []
   cp_genomic_gff:
     run: cp_single.cwl
     in:
       PATH: PATH
       in_tree: in_tree
-      deepPATH: deepPATH_genomic_gff
       in_data: in_genomic_gff
+      deepPATH: deepPATH_genomic_gff
     out: []
   #cp_others:
-   # run: cp_others.cwl
+  #  run: cp_others.cwl
   #  in:
   #    HOME: HOME
   #    in_tree: in_tree

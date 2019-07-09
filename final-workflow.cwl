@@ -1,5 +1,4 @@
 #!/usr/bin/env cwl-runner
-
 cwlVersion: v1.0
 class: Workflow
 requirements:
@@ -8,14 +7,16 @@ requirements:
   - class: InlineJavascriptRequirement
 
 inputs:
-  HOME: string[]
-  in_tree: string[]
   url_md5checksums: string[]
   url_genomic_fasta: string[]
   url_genomic_gff: string[]
   url_others: string[]
-  in_host: string[]
-  in_login_apollo2: string[] 
+  PATH: string[]
+  in_tree: string[]
+  deepPATH_genomic_fasta: string[]
+  deepPATH_genomic_gff: string[]
+  #in_host: string[]
+  #in_login_apollo2: string[]
 
 steps:
   download:
@@ -48,28 +49,30 @@ steps:
 
   #verify:
   #fasta_diff,gff3_QC......
-  
-  apollo2:
-    run: flow_apollo2/workflow.cwl
-    in:
-      in_tree: in_tree
-      in_fasta: md5checksums/OUT_genomic_fasta
-      in_gff: md5checksums/OUT_genomic_gff
-    out:
-      [OUT_dir, OUT_2bi]
+
+  #apollo2:
+  #  run: flow_apollo2/workflow.cwl
+  #  in:
+  #    in_tree: in_tree
+  #    in_fasta: md5checksums/OUT_genomic_fasta
+  #    in_gff: md5checksums/OUT_genomic_gff
+  #  out:
+  #    [OUT_dir, OUT_2bi]
   
   dispatch:
     run: flow_dispatch/workflow.cwl
     in:
-      HOME: HOME
+      PATH: PATH
       in_tree: in_tree
-      in_md5checksums: download/OUT_md5checksums
-      in_extract: md5checksums/OUT_extract
-      in_check: md5checksums/OUT_check
       in_genomic_fasta: md5checksums/OUT_genomic_fasta
+      deepPATH_genomic_fasta: deepPATH_genomic_fasta
       in_genomic_gff: md5checksums/OUT_genomic_gff
-      in_others: md5checksums/OUT_others
-      in_apollo2: apollo2/OUT_dir
+      deepPATH_genomic_gff: deepPATH_genomic_gff
+  #    in_md5checksums: download/OUT_md5checksums
+  #    in_extract: md5checksums/OUT_extract
+  #    in_check: md5checksums/OUT_check  
+  #    in_others: md5checksums/OUT_others
+  #    in_apollo2: apollo2/OUT_dir
     out:
       []
   
@@ -79,7 +82,8 @@ steps:
   #django_app:
   #BLAST, hmmer.....
 
-outputs: []
+outputs:
+  []
 #  final_extract:
 #    type: File
 #    outputSource: md5checksums/OUT_extract

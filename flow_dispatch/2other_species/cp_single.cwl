@@ -7,21 +7,23 @@ requirements:
   - class: InlineJavascriptRequirement
   - class: InitialWorkDirRequirement
     listing: 
-      - $(inputs.in_genomic_gff)
-
+      - $(inputs.in_data)
+  
 baseCommand: [cp]
 arguments: 
   - position: 1
-    valueFrom: $(inputs.in_genomic_gff.basename)
+    valueFrom: $(inputs.in_data.basename)
   - position: 3
-    valueFrom: $(inputs.HOME[0])/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/scaffold/analyses/$(inputs.in_tree[2])/
-  
+    valueFrom: $(inputs.PATH[0])/$(inputs.in_tree[0])/$(inputs.in_tree[1])/$(inputs.deepPATH[0])/
+
 inputs: 
-  HOME:
+  PATH:
     type: string[]
   in_tree:
     type: string[]
-  in_genomic_gff:
+  deepPATH:
+    type: string[]
+  in_data:
     type: File
-      
+
 outputs: []
