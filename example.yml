@@ -1,5 +1,6 @@
 #example yml file for specific organism
 
+#The full path look like this:
 #[PATH]/$(inputs.in_tree[0])/$(inputs.in_tree[1])/$(inputs.in_tree[2])
 #[PATH]/$(inputs.in_tree[0])/$(inputs.in_tree[1])/[deepPATH]
 #-------------------------------------------------------------------------------
