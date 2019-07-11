@@ -1,19 +1,16 @@
 
 # CWL, Common-Workflow-Language 
 ##  Ultimate goal :+1:
-- finish all works with only one single command
-```
-cwl-runner final-workflow.cwl job-[gggsss].yml
-```
+- finish all works with only one single ```cwl-runner``` command
 
 ## Prerequisite
 - python 2.7 and 3.x {x = 4, 5, 6, 7}
 - a text editor
 
 ## Quick start
-- Step1.
+- Step1. 
 ```
-pip install cwlref-runner
+./setup.sh
 ```
 
 - Step2.  
@@ -21,7 +18,7 @@ Create a file named **job-[gggsss].yml** for the specific organism. Take **examp
 
 - Step3.  
 ```
-cwl-runner final-workflow.cwl --enable-ext job-[gggsss].yml &> [gggsss].CWLlog
+cwl-runner --enable-ext final-workflow.cwl job-[gggsss].yml &> [gggsss].CWLlog
 ```
 
 - Step4.  

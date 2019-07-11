@@ -1,36 +1,61 @@
-#============================================
-#in_tree:
-#gggsss
-#Assemblyname
-#OGS-folder-name
-#Genus name
-#Species name
+#example yml file for specific organism
+
+#The full path look like this:
+#[PATH]/$(inputs.in_tree[0])/$(inputs.in_tree[1])/$(inputs.in_tree[2])
+#[PATH]/$(inputs.in_tree[0])/$(inputs.in_tree[1])/[deepPATH]
+#-------------------------------------------------------------------------------
+PATH: [
+/app/data/other_species,
+/app/data/working_files,
+/usr/local/blat/db
+]
+#-------------------------------------------------------------------------------
 in_tree: [
 gggsss,
 AssemblyName,
-FolderName,
-Genus,
-Species
+scaffold/analyses/Foldername
 ]
-genomic_fasta_seq_type: nucleotide Genome assembly
-in_wget_genomic: [
-ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/335/185/GCA_003335185.2_ASM333518v2/md5checksums.txt,
-ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/335/185/GCA_003335185.2_ASM333518v2/GCA_003335185.2_ASM333518v2_genomic.fna.gz,
-ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/335/185/GCA_003335185.2_ASM333518v2/GCA_003335185.2_ASM333518v2_genomic.gff.gz
+#-------------------------------------------------------------------------------
+url_md5checksums: [
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/md5checksums.txt
 ]
+#-------------------------------------------------------------------------------
+deepPATH_genomic_fasta: [
+scaffold
+]
+url_genomic_fasta: [
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_genomic.fna.gz
+]
+#-------------------------------------------------------------------------------
+deepPATH_genomic_gff: [
+scaffold/analyses/Apis_mellifera_Annotation_100
+]
+url_genomic_gff: [
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_genomic.gff.gz
+]
+#-------------------------------------------------------------------------------
+#The rest urls
+#For example,
 #Protein fasta(_translated_cds*)
 #CDS fasta
 #RNA fasta
-in_wget_others: [
-ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/335/185/GCA_003335185.2_ASM333518v2/md5checksums.txt,
-ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/335/185/GCA_003335185.2_ASM333518v2/GCA_003335185.2_ASM333518v2_translated_cds.faa.gz,
-ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/335/185/GCA_003335185.2_ASM333518v2/GCA_003335185.2_ASM333518v2_cds_from_genomic.fna.gz,
-ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/335/185/GCA_003335185.2_ASM333518v2/GCA_003335185.2_ASM333518v2_rna_from_genomic.fna.gz
+deepPATH_others: [
+scaffold/analyses/Apis_mellifera_Annotation_100
 ]
-in_host: https://apollo-dev.nal.usda.gov
+url_others: [
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_translated_cds.faa.gz,
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_cds_from_genomic.fna.gz,
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_rna_from_genomic.fna.gz
+]
+#-------------------------------------------------------------------------------
+#in_host: 'https://apollo-dev.nal.usda.gov'
+#-------------------------------------------------------------------------------
+#authentication in apollo
 #username
 #password
 in_login_apollo2: [
 example@ars.usda.gov,
-thisismypasswordandiknowitissuperlong
+ExamplePassword
 ]
+#-------------------------------------------------------------------------------
+genomic_fasta_seq_type: nucleotide Genome assembly

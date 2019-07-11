@@ -1,5 +1,4 @@
 #!/usr/bin/env cwl-runner
-
 cwlVersion: v1.0
 class: Workflow
 requirements:
@@ -8,80 +7,98 @@ requirements:
   - class: InlineJavascriptRequirement
 
 inputs:
+  url_md5checksums: string[]
+  url_genomic_fasta: string[]
+  url_genomic_gff: string[]
+  url_others: string[]
+  PATH: string[]
   in_tree: string[]
-  in_wget_genomic: string[]
-  in_wget_others: string[]
-  in_host: string
-  in_login_apollo2: string[] 
+  deepPATH_genomic_fasta: string[]
+  deepPATH_genomic_gff: string[]
+  deepPATH_others: string[]
+  #in_host: string[]
+  #in_login_apollo2: string[]
 
 steps:
-  setup_tree:
-    run: tree.cwl
+  download:
+    run: flow_download/workflow.cwl
     in:
-      in_tree: in_tree 
+      url_md5checksums: url_md5checksums
+      url_genomic_fasta: url_genomic_fasta
+      url_genomic_gff: url_genomic_gff
+      url_others: url_others
     out:
-      [out_dir]
-  download_genomic:
-    run: flow_download_genomic/workflow.cwl
+      [OUT_md5checksums,   #'*.txt'
+       OUT_genomic_fasta,  #'*.gz'
+       OUT_genomic_gff,    #'*.gz'
+       OUT_others]         #'*.gz'
+  md5checksums:
+    run: flow_md5checksums/workflow.cwl
     in:
-      in_wget_genomic: in_wget_genomic
+      in_md5checksums: download/OUT_md5checksums
+      in_genomic_fasta: download/OUT_genomic_fasta
+      in_genomic_gff: download/OUT_genomic_gff
+      in_others: download/OUT_others
     out:
-      [OUT_genomic_fasta,
-       OUT_genomic_gff,
-       OUT_txt, #original md5checksum
-       OUT_txt2, #extracted form of md5checksum
-       OUT_check_log] #log for execution of md5sum -c
-  download_others: 
-    run: flow_download_others/workflow.cwl
-    in:
-      in_wget_others: in_wget_others
-    out:
-      [OUT_others]
-  copy2data:
-    run: flow_copy2data/workflow.cwl  
-    in:
-      in_dir: setup_tree/out_dir
-      in_tree: in_tree
-      #To other_species
-      in_fasta: download_genomic/OUT_genomic_fasta
-      in_gff: download_genomic/OUT_genomic_gff
-      #To working_files
-      in_txt: download_genomic/OUT_txt
-      in_txt2: download_genomic/OUT_txt2
-      in_check_log: download_genomic/OUT_check_log
-      in_others: download_others/OUT_others
-    out: 
-      [OUT_dir]
-  apollo2:
-    run: flow_apollo2/workflow.cwl
-    in:
-      in_dir: copy2data/OUT_dir
-      in_tree: in_tree
-      in_gff: download_genomic/OUT_genomic_gff
-      in_fasta: download_genomic/OUT_genomic_fasta
-    out: 
-      [OUT_dir, OUT_2bi]
-  copy2apollo-dev:
-    run: flow_copy2apollo-dev/workflow.cwl
-    in:
-      in_dir: apollo2/OUT_dir
-      in_tree: in_tree
-    out: []
-  createOrganism:
-    run: createOrganism.cwl
-    in:  
-      in_dir: apollo2/OUT_dir
-      in_tree: in_tree
-      in_2bi: apollo2/OUT_2bi
-      in_host: in_host
-      in_login_apollo2: in_login_apollo2
-    out:
-      [out_createOrganism_log]
+      [
+       OUT_extract,  #'*.txt2', extracted from *.txt
+       OUT_check,    #'*.log', log file for execution of md5sum -c
+       OUT_genomic_fasta, #'*.fa, '*.fna', '*.faa'
+       OUT_genomic_gff,   #'*.gff', '*.gff3'
+       OUT_others 
+      ]
 
-  # The flow for BLAST setup 
-  # python manage.py addOrganism AAA BBB CCC 
+  #verify:
+  #fasta_diff,gff3_QC......
+
+  #apollo2:
+  #  run: flow_apollo2/workflow.cwl
+  #  in:
+  #    in_tree: in_tree
+  #    in_fasta: md5checksums/OUT_genomic_fasta
+  #    in_gff: md5checksums/OUT_genomic_gff
+  #  out:
+  #    [OUT_dir, OUT_2bi]
+  
+  dispatch:
+    run: flow_dispatch/workflow.cwl
+    in:
+      PATH: PATH
+      in_tree: in_tree
+      deepPATH_genomic_fasta: deepPATH_genomic_fasta
+      in_genomic_fasta: md5checksums/OUT_genomic_fasta
+      deepPATH_genomic_gff: deepPATH_genomic_gff
+      in_genomic_gff: md5checksums/OUT_genomic_gff
+      deepPATH_others: deepPATH_others
+      in_others: md5checksums/OUT_others
+      #in_apollo2: apollo2/OUT_dir
+      in_md5checksums: download/OUT_md5checksums
+      in_extract: md5checksums/OUT_extract
+      in_check: md5checksums/OUT_check
+      #in_2bi: apollo2/OUT_2bi
+    out:
+      []
+  
+#  apollo2_createOrganism:
+#    run: createOrganism.cwl
+
+  #django_app:
+  #BLAST, hmmer.....
 
 outputs:
-  final_dir:
-    type: Directory
-    outputSource: apollo2/OUT_dir
+  []
+#  final_extract:
+#    type: File
+#    outputSource: md5checksums/OUT_extract
+#  final_check:
+#    type: File
+#    outputSource: md5checksums/OUT_check
+#  final_genomic_fasta:
+#    type: File
+#    outputSource: md5checksums/OUT_genomic_fasta
+#  final_genomic_gff:
+#    type: File
+#    outputSource: md5checksums/OUT_genomic_gff
+#  final_others:
+#    type: File[]
+#    outputSource: md5checksums/OUT_others
