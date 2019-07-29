@@ -7,10 +7,7 @@ requirements:
   - class: InlineJavascriptRequirement
   - class: InitialWorkDirRequirement
     listing: 
-      ${
-        var LIST = [(inputs.in_fasta)];
-        return LIST;
-      }
+      - entry: $(inputs.in_fasta)
 
 baseCommand: [gap2bigwig.py]
 arguments: 

@@ -74,7 +74,7 @@ steps:
       [out_trackList_json]
   #step 9
   add-bw-track_gc:
-    run: add-bw-track_gaps.cwl
+    run: add-bw-track_gc.cwl
     in:
       in_gc_bigwig: GCcontent2bigwig/out_gc_bigwig
       in_trackList_json: add-bw-track_gaps/out_trackList_json
@@ -90,30 +90,30 @@ steps:
       [out_trackList_json, out_trackList_json_bak]
 
 outputs: 
-  out_2bi:
+  OUT_2bi:
     type: File
     outputSource: faToTwoBit/out_2bi
-  out_seq:
+  OUT_seq:
     type: Directory
     outputSource: prepare-refseqs/out_seq
-  out_tracks_conf:
+  OUT_tracks_conf:
     type: File
     outputSource: prepare-refseqs/out_tracks_conf
-  out_tracks:
+  OUT_tracks:
     type: Directory
     outputSource: flatfile-to-json/out_tracks
-  out_names:
+  OUT_names:
     type: Directory
     outputSource: generate-names/out_names
-  out_gaps_bigwig:
+  OUT_gaps_bigwig:
     type: File
     outputSource: gap2bigwig/out_gaps_bigwig
-  out_gc_bigwig:
+  OUT_gc_bigwig:
     type: File
     outputSource: GCcontent2bigwig/out_gc_bigwig
-  out_trackList_json:
+  OUT_trackList_json:
     type: File
     outputSource: add_metadata/out_trackList_json
-  out_trackList_json_bak:
+  OUT_trackList_json_bak:
     type: File
     outputSource: add_metadata/out_trackList_json_bak     

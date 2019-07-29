@@ -58,7 +58,16 @@ steps:
       in_fasta: md5checksums/OUT_genomic_fasta
       in_gff: md5checksums/OUT_genomic_gff
     out:
-      [OUT_2bi]
+      [OUT_2bi,
+      OUT_seq,
+      OUT_tracks_conf,
+      OUT_tracks,
+      OUT_names,
+      OUT_gaps_bigwig,
+      OUT_gc_bigwig,
+      OUT_trackList_json,
+      OUT_trackList_json_bak,
+      ]
   
   dispatch:
     run: flow_dispatch/workflow.cwl
@@ -74,10 +83,11 @@ steps:
       in_md5checksums: download/OUT_md5checksums
       in_extract: md5checksums/OUT_extract
       in_check: md5checksums/OUT_check
-      #in_seq: apollo2_data_processing/OUT_XX
-      #in_tracksconf: apollo2_data_processing/OUT_XX
+      #in_2bi: apollo2_data_processing//OUT_2bi
+      #in_seq: apollo2_data_processing/OUT_2bi
+      #in_tracks_conf: apollo2_data_processing/OUT_tracks_conf
+      #in_XX: apollo2_data_processing/OUT_XX
       
-      #in_2bi: apollo2/OUT_2bi
     out:
       []
   
