@@ -27,12 +27,8 @@ arguments:
   - position: 3
     prefix: --out
     valueFrom: data/
-#  - position: 5
-#    prefix: --tracks
     
 inputs:
-#  in_tree:
-#    type: string[]
   in_tracks:
     type: Directory
 

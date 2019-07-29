@@ -51,14 +51,14 @@ steps:
   #verify:
   #fasta_diff,gff3_QC......
 
-  #apollo2:
-  #  run: flow_apollo2/workflow.cwl
-  #  in:
-  #    in_tree: in_tree
-  #    in_fasta: md5checksums/OUT_genomic_fasta
-  #    in_gff: md5checksums/OUT_genomic_gff
-  #  out:
-  #    [OUT_dir, OUT_2bi]
+  apollo2_data_processing:
+    run: flow_apollo2_data_processing/processing/workflow.cwl
+    in:
+      in_tree: in_tree
+      in_fasta: md5checksums/OUT_genomic_fasta
+      in_gff: md5checksums/OUT_genomic_gff
+    out:
+      [OUT_2bi]
   
   dispatch:
     run: flow_dispatch/workflow.cwl
@@ -71,15 +71,17 @@ steps:
       in_genomic_gff: md5checksums/OUT_genomic_gff
       deepPATH_others: deepPATH_others
       in_others: md5checksums/OUT_others
-      #in_apollo2: apollo2/OUT_dir
       in_md5checksums: download/OUT_md5checksums
       in_extract: md5checksums/OUT_extract
       in_check: md5checksums/OUT_check
+      #in_seq: apollo2_data_processing/OUT_XX
+      #in_tracksconf: apollo2_data_processing/OUT_XX
+      
       #in_2bi: apollo2/OUT_2bi
     out:
       []
   
-#  apollo2_createOrganism:
+#  apollo2_create_organism:
 #    run: createOrganism.cwl
 
   #django_app:

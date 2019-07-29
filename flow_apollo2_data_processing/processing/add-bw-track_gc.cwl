@@ -8,8 +8,7 @@ requirements:
   - class: InitialWorkDirRequirement
     listing: 
       ${
-        var LIST = [(inputs.in_gc_bigwig),
-                    (inputs.in_dir)];
+        var LIST = [(inputs.in_gc_bigwig)];
         return LIST;
       }
 
@@ -29,27 +28,22 @@ arguments:
     valueFrom: "GC Content"
   - position: 9
     prefix: --bw_url 
-    valueFrom: bigwig/$(inputs.in_gc_bigwig.basename)
+    valueFrom: $(inputs.in_gc_bigwig.basename)
   - position: 11
     prefix: --in
-    valueFrom: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data/trackList.json
-
+    valueFrom: $(inputs.in_trackList_json.basename)
+  - position: 13
+    prefix: --out
+    valueFrom: data/trackList.json
+    
 inputs:
-  in_dir:
-    type: Directory
-  in_tree:
-    type: string[]
   in_gc_bigwig:
     type: File
   in_trackList_json:
     type: File
 
 outputs:
-  out_dir:
-    type: Directory
-    outputBinding:
-      glob: $(inputs.in_dir.basename)/
   out_trackList_json:
     type: File
     outputBinding:
-      glob: $(inputs.in_dir.basename)/other_species/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data/trackList.json
+      glob: data/trackList.json

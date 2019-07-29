@@ -12,21 +12,21 @@ inputs:
   in_fasta: File
 
 steps:
-  #step 41
+  #step 1
   faToTwoBit:
     run: faToTwoBit.cwl
     in:
       in_fasta: in_fasta
     out:
       [out_2bi] 
-  #step 42
+  #step 2
   samtools_faidx:
     run: samtools_faidx.cwl
     in:
       in_fasta: in_fasta
     out:
       [out_fai]  
-  #step 43
+  #step 3
   prepare-refseqs:
     run: prepare-refseqs.cwl
     in:
@@ -34,7 +34,7 @@ steps:
       in_fai: samtools_faidx/out_fai
     out: 
       [out_trackList_json, out_seq, out_tracks_conf] 
-  #step 44, different gff ??????
+  #step 4, different gff ??????
   flatfile-to-json:
     run: flatfile-to-json.cwl
     in:
@@ -43,13 +43,51 @@ steps:
       in_trackList_json: prepare-refseqs/out_trackList_json
     out:
       [out_trackList_json, out_tracks]
-  #step 45
+  #step 5
   generate-names:
     run: generate-names.cwl
     in:
       in_tracks: flatfile-to-json/out_tracks
     out:
       [out_names]
+  #step 6
+  gap2bigwig:
+    run: gap2bigwig.cwl
+    in:
+      in_fasta: in_fasta
+    out:
+      [out_gaps_bigwig]
+  #step 7
+  GCcontent2bigwig:
+    run: GCcontent2bigwig.cwl
+    in:
+      in_fasta: in_fasta
+    out:
+      [out_gc_bigwig]
+  #step 8
+  add-bw-track_gaps:
+    run: add-bw-track_gaps.cwl
+    in:
+      in_gaps_bigwig: gap2bigwig/out_gaps_bigwig
+      in_trackList_json: flatfile-to-json/out_trackList_json
+    out:
+      [out_trackList_json]
+  #step 9
+  add-bw-track_gc:
+    run: add-bw-track_gaps.cwl
+    in:
+      in_gc_bigwig: GCcontent2bigwig/out_gc_bigwig
+      in_trackList_json: add-bw-track_gaps/out_trackList_json
+    out:
+      [out_trackList_json]
+  #step 10
+  add_metadata:
+    run: add_metadata.cwl
+    in:
+      in_fasta: in_fasta
+      in_trackList_json: add-bw-track_gc/out_trackList_json
+    out:
+      [out_trackList_json, out_trackList_json_bak]
 
 outputs: 
   out_2bi:
@@ -61,12 +99,21 @@ outputs:
   out_tracks_conf:
     type: File
     outputSource: prepare-refseqs/out_tracks_conf
-  out_trackList_json:
-    type: File
-    outputSource: prepare-refseqs/out_trackList_json
   out_tracks:
     type: Directory
     outputSource: flatfile-to-json/out_tracks
   out_names:
     type: Directory
     outputSource: generate-names/out_names
+  out_gaps_bigwig:
+    type: File
+    outputSource: gap2bigwig/out_gaps_bigwig
+  out_gc_bigwig:
+    type: File
+    outputSource: GCcontent2bigwig/out_gc_bigwig
+  out_trackList_json:
+    type: File
+    outputSource: add_metadata/out_trackList_json
+  out_trackList_json_bak:
+    type: File
+    outputSource: add_metadata/out_trackList_json_bak     
