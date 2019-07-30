@@ -8,7 +8,7 @@ requirements:
   - class: InitialWorkDirRequirement
     listing: 
       ${
-        var LIST = [(inputs.in_gaps_bigwig)];
+        var LIST = [(inputs.in_gaps_bigwig), (inputs.in_trackList_json)];
         return LIST;
       }
 
