@@ -5,7 +5,7 @@ class: CommandLineTool
 
 requirements:
   - class: InlineJavascriptRequirement
-
+  - class: 
 baseCommand: [add_metadata_to_GC_gap_bigwig_tracks.pl]
 arguments: 
   - position: 1
