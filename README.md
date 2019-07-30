@@ -5,7 +5,7 @@
   - To put it in another way, all organisms share the same **<.cwl>** files, and a single **<.yml>** file need to be customized for every single specific organism.
   
 
-## User guide :metal:
+# User guide :metal:
 
 ### Prerequisite
 - Python 2.7 or 3.x {x = 4, 5, 6, 7}
@@ -42,7 +42,7 @@ Related link: https://www.commonwl.org/user_guide/22-nested-workflows/index.html
 <br>
 <br>
 
-## Developer guide :rocket:
+# Developer guide :rocket:
 - Design functional blocks(CommandLineTool), and concatenate them to make a complete working pipeline(Workflow).  
 
 - An Input/Output pipeline.  
