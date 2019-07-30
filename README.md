@@ -1,14 +1,17 @@
+# Organism Onboarding 
+- Implemented by Common Workflow Language(CWL), which is a python package.
+- The main principle: 
+  - When working on multiple organisms one after another, keep .cwl files the same, and do customize yml file for specific organism (for example, file **job-apimel.yml** for honeybee).
+  - To put it in another way, all organisms share the same **<.cwl>** files, and a single **<.yml>** file need to be customized for every single specific organism.
+  
 
-This is a README
-# CWL, Common-Workflow-Language 
-##  Ultimate goal :+1:
-- finish all works with only one single ```cwl-runner``` command
+## User guide :metal:
 
-## Prerequisite
-- python 2.7 and 3.x {x = 4, 5, 6, 7}
-- a text editor
+### Prerequisite
+- Python 2.7 or 3.x {x = 4, 5, 6, 7}
+- A text editor for editting yml file
 
-## Quick start
+### Getting started step by step
 - Step1. 
 ```
 ./setup.sh
@@ -25,15 +28,8 @@ cwl-runner --enable-ext final-workflow.cwl job-[gggsss].yml &> [gggsss].CWLlog
 - Step4.  
 Finish!
 
-## What is CWL? :octocat:
-- a tool to make organism onboarding pipeline easy to maintain
-- design functional blocks, and concatenate them to make a complete working pipeline
-- an I/O pipeline
 
-## How does CWL look like? :metal:
-- All Organisms share same **<.cwl>** files, and a single **<.yml>** file need to be customize for every single specific organism.
-
-## File explanation :tada:
+### File explanation
 - **final-workflow.cwl** : Take the cwl file inside flow_* folder, which is basically nested workflow(workflow of workflow).
 - **block_*** : The basic functional structure, like a building brick. I always make a copy from block_sample if I develope a new block. 
 - **demo workflow** : These demo directory try to see how the connecting block work, and the most important file is -workflow.cwl. Other cwl files are copy from block folder.
@@ -46,12 +42,14 @@ Related link: https://www.commonwl.org/user_guide/22-nested-workflows/index.html
 <br>
 <br>
 
-## How could CWL benefit our organism onboarding pipeline?
-![workflow](https://user-images.githubusercontent.com/32384566/52444131-864c1d00-2af5-11e9-8ed3-b2a046d4a50b.PNG)
-<br>
-![workflow2](https://user-images.githubusercontent.com/32384566/52444010-3bcaa080-2af5-11e9-9555-6b6a202a502a.PNG)
+## Developer guide :rocket:
+- Design functional blocks(CommandLineTool), and concatenate them to make a complete working pipeline(Workflow).  
 
-## Miscellaneous :rocket:
-- One thing worth mentioning when developing, so not write to many comment in cwl files, it may probably cause permanentfail.
+- An Input/Output pipeline.  
 
-Have fun :)
+- A good user guide to study writing CWL ->  
+https://www.commonwl.org/user_guide/
+
+- Writing CWL is like building a castle by LEGO, block by block.  
+
+- Have fun :)
