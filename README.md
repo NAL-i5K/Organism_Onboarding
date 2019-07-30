@@ -36,12 +36,10 @@ Finish!
 
 # Developer guide :rocket:
 ### File explanation
-- **final-workflow.cwl** : The biggest workflow, which is nested workflow(workflow of workflow).
+- **final-workflow.cwl** : The biggest workflow, which is nested workflow(workflow of workflow). [https://www.commonwl.org/user_guide/22-nested-workflows/index.htm]( https://www.commonwl.org/user_guide/22-nested-workflows/index.html)
 - **flow_apollo2_data_processing** : I break down the apollo2 onstage step in data wrangling into several steps.   
-[Here is the link of original shell script file](https://gitlab.com/i5k_Workspace/apollo2_data_build_scripts/blob/master/build_apollo2_flatfiles.sh)
-<br>
-Related link: https://www.commonwl.org/user_guide/22-nested-workflows/index.html
-<br>
+[Here is the link of original shell script file, build_apollo2_flatfiles.sh ](https://gitlab.com/i5k_Workspace/apollo2_data_build_scripts/blob/master/build_apollo2_flatfiles.sh)
+
 
 ### Some tips
 - Design functional blocks(CommandLineTool), and concatenate them to make a complete working pipeline(Workflow).  
