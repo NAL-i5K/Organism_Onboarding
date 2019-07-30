@@ -12,13 +12,18 @@
 - A text editor for editting yml file
 
 ### Getting started step by step
-- Step1. 
+- Step1. Clone and setup 
+```
+git clone https://github.com/NAL-i5K/Organism_Onboarding.git
+cd Organism_Onboarding/
+```
+
 ```
 ./setup.sh
 ```
 
-- Step2.  
-Create a file named **job-[gggsss].yml** for the specific organism. Take **example.yml** as reference.  
+- Step2. Create a file
+Create a file named it **job-[gggsss].yml** for the specific organism. Take **example.yml** as reference.  
 
 - Step3.  
 ```
@@ -29,20 +34,16 @@ cwl-runner --enable-ext final-workflow.cwl job-[gggsss].yml &> [gggsss].CWLlog
 Finish!
 
 
+# Developer guide :rocket:
 ### File explanation
-- **final-workflow.cwl** : Take the cwl file inside flow_* folder, which is basically nested workflow(workflow of workflow).
-- **block_*** : The basic functional structure, like a building brick. I always make a copy from block_sample if I develope a new block. 
-- **demo workflow** : These demo directory try to see how the connecting block work, and the most important file is -workflow.cwl. Other cwl files are copy from block folder.
-- **storage** : It is a recycle bin.  
-- **flow_apollo2** : I break down the apollo2 onstage step in data wrangling into several CWL steps.   
+- **final-workflow.cwl** : The biggest workflow, which is nested workflow(workflow of workflow).
+- **flow_apollo2_data_processing** : I break down the apollo2 onstage step in data wrangling into several steps.   
 [Here is the link of original shell script file](https://gitlab.com/i5k_Workspace/apollo2_data_build_scripts/blob/master/build_apollo2_flatfiles.sh)
-<br>
 <br>
 Related link: https://www.commonwl.org/user_guide/22-nested-workflows/index.html
 <br>
-<br>
 
-# Developer guide :rocket:
+### Some tips
 - Design functional blocks(CommandLineTool), and concatenate them to make a complete working pipeline(Workflow).  
 
 - An Input/Output pipeline.  
