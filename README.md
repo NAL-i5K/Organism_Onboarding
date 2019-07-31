@@ -22,8 +22,9 @@ cd Organism_Onboarding/
 ./setup.sh
 ```
 
-- Step2. Create a file
-Create a file named it **job-[gggsss].yml** for the specific organism. Take **example.yml** as reference.  
+- Step2.  
+```cp example.yml job-[gggsss].yml```  
+Create a file named it **job-[gggsss].yml** for the specific organism, and take **example.yml** as a reference.  
 
 - Step3.  
 ```
