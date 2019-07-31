@@ -62,4 +62,5 @@ example@ars.usda.gov,
 ExamplePassword
 ]
 #-------------------------------------------------------------------------------
+#below are variable for django setup
 genomic_fasta_seq_type: nucleotide Genome assembly
