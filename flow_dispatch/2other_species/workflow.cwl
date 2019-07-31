@@ -66,6 +66,46 @@ steps:
       deepPATH: deepPATH_apollo2_data
       in_data: in_seq
     out: []
+  cp_tracks_conf:
+    run: cp_file.cwl
+    in:
+      PATH: PATH
+      in_tree: in_tree
+      deepPATH: deepPATH_apollo2_data
+      in_data: in_tracks_conf
+    out: []
+  cp_tracks:
+    run: cp_dir.cwl
+    in:
+      PATH: PATH
+      in_tree: in_tree
+      deepPATH: deepPATH_apollo2_data
+      in_data: in_tracks
+    out: [] 
+  cp_names:
+    run: cp_dir.cwl
+    in:
+      PATH: PATH
+      in_tree: in_tree
+      deepPATH: deepPATH_apollo2_data
+      in_data: in_names
+    out: []    
+  cp_trackList_json:
+    run: cp_file.cwl
+    in:
+      PATH: PATH
+      in_tree: in_tree
+      deepPATH: deepPATH_apollo2_data
+      in_data: in_trackList_json
+    out: [] 
+  cp_trackList_json_bak:
+    run: cp_file.cwl
+    in:
+      PATH: PATH
+      in_tree: in_tree
+      deepPATH: deepPATH_apollo2_data
+      in_data: in_trackList_json_bak
+    out: []
   #
   cp_gaps_bigwig:
     run: cp_file.cwl
@@ -75,5 +115,13 @@ steps:
       deepPATH: deepPATH_bigwig
       in_data: in_gaps_bigwig
     out: []
+  cp_gc_bigwig:
+    run: cp_file.cwl
+    in:
+      PATH: PATH
+      in_tree: in_tree
+      deepPATH: deepPATH_bigwig
+      in_data: in_gc_bigwig
+    out: []    
   #
 outputs: []

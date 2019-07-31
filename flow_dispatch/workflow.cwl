@@ -80,9 +80,13 @@ steps:
       in_check: in_check
     out: [] 
   #To blat/db/
-  #2blat:
-  
+  2blat:
+    run: 2blat/workflow.cwl
+    in:
+      in_dummy: setup_folder/out_dummy
+      PATH: PATH
+      in_tree: in_tree
+      in_2bi: in_2bi
+    out: []
+
 outputs: []
-#  OUT_dir:
-#    type: Directory
-#    outputSource: others/out_dir

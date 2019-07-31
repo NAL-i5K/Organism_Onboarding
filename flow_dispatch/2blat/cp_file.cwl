@@ -14,11 +14,13 @@ arguments:
   - position: 1
     valueFrom: $(inputs.in_data.basename)
   - position: 3
-    valueFrom: $(inputs.PATH[2])/
+    valueFrom: $(inputs.PATH[2])/$(inputs.in_tree[0])/
 
 inputs: 
   PATH:
     type: string[]
+  in_tree:
+    type: string[]  
   in_data:
     type: File
 

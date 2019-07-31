@@ -8,7 +8,9 @@ requirements:
   - class: InlineJavascriptRequirement
 
 inputs:
+  in_dummy: File
   PATH: string[]
+  in_tree: string[]
   in_2bi: File
 
 steps:
@@ -16,6 +18,7 @@ steps:
     run: cp_file.cwl
     in:
       PATH: PATH
+      in_tree: in_tree
       in_data: in_2bi
     out: []
 

@@ -69,8 +69,7 @@ steps:
       OUT_gc_bigwig,
       OUT_trackList_json,
       OUT_trackList_json_bak,
-      ]
-  
+      ] 
   dispatch:
     run: flow_dispatch/workflow.cwl
     in:
