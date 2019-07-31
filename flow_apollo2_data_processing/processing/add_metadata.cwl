@@ -5,7 +5,13 @@ class: CommandLineTool
 
 requirements:
   - class: InlineJavascriptRequirement
-  
+  - class: InitialWorkDirRequirement
+    listing: 
+      ${
+        var LIST = [(inputs.in_fasta), (inputs.in_trackList_json)];
+        return LIST;
+      }
+
 baseCommand: [add_metadata_to_GC_gap_bigwig_tracks.pl]
 arguments: 
   - position: 1
