@@ -79,15 +79,21 @@ steps:
       deepPATH_genomic_gff: deepPATH_genomic_gff
       in_genomic_gff: md5checksums/OUT_genomic_gff
       deepPATH_others: deepPATH_others
+      #
       in_others: md5checksums/OUT_others
       in_md5checksums: download/OUT_md5checksums
       in_extract: md5checksums/OUT_extract
       in_check: md5checksums/OUT_check
-      #in_2bi: apollo2_data_processing//OUT_2bi
-      #in_seq: apollo2_data_processing/OUT_2bi
-      #in_tracks_conf: apollo2_data_processing/OUT_tracks_conf
-      #in_XX: apollo2_data_processing/OUT_XX
-      
+      #
+      in_2bi: apollo2_data_processing/OUT_2bi
+      in_seq: apollo2_data_processing/OUT_seq
+      in_tracks_conf: apollo2_data_processing/OUT_tracks_conf
+      in_tracks: apollo2_data_processing/OUT_tracks
+      in_names: apollo2_data_processing/OUT_names
+      in_gaps_bigwig: apollo2_data_processing/OUT_gaps_bigwig
+      in_gc_bigwig: apollo2_data_processing/OUT_gc_bigwig
+      in_trackList_json: apollo2_data_processing/OUT_trackList_json
+      in_trackList_json_bak: apollo2_data_processing/OUT_trackList_json_bak
     out:
       []
   

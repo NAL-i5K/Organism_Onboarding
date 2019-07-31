@@ -8,7 +8,7 @@ requirements:
   - class: InitialWorkDirRequirement
     listing: 
       ${
-        var LIST = [(inputs.in_dir)];
+        var LIST = [(inputs.in_tracks)];
         return LIST;
       }
 

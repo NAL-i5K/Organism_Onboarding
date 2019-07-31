@@ -15,11 +15,21 @@ inputs:
   deepPATH_genomic_gff: string[]
   in_genomic_gff: File
   deepPATH_others: string[]
+  #
   in_others: File[]
-#  in_apollo2: Directory
   in_md5checksums: File
   in_extract: File
   in_check: File
+  #
+  in_2bi: File
+  in_seq: apollo2_data_processing/OUT_seq
+  in_tracks_conf: apollo2_data_processing/OUT_tracks_conf
+  in_tracks: apollo2_data_processing/OUT_tracks
+  in_names: apollo2_data_processing/OUT_names
+  in_gaps_bigwig: apollo2_data_processing/OUT_gaps_bigwig
+  in_gc_bigwig: apollo2_data_processing/OUT_gc_bigwig
+  in_trackList_json: apollo2_data_processing/OUT_trackList_json
+  in_trackList_json_bak: apollo2_data_processing/OUT_trackList_json_bak
 
 steps:
   setup_folder:
