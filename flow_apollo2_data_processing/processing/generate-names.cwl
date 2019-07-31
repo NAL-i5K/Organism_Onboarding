@@ -25,6 +25,9 @@ arguments:
   - position: 1
     prefix: --verbose
   - position: 3
+    prefix: --tracks
+    valueFrom: $(inputs.in_tracks.basename) 
+  - position: 5
     prefix: --out
     valueFrom: data/
     
@@ -36,4 +39,4 @@ outputs:
   out_names:
     type: Directory
     outputBinding: 
-      glob: data/names/
+      glob: data/names
