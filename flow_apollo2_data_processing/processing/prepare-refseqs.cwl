@@ -32,12 +32,12 @@ outputs:
   out_trackList_json:
     type: File
     outputBinding: 
-      glob: 'data/trackList.json'
+      glob: data/trackList.json
   out_seq:
     type: Directory
     outputBinding: 
-      glob: 'data/seq/'
+      glob: data/seq/
   out_tracks_conf:
     type: File
     outputBinding: 
-      glob: 'data/tracks.conf'
+      glob: data/tracks.conf

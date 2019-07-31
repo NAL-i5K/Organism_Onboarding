@@ -51,8 +51,8 @@ outputs:
   out_trackList_json:
     type: File
     outputBinding: 
-      glob: 'data/trackList.json'
+      glob: data/trackList.json
   out_tracks:
     type: Directory
     outputBinding: 
-      glob: 'data/tracks/'
+      glob: data/tracks/
