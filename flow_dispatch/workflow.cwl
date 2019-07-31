@@ -22,14 +22,14 @@ inputs:
   in_check: File
   #
   in_2bi: File
-  in_seq: apollo2_data_processing/OUT_seq
-  in_tracks_conf: apollo2_data_processing/OUT_tracks_conf
-  in_tracks: apollo2_data_processing/OUT_tracks
-  in_names: apollo2_data_processing/OUT_names
-  in_gaps_bigwig: apollo2_data_processing/OUT_gaps_bigwig
-  in_gc_bigwig: apollo2_data_processing/OUT_gc_bigwig
-  in_trackList_json: apollo2_data_processing/OUT_trackList_json
-  in_trackList_json_bak: apollo2_data_processing/OUT_trackList_json_bak
+  in_seq: Directory
+  in_tracks_conf: File
+  in_tracks: Directory
+  in_names: Directory
+  in_gaps_bigwig: File
+  in_gc_bigwig: File
+  in_trackList_json: File
+  in_trackList_json_bak: File
 
 steps:
   setup_folder:
