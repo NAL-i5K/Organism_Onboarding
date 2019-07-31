@@ -9,9 +9,9 @@ requirements:
 baseCommand: [add_metadata_to_GC_gap_bigwig_tracks.pl]
 arguments: 
   - position: 1
-    valueFrom: data/trackList.json
+    valueFrom: trackList.json
   - position: 3
-    valueFrom: data/trackList.json.bak-metadata
+    valueFrom: trackList.json.bak-metadata
   - position : 5
     valueFrom: $(inputs.in_fasta.basename).gc.bigwig
   - position : 7
@@ -27,8 +27,8 @@ outputs:
   out_trackList_json:
     type: File
     outputBinding: 
-      glob: data/trackList.json
+      glob: trackList.json
   out_trackList_json_bak:
     type: File
     outputBinding: 
-      glob: data/trackList.json.bak-metadata
+      glob: trackList.json.bak-metadata

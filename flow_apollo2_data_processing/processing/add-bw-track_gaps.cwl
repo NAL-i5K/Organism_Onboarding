@@ -31,7 +31,7 @@ arguments:
     valueFrom: $(inputs.in_trackList_json.basename)
   - position: 11
     prefix: --out
-    valueFrom: data/trackList.json
+    valueFrom: trackList.json
     
 inputs:
   in_gaps_bigwig:
@@ -43,4 +43,4 @@ outputs:
   out_trackList_json:
     type: File
     outputBinding: 
-      glob: data/trackList.json
+      glob: trackList.json

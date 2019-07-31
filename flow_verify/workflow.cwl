@@ -7,22 +7,15 @@ requirements:
   - class: InlineJavascriptRequirement
 
 inputs:
-  in_tree: string[]
-  in_fasta: File
-  in_gff: File
 
 steps:
   #step 51
-  add_metadata:
-    run: block_add_metadata/add_metadata.cwl
+  XXX:
+    run: XXX.cwl
     in:
-      in_dir: tree/out_tree
-      in_tree: in_tree
-      in_fasta: in_fasta
-      in_trackList_json: add-bw-track_gc/out_trackList_json
     out:
-      [out_trackList_json, out_trackList_json_bak]
+      []
 outputs:
-  final_dir:
+  CCC:
     type: Directory
-    outputSource: tree/out_tree
+    outputSource: CCC

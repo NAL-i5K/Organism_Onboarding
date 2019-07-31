@@ -15,6 +15,10 @@ gggsss,
 AssemblyName,
 scaffold/analyses/Foldername
 ]
+scientific_name: [
+Apis,
+mellifera
+]
 #-------------------------------------------------------------------------------
 url_md5checksums: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/md5checksums.txt
@@ -48,12 +52,12 @@ ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_rna_from_genomic.fna.gz
 ]
 #-------------------------------------------------------------------------------
-#in_host: 'https://apollo-dev.nal.usda.gov'
+host: 'https://apollo-dev.nal.usda.gov'
 #-------------------------------------------------------------------------------
 #authentication in apollo
 #username
 #password
-in_login_apollo2: [
+login_apollo2: [
 example@ars.usda.gov,
 ExamplePassword
 ]
