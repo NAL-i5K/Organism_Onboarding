@@ -88,5 +88,11 @@ steps:
       in_tree: in_tree
       in_2bi: in_2bi
     out: []
-  
+  link_bigwig:
+    run: link_bigwig.cwl
+    in:
+      in_dummy: setup_folder/out_dummy
+      PATH: PATH
+      in_tree: in_tree
+    out: []
 outputs: []
