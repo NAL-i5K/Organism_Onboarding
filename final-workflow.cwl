@@ -16,8 +16,10 @@ inputs:
   deepPATH_genomic_fasta: string[]
   deepPATH_genomic_gff: string[]
   deepPATH_others: string[]
-  #in_host: string[]
-  #in_login_apollo2: string[]
+  host: string[]
+  login_apollo2: string[]
+  deepPATH_apollo2_data: string[]
+  deepPATH_bigwig: string[]
 
 steps:
   download:
@@ -85,6 +87,8 @@ steps:
       in_extract: md5checksums/OUT_extract
       in_check: md5checksums/OUT_check
       #
+      deepPATH_apollo2_data: deepPATH_apollo2_data
+      deepPATH_bigwig: deepPATH_bigwig
       in_2bi: apollo2_data_processing/OUT_2bi
       in_seq: apollo2_data_processing/OUT_seq
       in_tracks_conf: apollo2_data_processing/OUT_tracks_conf

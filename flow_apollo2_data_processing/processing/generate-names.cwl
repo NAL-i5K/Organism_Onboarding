@@ -36,4 +36,4 @@ outputs:
   out_names:
     type: Directory
     outputBinding: 
-      glob: 'data/names/'
+      glob: data/names/

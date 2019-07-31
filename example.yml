@@ -52,7 +52,16 @@ ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_rna_from_genomic.fna.gz
 ]
 #-------------------------------------------------------------------------------
-host: 'https://apollo-dev.nal.usda.gov'
+deepPATH_apollo2_data: [
+jbrowse/data
+]
+deepPATH_bigwig: [
+scaffold/bigwig
+]
+#-------------------------------------------------------------------------------
+host: [
+https://apollo-dev.nal.usda.gov
+]
 #-------------------------------------------------------------------------------
 #authentication in apollo
 #username
@@ -63,4 +72,6 @@ ExamplePassword
 ]
 #-------------------------------------------------------------------------------
 #below are variable for django setup
-genomic_fasta_seq_type: nucleotide Genome assembly
+genomic_fasta_seq_type: [
+nucleotide Genome assembly
+]

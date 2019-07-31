@@ -19,7 +19,7 @@ hints:
 arguments: 
   - position: 1
     prefix: -host
-    valueFrom: $(inputs.host)
+    valueFrom: $(inputs.host[0])
   - position: 3
     prefix: -organism
     valueFrom: $(inputs.scientific_name[0]) $(inputs.scientific_name[1])
@@ -46,7 +46,7 @@ arguments:
 
 inputs:
   host:
-    type: string
+    type: string[]
   scientific_name:
     type: string[]    
   PATH:

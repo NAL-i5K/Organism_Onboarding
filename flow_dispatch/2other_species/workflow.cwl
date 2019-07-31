@@ -18,7 +18,18 @@ inputs:
   in_genomic_gff: File
   deepPATH_others: string[]
   in_others: File[]
-  #in_apollo2: Directory
+  #
+  deepPATH_apollo2_data: string[]
+  in_seq: Directory
+  in_tracks_conf: File
+  in_tracks: Directory
+  in_names: Directory
+  in_trackList_json: File
+  in_trackList_json_bak: File
+  #
+  deepPATH_bigwig: string[]
+  in_gaps_bigwig: File
+  in_gc_bigwig: File
 
 steps:
   cp_genomic_fasta:
@@ -46,11 +57,23 @@ steps:
       deepPATH: deepPATH_others
       in_data: in_others
     out: []
-
-  #cp_apollo2:
-  #  run: cp_dir.cwl
-  #  in:
-  #    HOME: HOME
-  #  out: []
-
+  # 
+  cp_seq:
+    run: cp_dir.cwl
+    in:
+      PATH: PATH
+      in_tree: in_tree
+      deepPATH: deepPATH_apollo2_data
+      in_data: in_seq
+    out: []
+  #
+  cp_gaps_bigwig:
+    run: cp_file.cwl
+    in:
+      PATH: PATH
+      in_tree: in_tree
+      deepPATH: deepPATH_bigwig
+      in_data: in_gaps_bigwig
+    out: []
+  #
 outputs: []

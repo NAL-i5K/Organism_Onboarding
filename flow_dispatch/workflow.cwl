@@ -22,14 +22,18 @@ inputs:
   in_check: File
   #
   in_2bi: File
+  #
+  deepPATH_apollo2_data: string[]
   in_seq: Directory
   in_tracks_conf: File
   in_tracks: Directory
   in_names: Directory
-  in_gaps_bigwig: File
-  in_gc_bigwig: File
   in_trackList_json: File
   in_trackList_json_bak: File
+  #
+  deepPATH_bigwig: string[]
+  in_gaps_bigwig: File
+  in_gc_bigwig: File
 
 steps:
   setup_folder:
@@ -51,7 +55,18 @@ steps:
       in_genomic_gff: in_genomic_gff
       deepPATH_others: deepPATH_others
       in_others: in_others
-#      in_apollo2: in_apollo2
+      #
+      deepPATH_apollo2_data: deepPATH_apollo2_data
+      in_seq: in_seq
+      in_tracks_conf: in_tracks_conf
+      in_tracks: in_tracks
+      in_names: in_names
+      in_trackList_json: in_trackList_json
+      in_trackList_json_bak: in_trackList_json_bak
+      #
+      deepPATH_bigwig: deepPATH_bigwig
+      in_gaps_bigwig: in_gaps_bigwig
+      in_gc_bigwig: in_gc_bigwig
     out: []
   #To working_files
   2working_files:
