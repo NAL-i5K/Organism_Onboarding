@@ -1,8 +1,8 @@
 #example yml file for specific organism
 
 #The full path look like this:
-#[PATH]/$(inputs.in_tree[0])/$(inputs.in_tree[1])/$(inputs.in_tree[2])
-#[PATH]/$(inputs.in_tree[0])/$(inputs.in_tree[1])/[deepPATH]
+#[PATH]/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.tree[2])
+#[PATH]/$(inputs.tree[0])/$(inputs.tree[1])/[deepPATH]
 #-------------------------------------------------------------------------------
 PATH: [
 /app/data/other_species,
@@ -10,7 +10,7 @@ PATH: [
 /usr/local/blat/db
 ]
 #-------------------------------------------------------------------------------
-in_tree: [
+tree: [
 gggsss,
 AssemblyName,
 scaffold/analyses/Foldername
@@ -71,7 +71,7 @@ example@ars.usda.gov,
 ExamplePassword
 ]
 #-------------------------------------------------------------------------------
-#below are variable for django setup
+#below are variable for django setup, TBD (not implemented yet)
 genomic_fasta_seq_type: [
 nucleotide Genome assembly
 ]

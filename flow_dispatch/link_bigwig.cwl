@@ -13,14 +13,14 @@ arguments:
     valueFrom: ../../scaffold/bigwig
   - prefix: -t
     position: 3
-    valueFrom: $(inputs.PATH[0])/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data
+    valueFrom: $(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/jbrowse/data
 
 inputs:
   in_dummy: 
     type: File
   PATH:
     type: string[]
-  in_tree:
+  tree:
     type: string[]
 
 outputs: []

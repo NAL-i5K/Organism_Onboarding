@@ -5,7 +5,6 @@ class: CommandLineTool
 
 requirements:
   - class: InlineJavascriptRequirement
-  - class: InitialWorkDirRequirement
 
 baseCommand: [createOrganism.py]
 
@@ -31,10 +30,10 @@ arguments:
     valueFrom: $(inputs.scientific_name[1])
   - position: 9
     prefix: -directory
-    valueFrom: $(inputs.PATH[0])/$(inputs.in_tree[0])/$(inputs.in_tree[1])/jbrowse/data
+    valueFrom: $(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH_apollo2_data[0])
   - position: 11
     prefix: -blatdb
-    valueFrom: $(inputs.PATH[2])/$(inputs.in_tree[0])/$(inputs.in_2bi.basename)
+    valueFrom: $(inputs.PATH[2])/$(inputs.tree[0])/$(inputs.in_2bi.basename)
   - position: 13
     prefix: -username
     valueFrom: $(inputs.login_apollo2[0])
@@ -51,15 +50,17 @@ inputs:
     type: string[]    
   PATH:
     type: string[]
-  in_tree:
+  tree:
     type: string[]
   in_2bi:
-    type: File  
+    type: File
+  deepPATH_apollo2_data:
+    type: string[]
   login_apollo2:
     type: string[]
-
+  
 outputs:
   out_createOrganism_log:
     type: stdout
-stdout: $(inputs.PATH[1])/$(inputs.in_tree[0])/$(inputs.in_tree[1])/createOrganism.log
+stdout: $(inputs.PATH[1])/$(inputs.tree[0])/$(inputs.tree[1])/createOrganism.log
 

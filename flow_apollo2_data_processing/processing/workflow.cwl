@@ -7,7 +7,7 @@ requirements:
   - class: InlineJavascriptRequirement
 
 inputs:
-  in_tree: string[]
+  tree: string[]
   in_gff: File
   in_fasta: File
 
@@ -38,7 +38,7 @@ steps:
   flatfile-to-json:
     run: flatfile-to-json.cwl
     in:
-      in_tree: in_tree
+      tree: tree
       in_gff: in_gff
       in_trackList_json: prepare-refseqs/out_trackList_json
     out:

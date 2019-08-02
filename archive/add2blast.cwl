@@ -11,12 +11,12 @@ arguments:
   - position: 1
     valueFrom: addblast
   - position: 3
-    valueFrom: $(inputs.in_tree[3])
+    valueFrom: $(inputs.tree[3])
   - position: 5
-    valueFrom: $(inputs.in_tree[4])
+    valueFrom: $(inputs.tree[4])
   - position: 7
     prefix: -species
-    valueFrom: $(inputs.in_tree[4])
+    valueFrom: $(inputs.tree[4])
   - position: 9
     prefix: -t
     valueFrom: $(inputs.in_genomic_fasta_seq_type) 
@@ -26,7 +26,7 @@ arguments:
 inputs:
   in_genomic_fasta_seq_type:
     type: string
-  in_tree:
+  tree:
     type: string[]
   in_fasta:
     type: File

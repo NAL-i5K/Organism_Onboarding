@@ -14,12 +14,12 @@ arguments:
   - position: 1
     valueFrom: $(inputs.in_data.basename)
   - position: 3
-    valueFrom: $(inputs.PATH[0])/$(inputs.in_tree[0])/$(inputs.in_tree[1])/$(inputs.deepPATH[0])/
+    valueFrom: $(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH[0])/
 
 inputs: 
   PATH:
     type: string[]
-  in_tree:
+  tree:
     type: string[]
   deepPATH:
     type: string[]

@@ -7,19 +7,20 @@ requirements:
   - class: InlineJavascriptRequirement
 
 inputs:
-  url_md5checksums: string[]
-  url_genomic_fasta: string[]
-  url_genomic_gff: string[]
-  url_others: string[]
   PATH: string[]
-  in_tree: string[]
+  tree: string[]
+  scientific_name: string[]
+  url_md5checksums: string[]
   deepPATH_genomic_fasta: string[]
+  url_genomic_fasta: string[]
   deepPATH_genomic_gff: string[]
+  url_genomic_gff: string[]
   deepPATH_others: string[]
-  host: string[]
-  login_apollo2: string[]
+  url_others: string[]
   deepPATH_apollo2_data: string[]
   deepPATH_bigwig: string[]
+  host: string[]
+  login_apollo2: string[]
 
 steps:
   download:
@@ -56,7 +57,7 @@ steps:
   apollo2_data_processing:
     run: flow_apollo2_data_processing/processing/workflow.cwl
     in:
-      in_tree: in_tree
+      tree: tree
       in_fasta: md5checksums/OUT_genomic_fasta
       in_gff: md5checksums/OUT_genomic_gff
     out:
@@ -74,7 +75,7 @@ steps:
     run: flow_dispatch/workflow.cwl
     in:
       PATH: PATH
-      in_tree: in_tree
+      tree: tree
       deepPATH_genomic_fasta: deepPATH_genomic_fasta
       in_genomic_fasta: md5checksums/OUT_genomic_fasta
       deepPATH_genomic_gff: deepPATH_genomic_gff
@@ -100,9 +101,19 @@ steps:
     out:
       []
   
-#  apollo2_create_organism:
-#    run: createOrganism.cwl
-
+  apollo2_create_organism:
+    run: createOrganism.cwl
+    in:  
+      host: host
+      scientific_name: scientific_name
+      PATH: PATH
+      tree: tree
+      in_2bi: apollo2_data_processing/OUT_2bi
+      deepPATH_apollo2_data: deepPATH_apollo2_data
+      login_apollo2: login_apollo2
+    out:
+      [out_createOrganism_log]
+      
   #django_app:
   #BLAST, hmmer.....
 
@@ -111,15 +122,3 @@ outputs:
 #  final_extract:
 #    type: File
 #    outputSource: md5checksums/OUT_extract
-#  final_check:
-#    type: File
-#    outputSource: md5checksums/OUT_check
-#  final_genomic_fasta:
-#    type: File
-#    outputSource: md5checksums/OUT_genomic_fasta
-#  final_genomic_gff:
-#    type: File
-#    outputSource: md5checksums/OUT_genomic_gff
-#  final_others:
-#    type: File[]
-#    outputSource: md5checksums/OUT_others

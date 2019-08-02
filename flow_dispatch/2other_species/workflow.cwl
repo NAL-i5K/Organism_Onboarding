@@ -11,7 +11,7 @@ requirements:
 inputs:
   in_dummy: File
   PATH: string[]
-  in_tree: string[]
+  tree: string[]
   deepPATH_genomic_fasta: string[]
   in_genomic_fasta: File
   deepPATH_genomic_gff: string[]
@@ -36,7 +36,7 @@ steps:
     run: cp_file.cwl
     in:
       PATH: PATH
-      in_tree: in_tree
+      tree: tree
       deepPATH: deepPATH_genomic_fasta
       in_data: in_genomic_fasta
     out: []
@@ -44,7 +44,7 @@ steps:
     run: cp_file.cwl
     in:
       PATH: PATH
-      in_tree: in_tree
+      tree: tree
       deepPATH: deepPATH_genomic_gff
       in_data: in_genomic_gff
     out: []
@@ -53,7 +53,7 @@ steps:
     scatter: in_data
     in:
       PATH: PATH
-      in_tree: in_tree
+      tree: tree
       deepPATH: deepPATH_others
       in_data: in_others
     out: []
@@ -62,7 +62,7 @@ steps:
     run: cp_dir.cwl
     in:
       PATH: PATH
-      in_tree: in_tree
+      tree: tree
       deepPATH: deepPATH_apollo2_data
       in_data: in_seq
     out: []
@@ -70,7 +70,7 @@ steps:
     run: cp_file.cwl
     in:
       PATH: PATH
-      in_tree: in_tree
+      tree: tree
       deepPATH: deepPATH_apollo2_data
       in_data: in_tracks_conf
     out: []
@@ -78,7 +78,7 @@ steps:
     run: cp_dir.cwl
     in:
       PATH: PATH
-      in_tree: in_tree
+      tree: tree
       deepPATH: deepPATH_apollo2_data
       in_data: in_tracks
     out: [] 
@@ -86,7 +86,7 @@ steps:
     run: cp_dir.cwl
     in:
       PATH: PATH
-      in_tree: in_tree
+      tree: tree
       deepPATH: deepPATH_apollo2_data
       in_data: in_names
     out: []    
@@ -94,7 +94,7 @@ steps:
     run: cp_file.cwl
     in:
       PATH: PATH
-      in_tree: in_tree
+      tree: tree
       deepPATH: deepPATH_apollo2_data
       in_data: in_trackList_json
     out: [] 
@@ -102,7 +102,7 @@ steps:
     run: cp_file.cwl
     in:
       PATH: PATH
-      in_tree: in_tree
+      tree: tree
       deepPATH: deepPATH_apollo2_data
       in_data: in_trackList_json_bak
     out: []
@@ -111,7 +111,7 @@ steps:
     run: cp_file.cwl
     in:
       PATH: PATH
-      in_tree: in_tree
+      tree: tree
       deepPATH: deepPATH_bigwig
       in_data: in_gaps_bigwig
     out: []
@@ -119,7 +119,7 @@ steps:
     run: cp_file.cwl
     in:
       PATH: PATH
-      in_tree: in_tree
+      tree: tree
       deepPATH: deepPATH_bigwig
       in_data: in_gc_bigwig
     out: []    

@@ -9,7 +9,7 @@ requirements:
 
 inputs:
   PATH: string[]
-  in_tree: string[]
+  tree: string[]
   deepPATH_genomic_fasta: string[]
   in_genomic_fasta: File
   deepPATH_genomic_gff: string[]
@@ -40,7 +40,7 @@ steps:
     run: setup_folder.cwl
     in:
       PATH: PATH
-      in_tree: in_tree
+      tree: tree
     out: [out_dummy]  
   #To other_species
   2other_species: 
@@ -48,7 +48,7 @@ steps:
     in:
       in_dummy: setup_folder/out_dummy
       PATH: PATH
-      in_tree: in_tree
+      tree: tree
       deepPATH_genomic_fasta: deepPATH_genomic_fasta
       in_genomic_fasta: in_genomic_fasta
       deepPATH_genomic_gff: deepPATH_genomic_gff
@@ -74,7 +74,7 @@ steps:
     in:
       in_dummy: setup_folder/out_dummy
       PATH: PATH
-      in_tree: in_tree
+      tree: tree
       in_md5checksums: in_md5checksums
       in_extract: in_extract
       in_check: in_check
@@ -85,7 +85,7 @@ steps:
     in:
       in_dummy: setup_folder/out_dummy
       PATH: PATH
-      in_tree: in_tree
+      tree: tree
       in_2bi: in_2bi
     out: []
   link_bigwig:
@@ -93,6 +93,6 @@ steps:
     in:
       in_dummy: setup_folder/out_dummy
       PATH: PATH
-      in_tree: in_tree
+      tree: tree
     out: []
 outputs: []

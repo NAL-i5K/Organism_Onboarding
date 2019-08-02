@@ -31,16 +31,16 @@ arguments:
     valueFrom: mRNA
   - position: 11
     prefix: --trackLabel
-    valueFrom: $(inputs.in_tree[0])_current_models 
+    valueFrom: $(inputs.tree[0])_current_models 
   - position: 13
     prefix: --key
-    valueFrom: $(inputs.in_tree[0])_annotation
+    valueFrom: $(inputs.tree[0])_annotation
   - position: 15
     prefix: --out
     valueFrom: data/
     
 inputs:
-  in_tree:
+  tree:
     type: string[]
   in_gff:
     type: File
