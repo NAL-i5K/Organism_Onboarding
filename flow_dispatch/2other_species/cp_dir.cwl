@@ -11,7 +11,8 @@ requirements:
   
 baseCommand: [cp]
 arguments: 
-  - position: 1
+  - prefix: -r
+    position: 1
     valueFrom: $(inputs.in_data.basename)
   - position: 3
     valueFrom: $(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH[0])/
