@@ -14,9 +14,9 @@ check by command  ```python --version```
 check by command  ```pip --version```  
 - A text editor for editting yml file, for example, vim, VScode....etc
 
-### Getting started step by step
-If running the Organism Onboarding project first time, do from Step1 to Step5.  
-If running another species(already ran before), do not need setting up, so do from Step3 to Step5.  
+### Getting started step by step (Either Case A or Case B)  
+Case A. If running the Organism Onboarding project first time(maybe wrangle the first species), do from Step1 to Step5.  
+Case B. If running another species(already ran before), do not need setting up, so do from Step3 to Step5.  
 
 - Step1. Clone the repo to local   
 ```
@@ -38,7 +38,7 @@ Create a file named it **job-[gggsss].yml** for the specific organism, and take 
 ```cp example.yml job-[gggsss].yml```  
 
 - Step4.  
-Activate the pipenv just created in Stpe2.  
+Activate the pipenv created in **./setup.sh**.  
 ```pipenv shell```  
 
 - Step5.  
