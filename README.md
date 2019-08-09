@@ -8,32 +8,44 @@
 # User guide :metal:
 
 ### Prerequisite
-- Python 2.7 or 3.x {x = 4, 5, 6, 7}
-- A text editor for editting yml file
+- Python 3.x {x = 4, 5, 6, 7}  
+check by command  ```python --version```  
+- Pip (package manager)  
+check by command  ```pip --version```  
+- A text editor for editting yml file, for example, vim, VScode....etc
 
 ### Getting started step by step
-- Step1. Clone and setup 
+If running the Organism Onboarding project first time, do from Step1 to Step5.  
+If running another species(already ran before), do not need setting up, so do from Step3 to Step5.  
+
+- Step1. Clone the repo to local   
 ```
 git clone https://github.com/NAL-i5K/Organism_Onboarding.git
+```
+```
 cd Organism_Onboarding/
 ```
 
+- Step2.  
+clone other Organism Onboarding related project to local   
+create a python3 project enviroment by pipenv  
 ```
 ./setup.sh
 ```
 
-- Step2.  
-```cp example.yml job-[gggsss].yml```  
-Create a file named it **job-[gggsss].yml** for the specific organism, and take **example.yml** as a reference.  
-
 - Step3.  
+Create a file named it **job-[gggsss].yml** for the specific organism, and take **example.yml** as a reference.  
+```cp example.yml job-[gggsss].yml```  
+
+- Step4.  
+Activate the pipenv just created in Stpe2.  
+```pipenv shell```  
+
+- Step5.  
+Run cwl and document the message throwed by cwl in a file  
 ```
 cwl-runner --enable-ext final-workflow.cwl job-[gggsss].yml &> [gggsss].CWLlog
 ```
-
-- Step4.  
-Finish!
-
 
 # Developer guide :rocket:
 ### File explanation
