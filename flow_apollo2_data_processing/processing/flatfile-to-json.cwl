@@ -8,7 +8,8 @@ requirements:
   - class: InitialWorkDirRequirement
     listing: 
       ${
-        var LIST = [(inputs.in_gff)];
+        var LIST = [(inputs.in_gff),
+                   (inputs.in_data)];
         return LIST;
       }
 
@@ -46,7 +47,8 @@ inputs:
     type: File
   in_trackList_json:
     type: File
-
+  in_data:
+    type: Directory
 outputs: 
   out_trackList_json:
     type: File

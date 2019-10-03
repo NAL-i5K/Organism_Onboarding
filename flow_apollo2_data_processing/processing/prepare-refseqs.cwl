@@ -41,3 +41,7 @@ outputs:
     type: File
     outputBinding: 
       glob: data/tracks.conf
+  out_data:
+    type: Directory
+    outputBinding:
+      glob: data/

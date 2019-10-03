@@ -8,7 +8,7 @@ requirements:
   - class: InitialWorkDirRequirement
     listing: 
       ${
-        var LIST = [(inputs.in_tracks)];
+        var LIST = [(inputs.in_data)];
         return LIST;
       }
 
@@ -29,9 +29,10 @@ arguments:
     valueFrom: data/
     
 inputs:
+  in_data:
+    type: Directory
   in_tracks:
     type: Directory
-
 outputs:
   out_names:
     type: Directory

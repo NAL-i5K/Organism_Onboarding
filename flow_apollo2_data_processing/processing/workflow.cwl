@@ -28,26 +28,28 @@ steps:
       [out_fai]  
   #step 3
   prepare-refseqs:
-    run: prepare-refseqs.cwl
+    run: prepare-refseqs.cwl               
     in:
       in_fasta: in_fasta
       in_fai: samtools_faidx/out_fai
     out: 
-      [out_trackList_json, out_seq, out_tracks_conf] 
-  #step 4, different gff ??????
+      [out_trackList_json, out_seq, out_tracks_conf,out_data]  
+  #step 4 different gff ??????
   flatfile-to-json:
     run: flatfile-to-json.cwl
     in:
       tree: tree
       in_gff: in_gff
       in_trackList_json: prepare-refseqs/out_trackList_json
+      in_data: prepare-refseqs/out_data
     out:
-      [out_trackList_json, out_tracks]
+      [out_trackList_json, out_tracks]                                
   #step 5
   generate-names:
-    run: generate-names.cwl
+    run: generate-names.cwl                 
     in:
-      in_tracks: flatfile-to-json/out_tracks
+      in_data: prepare-refseqs/out_data
+      in_tracks: flatfile-to-json/out_tracks # making sure that this step is after flatfile-to-json       
     out:
       [out_names]
   #step 6
