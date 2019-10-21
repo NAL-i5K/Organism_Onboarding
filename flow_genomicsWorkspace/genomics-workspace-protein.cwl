@@ -12,11 +12,19 @@ inputs:
   in_fasta: File
 
 steps:
+  #step 0
+  addfile_2_db:
+    run: addfile_2_db.cwl
+    in:
+      in_fasta: in_fasta
+    out:
+      [out_dummy]
   #step 1
   addorganism:
     run: addorganism.cwl
     in: 
       scientific_name: scientific_name
+      in_dummy: addfile_2_db/out_dummy
     out: 
       [out_dummy]
   #step 2

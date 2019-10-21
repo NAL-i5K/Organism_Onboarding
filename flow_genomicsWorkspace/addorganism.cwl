@@ -16,6 +16,8 @@ arguments:
 inputs:
   scientific_name:
     type: string[]
+  in_dummy:
+    type: File
 outputs:
   out_dummy:
     type: stdout
