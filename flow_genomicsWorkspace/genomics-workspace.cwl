@@ -29,7 +29,7 @@ steps:
       [out_dummy]
   #step 2
   addblast:
-    run: addblast-genome.cwl
+    run: addblast.cwl
     in:
       scientific_name: scientific_name
       type: type
@@ -61,6 +61,15 @@ steps:
       in_dummy: populatesequence/out_dummy
     out:
       [out_dummy]
+  #step 6
+  addhmmer:
+    run: addhmmer.cwl
+    in:
+      in_fasta: in_fasta
+      scientific_name: scientific_name
+      type: type
+      in_dummy: showblast/out_dummy
+    out: [out_dummy]
 
 outputs: []
  

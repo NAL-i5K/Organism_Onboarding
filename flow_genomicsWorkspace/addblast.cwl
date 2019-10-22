@@ -25,7 +25,18 @@ arguments:
   - position: 4
     valueFrom: $(inputs.type[1])
   - position: 5
-    valueFrom: $(inputs.type[2])
+    valueFrom:
+      ${
+        var type = inputs.type[0];
+        var argument = [];
+        if (type == "nucleotide"){
+          argument = inputs.type[2];
+        }
+        else if (type == "peptide"){
+          argument = argument;
+        }
+        return argument;
+      }
   - position: 6
     prefix: -f
     valueFrom: $(inputs.in_fasta.basename)
