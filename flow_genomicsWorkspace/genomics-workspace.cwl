@@ -5,71 +5,41 @@ class: Workflow
 requirements:
   - class: MultipleInputFeatureRequirement
   - class: InlineJavascriptRequirement
+  - class: SubworkflowFeatureRequirement
 
 inputs:
   scientific_name: string[]
-  type: string[]
   in_fasta: File
+  in_fasta_protein: File[]
+  in_fasta_transcript: File[]
 
 steps:
-  #step 0
-  addfile_2_db:
-    run: addfile_2_db.cwl
+  #step 1
+  genomics-workspace-genome:
+    run: genomics-workspace-genome.cwl
     in:
       in_fasta: in_fasta
-    out:
-      [out_dummy]
-  #step 1
-  addorganism:
-    run: addorganism.cwl
-    in: 
       scientific_name: scientific_name
-      in_dummy: addfile_2_db/out_dummy
-    out: 
+    out:
       [out_dummy]
   #step 2
-  addblast:
-    run: addblast.cwl
-    in:
+  genomics-workspace-protein:
+    run: genomics-workspace-protein.cwl
+    in: 
+      in_fasta_protein: in_fasta_protein
       scientific_name: scientific_name
-      type: type
-      in_fasta: in_fasta
-      in_dummy: addorganism/out_dummy
-    out:
-      [out_dummy] 
-  #step 3
-  makeblastdb:
-    run: makeblastdb.cwl
-    in:
-      in_fasta: in_fasta
-      in_dummy: addblast/out_dummy
-    out:
+      in_dummy: genomics-workspace-genome/out_dummy
+    out: 
       [out_dummy]
-  #step 4
-  populatesequence:
-    run: populatesequence.cwl
+  #step 3 
+  genomics-workspace-transcript:
+    run: genomics-workspace-transcript.cwl
     in:
-      in_fasta: in_fasta
-      in_dummy: makeblastdb/out_dummy
-    out:
-      [out_dummy]
-  #step 5
-  showblast:
-    run: showblast.cwl
-    in:
-      in_fasta: in_fasta
-      in_dummy: populatesequence/out_dummy
-    out:
-      [out_dummy]
-  #step 6
-  addhmmer:
-    run: addhmmer.cwl
-    in:
-      in_fasta: in_fasta
+      in_fasta_transcript: in_fasta_transcript
       scientific_name: scientific_name
-      type: type
-      in_dummy: showblast/out_dummy
-    out: [out_dummy]
+      in_dummy: genomics-workspace-protein/out_dummy
+    out:
+      [] 
 
 outputs: []
  

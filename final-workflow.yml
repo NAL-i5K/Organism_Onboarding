@@ -11,17 +11,17 @@ PATH: [
 ]
 #-------------------------------------------------------------------------------
 tree: [
-athros,
-Aros_20,
-scaffold/analyses/Athalia_rosae
+apimel,
+Amel_HAv3.1,
+scaffold/analyses/Apis_mellifera
 ]
 scientific_name: [
-Athalia,
-rosae
+Apis,
+mellifera
 ]
 #-------------------------------------------------------------------------------
 url_md5checksums: [
-ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/344/095/GCF_000344095.2_Aros_2.0/md5checksums.txt
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/md5checksums.txt
 ]
 #-------------------------------------------------------------------------------
 deepPATH_genomic_fasta: [
@@ -35,20 +35,26 @@ deepPATH_genomic_gff: [
 scaffold/analyses/Apis_mellifera_Annotation_100
 ]
 url_genomic_gff: [
-ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/344/095/GCF_000344095.2_Aros_2.0/GCF_000344095.2_Aros_2.0_genomic.gff.gz
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_genomic.gff.gz
 ]
 #-------------------------------------------------------------------------------
 #The rest urls
 #For example,
 #Protein fasta(_translated_cds*)
-#CDS fasta
-#RNA fasta
+#Transcript fasta(CDS fasta RNA fasta)
+
 deepPATH_others: [
 scaffold/analyses/Apis_mellifera_Annotation_100
 ]
-url_others: [
-ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/344/095/GCF_000344095.2_Aros_2.0/GCF_000344095.2_Aros_2.0_rm.out.gz
+
+url_protein_fasta: [
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_genomic.fna.gz,
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_translated_cds.faa.gz
 ]
+
+url_transcript_fasta: [
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_cds_from_genomic.fna.gz,
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_rna_from_genomic.fna.gz]
 #-------------------------------------------------------------------------------
 deepPATH_apollo2_data: [
 jbrowse/data
@@ -72,10 +78,4 @@ ExamplePassword
 #below are variable for django setup, TBD (not implemented yet)
 genomic_fasta_seq_type: [
 nucleotide Genome assembly
-]
-#-------------------------------------------------------------------------------#below are variable for genomics-workspace
-type: [
-nucleotide,
-Genome,
-Assembly
 ]

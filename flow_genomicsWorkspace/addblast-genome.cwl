@@ -21,22 +21,11 @@ arguments:
     valueFrom: $(inputs.scientific_name[1])
   - position: 3
     prefix: -t
-    valueFrom: $(inputs.type[0])
+    valueFrom: nucleotide
   - position: 4
-    valueFrom: $(inputs.type[1])
+    valueFrom: Genome
   - position: 5
-    valueFrom:
-      ${
-        var type = inputs.type[0];
-        var argument = [];
-        if (type == "nucleotide"){
-          argument = inputs.type[2];
-        }
-        else if (type == "peptide"){
-          argument = argument;
-        }
-        return argument;
-      }
+    valueFrom: Assembly
   - position: 6
     prefix: -f
     valueFrom: $(inputs.in_fasta.basename)
@@ -45,8 +34,6 @@ inputs:
   in_dummy:
     type: File
   scientific_name:
-    type: string[]
-  type:
     type: string[]
   in_fasta:
     type: File
