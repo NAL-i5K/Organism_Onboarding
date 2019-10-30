@@ -12,12 +12,22 @@ inputs:
   scientific_name: string[]
   in_dummy: File
 steps:
-  #step 1
-  addfile_2_hmmer:
-    run: addfile_2_hmmer.cwl
+  #step 0
+  addfile_2_db:
+    run: addfile_2_db.cwl
     scatter: in_fasta
     in:
       in_fasta: in_fasta_protein
+    out:
+      [out_dummy]
+  #step 1
+  addfile_2_hmmer:
+    run: addfile_2_hmmer.cwl
+    scatter: [in_fasta, in_dummy]
+    scatterMethod: dotproduct
+    in:
+      in_fasta: in_fasta_protein
+      in_dummy: addfile_2_db/out_dummy
     out:
       [out_dummy]
   #step 2

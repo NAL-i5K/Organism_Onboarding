@@ -19,7 +19,8 @@ arguments:
 inputs:
   in_fasta:
     type: File
-
+  in_dummy:   
+    type: File
 outputs:
   out_dummy:
     type: stdout

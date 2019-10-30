@@ -13,14 +13,23 @@ inputs:
   in_fasta_transcript: File[]
 
 steps:
+  #step 0
+  addfile_2_db:
+    run: addfile_2_db.cwl
+    scatter: in_fasta
+    in:
+      in_fasta: in_fasta_transcript
+    out:
+      [out_dummy]
   #step 1
   addblast:
     run: addblast-transcript.cwl
-    scatter: in_fasta
+    scatter: [in_fasta, in_dummy]
     scatterMethod: dotproduct
     in:
       scientific_name: scientific_name
       in_fasta: in_fasta_transcript
+      in_dummy: addfile_2_db/out_dummy
     out:
       [out_dummy] 
   #step 3
