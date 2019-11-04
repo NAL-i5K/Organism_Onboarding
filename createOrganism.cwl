@@ -62,5 +62,5 @@ inputs:
 outputs:
   out_createOrganism_log:
     type: stdout
-stdout: $(inputs.PATH[1])/$(inputs.tree[0])/$(inputs.tree[1])/createOrganism.log
+stdout: createOrganism.log
 
