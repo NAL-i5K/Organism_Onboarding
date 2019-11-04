@@ -24,7 +24,7 @@ hints:
 
 arguments: 
   - position: 1
-    prefix: --indexed_fasta
+    prefix: --fasta
     valueFrom: $(inputs.in_fasta.basename)
   - position: 3
     prefix: --out
