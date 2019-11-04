@@ -10,6 +10,14 @@ requirements:
       - $(inputs.in_data)
   
 baseCommand: [cp]
+
+$namespaces:
+  cwltool: "http://commonwl.org/cwltool#"
+
+hints:
+  cwltool:LoadListingRequirement:
+    loadListing: shallow_listing
+
 arguments: 
   - prefix: -r
     position: 1

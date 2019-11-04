@@ -14,6 +14,14 @@ requirements:
       }
 
 baseCommand: [prepare-refseqs.pl]
+
+$namespaces:
+  cwltool: "http://commonwl.org/cwltool#"
+
+hints:
+  cwltool:LoadListingRequirement:
+    loadListing: shallow_listing
+
 arguments: 
   - position: 1
     prefix: --indexed_fasta

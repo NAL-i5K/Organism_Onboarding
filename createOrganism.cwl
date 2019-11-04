@@ -8,12 +8,12 @@ requirements:
 
 baseCommand: [createOrganism.py]
 
-#$namespaces:
-#  cwltool: "http://commonwl.org/cwltool#"
+$namespaces:
+  cwltool: "http://commonwl.org/cwltool#"
 
-#hints:
-#  cwltool:LoadListingRequirement:
-#    loadListing: shallow_listing
+hints:
+  cwltool:LoadListingRequirement:
+    loadListing: shallow_listing
 
 arguments: 
   - position: 1
