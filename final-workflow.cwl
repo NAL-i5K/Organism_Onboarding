@@ -18,6 +18,7 @@ inputs:
   deepPATH_protein_and_transcript: string[]
   url_protein_fasta: string[]
   url_transcript_fasta: string[]
+  managePy_Path: string
   deepPATH_apollo2_data: string[]
   deepPATH_bigwig: string[]
   host: string[]
@@ -127,6 +128,7 @@ steps:
     run: flow_genomicsWorkspace/genomics-workspace.cwl 
     in:
       scientific_name: scientific_name
+      managePy_Path: managePy_Path
       in_fasta: md5checksums/OUT_genomic_fasta
       in_fasta_protein: md5checksums/OUT_protein_fasta
       in_fasta_transcript: md5checksums/OUT_transcript_fasta  

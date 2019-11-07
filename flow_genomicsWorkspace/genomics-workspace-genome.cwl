@@ -9,6 +9,7 @@ requirements:
 inputs:
   scientific_name: string[]
   in_fasta: File
+  managePy_Path: string
 
 steps:
   #step 0
@@ -23,6 +24,7 @@ steps:
     run: addorganism.cwl
     in: 
       scientific_name: scientific_name
+      managePy_Path: managePy_Path
       in_dummy: addfile_2_db/out_dummy
     out: 
       [out_dummy]
@@ -31,6 +33,7 @@ steps:
     run: addblast-genome.cwl
     in:
       scientific_name: scientific_name
+      managePy_Path: managePy_Path
       in_fasta: in_fasta
       in_dummy: addorganism/out_dummy
     out:
@@ -40,6 +43,7 @@ steps:
     run: makeblastdb.cwl
     in:
       in_fasta: in_fasta
+      managePy_Path: managePy_Path
       in_dummy: addblast/out_dummy
     out:
       [out_dummy]
@@ -48,6 +52,7 @@ steps:
     run: populatesequence.cwl
     in:
       in_fasta: in_fasta
+      managePy_Path: managePy_Path
       in_dummy: makeblastdb/out_dummy
     out:
       [out_dummy]
@@ -56,6 +61,7 @@ steps:
     run: showblast.cwl
     in:
       in_fasta: in_fasta
+      managePy_Path: managePy_Path
       in_dummy: populatesequence/out_dummy
     out:
       [out_dummy]
