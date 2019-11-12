@@ -5,21 +5,17 @@ class: CommandLineTool
 
 #requirements:
 
-baseCommand: [python]
+baseCommand: [/home/vagrant/genomics-workspace/manage.py]
 arguments:
   - position: 1
-    valueFrom: $(inputs.managePy_Path)manage.py
-  - position: 2
     prefix: addorganism
     valueFrom: $(inputs.scientific_name[0])
-  - position: 3
+  - position: 2
     valueFrom: $(inputs.scientific_name[1])
 
 inputs:
   scientific_name:
     type: string[]
-  managePy_Path:
-    type: string
   in_dummy:
     type: File
 outputs:

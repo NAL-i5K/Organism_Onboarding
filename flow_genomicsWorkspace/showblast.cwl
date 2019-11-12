@@ -12,22 +12,18 @@ requirements:
         return LIST;
       }
 
-baseCommand: [python]
+baseCommand: [/home/vagrant/genomics-workspace/manage.py]
 arguments:
   - position: 1
-    valueFrom: $(inputs.managePy_Path)manage.py
-  - position: 2
     prefix: blast_shown
     valueFrom: $(inputs.in_fasta.basename)
-  - position: 3
+  - position: 2
     prefix: --shown
     valueFrom: 'true'
 
 inputs:
   in_dummy:
     type: File
-  managePy_Path:
-    type: string
   in_fasta:
     type: File
 outputs:

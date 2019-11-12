@@ -55,9 +55,6 @@ url_transcript_fasta: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_cds_from_genomic.fna.gz,
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_rna_from_genomic.fna.gz]
 #-------------------------------------------------------------------------------
-#Enter the path of manage.py 
-managePy_Path: /home/vagrant/genomics-workspace/
-#-------------------------------------------------------------------------------
 deepPATH_apollo2_data: [
 jbrowse/data
 ]
