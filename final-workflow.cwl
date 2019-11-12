@@ -108,7 +108,7 @@ steps:
       in_trackList_json_bak: apollo2_data_processing/OUT_trackList_json_bak
     out:
       []
-  
+ 
 #  apollo2_create_organism:
 #    run: createOrganism.cwl
 #    in:  
@@ -127,6 +127,8 @@ steps:
     run: flow_genomicsWorkspace/genomics-workspace.cwl 
     in:
       scientific_name: scientific_name
+      managePy_Path: managePy_Path
+      tree: tree
       in_fasta: md5checksums/OUT_genomic_fasta
       in_fasta_protein: md5checksums/OUT_protein_fasta
       in_fasta_transcript: md5checksums/OUT_transcript_fasta  

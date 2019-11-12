@@ -11,6 +11,7 @@ inputs:
   in_fasta_protein: File[]
   scientific_name: string[]
   in_dummy: File
+  tree: string[]
 steps:
   #step 0
   addfile_2_db:
@@ -39,6 +40,7 @@ steps:
       scientific_name: scientific_name
       in_fasta: in_fasta_protein
       in_dummy: addfile_2_hmmer/out_dummy
+      tree: tree
     out:
       [out_dummy] 
   #step 3

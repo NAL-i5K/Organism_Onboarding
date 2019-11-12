@@ -9,6 +9,8 @@ requirements:
 
 inputs:
   scientific_name: string[]
+  tree: string[]
+  managePy_Path: string
   in_fasta: File
   in_fasta_protein: File[]
   in_fasta_transcript: File[]
@@ -20,6 +22,8 @@ steps:
     in:
       in_fasta: in_fasta
       scientific_name: scientific_name
+      managePy_Path: managePy_Path
+      tree: tree
     out:
       [out_dummy]
   #step 2
@@ -28,6 +32,8 @@ steps:
     in: 
       in_fasta_protein: in_fasta_protein
       scientific_name: scientific_name
+      tree: tree
+      managePy_Path: managePy_Path
       in_dummy: genomics-workspace-genome/out_dummy
     out: 
       [out_dummy]
@@ -37,6 +43,8 @@ steps:
     in:
       in_fasta_transcript: in_fasta_transcript
       scientific_name: scientific_name
+      tree: tree
+      managePy_Path: managePy_Path
       in_dummy: genomics-workspace-protein/out_dummy
     out:
       [] 
