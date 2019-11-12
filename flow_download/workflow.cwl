@@ -10,8 +10,7 @@ inputs:
   url_md5checksums: string[]
   url_genomic_fasta: string[]
   url_genomic_gff: string[]
-  url_protein_fasta: string[]
-  url_transcript_fasta: string[]
+  url_others: string[]
 
 steps:
   wget_md5checksums:
@@ -29,16 +28,12 @@ steps:
     in:
       in_url: url_genomic_gff
     out: [out_wget]
-  wget_protein_fasta:
+  wget_others:
     run: wget_multi.cwl
     in:
-      in_url: url_protein_fasta
+      in_url: url_others
     out: [out_wget]
-  wget_transcript_fasta:
-    run: wget_multi.cwl
-    in:
-      in_url: url_transcript_fasta
-    out: [out_wget]
+   
 outputs:  
   OUT_md5checksums:
     type: File
@@ -49,9 +44,6 @@ outputs:
   OUT_genomic_gff:
     type: File
     outputSource: wget_genomic_gff/out_wget
-  OUT_protein_fasta:
+  OUT_others:
     type: File[]
-    outputSource: wget_protein_fasta/out_wget
-  OUT_transcript_fasta:
-    type: File[]
-    outputSource: wget_transcript_fasta/out_wget
+    outputSource: wget_others/out_wget

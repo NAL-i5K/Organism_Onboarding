@@ -14,10 +14,9 @@ inputs:
   in_genomic_fasta: File
   deepPATH_genomic_gff: string[]
   in_genomic_gff: File
-  deepPATH_protein_and_transcript: string[]
+  deepPATH_others: string[]
   #
-  in_protein_fasta: File[]
-  in_transcript_fasta: File[]
+  in_others: File[]
   in_md5checksums: File
   in_extract: File
   in_check: File
@@ -54,9 +53,8 @@ steps:
       in_genomic_fasta: in_genomic_fasta
       deepPATH_genomic_gff: deepPATH_genomic_gff
       in_genomic_gff: in_genomic_gff
-      deepPATH_protein_and_transcript: deepPATH_protein_and_transcript
-      in_protein_fasta: in_protein_fasta
-      in_transcript_fasta: in_transcript_fasta
+      deepPATH_others: deepPATH_others
+      in_others: in_others
       #
       deepPATH_apollo2_data: deepPATH_apollo2_data
       in_seq: in_seq
