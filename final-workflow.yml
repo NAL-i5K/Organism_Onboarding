@@ -11,9 +11,9 @@ PATH: [
 ]
 #-------------------------------------------------------------------------------
 tree: [
-gggsss,
-AssemblyName,
-scaffold/analyses/Foldername
+apimel,
+Amel_HAv3.1,
+scaffold/analyses/Apis_mellifera
 ]
 scientific_name: [
 Apis,
@@ -32,7 +32,7 @@ ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3
 ]
 #-------------------------------------------------------------------------------
 deepPATH_genomic_gff: [
-scaffold/analyses/Apis_mellifera_Annotation_100
+scaffold/analyses/Apis_mellifera
 ]
 url_genomic_gff: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_genomic.gff.gz
@@ -41,16 +41,22 @@ ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3
 #The rest urls
 #For example,
 #Protein fasta(_translated_cds*)
-#CDS fasta
-#RNA fasta
-deepPATH_others: [
-scaffold/analyses/Apis_mellifera_Annotation_100
+#Transcript fasta(CDS fasta RNA fasta)
+
+deepPATH_protein_and_transcript: [
+scaffold/analyses/Apis_mellifera
 ]
-url_others: [
-ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_translated_cds.faa.gz,
+
+url_protein_fasta: [
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_translated_cds.faa.gz
+]
+
+url_transcript_fasta: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_cds_from_genomic.fna.gz,
-ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_rna_from_genomic.fna.gz
-]
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_rna_from_genomic.fna.gz]
+#-------------------------------------------------------------------------------
+#Enter the path of manage.py 
+managePy_Path: /home/vagrant/genomics-workspace/
 #-------------------------------------------------------------------------------
 deepPATH_apollo2_data: [
 jbrowse/data
