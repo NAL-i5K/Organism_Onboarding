@@ -1,23 +1,33 @@
 #example yml file for specific organism
 
 #The full path look like this:
-#[PATH]/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.tree[2])
-#[PATH]/$(inputs.tree[0])/$(inputs.tree[1])/[deepPATH]
+#For genomic fasta/scaffold data:
+#$(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/[deepPATH_genomic_fasta]
+#For gene set /analysis data:
+#$(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/[deepPATH_genomic_fasta]/[deepPATH_analyses]/$(inputs.tree[2])
+#For bigwig data:
+#$(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/[deepPATH_bigwig]
+#For jbrowse/apollo data:
+#$(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/[deepPATH_apollo2_data]
+#For intermediate files: 
+#$(inputs.PATH[1])/$(inputs.tree[0])/$(inputs.tree[1])/[deepPATH_genomic_fasta]/[deepPATH_analyses]/$(inputs.tree[2])
+#For BLAT data:
+#$(inputs.PATH[2])
 #-------------------------------------------------------------------------------
-PATH: [
+PATH: [ #don't change this unless you know what you're doing
 /app/data/other_species,
 /app/data/working_files,
 /usr/local/blat/db
 ]
 #-------------------------------------------------------------------------------
 tree: [
-apimel,
-Amel_HAv3.1,
-scaffold/analyses/Apis_mellifera
+apimel, #species abbreviation - format gggsss
+Amel_HAv3.1, #the assembly name
+Apis_mellifera_Annotation_Release_103 #the gene set/annotation name
 ]
 scientific_name: [
-Apis,
-mellifera
+Apis, #genus
+mellifera #species
 ]
 #-------------------------------------------------------------------------------
 url_md5checksums: [
@@ -25,44 +35,40 @@ ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3
 ]
 #-------------------------------------------------------------------------------
 deepPATH_genomic_fasta: [
-scaffold
+scaffold #the containing directory for the assembly. Don't change this unless you have to. 
 ]
 url_genomic_fasta: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_genomic.fna.gz
 ]
 #-------------------------------------------------------------------------------
-deepPATH_genomic_gff: [
-scaffold/analyses/Apis_mellifera
+#This section is usually for the official gene set. 
+deepPATH_analyses: [
+analyses #the containing directory for ALL analyses, not just the gene set loaded here. Don't change this unless you have to.
 ]
 url_genomic_gff: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_genomic.gff.gz
 ]
-#-------------------------------------------------------------------------------
+
 #The rest urls
 #For example,
 #Protein fasta(_translated_cds*)
 #Transcript fasta(CDS fasta RNA fasta)
 
-deepPATH_protein_and_transcript: [
-scaffold/analyses/Apis_mellifera
-]
-
 url_protein_fasta: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_translated_cds.faa.gz
 ]
-
 url_transcript_fasta: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_cds_from_genomic.fna.gz,
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_rna_from_genomic.fna.gz]
 #-------------------------------------------------------------------------------
-deepPATH_apollo2_data: [
+deepPATH_apollo2_data: [ #the containing directory for Jbrowse/Apollo data. Don't change this unless you have to. 
 jbrowse/data
 ]
-deepPATH_bigwig: [
+deepPATH_bigwig: [ #the containing directory for bigwig files generated from the assembly. Don't change this unless you have to.
 scaffold/bigwig
 ]
 #-------------------------------------------------------------------------------
-host: [
+host: [ #host where Apollo2 lives
 https://apollo-dev.nal.usda.gov
 ]
 #-------------------------------------------------------------------------------
@@ -75,6 +81,7 @@ ExamplePassword
 ]
 #-------------------------------------------------------------------------------
 #below are variable for django setup, TBD (not implemented yet)
+#KELLY are we using these in flow_genomics_workspace? If not, we can get rid of them. 
 genomic_fasta_seq_type: [
 nucleotide Genome assembly
 ]
