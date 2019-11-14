@@ -11,6 +11,7 @@ inputs:
   in_dummy: File[]
   scientific_name: string[]
   in_fasta_transcript: File[]
+  tree: string[]
 
 steps:
   #step 0
@@ -30,6 +31,7 @@ steps:
       scientific_name: scientific_name
       in_fasta: in_fasta_transcript
       in_dummy: addfile_2_db/out_dummy
+      tree: tree
     out:
       [out_dummy] 
   #step 3

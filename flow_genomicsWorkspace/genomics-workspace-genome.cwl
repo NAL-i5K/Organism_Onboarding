@@ -9,6 +9,8 @@ requirements:
 inputs:
   scientific_name: string[]
   in_fasta: File
+  managePy_Path: string
+  tree: string[]
 
 steps:
   #step 0
@@ -33,6 +35,7 @@ steps:
       scientific_name: scientific_name
       in_fasta: in_fasta
       in_dummy: addorganism/out_dummy
+      tree: tree
     out:
       [out_dummy] 
   #step 3
