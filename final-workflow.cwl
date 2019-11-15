@@ -8,15 +8,14 @@ requirements:
 
 inputs:
   PATH: string[]
+  managePy_Path: string
   tree: string[]
   scientific_name: string[]
   url_md5checksums: string[]
   deepPATH_genomic_fasta: string[]
   url_genomic_fasta: string[]
-#  deepPATH_genomic_gff: string[]
   deepPATH_analyses: string[]
   url_genomic_gff: string[]
-#  deepPATH_protein_and_transcript: string[]
   url_protein_fasta: string[]
   url_transcript_fasta: string[]
   deepPATH_apollo2_data: string[]
@@ -86,10 +85,8 @@ steps:
       tree: tree
       deepPATH_genomic_fasta: deepPATH_genomic_fasta
       in_genomic_fasta: md5checksums/OUT_genomic_fasta
-#      deepPATH_genomic_gff: deepPATH_genomic_gff
       deepPATH_analyses: deepPATH_analyses
       in_genomic_gff: md5checksums/OUT_genomic_gff
-#      deepPATH_protein_and_transcript: deepPATH_protein_and_transcript
       #
       in_protein_fasta: md5checksums/OUT_protein_fasta
       in_transcript_fasta: md5checksums/OUT_transcript_fasta
@@ -129,6 +126,8 @@ steps:
     run: flow_genomicsWorkspace/genomics-workspace.cwl 
     in:
       scientific_name: scientific_name
+      managePy_Path: managePy_Path
+      tree: tree
       in_fasta: md5checksums/OUT_genomic_fasta
       in_fasta_protein: md5checksums/OUT_protein_fasta
       in_fasta_transcript: md5checksums/OUT_transcript_fasta  

@@ -14,9 +14,8 @@ inputs:
   tree: string[]
   deepPATH_genomic_fasta: string[]
   in_genomic_fasta: File
-  deepPATH_genomic_gff: string[]
+  deepPATH_analyses: string[]
   in_genomic_gff: File
-  deepPATH_protein_and_transcript: string[]
   in_protein_fasta: File[]
   in_transcript_fasta: File[]
   #
@@ -42,29 +41,32 @@ steps:
       in_data: in_genomic_fasta
     out: []
   cp_genomic_gff:
-    run: cp_file.cwl
+    run: cp_file_4_GffProTra.cwl
     in:
       PATH: PATH
+      deepPATH_1: deepPATH_genomic_fasta
+      deepPATH_2: deepPATH_analyses
       tree: tree
-      deepPATH: deepPATH_genomic_gff
       in_data: in_genomic_gff
     out: []
   cp_protein_fasta:
-    run: cp_file.cwl
+    run: cp_file_4_GffProTra.cwl
     scatter: in_data
     in:
       PATH: PATH
+      deepPATH_1: deepPATH_genomic_fasta
+      deepPATH_2: deepPATH_analyses
       tree: tree
-      deepPATH: deepPATH_protein_and_transcript
       in_data: in_protein_fasta
     out: []
   cp_transcript_fasta:
-    run: cp_file.cwl
+    run: cp_file_4_GffProTra.cwl
     scatter: in_data
     in:
       PATH: PATH
+      deepPATH_1: deepPATH_genomic_fasta
+      deepPATH_2: deepPATH_analyses
       tree: tree
-      deepPATH: deepPATH_protein_and_transcript
       in_data: in_transcript_fasta
     out: []
   # 

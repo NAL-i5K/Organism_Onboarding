@@ -12,9 +12,8 @@ inputs:
   tree: string[]
   deepPATH_genomic_fasta: string[]
   in_genomic_fasta: File
-  deepPATH_genomic_gff: string[]
+  deepPATH_analyses: string[]
   in_genomic_gff: File
-  deepPATH_protein_and_transcript: string[]
   #
   in_protein_fasta: File[]
   in_transcript_fasta: File[]
@@ -52,9 +51,8 @@ steps:
       tree: tree
       deepPATH_genomic_fasta: deepPATH_genomic_fasta
       in_genomic_fasta: in_genomic_fasta
-      deepPATH_genomic_gff: deepPATH_genomic_gff
+      deepPATH_analyses: deepPATH_analyses
       in_genomic_gff: in_genomic_gff
-      deepPATH_protein_and_transcript: deepPATH_protein_and_transcript
       in_protein_fasta: in_protein_fasta
       in_transcript_fasta: in_transcript_fasta
       #

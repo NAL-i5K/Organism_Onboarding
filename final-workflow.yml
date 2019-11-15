@@ -20,6 +20,9 @@ PATH: [ #don't change this unless you know what you're doing
 /usr/local/blat/db
 ]
 #-------------------------------------------------------------------------------
+#Enter the path of manage.py 
+managePy_Path: /home/vagrant/genomics-workspace/
+#-------------------------------------------------------------------------------
 tree: [
 apimel, #species abbreviation - format gggsss
 Amel_HAv3.1, #the assembly name
