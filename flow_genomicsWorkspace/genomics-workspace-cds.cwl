@@ -10,7 +10,7 @@ inputs:
   in_dummy: File
   scientific_name: string[]
   managePy_Path: string
-  in_fasta_transcript: File
+  in_fasta_cds: File
   tree: string[]
 
 steps:
@@ -18,16 +18,16 @@ steps:
   addfile_2_db:
     run: addfile_2_db.cwl
     in:
-      in_fasta: in_fasta_transcript
+      in_fasta: in_fasta_cds
     out:
       [out_dummy]
   #step 1
   addblast:
-    run: addblast-transcript.cwl
+    run: addblast-cds.cwl
     in:
       scientific_name: scientific_name
       managePy_Path: managePy_Path
-      in_fasta: in_fasta_transcript
+      in_fasta: in_fasta_cds
       in_dummy: addfile_2_db/out_dummy
       tree: tree
     out:
@@ -36,7 +36,7 @@ steps:
   makeblastdb:
     run: makeblastdb.cwl
     in:
-      in_fasta: in_fasta_transcript
+      in_fasta: in_fasta_cds
       managePy_Path: managePy_Path
       in_dummy: addblast/out_dummy
     out:
@@ -45,7 +45,7 @@ steps:
   populatesequence:
     run: populatesequence.cwl
     in:
-      in_fasta: in_fasta_transcript
+      in_fasta: in_fasta_cds
       managePy_Path: managePy_Path
       in_dummy: makeblastdb/out_dummy
     out:
@@ -54,7 +54,7 @@ steps:
   showblast:
     run: showblast.cwl
     in:
-      in_fasta: in_fasta_transcript
+      in_fasta: in_fasta_cds
       managePy_Path: managePy_Path
       in_dummy: populatesequence/out_dummy
     out:

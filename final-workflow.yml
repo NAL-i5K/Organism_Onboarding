@@ -55,16 +55,21 @@ ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3
 #The rest urls
 #For example,
 #Protein fasta(_translated_cds*)
-#Transcript fasta(CDS fasta RNA fasta)
+#Transcript fasta(_rna_from*)
+#CDS fasta(_cds_from*)
 
 url_protein_fasta: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_translated_cds.faa.gz
 ]
+url_cds_fasta: [
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_cds_from_genomic.fna.gz
+]
 url_transcript_fasta: [
-ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_cds_from_genomic.fna.gz,
-ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_rna_from_genomic.fna.gz]
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_rna_from_genomic.fna.gz
+]
 #-------------------------------------------------------------------------------
-deepPATH_apollo2_data: [ #the containing directory for Jbrowse/Apollo data. Don't change this unless you have to. 
+deepPATH_apollo2_data: [ 
+#the containing directory for Jbrowse/Apollo data. Don't change this unless you have to. 
 jbrowse/data
 ]
 deepPATH_bigwig: [ #the containing directory for bigwig files generated from the assembly. Don't change this unless you have to.

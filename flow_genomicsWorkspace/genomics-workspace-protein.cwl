@@ -90,8 +90,6 @@ steps:
       in_dummy: showblast/out_dummy
     out: [out_dummy]
 
-outputs:
-  out_dummy:
-    type: File[]
-    outputSource: addfile_2_hmmer/out_dummy 
+outputs: []
+  
  

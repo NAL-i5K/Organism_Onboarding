@@ -23,24 +23,24 @@ arguments:
     valueFrom: $(inputs.scientific_name[1])
   - position: 4
     prefix: -t
-    valueFrom: peptide
+    valueFrom: nucleotide
   - position: 5
-    valueFrom: Protein
+    valueFrom: Transcript
   - position: 6
     prefix: -f
     valueFrom: $(inputs.in_fasta.basename)
   - position: 7
     prefix: -d
-    valueFrom: $(inputs.scientific_name[0]) $(inputs.scientific_name[1]), $(inputs.tree[2]), peptides
+    valueFrom: $(inputs.scientific_name[0]) $(inputs.scientific_name[1]), $(inputs.tree[2]), CDS
 
 inputs:
-  in_dummy:
-    type: File
   scientific_name:
     type: string[]
   managePy_Path:
     type: string
   in_fasta:
+    type: File
+  in_dummy:
     type: File
   tree:
     type: string[]

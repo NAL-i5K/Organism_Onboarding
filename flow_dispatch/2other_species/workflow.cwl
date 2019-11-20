@@ -17,7 +17,9 @@ inputs:
   deepPATH_analyses: string[]
   in_genomic_gff: File
   in_protein_fasta: File[]
-  in_transcript_fasta: File[]
+  in_transcript_fasta: File
+  in_cds_fasta: File
+  
   #
   deepPATH_apollo2_data: string[]
   in_seq: Directory
@@ -61,13 +63,21 @@ steps:
     out: []
   cp_transcript_fasta:
     run: cp_file_4_GffProTra.cwl
-    scatter: in_data
     in:
       PATH: PATH
       deepPATH_1: deepPATH_genomic_fasta
       deepPATH_2: deepPATH_analyses
       tree: tree
       in_data: in_transcript_fasta
+    out: []
+  cp_cds_fasta:
+    run: cp_file_4_GffProTra.cwl
+    in:
+      PATH: PATH
+      deepPATH_1: deepPATH_genomic_fasta
+      deepPATH_2: deepPATH_analyses
+      tree: tree
+      in_data: in_cds_fasta
     out: []
   # 
   cp_seq:

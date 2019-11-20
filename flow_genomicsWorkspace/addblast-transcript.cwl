@@ -30,8 +30,8 @@ arguments:
     prefix: -f
     valueFrom: $(inputs.in_fasta.basename)
   - position: 7
-    prefix: -d [
-    valueFrom: $(inputs.scientific_name[0]) $(inputs.scientific_name[1])] transcript [$(inputs.tree[1])]
+    prefix: -d
+    valueFrom: $(inputs.scientific_name[0]) $(inputs.scientific_name[1])], $(inputs.tree[2]), transcripts
     separate: false
 
 inputs:

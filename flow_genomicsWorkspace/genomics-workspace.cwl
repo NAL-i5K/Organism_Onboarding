@@ -13,7 +13,8 @@ inputs:
   managePy_Path: string
   in_fasta: File
   in_fasta_protein: File[]
-  in_fasta_transcript: File[]
+  in_fasta_transcript: File
+  in_fasta_cds: File
 
 steps:
   #step 1
@@ -36,7 +37,7 @@ steps:
       managePy_Path: managePy_Path
       in_dummy: genomics-workspace-genome/out_dummy
     out: 
-      [out_dummy]
+      []
   #step 3 
   genomics-workspace-transcript:
     run: genomics-workspace-transcript.cwl
@@ -45,9 +46,20 @@ steps:
       scientific_name: scientific_name
       tree: tree
       managePy_Path: managePy_Path
-      in_dummy: genomics-workspace-protein/out_dummy
+      in_dummy: genomics-workspace-genome/out_dummy
     out:
       [] 
+  #step 4 
+  genomics-workspace-cds:
+    run: genomics-workspace-cds.cwl
+    in:
+      in_fasta_cds: in_fasta_cds
+      scientific_name: scientific_name
+      tree: tree
+      managePy_Path: managePy_Path
+      in_dummy: genomics-workspace-genome/out_dummy
+    out:
+      []
 
 outputs: []
  

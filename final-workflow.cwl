@@ -18,6 +18,7 @@ inputs:
   url_genomic_gff: string[]
   url_protein_fasta: string[]
   url_transcript_fasta: string[]
+  url_cds_fasta: string[]
   deepPATH_apollo2_data: string[]
   deepPATH_bigwig: string[]
   host: string[]
@@ -33,12 +34,14 @@ steps:
       url_genomic_gff: url_genomic_gff
       url_protein_fasta: url_protein_fasta
       url_transcript_fasta: url_transcript_fasta
+      url_cds_fasta: url_cds_fasta
     out:
       [OUT_md5checksums,   #'*.txt'
        OUT_genomic_fasta,  #'*.gz'
        OUT_genomic_gff,    #'*.gz'
        OUT_protein_fasta,            #'*.gz'
-       OUT_transcript_fasta]         #'*.gz'
+       OUT_transcript_fasta,         #'*.gz'
+       OUT_cds_fasta]                #'*.gz'
   #step2  
   md5checksums:
     run: flow_md5checksums/workflow.cwl
@@ -48,6 +51,7 @@ steps:
       in_genomic_gff: download/OUT_genomic_gff
       in_protein_fasta: download/OUT_protein_fasta
       in_transcript_fasta: download/OUT_transcript_fasta
+      in_cds_fasta: download/OUT_cds_fasta
     out:
       [
        OUT_extract,  #'*.txt2', extracted from *.txt
@@ -55,7 +59,8 @@ steps:
        OUT_genomic_fasta, #'*.fa, '*.fna', '*.faa'
        OUT_genomic_gff,   #'*.gff', '*.gff3'
        OUT_protein_fasta,
-       OUT_transcript_fasta 
+       OUT_transcript_fasta, 
+       OUT_cds_fasta
       ]
 
   #verify:
@@ -90,6 +95,7 @@ steps:
       #
       in_protein_fasta: md5checksums/OUT_protein_fasta
       in_transcript_fasta: md5checksums/OUT_transcript_fasta
+      in_cds_fasta: md5checksums/OUT_cds_fasta
       in_md5checksums: download/OUT_md5checksums
       in_extract: md5checksums/OUT_extract
       in_check: md5checksums/OUT_check
@@ -130,7 +136,8 @@ steps:
       tree: tree
       in_fasta: md5checksums/OUT_genomic_fasta
       in_fasta_protein: md5checksums/OUT_protein_fasta
-      in_fasta_transcript: md5checksums/OUT_transcript_fasta  
+      in_fasta_transcript: md5checksums/OUT_transcript_fasta
+      in_fasta_cds: md5checksums/OUT_cds_fasta  
     out: []
 
 outputs:  []
