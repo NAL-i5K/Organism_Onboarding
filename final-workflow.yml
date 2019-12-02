@@ -89,7 +89,3 @@ ExamplePassword
 ]
 #-------------------------------------------------------------------------------
 #below are variable for django setup, TBD (not implemented yet)
-#KELLY are we using these in flow_genomics_workspace? If not, we can get rid of them. 
-genomic_fasta_seq_type: [
-nucleotide Genome assembly
-]

@@ -24,11 +24,16 @@ arguments:
   - position: 4
     prefix: -f
     valueFrom: $(inputs.in_fasta.basename)
+  - position: 5
+    prefix: -d
+    valueFrom: $(inputs.scientific_name[0]) $(inputs.scientific_name[1]), $(inputs.tree[2]), peptides
 
 inputs:
   in_dummy:
     type: File
   scientific_name:
+    type: string[]
+  tree: 
     type: string[]
   managePy_Path:
     type: string

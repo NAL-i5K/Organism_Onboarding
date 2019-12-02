@@ -86,6 +86,7 @@ steps:
     in:
       in_fasta: in_fasta_protein
       scientific_name: scientific_name
+      tree: tree
       managePy_Path: managePy_Path
       in_dummy: showblast/out_dummy
     out: [out_dummy]
