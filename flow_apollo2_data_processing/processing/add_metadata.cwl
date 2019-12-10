@@ -15,9 +15,9 @@ requirements:
 baseCommand: [add_metadata_to_GC_gap_bigwig_tracks.pl]
 arguments: 
   - position: 1
-    valueFrom: trackList.json
+    valueFrom: $(inputs.in_trackList_json.basename)
   - position: 3
-    valueFrom: trackList.json.bak-metadata
+    valueFrom: $(inputs.in_trackList_json.basename).bak-metadata
   - position : 5
     valueFrom: $(inputs.in_fasta.basename).gc.bigwig
   - position : 7
