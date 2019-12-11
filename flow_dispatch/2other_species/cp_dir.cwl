@@ -5,9 +5,9 @@ class: CommandLineTool
 
 requirements:
   - class: InlineJavascriptRequirement
-  - class: InitialWorkDirRequirement
-    listing: 
-      - $(inputs.in_data)
+#  - class: InitialWorkDirRequirement
+#    listing: 
+#      - $(inputs.in_data)
   
 baseCommand: [cp]
 
@@ -19,9 +19,9 @@ hints:
     loadListing: shallow_listing
 
 arguments: 
-  - prefix: -r
-    position: 1
-    valueFrom: $(inputs.in_data.basename)
+  - position: 1
+    prefix: -r
+    valueFrom: $(inputs.in_data.location.slice(7))
   - position: 3
     valueFrom: $(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH[0])/
 
