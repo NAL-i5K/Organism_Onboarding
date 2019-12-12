@@ -99,4 +99,7 @@ steps:
       PATH: PATH
       tree: tree
     out: []
-outputs: []
+outputs: 
+  out_dummy:
+    type: File
+    outputSource: setup_folder/out_dummy
