@@ -112,20 +112,21 @@ steps:
       in_trackList_json: apollo2_data_processing/OUT_trackList_json
       in_trackList_json_bak: apollo2_data_processing/OUT_trackList_json_bak
     out:
-      []
+      [out_dummy]
   
-#  apollo2_create_organism:
-#    run: createOrganism.cwl
-#    in:  
-#      host: host
-#      scientific_name: scientific_name
-#      PATH: PATH
-#      tree: tree
-#      in_2bi: apollo2_data_processing/OUT_2bi
-#      deepPATH_apollo2_data: deepPATH_apollo2_data
-#      login_apollo2: login_apollo2
-#    out:
-#      [out_createOrganism_log]
+  apollo2_create_organism:
+    run: createOrganism.cwl
+    in: 
+      in_dummy: dispatch/out_dummy 
+      host: host
+      scientific_name: scientific_name
+      PATH: PATH
+      tree: tree
+      in_2bi: apollo2_data_processing/OUT_2bi
+      deepPATH_apollo2_data: deepPATH_apollo2_data
+      login_apollo2: login_apollo2
+    out:
+      [out_createOrganism_log]
       
   #genomics-workspace
   genomics-workspace:

@@ -44,6 +44,8 @@ arguments:
     valueFrom: -publicMode
 
 inputs:
+  in_dummy: 
+    type: File
   host:
     type: string[]
   scientific_name:
