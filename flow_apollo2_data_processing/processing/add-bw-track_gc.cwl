@@ -28,7 +28,7 @@ arguments:
     valueFrom: "GC Content"
   - position: 9
     prefix: --bw_url 
-    valueFrom: $(inputs.in_gc_bigwig.basename)
+    valueFrom: bigwig/$(inputs.in_gc_bigwig.basename)
   - position: 11
     prefix: --in
     valueFrom: $(inputs.in_trackList_json.basename)
