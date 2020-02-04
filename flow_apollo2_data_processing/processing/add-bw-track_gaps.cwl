@@ -25,7 +25,7 @@ arguments:
     valueFrom: "Gaps in assembly"
   - position: 7
     prefix: --bw_url 
-    valueFrom: $(inputs.in_gaps_bigwig.basename)
+    valueFrom: bigwig/$(inputs.in_gaps_bigwig.basename)
   - position: 9
     prefix: --in
     valueFrom: $(inputs.in_trackList_json.basename)
