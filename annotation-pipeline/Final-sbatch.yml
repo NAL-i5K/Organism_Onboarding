@@ -1,7 +1,3 @@
-############ script File ################
-scriptFile:
-  class: File
-  path: sbatch_file.sh
 ############   INPUT   ##################
 inputFile_Path: /home/hsiukang.huang/athros_pep_500.faa
 
