@@ -41,10 +41,17 @@ steps:
     out:
       [Script_file]
   #step 3
+  writeLoadModule:
+    run: writeLoadModule.cwl
+    in: 
+      scriptFile: writeFirstLine/Script_file
+    out:
+      [Script_file]
+  #step 4
   writeGoanna:
     run: writeGoanna.cwl
     in: 
-      scriptFile: writeFirstLine/Script_file
+      scriptFile: writeLoadModule/Script_file
       inputFile_Path: inputFile_Path
       G_blast: G_blast
       G_output_Name: G_output_Name
@@ -56,14 +63,14 @@ steps:
       G_NCBI_taxonID: G_NCBI_taxonID
     out:
       [Script_file]
-  #step 4
+  #step 5
   writeFinishMessage_Goanna:
     run: writeFinishMessage.cwl
     in:
       scriptFile: writeGoanna/Script_file
     out:
       [Script_file]
-  #step 5
+  #step 6
   writeKobas:
     run: writeKobas.cwl
     in:
@@ -75,14 +82,14 @@ steps:
       K_database_Dir: K_database_Dir
     out:
       [Script_file]
-  #step 6
+  #step 7
   writeFinishMessage_Kobas:
     run: writeFinishMessage.cwl
     in:
       scriptFile: writeKobas/Script_file
     out:
       [Script_file]
-  #step 7
+  #step 8
   writeInterproscan:
     run: writeInter.cwl
     in: 
@@ -95,7 +102,7 @@ steps:
       I_database: I_database
     out: 
       [Script_file]
-  #step 8
+  #step 9
   writeFinishMessage_Inter:
     run: writeFinishMessage.cwl
     in:
@@ -103,7 +110,7 @@ steps:
     out:
       [Script_file]
 
-outputs: 
+outputs:  
   Script_file: 
     type: File
     outputSource: create-Shell_Script/Script_file
