@@ -76,16 +76,18 @@ deepPATH_bigwig: [ #the containing directory for bigwig files generated from the
 scaffold/bigwig
 ]
 #-------------------------------------------------------------------------------
-host: [ #host where Apollo2 lives
+#where apollo2 lives
+host: [ 
 https://apollo-dev.nal.usda.gov
 ]
-#-------------------------------------------------------------------------------
-#authentication in apollo
-#username
-#password
-login_apollo2: [
-example@ars.usda.gov,
-ExamplePassword
+#authentication in apollo2
+login_apollo2:  [
+i5k@ars.usda.gov,
+demo
 ]
+#-------------------------------------------------------------------------------
+#Apollo server
+#username
+Apollo_account: hsiukang.huang@apollo-stage-node1.nal.usda.gov
 #-------------------------------------------------------------------------------
 #below are variable for django setup, TBD (not implemented yet)
