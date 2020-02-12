@@ -82,8 +82,8 @@ https://apollo-dev.nal.usda.gov
 ]
 #authentication in apollo2
 login_apollo2:  [
-i5k@ars.usda.gov,
-demo
+user@ars.usda.gov,
+password
 ]
 #-------------------------------------------------------------------------------
 #Apollo server
