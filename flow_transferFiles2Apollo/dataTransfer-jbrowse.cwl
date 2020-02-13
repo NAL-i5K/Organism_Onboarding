@@ -7,9 +7,9 @@ requirements:
 
 baseCommand: [rsync]
 arguments:
-  - prefix: -vzP
+  - prefix: -rlvP
     position: 1
-    valueFrom: /app/data/other_species/$(inputs.tree[0])/$(inputs.tree[1])/jbrowse/
+    valueFrom: /app/data/other_species/$(inputs.tree[0])/$(inputs.tree[1])/jbrowse
   - position: 2
     valueFrom: $(inputs.Apollo_account):/app/data/other_species/$(inputs.tree[0])/$(inputs.tree[1])/
 
