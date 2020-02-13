@@ -7,9 +7,9 @@ requirements:
 
 baseCommand: [rsync]
 arguments:
-  - prefix: -vzP
+  - prefix: -rlvP
     position: 1
-    valueFrom: /usr/local/blat/db/$(inputs.tree[0])/
+    valueFrom: /usr/local/blat/db/$(inputs.tree[0])
   - position: 2
     valueFrom: $(inputs.Apollo_account):/usr/local/blat/db/
 
