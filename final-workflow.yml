@@ -77,8 +77,11 @@ scaffold/bigwig
 ]
 #-------------------------------------------------------------------------------
 #where apollo2 lives
-host: [ 
-https://apollo-dev.nal.usda.gov
+host_stage: [ 
+https://apollo-dev.nal.usda.gov,
+]
+host_production: [
+https://apollo-stage.nal.usda.gov
 ]
 #authentication in apollo2
 login_apollo2:  [
@@ -88,6 +91,6 @@ password
 #-------------------------------------------------------------------------------
 #Apollo server
 #username
-Apollo_account: hsiukang.huang@apollo-stage-node1.nal.usda.gov
+Apollo_account: user@apollo-stage-node1.nal.usda.gov
 #-------------------------------------------------------------------------------
 #below are variable for django setup, TBD (not implemented yet)
