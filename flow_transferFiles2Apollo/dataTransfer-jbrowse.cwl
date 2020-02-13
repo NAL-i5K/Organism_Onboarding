@@ -5,9 +5,9 @@ class: CommandLineTool
 requirements:
   - class: InlineJavascriptRequirement
 
-baseCommand: [scp]
+baseCommand: [rsync]
 arguments:
-  - prefix: -r
+  - prefix: -vzP
     position: 1
     valueFrom: /app/data/other_species/$(inputs.tree[0])/$(inputs.tree[1])/jbrowse/
   - position: 2

@@ -5,9 +5,9 @@ class: CommandLineTool
 requirements:
   - class: InlineJavascriptRequirement
 
-baseCommand: [scp]
+baseCommand: [rsync]
 arguments:
-  - prefix: -r
+  - prefix: -vzP
     position: 1
     valueFrom: /usr/local/blat/db/$(inputs.tree[0])/
   - position: 2

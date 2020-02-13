@@ -11,7 +11,7 @@ inputs:
   scientific_name: string[]
   deepPATH_apollo2_data: string[]
   host_production: string[]
-  login_apollo2: string[]
+  login_apollo2_production: string[]
   Apollo_account: string
   
 
@@ -49,7 +49,7 @@ steps:
       PATH: PATH
       tree: tree
       deepPATH_apollo2_data: deepPATH_apollo2_data
-      login_apollo2: login_apollo2
+      login_apollo2: login_apollo2_production
     out:
       [out_createOrganism_log]
 outputs: []

@@ -22,7 +22,7 @@ inputs:
   deepPATH_apollo2_data: string[]
   deepPATH_bigwig: string[]
   host_stage: string[]
-  login_apollo2: string[]
+  login_apollo2_stage: string[]
 
 steps:
   #step1 
@@ -124,7 +124,7 @@ steps:
       tree: tree
       in_2bi: apollo2_data_processing/OUT_2bi
       deepPATH_apollo2_data: deepPATH_apollo2_data
-      login_apollo2: login_apollo2
+      login_apollo2: login_apollo2_stage
     out:
       [out_createOrganism_log]
       
