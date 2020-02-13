@@ -21,7 +21,7 @@ inputs:
   url_cds_fasta: string[]
   deepPATH_apollo2_data: string[]
   deepPATH_bigwig: string[]
-  host: string[]
+  host_stage: string[]
   login_apollo2: string[]
 
 steps:
@@ -118,7 +118,7 @@ steps:
     run: createOrganism.cwl
     in: 
       in_dummy: dispatch/out_dummy 
-      host: host
+      host: host_stage
       scientific_name: scientific_name
       PATH: PATH
       tree: tree

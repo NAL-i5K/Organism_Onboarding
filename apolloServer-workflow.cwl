@@ -10,7 +10,7 @@ inputs:
   tree: string[]
   scientific_name: string[]
   deepPATH_apollo2_data: string[]
-  host: string[]
+  host_production: string[]
   login_apollo2: string[]
   Apollo_account: string
   
@@ -44,7 +44,7 @@ steps:
     run: flow_transferFiles2Apollo/createOrganism-TF.cwl
     in:
       in_dummy: dataTransfer-blat/out_dummy
-      host: host
+      host: host_production
       scientific_name: scientific_name
       PATH: PATH
       tree: tree
