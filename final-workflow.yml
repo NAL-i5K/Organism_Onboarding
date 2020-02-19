@@ -20,7 +20,7 @@ PATH: [ #don't change this unless you know what you're doing
 /usr/local/blat/db
 ]
 #-------------------------------------------------------------------------------
-#Enter the path of manage.py 
+#Enter the path of manage.py - don't change this unless you know what you're doing 
 managePy_Path: /home/vagrant/genomics-workspace/
 #Enter the path of blast/db
 blastdb_Path_stage: [/home/data/hsiukang/media/blast/db]
@@ -38,8 +38,8 @@ scientific_name: [
 Apis, #genus
 mellifera #species
 ]
-2bi_name: [
-GCF_003254395.2_Amel_HAv3.1  #should be a part of the file url 
+genome_fasta_name: [
+GCF_003254395.2_Amel_HAv3.1_genomic.fna  #The fasta file name. This is needed for moving the related .2bi file in the production workflow.
 ]
 #-------------------------------------------------------------------------------
 url_md5checksums: [
