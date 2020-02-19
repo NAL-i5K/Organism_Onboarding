@@ -14,11 +14,13 @@ arguments:
   - position: 1
     valueFrom: $(inputs.in_fasta.basename)
   - position: 2
-    valueFrom: /home/vagrant/genomics-workspace/media/blast/db 
+    valueFrom: $(inputs.blastdb_Path) 
 
 inputs:
   in_fasta:
     type: File
+  blastdb_Path:
+    type: string[]
 
 outputs:
   out_dummy:

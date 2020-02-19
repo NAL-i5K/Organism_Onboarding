@@ -11,6 +11,8 @@ inputs:
   scientific_name: string[]
   tree: string[]
   managePy_Path: string
+  blastdb_Path: string[]
+  hmmerdb_Path: string[]
   in_fasta: File
   in_fasta_protein: File[]
   in_fasta_transcript: File
@@ -24,6 +26,7 @@ steps:
       in_fasta: in_fasta
       scientific_name: scientific_name
       managePy_Path: managePy_Path
+      blastdb_Path: blastdb_Path
       tree: tree
     out:
       [out_dummy]
@@ -35,6 +38,8 @@ steps:
       scientific_name: scientific_name
       tree: tree
       managePy_Path: managePy_Path
+      blastdb_Path: blastdb_Path
+      hmmerdb_Path: hmmerdb_Path
       in_dummy: genomics-workspace-genome/out_dummy
     out: 
       []
@@ -46,6 +51,7 @@ steps:
       scientific_name: scientific_name
       tree: tree
       managePy_Path: managePy_Path
+      blastdb_Path: blastdb_Path
       in_dummy: genomics-workspace-genome/out_dummy
     out:
       [] 
@@ -57,6 +63,7 @@ steps:
       scientific_name: scientific_name
       tree: tree
       managePy_Path: managePy_Path
+      blastdb_Path: blastdb_Path
       in_dummy: genomics-workspace-genome/out_dummy
     out:
       []
