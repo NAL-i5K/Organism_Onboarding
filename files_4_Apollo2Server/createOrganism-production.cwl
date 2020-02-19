@@ -33,7 +33,7 @@ arguments:
     valueFrom: $(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH_apollo2_data[0])
   - position: 11
     prefix: -blatdb
-    valueFrom: $(inputs.PATH[2])/$(inputs.tree[0])/*.2bi
+    valueFrom: $(inputs.PATH[2])/$(inputs.tree[0])/$(inputs.2bi_name[0])_genomic.fna.2bi
   - position: 13
     prefix: -username
     valueFrom: $(inputs.login_apollo2[0])
@@ -49,6 +49,8 @@ inputs:
   host:
     type: string[]
   scientific_name:
+    type: string[]
+  2bi_name:
     type: string[]    
   PATH:
     type: string[]
