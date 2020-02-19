@@ -9,7 +9,7 @@ inputs:
   PATH: string[]
   tree: string[]
   scientific_name: string[]
-  2bi_name: string[]
+  in_2bi_name: string[]
   deepPATH_apollo2_data: string[]
   host_production: string[]
   login_apollo2_production: string[]
@@ -47,7 +47,7 @@ steps:
       in_dummy: dataTransfer-blat/out_dummy
       host: host_production
       scientific_name: scientific_name
-      2bi_name: 2bi_name
+      in_2bi_name: in_2bi_name
       PATH: PATH
       tree: tree
       deepPATH_apollo2_data: deepPATH_apollo2_data
