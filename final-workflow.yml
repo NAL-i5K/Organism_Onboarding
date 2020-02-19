@@ -32,6 +32,9 @@ scientific_name: [
 Apis, #genus
 mellifera #species
 ]
+2bi_name: [
+GCF_003254395.2_Amel_HAv3.1  #should be a part of the file url 
+]
 #-------------------------------------------------------------------------------
 url_md5checksums: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/md5checksums.txt
@@ -81,7 +84,7 @@ host_stage: [
 https://apollo-dev.nal.usda.gov
 ]
 host_production: [
-https://apollo-stage.nal.usda.gov
+https://apollo-dev.nal.usda.gov
 ]
 #authentication in apollo2
 login_apollo2_stage:  [
