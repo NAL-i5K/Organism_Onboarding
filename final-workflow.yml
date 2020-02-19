@@ -32,7 +32,9 @@ scientific_name: [
 Apis, #genus
 mellifera #species
 ]
-
+genome_fasta_name: [
+GCF_003254395.2_Amel_HAv3.1_genomic.fna  #The fasta file name. This is needed for moving the related .2bi file in the production workflow.
+]
 #-------------------------------------------------------------------------------
 url_md5checksums: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/md5checksums.txt
@@ -81,8 +83,21 @@ scaffold/bigwig
 host_stage: [ 
 https://apollo-dev.nal.usda.gov
 ]
+host_production: [
+https://apollo-dev.nal.usda.gov
+]
 #authentication in apollo2
 login_apollo2_stage:  [
 user@ars.usda.gov,
 password
 ]
+login_apollo2_production: [
+user@ars.usda.gov,
+password
+]
+#-------------------------------------------------------------------------------
+#Apollo server
+#username
+Apollo_account: user@apollo-stage-node1.nal.usda.gov
+#-------------------------------------------------------------------------------
+#below are variable for django setup, TBD (not implemented yet)
