@@ -22,12 +22,6 @@ PATH: [ #don't change this unless you know what you're doing
 #-------------------------------------------------------------------------------
 #Enter the path of manage.py 
 managePy_Path: /home/vagrant/genomics-workspace/
-#Enter the path of blast/db
-blastdb_Path_stage: [/home/data/hsiukang/media/blast/db]
-blastdb_Path_production: [/home/data/hsiukang/media/blast/db]
-#Enter the path of hmmer/db
-hmmerdb_Path_stage: [/home/data/hsiukang/media/hmmer/db]
-hmmerdb_Path_production: [/home/data/hsiukang/media/hmmer/db]
 #-------------------------------------------------------------------------------
 tree: [
 apimel, #species abbreviation - format gggsss
@@ -37,9 +31,6 @@ Apis_mellifera_Annotation_Release_103 #the gene set/annotation name
 scientific_name: [
 Apis, #genus
 mellifera #species
-]
-2bi_name: [
-GCF_003254395.2_Amel_HAv3.1  #should be a part of the file url 
 ]
 #-------------------------------------------------------------------------------
 url_md5checksums: [
@@ -90,7 +81,7 @@ host_stage: [
 https://apollo-dev.nal.usda.gov
 ]
 host_production: [
-https://apollo-dev.nal.usda.gov
+https://apollo-stage.nal.usda.gov
 ]
 #authentication in apollo2
 login_apollo2_stage:  [
@@ -105,5 +96,6 @@ password
 #Apollo server
 #username
 Apollo_account: user@apollo-stage-node1.nal.usda.gov
+Gmod_account: hsiukang.huang@gmod-stage-node1.nal.usda.gov
 #-------------------------------------------------------------------------------
 #below are variable for django setup, TBD (not implemented yet)

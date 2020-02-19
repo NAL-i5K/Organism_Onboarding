@@ -8,6 +8,10 @@ requirements:
 inputs:
   PATH: string[]
   tree: string[]
+  scientific_name: string[]
+  managePy_Path: string
+  blastdb_Path_stage: string[]
+  hmmerdb_Path_stage: string[]
   deepPATH_genomic_fasta: string[]
   deepPATH_analyses: string[]
   url_md5checksums: string[]
@@ -83,6 +87,20 @@ steps:
       in_protein_fasta: md5checksum_gunzip/OUT_protein_fasta
       in_transcript_fasta: md5checksum_gunzip/OUT_transcript_fasta
       in_cds_fasta: md5checksum_gunzip/OUT_cds_fasta
-    out: [] 
+    out: []
+  #step genomics-workspace
+  genomics-workspace:
+    run: flow_genomicsWorkspace/genomics-workspace.cwl
+    in:
+      scientific_name: scientific_name
+      managePy_Path: managePy_Path
+      blastdb_Path: blastdb_Path_stage
+      hmmerdb_Path: hmmerdb_Path_stage
+      tree: tree
+      in_fasta: md5checksum_gunzip/OUT_genomic_fasta
+      in_fasta_protein: md5checksum_gunzip/OUT_protein_fasta
+      in_fasta_transcript: md5checksum_gunzip/OUT_transcript_fasta
+      in_fasta_cds: md5checksum_gunzip/OUT_cds_fasta
+    out: []
       
 outputs: []
