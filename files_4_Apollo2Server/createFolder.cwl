@@ -10,12 +10,16 @@ arguments:
   - position: 1
     valueFrom: $(inputs.Apollo_account) 
   - position: 2
-    valueFrom: "mkdir -p /app/data/other_species/$(inputs.tree[0])/$(inputs.tree[1])"
+    valueFrom: "mkdir -p $(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH_bigwig[0])"
 
 inputs:
   Apollo_account:
     type: string
+  PATH:
+    type: string[]
   tree:
+    type: string[]
+  deepPATH_bigwig:
     type: string[]
 
 outputs: 
