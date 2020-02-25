@@ -10,7 +10,7 @@ arguments:
   - position: 1
     valueFrom: $(inputs.Gmod_account) 
   - position: 2
-    valueFrom: "mkdir -p $(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH_genomic_fasta[0])/$(inputs.deepPATH_analyses[0])/$(inputs.tree[2]) $(inputs.PATH[1])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH_genomic_fasta[0])/$(inputs.deepPATH_analyses[0])/remap $(inputs.PATH[2])/$(inputs.tree[0])"
+    valueFrom: "mkdir -p $(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1]) $(inputs.PATH[1])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH_genomic_fasta[0])/$(inputs.deepPATH_analyses[0])/remap $(inputs.PATH[2])/$(inputs.tree[0])"
 
 inputs:
   Gmod_account:
