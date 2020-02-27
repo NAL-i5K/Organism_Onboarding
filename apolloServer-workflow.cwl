@@ -72,6 +72,12 @@ steps:
       login_apollo2: login_apollo2_production
     out:
       [out_createOrganism_log]
+  #step5 cat creatOrganism.log
+  cat_createOrganismLog:
+    run: files_4_Apollo2Server/cat_createOrganismLog.cwl
+    in:
+      in_createOrganismLog: apollo2_create_Organism/out_createOrganism_log
+    out: []
   #step5 create folders on gmod production server
   createFolder-2gmodProd:
     run: files_4_Apollo2Server/createFolder-2gmodProd.cwl
