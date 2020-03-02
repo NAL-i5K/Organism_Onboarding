@@ -10,7 +10,7 @@ arguments:
   - position: 1
     valueFrom: $(inputs.Gmod_account) 
   - position: 2
-    valueFrom: "mkdir -p $(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH_genomic_fasta[0])/$(inputs.deepPATH_analyses[0])"
+    valueFrom: "mkdir -p $(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])"
 
 inputs:
   Gmod_account:
@@ -18,10 +18,6 @@ inputs:
   PATH:
     type: string[]
   tree:
-    type: string[]
-  deepPATH_genomic_fasta:
-    type: string[]
-  deepPATH_analyses:
     type: string[]
 
 outputs: 
