@@ -11,6 +11,8 @@ inputs:
   in_fasta_protein: File[]
   scientific_name: string[]
   managePy_Path: string
+  blastdb_Path: string[]
+  hmmerdb_Path: string[]
   in_dummy: File
   tree: string[]
 steps:
@@ -20,6 +22,7 @@ steps:
     scatter: in_fasta
     in:
       in_fasta: in_fasta_protein
+      blastdb_Path: blastdb_Path
     out:
       [out_dummy]
   #step 1
@@ -29,6 +32,7 @@ steps:
     scatterMethod: dotproduct
     in:
       in_fasta: in_fasta_protein
+      hmmerdb_Path: hmmerdb_Path
       in_dummy: addfile_2_db/out_dummy
     out:
       [out_dummy]

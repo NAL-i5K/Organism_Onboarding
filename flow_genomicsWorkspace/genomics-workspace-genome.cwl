@@ -10,6 +10,7 @@ inputs:
   scientific_name: string[]
   in_fasta: File
   managePy_Path: string
+  blastdb_Path: string[]
   tree: string[]
 
 steps:
@@ -18,6 +19,7 @@ steps:
     run: addfile_2_db.cwl
     in:
       in_fasta: in_fasta
+      blastdb_Path: blastdb_Path
     out:
       [out_dummy]
   #step 1

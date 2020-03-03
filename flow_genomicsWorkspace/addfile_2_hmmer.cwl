@@ -14,11 +14,13 @@ arguments:
   - position: 1
     valueFrom: $(inputs.in_fasta.basename)
   - position: 2
-    valueFrom: /home/vagrant/genomics-workspace/media/hmmer/db 
+    valueFrom: $(inputs.hmmerdb_Path) 
 
 inputs:
   in_fasta:
     type: File
+  hmmerdb_Path:
+    type: string[]
   in_dummy:   
     type: File
 outputs:

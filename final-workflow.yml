@@ -20,8 +20,14 @@ PATH: [ #don't change this unless you know what you're doing
 /usr/local/blat/db
 ]
 #-------------------------------------------------------------------------------
-#Enter the path of manage.py 
-managePy_Path: /home/vagrant/genomics-workspace/
+#Enter the path of manage.py - don't change this unless you know what you're doing 
+managePy_Path: /usr/local/i5k/
+#Enter the path of blast/db
+blastdb_Path_stage: [/usr/local/i5k/media/blast/db]
+blastdb_Path_production: [/usr/local/i5k/media/blast/db]
+#Enter the path of hmmer/db
+hmmerdb_Path_stage: [/usr/local/i5k/media/hmmer/db]
+hmmerdb_Path_production: [/usr/local/i5k/media/hmmer/db]
 #-------------------------------------------------------------------------------
 tree: [
 apimel, #species abbreviation - format gggsss
@@ -31,6 +37,20 @@ Apis_mellifera_Annotation_Release_103 #the gene set/annotation name
 scientific_name: [
 Apis, #genus
 mellifera #species
+]
+genome_fasta_name: [
+GCF_003254395.2_Amel_HAv3.1_genomic.fna  #The fasta file name. This is needed for moving the related .2bi file in the production workflow.
+]
+protein_fasta_name: [
+GCF_003254395.2_Amel_HAv3.1_translated_cds.faa,
+GCF_003254395.2_Amel_HAv3.1_translated_cds.faa2,
+GCF_003254395.2_Amel_HAv3.1_translated_cds.faa3
+]
+transcript_fasta_name: [
+GCF_003254395.2_Amel_HAv3.1_rna_from_genomic.fna
+]
+cds_fasta_name: [
+GCF_003254395.2_Amel_HAv3.1_cds_from_genomic.fna
 ]
 #-------------------------------------------------------------------------------
 url_md5checksums: [
@@ -76,16 +96,27 @@ deepPATH_bigwig: [ #the containing directory for bigwig files generated from the
 scaffold/bigwig
 ]
 #-------------------------------------------------------------------------------
-host: [ #host where Apollo2 lives
+#where apollo2 lives
+host_stage: [ 
 https://apollo-dev.nal.usda.gov
 ]
-#-------------------------------------------------------------------------------
-#authentication in apollo
-#username
-#password
-login_apollo2: [
-example@ars.usda.gov,
-ExamplePassword
+host_production: [
+https://apollo-dev.nal.usda.gov
 ]
+#authentication in apollo2
+login_apollo2_stage:  [
+user@ars.usda.gov,
+password
+]
+login_apollo2_production: [
+user@ars.usda.gov,
+password
+]
+#-------------------------------------------------------------------------------
+#Apollo server
+#username
+Apollo_account: user@apollo-node1.nal.usda.gov
+Gmod_account: user@gmod-node1.nal.usda.gov
+Gmod_stage_account: user@gmod-stage.nal.usda.gov
 #-------------------------------------------------------------------------------
 #below are variable for django setup, TBD (not implemented yet)
