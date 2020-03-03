@@ -10,7 +10,6 @@ inputs:
   PATH: string[]
   tree: string[]
   scientific_name: string[]
-  genome_fasta_name: string[]
   deepPATH_apollo2_data: string[]
   deepPATH_bigwig: string[]
   deepPATH_genomic_fasta: string[]
@@ -74,8 +73,6 @@ steps:
       Gmod_account: Gmod_account
       PATH: PATH
       tree: tree
-      deepPATH_genomic_fasta: deepPATH_genomic_fasta
-      deepPATH_analyses: deepPATH_analyses
     out: [out_dummy]
   #step6 transfer scaffold to gmod stage server
   dataTransfer-scaffold-2gmodProd:
@@ -85,20 +82,17 @@ steps:
       PATH: PATH
       tree: tree
       deepPATH_genomic_fasta: deepPATH_genomic_fasta
-      deepPATH_analyses: deepPATH_analyses
       in_dummy: createFolder-2gmodProd/out_dummy
     out: []
-  #step7 create folders on gmod production server
+  #step7 create folders on gmod stage server
   createFolder-2gmodStage:
     run: files_4_Apollo2Server/MoveData/createFolder-2gmod.cwl
     in:
       Gmod_account: Gmod_stage_account
       PATH: PATH
       tree: tree
-      deepPATH_genomic_fasta: deepPATH_genomic_fasta
-      deepPATH_analyses: deepPATH_analyses
     out: [out_dummy]
-  #step7 transfer scaffold to gmod production server
+  #step7 transfer scaffold to gmod stage server
   dataTransfer-scaffold-2gmodStage:
     run: files_4_Apollo2Server/MoveData/dataTransfer-scaffold-2gmod.cwl
     in:
@@ -106,7 +100,6 @@ steps:
       PATH: PATH
       tree: tree
       deepPATH_genomic_fasta: deepPATH_genomic_fasta
-      deepPATH_analyses: deepPATH_analyses
       in_dummy: createFolder-2gmodStage/out_dummy
     out: []
   #Step3 create yml file
