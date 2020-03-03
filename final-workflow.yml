@@ -115,7 +115,8 @@ password
 #-------------------------------------------------------------------------------
 #Apollo server
 #username
-Apollo_account: user@apollo-stage-node1.nal.usda.gov
-Gmod_account: user@gmod-stage-node1.nal.usda.gov
+Apollo_account: user@apollo-node1.nal.usda.gov
+Gmod_account: user@gmod-node1.nal.usda.gov
+Gmod_stage_account: user@gmod-stage.nal.usda.gov
 #-------------------------------------------------------------------------------
 #below are variable for django setup, TBD (not implemented yet)
