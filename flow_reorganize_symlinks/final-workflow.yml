@@ -42,9 +42,9 @@ genome_fasta_name: [
 GCF_003254395.2_Amel_HAv3.1_genomic.fna  #The fasta file name. This is needed for moving the related .2bi file in the production workflow.
 ]
 protein_fasta_name: [
-GCF_003254395.2_Amel_HAv3.1_translated_cds.faa    #If you have more than one protein fasta file, add a ','
-#GCF_003254395.2_Amel_HAv3.1_translated_cds.faa2, #Then add the second file name here with a ',' 
-#GCF_003254395.2_Amel_HAv3.1_translated_cds.faa3  #Then add the last file name here 
+GCF_003254395.2_Amel_HAv3.1_translated_cds.faa,
+GCF_003254395.2_Amel_HAv3.1_translated_cds.faa2,
+GCF_003254395.2_Amel_HAv3.1_translated_cds.faa3
 ]
 transcript_fasta_name: [
 GCF_003254395.2_Amel_HAv3.1_rna_from_genomic.fna
@@ -109,15 +109,15 @@ user@ars.usda.gov,
 password
 ]
 login_apollo2_production: [
-user@ars.usda.gov,
-password
+i5k@ars.usda.gov,
+demo
 ]
 #-------------------------------------------------------------------------------
 #Apollo server
 #username
-Apollo_account: user@apollo-stage-node1.nal.usda.gov
-Gmod_account: user@gmod-stage-node1.nal.usda.gov
-Gmod_stage_account: user@gmod-dev.nal.usda.gov
+Apollo_account: hsiukang.huang@apollo-stage-node1.nal.usda.gov
+Gmod_account: hsiukang.huang@gmod-stage-node1.nal.usda.gov
+Gmod_stage_account: hsiukang.huang@gmod-dev.nal.usda.gov
 #-------------------------------------------------------------------------------
 #symlink PATH
 MAIN_PATH: /app/data/hsiukang.huang  
