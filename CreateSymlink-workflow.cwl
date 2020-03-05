@@ -24,7 +24,7 @@ inputs:
 steps:
   #step1 setup folder
   setup_folder:
-    run: setup_folder.cwl
+    run: flow_reorganize_symlinks/setup_folder.cwl
     in:
       MAIN_PATH: MAIN_PATH
       LINK_DIR: LINK_DIR
@@ -32,7 +32,7 @@ steps:
     out: [out_dummy]
   #step2 gzip - scaffold file
   scaffold_gzip:
-    run: scaffold_gzip.cwl
+    run: flow_reorganize_symlinks/scaffold_gzip.cwl
     in:
       in_dummy: setup_folder/out_dummy
       PATH: PATH
@@ -40,9 +40,9 @@ steps:
       genome_fasta_name: genome_fasta_name
       deepPATH_genomic_fasta: deepPATH_genomic_fasta
     out: [out_dummy] 
-  #step symlink - scaffold file
+  #step3 symlink - scaffold file
   scaffold_symlink:
-    run: scaffold_symlink.cwl
+    run: flow_reorganize_symlinks/scaffold_symlink.cwl
     in:
       in_dummy: scaffold_gzip/out_dummy
       PATH: PATH
@@ -52,9 +52,9 @@ steps:
       MAIN_PATH: MAIN_PATH
       LINK_DIR: LINK_DIR
     out: []
-  #step symlink - analyses_protein files
+  #step4 symlink - analyses_protein files
   analyses_symlink_protein:
-    run: analyses_symlink_protein.cwl
+    run: flow_reorganize_symlinks/analyses_symlink_protein.cwl
     scatter: protein_fasta_name
     in:
       in_dummy: setup_folder/out_dummy
@@ -66,9 +66,9 @@ steps:
       MAIN_PATH: MAIN_PATH
       LINK_DIR: LINK_DIR
     out: []
-  #step symlink - analyses files
+  #step5 symlink - analyses files
   analyses_symlink:
-    run: analyses_symlink.cwl
+    run: flow_reorganize_symlinks/analyses_symlink.cwl
     in:
       in_dummy: setup_folder/out_dummy
       PATH: PATH
@@ -81,9 +81,9 @@ steps:
       MAIN_PATH: MAIN_PATH
       LINK_DIR: LINK_DIR
     out: []
-  #step gzip - bigwig files
+  #step6 gzip - bigwig files
   bigwig_gzip:
-    run: bigwig_gzip.cwl
+    run: flow_reorganize_symlinks/bigwig_gzip.cwl
     in:
       in_dummy: setup_folder/out_dummy
       PATH: PATH
@@ -91,9 +91,9 @@ steps:
       genome_fasta_name: genome_fasta_name
       deepPATH_bigwig: deepPATH_bigwig
     out: [out_dummy]
-  #step symlink - bigwig files
+  #step7 symlink - bigwig files
   bigwig_symlink:
-    run: bigwig_symlink.cwl 
+    run: flow_reorganize_symlinks/bigwig_symlink.cwl 
     in:
       in_dummy: bigwig_gzip/out_dummy
       PATH: PATH
