@@ -13,14 +13,19 @@ requirements:
       }
    
 inputs:
+  in_dummy:
+    type: File[]
   readme_file:
     type: File
-  url:
+  tree:
     type: string[]
+  link_to_publication:
+    type: string
+
    
 arguments:
   - position: 1
-    valueFrom: "echo '$(inputs.url[0])' >> readme"  
+    valueFrom: "echo -e '\nInformation about this dataset can be found here: https://i5k.nal.usda.gov/content/ncbi-$(inputs.tree[2])\nInformation about the publication of this dataset can be found here: $(inputs.link_to_publication)' >> readme"  
 
 outputs: 
   out_readme_file:

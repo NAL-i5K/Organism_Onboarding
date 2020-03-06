@@ -25,10 +25,10 @@ inputs:
    
 arguments:
   - position: 1
-    valueFrom: "echo -e '\nInformation about this dataset can be found here: https://i5k.nal.usda.gov/content/$genus-$species-genome-assembly-$(inputs.tree[1])-$(inputs.accession)\nInformation about the publication of this dataset can be found here: $(inputs.link_to_publication)' >> readme"  
+    valueFrom: "echo -e '\nInformation about this dataset can be found here: https://i5k.nal.usda.gov/content/$genus-$species-genome-assembly-$(inputs.tree[1])-$(inputs.accession)\nInformation about the publications of this dataset can be found here: $(inputs.link_to_publication)' >> readme"  
 
 outputs: 
-  readme_file:
+  out_readme_file:
     type: File
     outputBinding:
       glob: "readme"

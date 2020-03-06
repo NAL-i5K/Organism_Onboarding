@@ -2,7 +2,8 @@
 
 cwlVersion: v1.0
 class: Workflow
-#requirements:
+requirements:
+  - class: ScatterFeatureRequirement
 
 inputs:
   tree: string[]
@@ -11,7 +12,6 @@ inputs:
   url_protein_fasta: string[]
   url_cds_fasta: string[]
   url_transcript_fasta: string[]
-  accession: string
   link_to_publication: string
 
 steps:
@@ -28,58 +28,57 @@ steps:
       readme_file: create_readme/readme_file
       organization: organization
     out:
-       [readme_file]
+       [out_readme_file]
   #step3 write url - gff
   writeURL-gff:
     run: writeURL.cwl
     in:
-      readme_file: writeFirstLine/readme_file
+      readme_file: writeFirstLine/out_readme_file
       url: url_genomic_gff
     out:
-      [readme_file]
+      [out_readme_file]
   #step4 write url - cds
   writeURL-cds:
     run: writeURL.cwl
     in:
-      readme_file: writeURL-gff/readme_file
+      readme_file: writeURL-gff/out_readme_file
       url: url_cds_fasta
     out:
-      [readme_file]
+      [out_readme_file]
   #step5 write url - transcript
   writeURL-transcript:
     run: writeURL.cwl
     in:
-      readme_file: writeURL-cds/readme_file
+      readme_file: writeURL-cds/out_readme_file
       url: url_transcript_fasta
     out:
-      [readme_file]
+      [out_readme_file]
   #step3 write url - protein
   writeURL-protein:
     run: writeURL-protein.cwl
     scatter: url
     in:
-      readme_file: writeURL-transcript/readme_file
+      readme_file: writeURL-transcript/out_readme_file
       url: url_protein_fasta
     out:
-      [readme_file]
-  # the code below has not finished yet
+      [out_dummy]
   #step4 write Information
   writeInfo:
-    run: writeInfo.cwl
+    run: writeInfo-genePred.cwl
     in:
-      readme_file: writeURL/readme_file
+      in_dummy: writeURL-protein/out_dummy
+      readme_file: writeURL-transcript/out_readme_file
       tree: tree
-      accession: accession
       link_to_publication: link_to_publication
     out:
-      [readme_file]  
+      [out_readme_file]  
   #step5 write last line
   writeLastLine:
-    run: writeLastLine.cwl
+    run: writeLastLine-genePred.cwl
     in: 
-      readme_file: writeInfo/readme_file
+      readme_file: writeInfo/out_readme_file
     out:
-      [readme_file]
+      [out_readme_file]
 
 outputs:
   readme_file:

@@ -23,7 +23,6 @@ arguments:
     valueFrom: "echo '$(inputs.url)' >> readme"  
 
 outputs: 
-  readme_file:
-    type: File
-    outputBinding:
-      glob: "readme"
+  out_dummy:
+    type: stdout
+stdout: url-protein.dummy    

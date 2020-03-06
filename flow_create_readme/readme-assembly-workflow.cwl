@@ -25,32 +25,32 @@ steps:
       readme_file: create_readme/readme_file
       organization: organization
     out:
-       [readme_file]
+       [out_readme_file]
   #step3 write url
   writeURL:
     run: writeURL.cwl
     in:
-      readme_file: writeFirstLine/readme_file
+      readme_file: writeFirstLine/out_readme_file
       url: url_genomic_fasta
     out:
-      [readme_file]
+      [out_readme_file]
   #step4 write Information
   writeInfo:
     run: writeInfo.cwl
     in:
-      readme_file: writeURL/readme_file
+      readme_file: writeURL/out_readme_file
       tree: tree
       accession: accession
       link_to_publication: link_to_publication
     out:
-      [readme_file]  
+      [out_readme_file]  
   #step5 write last line
   writeLastLine:
     run: writeLastLine.cwl
     in: 
-      readme_file: writeInfo/readme_file
+      readme_file: writeInfo/out_readme_file
     out:
-      [readme_file]
+      [out_readme_file]
 
 outputs:
   readme_file:
