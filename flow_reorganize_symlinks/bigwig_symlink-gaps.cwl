@@ -9,13 +9,12 @@ requirements:
 baseCommand: [ln]
 arguments:
   - prefix: -s
-    #fasta file
+    #gaps file
     position: 1
-    valueFrom: $(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH_genomic_fasta[0])/$(inputs.genome_fasta_name[0]).gz
-    #readme file
+    valueFrom: $(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH_bigwig[0])/$(inputs.genome_fasta_name[0]).gaps.bigwig.gz
     #target directory
   - position: 2
-    valueFrom: $(inputs.MAIN_PATH)/$(inputs.tree[0])-($(inputs.scientific_name[0])-$(inputs.scientific_name[1]))/$(inputs.tree[1])/1.Genome Assembly/$(inputs.tree[1])/Scaffolds/.
+    valueFrom: $(inputs.MAIN_PATH)/$(inputs.tree[0])-($(inputs.scientific_name[0])-$(inputs.scientific_name[1]))/$(inputs.tree[1])/5.Other files/Gaps in Assembly/.
 
 inputs:
   in_dummy: 
@@ -28,7 +27,7 @@ inputs:
     type: string[]
   genome_fasta_name:
     type: string[]
-  deepPATH_genomic_fasta:
+  deepPATH_bigwig:
     type: string[]
   MAIN_PATH:
     type: string

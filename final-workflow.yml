@@ -121,9 +121,9 @@ Gmod_stage_account: user@gmod-dev.nal.usda.gov
 #-------------------------------------------------------------------------------
 #symlink PATH
 MAIN_PATH: /app/data/hsiukang.huang  
-LINK_DIR: apimel-(Apis_mellifera)/GCF_003254395.2
-ASSEMBLY_NAME: Amel_HAv3.1
-PRIMARY_ANNOTATIONS_DIR: Amel_HAv3.1
-SECONDARY_ANNOTATIONS_DIR: NCBI
-SECONDARY_ANNOTATIONS_DIR_2: NCBI
+#-------------------------------------------------------------------------------
+#scaffold readme information
+organization: NCBI
+accession: GCF0032543952
+link_to_publication: 'Not published, please follow Ft. Lauderdale/Toronto guidelines for data reuse'
 #below are variable for django setup, TBD (not implemented yet)

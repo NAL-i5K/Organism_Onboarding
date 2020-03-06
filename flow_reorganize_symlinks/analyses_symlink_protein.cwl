@@ -14,7 +14,7 @@ arguments:
     valueFrom: $(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH_genomic_fasta[0])/$(inputs.deepPATH_analyses[0])/$(inputs.tree[2])/$(inputs.protein_fasta_name)
     #target directory
   - position: 2
-    valueFrom: $(inputs.MAIN_PATH)/$(inputs.LINK_DIR)/2.Official or Primary Gene Set/.
+    valueFrom: $(inputs.MAIN_PATH)/$(inputs.tree[0])-($(inputs.scientific_name[0])-$(inputs.scientific_name[1]))/$(inputs.tree[1])/2.Official or Primary Gene Set/$(inputs.tree[2])/.
 
 inputs:
   in_dummy: 
@@ -23,6 +23,8 @@ inputs:
     type: string[]
   tree:
     type: string[]
+  scientific_name:
+    type: string[]
   protein_fasta_name:
     type: string
   deepPATH_genomic_fasta:
@@ -30,8 +32,6 @@ inputs:
   deepPATH_analyses:
     type: string[]
   MAIN_PATH:
-    type: string
-  LINK_DIR:
     type: string
 
 outputs: []
