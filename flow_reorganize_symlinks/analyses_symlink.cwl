@@ -18,8 +18,11 @@ arguments:
     #gff file
   - position: 3
     valueFrom: $(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH_genomic_fasta[0])/$(inputs.deepPATH_analyses[0])/$(inputs.tree[2])/$(inputs.genome_fasta_name[0].slice(0,-3))gff
-    #target directory
+    #readme file
   - position: 4
+    valueFrom: $(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH_genomic_fasta[0])/$(inputs.deepPATH_analyses[0])/$(inputs.tree[2])/readme.txt
+    #target directory
+  - position: 5
     valueFrom: $(inputs.MAIN_PATH)/$(inputs.tree[0])-($(inputs.scientific_name[0])-$(inputs.scientific_name[1]))/$(inputs.tree[1])/2.Official or Primary Gene Set/$(inputs.tree[2])/.
 
 inputs:
