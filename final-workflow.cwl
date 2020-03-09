@@ -25,6 +25,9 @@ inputs:
   deepPATH_bigwig: string[]
   host_stage: string[]
   login_apollo2_stage: string[]
+  organization: string
+  accession: string
+  link_to_publication: string
 
 steps:
   #step1 
@@ -67,7 +70,7 @@ steps:
 
   #verify:
   #fasta_diff,gff3_QC......
-
+  #step3
   apollo2_data_processing:
     run: flow_apollo2_data_processing/processing/workflow.cwl
     in:
@@ -84,7 +87,30 @@ steps:
       OUT_gc_bigwig,
       OUT_trackList_json,
       OUT_trackList_json_bak,
-      ] 
+      ]
+  #step4
+  create_assembly_readme:
+    run: flow_create_readme/readme-assembly-workflow.cwl
+    in: 
+      tree: tree
+      organization: organization
+      url_genomic_fasta: url_genomic_fasta
+      accession: accession
+      link_to_publication: link_to_publication
+    out: [readme_file]
+  #step5
+  create_genePrediction_readme:
+    run: flow_create_readme/readme-genePrediction-workflow.cwl
+    in:
+      tree: tree
+      organization: organization
+      url_genomic_gff: url_genomic_gff
+      url_protein_fasta: url_protein_fasta
+      url_cds_fasta: url_cds_fasta
+      url_transcript_fasta: url_transcript_fasta
+      link_to_publication: link_to_publication
+    out: [readme_file] 
+  #step6     
   dispatch:
     run: flow_dispatch/workflow.cwl
     in:
@@ -98,6 +124,8 @@ steps:
       in_protein_fasta: md5checksums/OUT_protein_fasta
       in_transcript_fasta: md5checksums/OUT_transcript_fasta
       in_cds_fasta: md5checksums/OUT_cds_fasta
+      in_assembly_readme: create_assembly_readme/readme_file
+      in_genePrediction_readme: create_genePrediction_readme/readme_file
       in_md5checksums: download/OUT_md5checksums
       in_extract: md5checksums/OUT_extract
       in_check: md5checksums/OUT_check
@@ -115,7 +143,7 @@ steps:
       in_trackList_json_bak: apollo2_data_processing/OUT_trackList_json_bak
     out:
       [out_dummy]
-  
+  #step7
   apollo2_create_organism:
     run: createOrganism.cwl
     in: 
@@ -130,7 +158,7 @@ steps:
     out:
       [out_createOrganism_log]
       
-  #genomics-workspace
+  #step8 genomics-workspace
   genomics-workspace:
     run: flow_genomicsWorkspace/genomics-workspace.cwl 
     in:

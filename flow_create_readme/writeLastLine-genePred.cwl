@@ -18,10 +18,10 @@ inputs:
    
 arguments:
   - position: 1
-    valueFrom: "echo -e '\nThe file was post-processed to [describe post-processing, if any]. The resulting file is: [Filename]. This file was used for the JBrowse genome browser and the Apollo manual curation tool.' >> readme"  
+    valueFrom: "echo -e '\nThe file was post-processed to [describe post-processing, if any]. The resulting file is: [Filename]. This file was used for the JBrowse genome browser and the Apollo manual curation tool.' >> readme.txt"
 
 outputs: 
   out_readme_file:
     type: File
     outputBinding:
-      glob: "readme"
+      glob: "readme.txt"

@@ -7,10 +7,10 @@ baseCommand: [touch]
 inputs: []
 arguments:
   - position: 1
-    valueFrom: readme
+    valueFrom: readme.txt
 
 outputs:
   readme_file:
     type: File
     outputBinding:
-      glob: "readme"
+      glob: "readme.txt"

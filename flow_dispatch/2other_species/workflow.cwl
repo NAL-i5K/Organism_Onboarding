@@ -19,6 +19,8 @@ inputs:
   in_protein_fasta: File[]
   in_transcript_fasta: File
   in_cds_fasta: File
+  in_assembly_readme: File
+  in_genePrediction_readme: File
   
   #
   deepPATH_apollo2_data: string[]
@@ -43,7 +45,7 @@ steps:
       in_data: in_genomic_fasta
     out: []
   cp_genomic_gff:
-    run: cp_file_4_GffProTra.cwl
+    run: cp_file_4_annotation.cwl
     in:
       PATH: PATH
       deepPATH_1: deepPATH_genomic_fasta
@@ -52,7 +54,7 @@ steps:
       in_data: in_genomic_gff
     out: []
   cp_protein_fasta:
-    run: cp_file_4_GffProTra.cwl
+    run: cp_file_4_annotation.cwl
     scatter: in_data
     in:
       PATH: PATH
@@ -62,7 +64,7 @@ steps:
       in_data: in_protein_fasta
     out: []
   cp_transcript_fasta:
-    run: cp_file_4_GffProTra.cwl
+    run: cp_file_4_annotation.cwl
     in:
       PATH: PATH
       deepPATH_1: deepPATH_genomic_fasta
@@ -71,13 +73,30 @@ steps:
       in_data: in_transcript_fasta
     out: []
   cp_cds_fasta:
-    run: cp_file_4_GffProTra.cwl
+    run: cp_file_4_annotation.cwl
     in:
       PATH: PATH
       deepPATH_1: deepPATH_genomic_fasta
       deepPATH_2: deepPATH_analyses
       tree: tree
       in_data: in_cds_fasta
+    out: []
+  cp_assembly_readme:
+    run: cp_file.cwl
+    in:
+      PATH: PATH
+      deepPATH: deepPATH_genomic_fasta
+      tree: tree
+      in_data: in_assembly_readme
+    out: []
+  cp_genePrediction_readme: 
+    run: cp_file_4_annotation.cwl
+    in:
+      PATH: PATH
+      deepPATH_1: deepPATH_genomic_fasta
+      deepPATH_2: deepPATH_analyses
+      tree: tree
+      in_data: in_genePrediction_readme
     out: []
   # 
   cp_seq:

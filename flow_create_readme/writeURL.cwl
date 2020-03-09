@@ -20,10 +20,10 @@ inputs:
    
 arguments:
   - position: 1
-    valueFrom: "echo '$(inputs.url[0])' >> readme"  
+    valueFrom: "echo '$(inputs.url[0])' >> readme.txt"
 
 outputs: 
   out_readme_file:
     type: File
     outputBinding:
-      glob: "readme"
+      glob: "readme.txt"
