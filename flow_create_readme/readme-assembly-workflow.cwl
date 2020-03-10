@@ -6,6 +6,7 @@ class: Workflow
 
 inputs:
   tree: string[]
+  scientific_name: string[]
   organization: string
   url_genomic_fasta: string[]
   accession: string
@@ -40,6 +41,7 @@ steps:
     in:
       readme_file: writeURL/out_readme_file
       tree: tree
+      scientific_name: scientific_name
       accession: accession
       link_to_publication: link_to_publication
     out:

@@ -93,6 +93,7 @@ steps:
     run: flow_create_readme/readme-assembly-workflow.cwl
     in: 
       tree: tree
+      scientific_name: scientific_name
       organization: organization
       url_genomic_fasta: url_genomic_fasta
       accession: accession
@@ -174,6 +175,3 @@ steps:
     out: []
 
 outputs:  []
-#  final_extract:
-#    type: File
-#    outputSource: md5checksums/OUT_extract
