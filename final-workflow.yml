@@ -119,8 +119,8 @@ Apollo_account: user@apollo-stage-node1.nal.usda.gov
 Gmod_account: user@gmod-stage-node1.nal.usda.gov
 Gmod_stage_account: user@gmod-dev.nal.usda.gov
 #-------------------------------------------------------------------------------
-#symlink PATH
-MAIN_PATH: /app/data/hsiukang.huang  
+#symlink PATH - don't change this unless you know what you're doing
+MAIN_PATH: /app/web/drupal7/data/Arthropoda
 #-------------------------------------------------------------------------------
 #scaffold readme information
 organization: NCBI
