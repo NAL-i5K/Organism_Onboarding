@@ -1,5 +1,6 @@
 ############   INPUT   ##################
-inputFile_Path: /home/hsiukang.huang/athros_pep_500.faa
+inputFile_Path: /home/hsiukang.huang
+inputFile_Name: athros_pep_500.faa
 
 ############   KOBAS   ##################
 K_input_Species: dme
@@ -22,3 +23,5 @@ I_output_fileFormat: tsv,json,xml,html,gff3,svg
 I_name_OnOutput: Kelly
 I_taxonID: "109069"
 I_database: AgBase
+############  COMBINE GAFS ##############
+C_output_Name: complete_gaf

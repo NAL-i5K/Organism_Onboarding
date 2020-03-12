@@ -2,7 +2,7 @@
 
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: [bash, -c] 
+baseCommand: [bash, -c]
 requirements:
   - class: InlineJavascriptRequirement
   - class: InitialWorkDirRequirement
@@ -11,32 +11,25 @@ requirements:
         var LIST = [(inputs.scriptFile)];
         return LIST;
       }
-   
+
 inputs:
   scriptFile:
     type: File
-  inputFile_Path:
-    type: string
   inputFile_Name:
     type: string
   I_output_Name:
     type: string
-  I_output_fileFormat:
+  G_output_Name:
     type: string
-  I_name_OnOutput:
+  C_output_Name:
     type: string
-  I_taxonID:
-    type: string
-  I_database:
-    type: string
+
 arguments:
   - position: 1
-    valueFrom: "echo 'agbase_interproscan -i $(inputs.inputFile_Path)/$(inputs.inputFile_Name) -d $(inputs.I_output_Name) -f $(inputs.I_output_fileFormat) -g -p -n $(inputs.I_name_OnOutput) -x $(inputs.I_taxonID) -D $(inputs.I_database)' >> sbatch_file.sh"  
+    valueFrom: "echo 'combine_gafs -i interproscan-5.36-75.0/$(inputs.I_output_Name)/$(inputs.inputFile_Name)_gaf.txt -g $(inputs.G_output_Name)_goanna_gaf.tsv -o $(inputs.C_output_Name)' >> sbatch_file.sh"
 
-outputs: 
+outputs:
   Script_file:
     type: File
     outputBinding:
       glob: "*.sh"
-
-

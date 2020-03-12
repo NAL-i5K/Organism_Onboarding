@@ -6,6 +6,7 @@ class: Workflow
 
 inputs:
   inputFile_Path: string
+  inputFile_Name: string
   #Kobas
   K_input_Species: string
   K_inputFile_Type: string
@@ -20,11 +21,14 @@ inputs:
   G_databaseQuery_ID: string
   G_name_OnOutput: string
   G_NCBI_taxonID: string 
+  #Interproscan
   I_output_Name: string
   I_output_fileFormat: string
   I_name_OnOutput: string
   I_taxonID: string
   I_database: string
+  #Combine Gafs
+  C_output_Name: string
 
 steps:
   #step 1
@@ -53,6 +57,7 @@ steps:
     in: 
       scriptFile: writeLoadModule/Script_file
       inputFile_Path: inputFile_Path
+      inputFile_Name: inputFile_Name
       G_blast: G_blast
       G_output_Name: G_output_Name
       G_NCBI_Def: G_NCBI_Def
@@ -76,6 +81,7 @@ steps:
     in:
       scriptFile: writeFinishMessage_Goanna/Script_file
       inputFile_Path: inputFile_Path
+      inputFile_Name: inputFile_Name
       K_input_Species: K_input_Species
       K_inputFile_Type: K_inputFile_Type
       K_output_Name: K_output_Name
@@ -95,6 +101,7 @@ steps:
     in: 
       scriptFile: writeFinishMessage_Kobas/Script_file
       inputFile_Path: inputFile_Path
+      inputFile_Name: inputFile_Name
       I_output_Name: I_output_Name
       I_output_fileFormat: I_output_fileFormat
       I_name_OnOutput: I_name_OnOutput
@@ -107,6 +114,24 @@ steps:
     run: writeFinishMessage.cwl
     in:
       scriptFile: writeInterproscan/Script_file
+    out:
+      [Script_file]
+  #step 10
+  writeCombine:
+    run: writeCombine.cwl
+    in:
+      scriptFile: writeFinishMessage_Inter/Script_file
+      inputFile_Name: inputFile_Name
+      I_output_Name: I_output_Name
+      G_output_Name: G_output_Name
+      C_output_Name: C_output_Name
+    out:
+      [Script_file]
+  #step 11
+  writeFinishMessage_Combine:
+    run: writeFinishMessage.cwl
+    in:
+      scriptFile: writeCombine/Script_file
     out:
       [Script_file]
 

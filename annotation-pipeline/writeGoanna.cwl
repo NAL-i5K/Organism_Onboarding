@@ -17,6 +17,8 @@ inputs:
     type: File
   inputFile_Path:
     type: string
+  inputFile_Name:
+    type: string
   G_blast:
     type: string
   G_output_Name:
@@ -35,7 +37,7 @@ inputs:
     type: string
 arguments:
   - position: 1
-    valueFrom: "echo 'goanna -a $(inputs.G_blast) -c $(inputs.inputFile_Path) -o $(inputs.G_output_Name) -$(inputs.G_NCBI_Def) -g $(inputs.G_identity_Percentage) -s $(inputs.G_bitscore) -d $(inputs.G_databaseQuery_ID) -u $(inputs.G_name_OnOutput) -x $(inputs.G_NCBI_taxonID)' >> sbatch_file.sh"  
+    valueFrom: "echo 'goanna -a $(inputs.G_blast) -c $(inputs.inputFile_Path)/$(inputs.inputFile_Name) -o $(inputs.G_output_Name) -$(inputs.G_NCBI_Def) -g $(inputs.G_identity_Percentage) -s $(inputs.G_bitscore) -d $(inputs.G_databaseQuery_ID) -u $(inputs.G_name_OnOutput) -x $(inputs.G_NCBI_taxonID)' >> sbatch_file.sh"  
 
 outputs: 
   Script_file:
