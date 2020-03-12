@@ -18,6 +18,8 @@ inputs:
   in_protein_fasta: File[]
   in_transcript_fasta: File
   in_cds_fasta: File
+  in_assembly_readme: File
+  in_genePrediction_readme: File
   in_md5checksums: File
   in_extract: File
   in_check: File
@@ -59,6 +61,8 @@ steps:
       in_protein_fasta: in_protein_fasta
       in_transcript_fasta: in_transcript_fasta
       in_cds_fasta: in_cds_fasta
+      in_assembly_readme: in_assembly_readme
+      in_genePrediction_readme: in_genePrediction_readme
       #
       deepPATH_apollo2_data: deepPATH_apollo2_data
       in_seq: in_seq

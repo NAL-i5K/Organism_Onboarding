@@ -42,9 +42,9 @@ genome_fasta_name: [
 GCF_003254395.2_Amel_HAv3.1_genomic.fna  #The fasta file name. This is needed for moving the related .2bi file in the production workflow.
 ]
 protein_fasta_name: [
-GCF_003254395.2_Amel_HAv3.1_translated_cds.faa,
-GCF_003254395.2_Amel_HAv3.1_translated_cds.faa2,
-GCF_003254395.2_Amel_HAv3.1_translated_cds.faa3
+GCF_003254395.2_Amel_HAv3.1_translated_cds.faa    #If you have more than one protein fasta file, add a ','
+#GCF_003254395.2_Amel_HAv3.1_translated_cds.faa2, #Then add the second file name here with a ',' 
+#GCF_003254395.2_Amel_HAv3.1_translated_cds.faa3  #Then add the last file name here 
 ]
 transcript_fasta_name: [
 GCF_003254395.2_Amel_HAv3.1_rna_from_genomic.fna
@@ -115,8 +115,15 @@ password
 #-------------------------------------------------------------------------------
 #Apollo server
 #username
-Apollo_account: user@apollo-node1.nal.usda.gov
-Gmod_account: user@gmod-node1.nal.usda.gov
-Gmod_stage_account: user@gmod-stage.nal.usda.gov
+Apollo_account: user@apollo-stage-node1.nal.usda.gov
+Gmod_account: user@gmod-stage-node1.nal.usda.gov
+Gmod_stage_account: user@gmod-dev.nal.usda.gov
 #-------------------------------------------------------------------------------
+#symlink PATH - don't change this unless you know what you're doing
+MAIN_PATH: /app/web/drupal7/data/Arthropoda
+#-------------------------------------------------------------------------------
+#scaffold readme information
+organization: NCBI
+accession: GCF0032543952
+link_to_publication: 'Not published, please follow Ft. Lauderdale/Toronto guidelines for data reuse'
 #below are variable for django setup, TBD (not implemented yet)
