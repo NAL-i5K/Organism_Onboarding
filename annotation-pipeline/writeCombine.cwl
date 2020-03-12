@@ -26,7 +26,7 @@ inputs:
 
 arguments:
   - position: 1
-    valueFrom: "echo 'combine_gafs -i interproscan-5.36-75.0/$(inputs.I_output_Name)/$(inputs.inputFile_Name)_gaf.txt -g $(inputs.G_output_Name)_goanna_gaf.tsv -o $(inputs.C_output_Name)' >> sbatch_file.sh"
+    valueFrom: "echo 'combine_gafs -i $(inputs.I_output_Name)/$(inputs.inputFile_Name)_gaf.txt -g $(inputs.G_output_Name)_goanna_gaf.tsv -o $(inputs.C_output_Name)' >> sbatch_file.sh"
 
 outputs:
   Script_file:
