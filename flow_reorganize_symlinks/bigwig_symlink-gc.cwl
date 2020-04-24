@@ -14,7 +14,7 @@ arguments:
     valueFrom: $(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH_bigwig[0])/$(inputs.genome_fasta_name[0]).gc.bigwig.gz
     #target directory
   - position: 2
-    valueFrom: $(inputs.MAIN_PATH)/$(inputs.tree[0])-($(inputs.scientific_name[0])-$(inputs.scientific_name[1]))/$(inputs.tree[1])/5.Other files/GC Content/.
+    valueFrom: $(inputs.MAIN_PATH)/$(inputs.tree[0])-($(inputs.scientific_name[0])_$(inputs.scientific_name[1]))/$(inputs.tree[1])/5.Other files/GC Content/.
 
 inputs:
   in_dummy: 
