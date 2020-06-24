@@ -52,6 +52,9 @@ GCF_003254395.2_Amel_HAv3.1_rna_from_genomic.fna
 cds_fasta_name: [
 GCF_003254395.2_Amel_HAv3.1_cds_from_genomic.fna
 ]
+gff_name: [
+GCF_003254395.2_Amel_HAv3.1_genomic.gff
+]
 #-------------------------------------------------------------------------------
 url_md5checksums: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/md5checksums.txt
@@ -115,9 +118,9 @@ password
 #-------------------------------------------------------------------------------
 #Apollo server
 #username
-Apollo_account: user@apollo-stage-node1.nal.usda.gov
-Gmod_account: user@gmod-stage-node1.nal.usda.gov
-Gmod_stage_account: user@gmod-dev.nal.usda.gov
+Apollo_account: hsiukang.huang@apollo-stage-node1.nal.usda.gov
+Gmod_account: hsiukang.huang@gmod-stage-node1.nal.usda.gov
+Gmod_stage_account: hsiukang.huang@gmod-dev.nal.usda.gov
 #-------------------------------------------------------------------------------
 #symlink PATH - don't change this unless you know what you're doing
 MAIN_PATH: /app/web/drupal7/data/Arthropoda
