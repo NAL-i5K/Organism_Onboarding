@@ -34,4 +34,7 @@ inputs:
   MAIN_PATH:
     type: string
 
-outputs: []
+outputs:
+  out_dummy:
+    type: stdout
+stdout: analysis_symlink_protein.dummy
