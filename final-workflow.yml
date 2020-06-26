@@ -74,6 +74,7 @@ analyses #the containing directory for ALL analyses, not just the gene set loade
 url_genomic_gff: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_genomic.gff.gz
 ]
+gff_release_number: 101
 
 #The rest urls
 #For example,
@@ -118,9 +119,9 @@ password
 #-------------------------------------------------------------------------------
 #Apollo server
 #username
-Apollo_account: hsiukang.huang@apollo-stage-node1.nal.usda.gov
-Gmod_account: hsiukang.huang@gmod-stage-node1.nal.usda.gov
-Gmod_stage_account: hsiukang.huang@gmod-dev.nal.usda.gov
+Apollo_account: user@apollo-stage-node1.nal.usda.gov
+Gmod_account: user@gmod-stage-node1.nal.usda.gov
+Gmod_stage_account: user@gmod-dev.nal.usda.gov
 #-------------------------------------------------------------------------------
 #symlink PATH - don't change this unless you know what you're doing
 MAIN_PATH: /app/web/drupal7/data/Arthropoda

@@ -8,6 +8,9 @@ requirements:
 
 inputs:
   tree: string[]
+  scientific_name: string[]
+  gff_release_number: int
+  url_genomic_gff: string[]
   in_gff: File
   in_fasta: File
 
@@ -34,13 +37,16 @@ steps:
       in_fai: samtools_faidx/out_fai
     out: 
       [out_trackList_json, out_seq, out_tracks_conf,out_data]  
-  #step 4 different gff ??????
+  #step 4
   flatfile-to-json:
     run: flatfile-to-json.cwl
     in:
       tree: tree
       in_gff: in_gff
-      in_trackList_json: prepare-refseqs/out_trackList_json
+      scientific_name: scientific_name
+      gff_release_number: gff_release_number
+      url_genomic_gff: url_genomic_gff 
+#      in_trackList_json: prepare-refseqs/out_trackList_json
       in_data: prepare-refseqs/out_data
     out:
       [out_trackList_json, out_tracks]                                

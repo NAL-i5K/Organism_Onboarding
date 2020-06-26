@@ -18,6 +18,7 @@ inputs:
   url_genomic_fasta: string[]
   deepPATH_analyses: string[]
   url_genomic_gff: string[]
+  gff_release_number: int
   url_protein_fasta: string[]
   url_transcript_fasta: string[]
   url_cds_fasta: string[]
@@ -75,6 +76,9 @@ steps:
     run: flow_apollo2_data_processing/processing/workflow.cwl
     in:
       tree: tree
+      scientific_name: scientific_name
+      gff_release_number: gff_release_number
+      url_genomic_gff: url_genomic_gff
       in_fasta: md5checksums/OUT_genomic_fasta
       in_gff: md5checksums/OUT_genomic_gff
     out:
@@ -145,33 +149,33 @@ steps:
     out:
       [out_dummy]
   #step7
-  apollo2_create_organism:
-    run: createOrganism.cwl
-    in: 
-      in_dummy: dispatch/out_dummy 
-      host: host_stage
-      scientific_name: scientific_name
-      PATH: PATH
-      tree: tree
-      in_2bi: apollo2_data_processing/OUT_2bi
-      deepPATH_apollo2_data: deepPATH_apollo2_data
-      login_apollo2: login_apollo2_stage
-    out:
-      [out_createOrganism_log]
+#  apollo2_create_organism:
+#    run: createOrganism.cwl
+#    in: 
+#      in_dummy: dispatch/out_dummy 
+#      host: host_stage
+#      scientific_name: scientific_name
+#      PATH: PATH
+#      tree: tree
+#      in_2bi: apollo2_data_processing/OUT_2bi
+#      deepPATH_apollo2_data: deepPATH_apollo2_data
+#      login_apollo2: login_apollo2_stage
+#    out:
+#      [out_createOrganism_log]
       
   #step8 genomics-workspace
-  genomics-workspace:
-    run: flow_genomicsWorkspace/genomics-workspace.cwl 
-    in:
-      scientific_name: scientific_name
-      managePy_Path: managePy_Path
-      blastdb_Path: blastdb_Path_stage
-      hmmerdb_Path: hmmerdb_Path_stage
-      tree: tree
-      in_fasta: md5checksums/OUT_genomic_fasta
-      in_fasta_protein: md5checksums/OUT_protein_fasta
-      in_fasta_transcript: md5checksums/OUT_transcript_fasta
-      in_fasta_cds: md5checksums/OUT_cds_fasta  
-    out: []
+#  genomics-workspace:
+#    run: flow_genomicsWorkspace/genomics-workspace.cwl 
+#    in:
+#      scientific_name: scientific_name
+#      managePy_Path: managePy_Path
+#      blastdb_Path: blastdb_Path_stage
+#      hmmerdb_Path: hmmerdb_Path_stage
+#      tree: tree
+#      in_fasta: md5checksums/OUT_genomic_fasta
+#      in_fasta_protein: md5checksums/OUT_protein_fasta
+#      in_fasta_transcript: md5checksums/OUT_transcript_fasta
+#      in_fasta_cds: md5checksums/OUT_cds_fasta  
+#    out: []
 
 outputs:  []
