@@ -14,9 +14,9 @@
 check by command  ```python --version```  
 
 ### Getting started step by step 
-Typically, there are four steps for using these workflow. 1.clone the requied repositories 2. acitivte virtual env for cwltool 3. edit the yml file 4. run cwl workflow
+Typically, there are four steps for using these workflow. **1.** clone the requied repositories **2.** acitivte virtual env for cwltool **3.** edit the yml file **4.** run cwl workflow
 
-- Step1.
+- **Step1.**    
 Clone the repositories on your working directory on NAL servers. Running these workflows requires the following programs. You will need to clone the these repositories and add them to path on NAL servers before you run these workflow. You can follow the instruction on this wiki page. (https://gitlab.com/i5k_Workspace/workspace_roadmap/-/wikis/Environment-setup-on-the-NAL-servers)
 1. Organism_Onboarding (This repo)
 2. content_onboarding_scripts
@@ -31,21 +31,21 @@ git clone https://github.com/NAL-i5K/bam_to_bigwig.git
 git clone https://github.com/NAL-i5K/ColorByType.git
 ```
 
-- Step2.   
+- **Step2.**  
 Go into the virtual environment of cwl  
 ```
 cd Organism_Onboarding/
 source /app/data/cwltool/venv/bin/activate
 ```
 
-- Step3.  
+- **Step3.**  
 Create and named your yml file **job-[gggsss].yml** for the specific organism. You can take **example.yml** as a reference.  
 ```
 cp example.yml job-[gggsss].yml
 vim job-[gggsss].yml
 ```  
 
-- Step4.  
+- **Step4.**  
 Run cwl and document the message throwed by cwl in a file. The first workflow to run is 'final-workflow.cwl' which supposed to be run on apollo-stage. 
 ```
 cwl-runner --enable-ext final-workflow.cwl job-[gggsss].yml &> [gggsss].CWLlog
