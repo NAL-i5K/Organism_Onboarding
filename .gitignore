@@ -17,3 +17,5 @@ cwl-*.log
 storage/
 
 *.CWLlog
+
+jobs/
