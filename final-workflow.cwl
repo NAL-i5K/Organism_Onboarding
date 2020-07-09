@@ -160,18 +160,18 @@ steps:
       [out_createOrganism_log]
       
   #step8 genomics-workspace
-  genomics-workspace:
-    run: flow_genomicsWorkspace/genomics-workspace.cwl 
-    in:
-      scientific_name: scientific_name
-      managePy_Path: managePy_Path
-      blastdb_Path: blastdb_Path_stage
-      hmmerdb_Path: hmmerdb_Path_stage
-      tree: tree
-      in_fasta: md5checksums/OUT_genomic_fasta
-      in_fasta_protein: md5checksums/OUT_protein_fasta
-      in_fasta_transcript: md5checksums/OUT_transcript_fasta
-      in_fasta_cds: md5checksums/OUT_cds_fasta  
-    out: []
+#  genomics-workspace:
+#    run: flow_genomicsWorkspace/genomics-workspace.cwl 
+#    in:
+#      scientific_name: scientific_name
+#      managePy_Path: managePy_Path
+#      blastdb_Path: blastdb_Path_stage
+#      hmmerdb_Path: hmmerdb_Path_stage
+#      tree: tree
+#      in_fasta: md5checksums/OUT_genomic_fasta
+#      in_fasta_protein: md5checksums/OUT_protein_fasta
+#      in_fasta_transcript: md5checksums/OUT_transcript_fasta
+#      in_fasta_cds: md5checksums/OUT_cds_fasta  
+#    out: []
 
 outputs:  []
