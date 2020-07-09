@@ -17,7 +17,7 @@ arguments:
     valueFrom: $(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH_genomic_fasta[0])/$(inputs.deepPATH_analyses[0])/$(inputs.tree[2])/$(inputs.cds_fasta_name[0])
     #gff file
   - position: 3
-    valueFrom: $(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH_genomic_fasta[0])/$(inputs.deepPATH_analyses[0])/$(inputs.tree[2])/$(inputs.genome_fasta_name[0].slice(0,-3))gff
+    valueFrom: $(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH_genomic_fasta[0])/$(inputs.deepPATH_analyses[0])/$(inputs.tree[2])/$(inputs.gff_name[0])
     #readme file
   - position: 4
     valueFrom: $(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH_genomic_fasta[0])/$(inputs.deepPATH_analyses[0])/$(inputs.tree[2])/readme.txt
@@ -27,7 +27,7 @@ arguments:
 
 inputs:
   in_dummy: 
-    type: File
+    type: File[]
   PATH:
     type: string[]
   tree:
@@ -38,6 +38,8 @@ inputs:
     type: string[]
   cds_fasta_name:
     type: string[]
+  gff_name:
+    type: string[]
   genome_fasta_name:
     type: string[]
   deepPATH_genomic_fasta:
@@ -47,4 +49,7 @@ inputs:
   MAIN_PATH:
     type: string
 
-outputs: []
+outputs:
+  out_dummy:
+    type: stdout
+stdout: analyses_symlink.dummy
