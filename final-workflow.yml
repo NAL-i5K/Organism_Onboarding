@@ -100,10 +100,10 @@ scaffold/bigwig
 #-------------------------------------------------------------------------------
 #where apollo2 lives
 host_stage: [ 
-https://apollo-dev.nal.usda.gov
+https://apollo-stage.nal.usda.gov
 ]
 host_production: [
-https://apollo-dev.nal.usda.gov
+https://apollo.nal.usda.gov
 ]
 #authentication in apollo2
 login_apollo2_stage:  [
@@ -117,9 +117,9 @@ password
 #-------------------------------------------------------------------------------
 #Apollo server
 #username
-Apollo_account: hsiukang.huang@apollo-stage-node1.nal.usda.gov
-Gmod_account: hsiukang.huang@gmod-stage-node1.nal.usda.gov
-Gmod_stage_account: hsiukang.huang@gmod-dev.nal.usda.gov
+Apollo_account: user@apollo-node1.nal.usda.gov
+Gmod_account: user@gmod-node1.nal.usda.gov
+Gmod_stage_account: user@gmod-stage-node1.nal.usda.gov
 #-------------------------------------------------------------------------------
 #symlink PATH - don't change this unless you know what you're doing
 MAIN_PATH: /app/web/drupal7/data/Arthropoda
