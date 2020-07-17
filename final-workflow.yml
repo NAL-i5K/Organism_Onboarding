@@ -38,23 +38,44 @@ scientific_name: [
 Apis, #genus
 mellifera #species
 ]
+#Genomic fasta name and URL
 genome_fasta_name: [
 GCF_003254395.2_Amel_HAv3.1_genomic.fna  #The fasta file name. This is needed for moving the related .2bi file in the production workflow.
 ]
+url_genomic_fasta: [
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_genomic.fna.gz
+]
+#Protein fasta name(s) and url(s)
 protein_fasta_name: [
 GCF_003254395.2_Amel_HAv3.1_translated_cds.faa    #If you have more than one protein fasta file, add a ','
 #GCF_003254395.2_Amel_HAv3.1_translated_cds.faa2, #Then add the second file name here with a ',' 
 #GCF_003254395.2_Amel_HAv3.1_translated_cds.faa3  #Then add the last file name here 
 ]
+url_protein_fasta: [
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_translated_cds.faa.gz
+]
+#Transcript fasta name and URL
 transcript_fasta_name: [
 GCF_003254395.2_Amel_HAv3.1_rna_from_genomic.fna
 ]
+url_transcript_fasta: [
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_rna_from_genomic.fna.gz
+]
+#CDS fasta name and URL
 cds_fasta_name: [
 GCF_003254395.2_Amel_HAv3.1_cds_from_genomic.fna
+]
+url_cds_fasta: [
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_cds_from_genomic.fna.gz
+]
+#GFF name and URL
+url_genomic_gff: [
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_genomic.gff.gz
 ]
 gff_name: [
 GCF_003254395.2_Amel_HAv3.1_genomic.gff
 ]
+gff_release_number: 101
 #-------------------------------------------------------------------------------
 url_md5checksums: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/md5checksums.txt
@@ -63,34 +84,13 @@ ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3
 deepPATH_genomic_fasta: [
 scaffold #the containing directory for the assembly. Don't change this unless you have to. 
 ]
-url_genomic_fasta: [
-ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_genomic.fna.gz
-]
+
 #-------------------------------------------------------------------------------
 #This section is usually for the official gene set. 
 deepPATH_analyses: [
 analyses #the containing directory for ALL analyses, not just the gene set loaded here. Don't change this unless you have to.
 ]
-url_genomic_gff: [
-ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_genomic.gff.gz
-]
-gff_release_number: 101
 
-#The rest urls
-#For example,
-#Protein fasta(_translated_cds*)
-#Transcript fasta(_rna_from*)
-#CDS fasta(_cds_from*)
-
-url_protein_fasta: [
-ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_translated_cds.faa.gz
-]
-url_cds_fasta: [
-ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_cds_from_genomic.fna.gz
-]
-url_transcript_fasta: [
-ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/GCF_003254395.2_Amel_HAv3.1_rna_from_genomic.fna.gz
-]
 #-------------------------------------------------------------------------------
 deepPATH_apollo2_data: [ 
 #the containing directory for Jbrowse/Apollo data. Don't change this unless you have to. 
@@ -102,10 +102,10 @@ scaffold/bigwig
 #-------------------------------------------------------------------------------
 #where apollo2 lives
 host_stage: [ 
-https://apollo-dev.nal.usda.gov
+https://apollo-stage.nal.usda.gov
 ]
 host_production: [
-https://apollo-dev.nal.usda.gov
+https://apollo.nal.usda.gov
 ]
 #authentication in apollo2
 login_apollo2_stage:  [
@@ -119,9 +119,10 @@ password
 #-------------------------------------------------------------------------------
 #Apollo server
 #username
-Apollo_account: user@apollo-stage-node1.nal.usda.gov
-Gmod_account: user@gmod-stage-node1.nal.usda.gov
-Gmod_stage_account: user@gmod-dev.nal.usda.gov
+Apollo_account: user@apollo-node1.nal.usda.gov
+Gmod_account: user@gmod-node1.nal.usda.gov
+Gmod_stage_account: user@gmod-stage-node1.nal.usda.gov
+
 #-------------------------------------------------------------------------------
 #symlink PATH - don't change this unless you know what you're doing
 MAIN_PATH: /app/web/drupal7/data/Arthropoda
