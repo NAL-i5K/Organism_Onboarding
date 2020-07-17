@@ -75,6 +75,7 @@ ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3
 gff_name: [
 GCF_003254395.2_Amel_HAv3.1_genomic.gff
 ]
+gff_release_number: 101
 #-------------------------------------------------------------------------------
 url_md5checksums: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/md5checksums.txt
@@ -89,6 +90,7 @@ scaffold #the containing directory for the assembly. Don't change this unless yo
 deepPATH_analyses: [
 analyses #the containing directory for ALL analyses, not just the gene set loaded here. Don't change this unless you have to.
 ]
+
 #-------------------------------------------------------------------------------
 deepPATH_apollo2_data: [ 
 #the containing directory for Jbrowse/Apollo data. Don't change this unless you have to. 
@@ -120,6 +122,7 @@ password
 Apollo_account: user@apollo-node1.nal.usda.gov
 Gmod_account: user@gmod-node1.nal.usda.gov
 Gmod_stage_account: user@gmod-stage-node1.nal.usda.gov
+
 #-------------------------------------------------------------------------------
 #symlink PATH - don't change this unless you know what you're doing
 MAIN_PATH: /app/web/drupal7/data/Arthropoda

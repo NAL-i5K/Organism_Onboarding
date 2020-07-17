@@ -8,7 +8,7 @@ requirements:
 
 baseCommand: [ln]
 arguments:
-  - prefix: -s
+  - prefix: -si
     position: 1
     valueFrom: ../../scaffold/bigwig
   - prefix: -t

@@ -35,4 +35,7 @@ inputs:
   MAIN_PATH:
     type: string
 
-outputs: []
+outputs:
+  out_dummy:
+    type: stdout
+stdout: scaffold_symlink.dummy

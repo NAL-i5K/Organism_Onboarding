@@ -13,7 +13,7 @@ requirements:
         return LIST;
       }
 
-baseCommand: [flatfile-to-json.pl]
+baseCommand: [add_NCBI_annotation_track.py]
 
 $namespaces:
   cwltool: "http://commonwl.org/cwltool#"
@@ -24,37 +24,40 @@ hints:
 
 arguments: 
   - position: 1
-    prefix: --gff
+    prefix: -path
+    valueFrom: /app/data/WebApollo_deployment/apollo_master/jbrowse/bin/flatfile-to-json.pl
+  - position: 2
+    prefix: -gff
     valueFrom: $(inputs.in_gff.basename)
   - position: 3
-    prefix: --arrowheadClass
-    valueFrom: trellis-arrowhead
-  - position: 5
-    prefix: --subfeatureClasses
-    valueFrom: '{"wholeCDS": null, "CDS":"primary_gene_set-cds", "UTR": "primary_gene_set-utr", "exon":"container-100pct"}'
-  - position: 7
-    prefix: --cssClass
-    valueFrom: container-16px
-  - position: 9
-    prefix: --type
-    valueFrom: mRNA
-  - position: 11
-    prefix: --trackLabel
-    valueFrom: $(inputs.tree[0])_current_models 
-  - position: 13
-    prefix: --key
-    valueFrom: $(inputs.tree[0])_annotation
-  - position: 15
-    prefix: --out
+    prefix: -out
     valueFrom: data/
+  - position: 4
+    prefix: -organism
+    valueFrom: $(inputs.scientific_name[0])_$(inputs.scientific_name[0]) 
+  - position: 5
+    prefix: -trackLabel1
+    valueFrom: $(inputs.tree[0])_current_models
+  - position: 6
+    prefix: -release
+    valueFrom: $(inputs.gff_release_number)
+  - position: 7
+    prefix: -source
+    valueFrom: $(inputs.url_genomic_gff[0])
     
 inputs:
   tree:
     type: string[]
+  scientific_name:
+    type: string[]
+  gff_release_number:
+    type: int
+  url_genomic_gff:
+    type: string[]
   in_gff:
     type: File
-  in_trackList_json:
-    type: File
+#  in_trackList_json:
+#    type: File
   in_data:
     type: Directory
 outputs: 

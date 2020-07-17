@@ -18,6 +18,7 @@ inputs:
   url_genomic_fasta: string[]
   deepPATH_analyses: string[]
   url_genomic_gff: string[]
+  gff_release_number: int
   url_protein_fasta: string[]
   url_transcript_fasta: string[]
   url_cds_fasta: string[]
@@ -75,6 +76,9 @@ steps:
     run: flow_apollo2_data_processing/processing/workflow.cwl
     in:
       tree: tree
+      scientific_name: scientific_name
+      gff_release_number: gff_release_number
+      url_genomic_gff: url_genomic_gff
       in_fasta: md5checksums/OUT_genomic_fasta
       in_gff: md5checksums/OUT_genomic_gff
     out:
