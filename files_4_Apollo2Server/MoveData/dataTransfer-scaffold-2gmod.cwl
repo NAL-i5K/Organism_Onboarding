@@ -24,4 +24,7 @@ inputs:
     type: string[]
   in_dummy:
     type: File
-outputs: []
+outputs:
+  out_dummy:
+    type: stdout
+stdout: dataTransfer-scaffold-2gmod.dummy
