@@ -26,8 +26,6 @@ inputs:
   deepPATH_apollo2_data: string[]
   in_seq: Directory
   in_tracks_conf: File
-  in_tracks: Directory
-  in_names: Directory
   in_trackList_json: File
   in_trackList_json_bak: File
   #
@@ -115,22 +113,6 @@ steps:
       deepPATH: deepPATH_apollo2_data
       in_data: in_tracks_conf
     out: []
-  cp_tracks:
-    run: cp_dir.cwl
-    in:
-      PATH: PATH
-      tree: tree
-      deepPATH: deepPATH_apollo2_data
-      in_data: in_tracks
-    out: [] 
-  cp_names:
-    run: cp_dir.cwl
-    in:
-      PATH: PATH
-      tree: tree
-      deepPATH: deepPATH_apollo2_data
-      in_data: in_names
-    out: []    
   cp_trackList_json:
     run: cp_file.cwl
     in:

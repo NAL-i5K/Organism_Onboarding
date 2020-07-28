@@ -85,8 +85,6 @@ steps:
       [OUT_2bi,
       OUT_seq,
       OUT_tracks_conf,
-      OUT_tracks,
-      OUT_names,
       OUT_gaps_bigwig,
       OUT_gc_bigwig,
       OUT_trackList_json,
@@ -140,8 +138,6 @@ steps:
       in_2bi: apollo2_data_processing/OUT_2bi
       in_seq: apollo2_data_processing/OUT_seq
       in_tracks_conf: apollo2_data_processing/OUT_tracks_conf
-      in_tracks: apollo2_data_processing/OUT_tracks
-      in_names: apollo2_data_processing/OUT_names
       in_gaps_bigwig: apollo2_data_processing/OUT_gaps_bigwig
       in_gc_bigwig: apollo2_data_processing/OUT_gc_bigwig
       in_trackList_json: apollo2_data_processing/OUT_trackList_json

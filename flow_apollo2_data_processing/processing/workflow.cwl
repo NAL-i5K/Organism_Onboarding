@@ -38,46 +38,25 @@ steps:
     out: 
       [out_trackList_json, out_seq, out_tracks_conf,out_data]  
   #step 4
-  flatfile-to-json:
-    run: flatfile-to-json.cwl
-    in:
-      tree: tree
-      in_gff: in_gff
-      scientific_name: scientific_name
-      gff_release_number: gff_release_number
-      url_genomic_gff: url_genomic_gff 
-#      in_trackList_json: prepare-refseqs/out_trackList_json
-      in_data: prepare-refseqs/out_data
-    out:
-      [out_trackList_json, out_tracks]                                
-  #step 5
-  generate-names:
-    run: generate-names.cwl                 
-    in:
-      in_data: prepare-refseqs/out_data
-      in_tracks: flatfile-to-json/out_tracks # making sure that this step is after flatfile-to-json       
-    out:
-      [out_names]
-  #step 6
   gap2bigwig:
     run: gap2bigwig.cwl
     in:
       in_fasta: in_fasta
     out:
       [out_gaps_bigwig]
-  #step 7
+  #step 5
   GCcontent2bigwig:
     run: GCcontent2bigwig.cwl
     in:
       in_fasta: in_fasta
     out:
       [out_gc_bigwig]
-  #step 8
+  #step 6
   add-bw-track_gaps:
     run: add-bw-track_gaps.cwl
     in:
       in_gaps_bigwig: gap2bigwig/out_gaps_bigwig
-      in_trackList_json: flatfile-to-json/out_trackList_json
+      in_trackList_json: prepare-refseqs/out_trackList_json
     out:
       [out_trackList_json]
   #step 9
@@ -107,12 +86,6 @@ outputs:
   OUT_tracks_conf:
     type: File
     outputSource: prepare-refseqs/out_tracks_conf
-  OUT_tracks:
-    type: Directory
-    outputSource: flatfile-to-json/out_tracks
-  OUT_names:
-    type: Directory
-    outputSource: generate-names/out_names
   OUT_gaps_bigwig:
     type: File
     outputSource: gap2bigwig/out_gaps_bigwig

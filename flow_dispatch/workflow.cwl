@@ -29,8 +29,6 @@ inputs:
   deepPATH_apollo2_data: string[]
   in_seq: Directory
   in_tracks_conf: File
-  in_tracks: Directory
-  in_names: Directory
   in_trackList_json: File
   in_trackList_json_bak: File
   #
@@ -67,8 +65,6 @@ steps:
       deepPATH_apollo2_data: deepPATH_apollo2_data
       in_seq: in_seq
       in_tracks_conf: in_tracks_conf
-      in_tracks: in_tracks
-      in_names: in_names
       in_trackList_json: in_trackList_json
       in_trackList_json_bak: in_trackList_json_bak
       #
