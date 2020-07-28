@@ -38,7 +38,7 @@ steps:
       tree: tree
       deepPATH_bigwig: deepPATH_bigwig
     out: [out_dummy]
-  #step2 transfer folder bigwig to apollo production server and change permission to 755
+  #step2 transfer folder bigwig to apollo production server
   dataTransfer-bigwig:
     run: files_4_Apollo2Server/MoveData/dataTransfer-bigwig.cwl
     in:
@@ -48,16 +48,7 @@ steps:
       deepPATH_bigwig: deepPATH_bigwig
       in_dummy: createFolder/out_dummy
     out: [out_dummy]
-  chmod-bigwig:
-    run: files_4_Apollo2Server/MoveData/chmod-bigwig.cwl
-    in:
-      Apollo_account: Apollo_account
-      PATH: PATH
-      tree: tree
-      deepPATH_bigwig: deepPATH_bigwig
-      in_dummy: dataTransfer-bigwig/out_dummy
-    out: []
-  #step3 transfer folder jbrowse to apollo production server and change permission to 755
+  #step3 transfer folder jbrowse to apollo production server
   dataTransfer-jbrowse:
     run: files_4_Apollo2Server/MoveData/dataTransfer-jbrowse.cwl
     in:
@@ -66,15 +57,7 @@ steps:
       tree: tree
       in_dummy: dataTransfer-bigwig/out_dummy
     out: [out_dummy]
-  chmod-jbrowse:
-    run: files_4_Apollo2Server/MoveData/chmod-jbrowse.cwl
-    in:
-      Apollo_account: Apollo_account
-      PATH: PATH
-      tree: tree
-      in_dummy: dataTransfer-jbrowse/out_dummy
-    out: []
-  #step4 transfer folder blat to apollo production server and change permission to 755
+  #step4 transfer folder blat to apollo production server
   dataTransfer-blat:
     run: files_4_Apollo2Server/MoveData/dataTransfer-blat.cwl
     in:
@@ -83,14 +66,6 @@ steps:
       tree: tree
       in_dummy: dataTransfer-jbrowse/out_dummy
     out: [out_dummy] 
-  chmod-blat:
-    run: files_4_Apollo2Server/MoveData/chmod-blat.cwl
-    in:
-      Apollo_account: Apollo_account
-      PATH: PATH
-      tree: tree
-      in_dummy: dataTransfer-blat/out_dummy
-    out: []
   #step5 create folders on gmod production server
   createFolder-2gmodProd:
     run: files_4_Apollo2Server/MoveData/createFolder-2gmod.cwl
@@ -126,7 +101,7 @@ steps:
       PATH: PATH
       tree: tree
     out: [out_dummy]
-  #step8 transfer scaffold to gmod stage server and change permission to 755
+  #step8 transfer scaffold to gmod stage server
   dataTransfer-scaffold-2gmodStage:
     run: files_4_Apollo2Server/MoveData/dataTransfer-scaffold-2gmod.cwl
     in:
@@ -136,15 +111,6 @@ steps:
       deepPATH_genomic_fasta: deepPATH_genomic_fasta
       in_dummy: createFolder-2gmodStage/out_dummy
     out: [out_dummy]
-  chmod-scaffold-2gmodStage:
-    run: files_4_Apollo2Server/MoveData/chmod-scaffold-2gmod.cwl
-    in:
-      Gmod_account: Gmod_stage_account
-      PATH: PATH
-      tree: tree
-      deepPATH_genomic_fasta: deepPATH_genomic_fasta
-      in_dummy: dataTransfer-scaffold-2gmodStage/out_dummy
-    out: []
   #Step9 create yml file
   create_ymlFile:
     run: flow_create_genomics-workspace_yml/flow_create_yml/workflow.cwl
