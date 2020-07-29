@@ -38,7 +38,7 @@ steps:
       tree: tree
       deepPATH_bigwig: deepPATH_bigwig
     out: [out_dummy]
-  #step2 transfer folder bigwig to apollo production server 
+  #step2 transfer folder bigwig to apollo production server
   dataTransfer-bigwig:
     run: files_4_Apollo2Server/MoveData/dataTransfer-bigwig.cwl
     in:
@@ -74,7 +74,7 @@ steps:
       PATH: PATH
       tree: tree
     out: [out_dummy]
-  #step6 transfer scaffold to gmod production server
+  #step6 transfer scaffold to gmod production server and change permission to 755
   dataTransfer-scaffold-2gmodProd:
     run: files_4_Apollo2Server/MoveData/dataTransfer-scaffold-2gmod.cwl
     in:
@@ -83,6 +83,15 @@ steps:
       tree: tree
       deepPATH_genomic_fasta: deepPATH_genomic_fasta
       in_dummy: createFolder-2gmodProd/out_dummy
+    out: [out_dummy]
+  chmod-scaffold-2gmodProd:
+    run: files_4_Apollo2Server/MoveData/chmod-scaffold-2gmod.cwl
+    in:
+      Gmod_account: Gmod_account
+      PATH: PATH
+      tree: tree
+      deepPATH_genomic_fasta: deepPATH_genomic_fasta
+      in_dummy: dataTransfer-scaffold-2gmodProd/out_dummy
     out: []
   #step7 create folders on gmod stage server
   createFolder-2gmodStage:
@@ -101,7 +110,7 @@ steps:
       tree: tree
       deepPATH_genomic_fasta: deepPATH_genomic_fasta
       in_dummy: createFolder-2gmodStage/out_dummy
-    out: []
+    out: [out_dummy]
   #Step9 create yml file
   create_ymlFile:
     run: flow_create_genomics-workspace_yml/flow_create_yml/workflow.cwl
