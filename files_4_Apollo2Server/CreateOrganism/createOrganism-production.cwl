@@ -21,7 +21,7 @@ arguments:
     valueFrom: $(inputs.host[0])
   - position: 3
     prefix: -organism
-    valueFrom: $(inputs.scientific_name[0]) $(inputs.scientific_name[1])
+    valueFrom: $(inputs.scientific_name[0])_$(inputs.scientific_name[1])
   - position: 5
     prefix: -genus
     valueFrom: $(inputs.scientific_name[0])
