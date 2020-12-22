@@ -102,7 +102,7 @@ scaffold/bigwig
 #-------------------------------------------------------------------------------
 #where apollo2 lives
 host_stage: [ 
-https://apollo-stage.nal.usda.gov
+https://apollo2-stage.nal.usda.gov
 ]
 host_production: [
 https://apollo.nal.usda.gov
@@ -119,9 +119,9 @@ password
 #-------------------------------------------------------------------------------
 #Apollo server
 #username
-Apollo_account: user@apollo-node1.nal.usda.gov
-Gmod_account: user@gmod-node1.nal.usda.gov
-Gmod_stage_account: user@gmod-stage-node1.nal.usda.gov
+Apollo_account: user@apollo2-node1.nal.usda.gov
+Gmod_account: user@i5k-node1.nal.usda.gov
+Gmod_stage_account: user@i5k-stage-node1.nal.usda.gov
 
 #-------------------------------------------------------------------------------
 #symlink PATH - don't change this unless you know what you're doing
