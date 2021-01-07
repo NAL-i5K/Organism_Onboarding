@@ -1,0 +1,134 @@
+#example yml file for specific organism
+
+#The full path look like this:
+#For genomic fasta/scaffold data:
+#$(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/[deepPATH_genomic_fasta]
+#For gene set /analysis data:
+#$(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/[deepPATH_genomic_fasta]/[deepPATH_analyses]/$(inputs.tree[2])
+#For bigwig data:
+#$(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/[deepPATH_bigwig]
+#For jbrowse/apollo data:
+#$(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/[deepPATH_apollo2_data]
+#For intermediate files: 
+#$(inputs.PATH[1])/$(inputs.tree[0])/$(inputs.tree[1])/[deepPATH_genomic_fasta]/[deepPATH_analyses]/$(inputs.tree[2])
+#For BLAT data:
+#$(inputs.PATH[2])
+#-------------------------------------------------------------------------------
+PATH: [ #don't change this unless you know what you're doing
+/app/data/other_species,
+/app/data/working_files,
+/usr/local/blat/db
+]
+#-------------------------------------------------------------------------------
+#Enter the path of manage.py - don't change this unless you know what you're doing 
+managePy_Path: /usr/local/i5k/
+#Enter the path of blast/db
+blastdb_Path_stage: [/usr/local/i5k/media/blast/db]
+blastdb_Path_production: [/usr/local/i5k/media/blast/db]
+#Enter the path of hmmer/db
+hmmerdb_Path_stage: [/usr/local/i5k/media/hmmer/db]
+hmmerdb_Path_production: [/usr/local/i5k/media/hmmer/db]
+#-------------------------------------------------------------------------------
+tree: [
+apimel, #species abbreviation - format gggsss
+Amel_HAv3.1, #the assembly name
+Apis_mellifera_Annotation_Release_103 #the gene set/annotation name
+]
+scientific_name: [
+Apis, #genus
+mellifera #species
+]
+#Genomic fasta name and URL
+genome_fasta_name: [
+GCF_000146045.2_R64_genomic.fna  #The fasta file name. This is needed for moving the related .2bi file in the production workflow.
+]
+url_genomic_fasta: [
+https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_genomic.fna.gz
+]
+#Protein fasta name(s) and url(s)
+protein_fasta_name: [
+GCF_000146045.2_R64_translated_cds.faa    #If you have more than one protein fasta file, add a ','
+#GCF_003254395.2_Amel_HAv3.1_translated_cds.faa2, #Then add the second file name here with a ',' 
+#GCF_003254395.2_Amel_HAv3.1_translated_cds.faa3  #Then add the last file name here 
+]
+url_protein_fasta: [
+https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_translated_cds.faa.gz
+]
+#Transcript fasta name and URL
+transcript_fasta_name: [
+GCF_000146045.2_R64_rna_from_genomic.fna
+]
+url_transcript_fasta: [
+https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_rna_from_genomic.fna.gz
+]
+#CDS fasta name and URL
+cds_fasta_name: [
+GCF_000146045.2_R64_cds_from_genomic.fna
+]
+url_cds_fasta: [
+https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_cds_from_genomic.fna.gz
+]
+#GFF name and URL
+url_genomic_gff: [
+https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_genomic.gff.gz
+]
+gff_name: [
+GCF_000146045.2_R64_genomic.gff
+]
+gff_release_number: 101
+#-------------------------------------------------------------------------------
+url_md5checksums: [
+https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/md5checksums.txt
+]
+#-------------------------------------------------------------------------------
+deepPATH_genomic_fasta: [
+scaffold #the containing directory for the assembly. Don't change this unless you have to. 
+]
+
+#-------------------------------------------------------------------------------
+#This section is usually for the official gene set. 
+deepPATH_analyses: [
+analyses #the containing directory for ALL analyses, not just the gene set loaded here. Don't change this unless you have to.
+]
+
+#-------------------------------------------------------------------------------
+deepPATH_apollo2_data: [ 
+#the containing directory for Jbrowse/Apollo data. Don't change this unless you have to. 
+jbrowse/data
+]
+deepPATH_bigwig: [ #the containing directory for bigwig files generated from the assembly. Don't change this unless you have to.
+scaffold/bigwig
+]
+#-------------------------------------------------------------------------------
+#where apollo2 lives
+host_stage: [ 
+https://apollo2-stage.nal.usda.gov
+]
+host_production: [
+https://apollo.nal.usda.gov
+]
+#authentication in apollo2
+login_apollo2_stage:  [
+user@ars.usda.gov,
+password
+]
+login_apollo2_production: [
+user@ars.usda.gov,
+password
+]
+#-------------------------------------------------------------------------------
+#Apollo server
+#username
+Apollo_account: user@apollo2-node1.nal.usda.gov
+Gmod_account: user@i5k-node1.nal.usda.gov
+Gmod_stage_account: user@i5k-stage-node1.nal.usda.gov
+
+#-------------------------------------------------------------------------------
+#symlink PATH - don't change this unless you know what you're doing
+MAIN_PATH: /app/web/drupal7/data/Arthropoda
+#-------------------------------------------------------------------------------
+#scaffold readme information
+organization: NCBI
+accession: GCF0032543952
+link_to_publication: 'Not published, please follow Ft. Lauderdale/Toronto guidelines for data reuse'
+#below are variable for django setup, TBD (not implemented yet)
