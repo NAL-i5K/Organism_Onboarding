@@ -30,55 +30,53 @@ hmmerdb_Path_stage: [/usr/local/i5k/media/hmmer/db]
 hmmerdb_Path_production: [/usr/local/i5k/media/hmmer/db]
 #-------------------------------------------------------------------------------
 tree: [
-apimel, #species abbreviation - format gggsss
-Amel_HAv3.1, #the assembly name
-Apis_mellifera_Annotation_Release_103 #the gene set/annotation name
+saceub, #species abbreviation - format gggsss
+SEUB3.0, #the assembly name
+Saccharomyces_eubayanus_Annotation_Release_100 #the gene set/annotation name
 ]
 scientific_name: [
-Apis, #genus
-mellifera #species
+Saccharomyces, #genus
+eubayanus #species
 ]
 #Genomic fasta name and URL
 genome_fasta_name: [
-GCF_000146045.2_R64_genomic.fna  #The fasta file name. This is needed for moving the related .2bi file in the production workflow.
+GCF_001298625.1_SEUB3.0_genomic.fna
 ]
 url_genomic_fasta: [
-https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_genomic.fna.gz
+https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0/GCF_001298625.1_SEUB3.0_genomic.fna.gz
 ]
 #Protein fasta name(s) and url(s)
 protein_fasta_name: [
-GCF_000146045.2_R64_translated_cds.faa    #If you have more than one protein fasta file, add a ','
-#GCF_003254395.2_Amel_HAv3.1_translated_cds.faa2, #Then add the second file name here with a ',' 
-#GCF_003254395.2_Amel_HAv3.1_translated_cds.faa3  #Then add the last file name here 
+GCF_001298625.1_SEUB3.0_translated_cds.faa
 ]
 url_protein_fasta: [
-https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_translated_cds.faa.gz
+https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0/GCF_001298625.1_SEUB3.0_translated_cds.faa.gz
 ]
 #Transcript fasta name and URL
 transcript_fasta_name: [
-GCF_000146045.2_R64_rna_from_genomic.fna
+GCF_001298625.1_SEUB3.0_rna_from_genomic.fna
 ]
 url_transcript_fasta: [
-https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_rna_from_genomic.fna.gz
+https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0/GCF_001298625.1_SEUB3.0_rna_from_genomic.fna.gz
 ]
 #CDS fasta name and URL
 cds_fasta_name: [
-GCF_000146045.2_R64_cds_from_genomic.fna
+GCF_001298625.1_SEUB3.0_cds_from_genomic.fna
 ]
 url_cds_fasta: [
-https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_cds_from_genomic.fna.gz
+https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0/GCF_001298625.1_SEUB3.0_cds_from_genomic.fna.gz
 ]
 #GFF name and URL
 url_genomic_gff: [
-https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_genomic.gff.gz
+https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0/GCF_001298625.1_SEUB3.0_genomic.gff.gz
 ]
 gff_name: [
-GCF_000146045.2_R64_genomic.gff
+GCF_001298625.1_SEUB3.0_genomic.gff
 ]
-gff_release_number: 101
+gff_release_number: 100
 #-------------------------------------------------------------------------------
 url_md5checksums: [
-https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/md5checksums.txt
+https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0/md5checksums.txt
 ]
 #-------------------------------------------------------------------------------
 deepPATH_genomic_fasta: [
