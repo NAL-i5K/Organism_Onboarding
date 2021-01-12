@@ -25,7 +25,7 @@ hints:
 arguments: 
   - position: 1
     prefix: -path
-    valueFrom: /app/data/WebApollo_deployment/apollo_master/jbrowse/bin/flatfile-to-json.pl
+    valueFrom: flatfile-to-json.pl
   - position: 2
     prefix: -gff
     valueFrom: $(inputs.in_gff.basename)
@@ -34,7 +34,7 @@ arguments:
     valueFrom: data/
   - position: 4
     prefix: -organism
-    valueFrom: $(inputs.scientific_name[0])_$(inputs.scientific_name[0]) 
+    valueFrom: $(inputs.scientific_name[0])_$(inputs.scientific_name[1]) 
   - position: 5
     prefix: -trackLabel1
     valueFrom: $(inputs.tree[0])_current_models
