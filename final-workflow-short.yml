@@ -100,14 +100,14 @@ scaffold/bigwig
 #-------------------------------------------------------------------------------
 #where apollo2 lives
 host_stage: [ 
-https://apollo2-stage.nal.usda.gov
+http://localhost:8080
 ]
 host_production: [
 https://apollo.nal.usda.gov
 ]
 #authentication in apollo2
 login_apollo2_stage:  [
-user@ars.usda.gov,
+admin@local.host,
 password
 ]
 login_apollo2_production: [
