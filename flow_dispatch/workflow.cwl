@@ -20,9 +20,6 @@ inputs:
   in_cds_fasta: File
   in_assembly_readme: File
   in_genePrediction_readme: File
-  in_md5checksums: File
-  in_extract: File
-  in_check: File
   #
   in_2bi: File
   #
@@ -76,17 +73,6 @@ steps:
       in_gaps_bigwig: in_gaps_bigwig
       in_gc_bigwig: in_gc_bigwig
     out: []
-  #To working_files
-  2working_files:
-    run: 2working_files/workflow.cwl
-    in:
-      in_dummy: setup_folder/out_dummy
-      PATH: PATH
-      tree: tree
-      in_md5checksums: in_md5checksums
-      in_extract: in_extract
-      in_check: in_check
-    out: [] 
   #To blat/db/
   2blat:
     run: 2blat/workflow.cwl
