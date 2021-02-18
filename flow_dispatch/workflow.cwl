@@ -15,7 +15,7 @@ inputs:
   deepPATH_analyses: string[]
   in_genomic_gff: File
   #
-  in_protein_fasta: File[]
+  in_protein_fasta: File
   in_transcript_fasta: File
   in_cds_fasta: File
   in_assembly_readme: File
@@ -43,7 +43,7 @@ steps:
       tree: tree
       deepPATH_genomic_fasta: deepPATH_genomic_fasta
       deepPATH_analyses: deepPATH_analyses
-    out: [out_dummy]  
+    out: [out_dummy]
   #To other_species
   2other_species: 
     run: 2other_species/workflow.cwl

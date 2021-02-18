@@ -18,7 +18,7 @@ inputs:
   deepPATH_analyses: string[]
   path_genomic_gff: File
   gff_release_number: int
-  path_protein_fasta: File[]
+  path_protein_fasta: File
   path_transcript_fasta: File
   path_cds_fasta: File
   deepPATH_apollo2_data: string[]
