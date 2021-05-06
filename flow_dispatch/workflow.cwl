@@ -32,11 +32,11 @@ inputs:
   in_tracks: Directory
   in_names: Directory
   in_trackList_json: File
-  in_trackList_json_bak: File
+#  in_trackList_json_bak: File
   #
   deepPATH_bigwig: string[]
   in_gaps_bigwig: File
-  in_gc_bigwig: File
+#  in_gc_bigwig: File
 
 steps:
   setup_folder:
@@ -70,11 +70,11 @@ steps:
       in_tracks: in_tracks
       in_names: in_names
       in_trackList_json: in_trackList_json
-      in_trackList_json_bak: in_trackList_json_bak
+#      in_trackList_json_bak: in_trackList_json_bak
       #
       deepPATH_bigwig: deepPATH_bigwig
       in_gaps_bigwig: in_gaps_bigwig
-      in_gc_bigwig: in_gc_bigwig
+#      in_gc_bigwig: in_gc_bigwig
     out: []
   #To working_files
   2working_files:

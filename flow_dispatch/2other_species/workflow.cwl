@@ -29,11 +29,11 @@ inputs:
   in_tracks: Directory
   in_names: Directory
   in_trackList_json: File
-  in_trackList_json_bak: File
+#  in_trackList_json_bak: File
   #
   deepPATH_bigwig: string[]
   in_gaps_bigwig: File
-  in_gc_bigwig: File
+#  in_gc_bigwig: File
 
 steps:
   cp_genomic_fasta:
@@ -139,14 +139,14 @@ steps:
       deepPATH: deepPATH_apollo2_data
       in_data: in_trackList_json
     out: [] 
-  cp_trackList_json_bak:
-    run: cp_file.cwl
-    in:
-      PATH: PATH
-      tree: tree
-      deepPATH: deepPATH_apollo2_data
-      in_data: in_trackList_json_bak
-    out: []
+#  cp_trackList_json_bak:
+#    run: cp_file.cwl
+#    in:
+#      PATH: PATH
+#      tree: tree
+#      deepPATH: deepPATH_apollo2_data
+#      in_data: in_trackList_json_bak
+#    out: []
   #
   cp_gaps_bigwig:
     run: cp_file.cwl
@@ -156,13 +156,13 @@ steps:
       deepPATH: deepPATH_bigwig
       in_data: in_gaps_bigwig
     out: []
-  cp_gc_bigwig:
-    run: cp_file.cwl
-    in:
-      PATH: PATH
-      tree: tree
-      deepPATH: deepPATH_bigwig
-      in_data: in_gc_bigwig
-    out: []    
+#  cp_gc_bigwig:
+#    run: cp_file.cwl
+#    in:
+#      PATH: PATH
+#      tree: tree
+#      deepPATH: deepPATH_bigwig
+#      in_data: in_gc_bigwig
+#    out: []    
   #
 outputs: []

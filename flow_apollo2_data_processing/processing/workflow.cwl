@@ -66,12 +66,12 @@ steps:
     out:
       [out_gaps_bigwig]
   #step 7
-  GCcontent2bigwig:
-    run: GCcontent2bigwig.cwl
-    in:
-      in_fasta: in_fasta
-    out:
-      [out_gc_bigwig]
+#  GCcontent2bigwig:
+#    run: GCcontent2bigwig.cwl
+#    in:
+#      in_fasta: in_fasta
+#    out:
+#      [out_gc_bigwig]
   #step 8
   add-bw-track_gaps:
     run: add-bw-track_gaps.cwl
@@ -81,21 +81,21 @@ steps:
     out:
       [out_trackList_json]
   #step 9
-  add-bw-track_gc:
-    run: add-bw-track_gc.cwl
-    in:
-      in_gc_bigwig: GCcontent2bigwig/out_gc_bigwig
-      in_trackList_json: add-bw-track_gaps/out_trackList_json
-    out:
-      [out_trackList_json]
+#  add-bw-track_gc:
+#    run: add-bw-track_gc.cwl
+#    in:
+#      in_gc_bigwig: GCcontent2bigwig/out_gc_bigwig
+#      in_trackList_json: add-bw-track_gaps/out_trackList_json
+#    out:
+#      [out_trackList_json]
   #step 10
-  add_metadata:
-    run: add_metadata.cwl
-    in:
-      in_fasta: in_fasta
-      in_trackList_json: add-bw-track_gc/out_trackList_json
-    out:
-      [out_trackList_json, out_trackList_json_bak]
+#  add_metadata:
+#    run: add_metadata.cwl
+#    in:
+#      in_fasta: in_fasta
+#      in_trackList_json: add-bw-track_gaps/out_trackList_json
+#    out:
+#      [out_trackList_json, out_trackList_json_bak]
 
 outputs: 
   OUT_2bi:
@@ -116,12 +116,12 @@ outputs:
   OUT_gaps_bigwig:
     type: File
     outputSource: gap2bigwig/out_gaps_bigwig
-  OUT_gc_bigwig:
-    type: File
-    outputSource: GCcontent2bigwig/out_gc_bigwig
+#  OUT_gc_bigwig:
+#    type: File
+#    outputSource: GCcontent2bigwig/out_gc_bigwig
   OUT_trackList_json:
     type: File
-    outputSource: add_metadata/out_trackList_json
-  OUT_trackList_json_bak:
-    type: File
-    outputSource: add_metadata/out_trackList_json_bak     
+    outputSource: add-bw-track_gaps/out_trackList_json
+#  OUT_trackList_json_bak:
+#    type: File
+#    outputSource: add_metadata/out_trackList_json_bak     

@@ -88,9 +88,9 @@ steps:
       OUT_tracks,
       OUT_names,
       OUT_gaps_bigwig,
-      OUT_gc_bigwig,
+#      OUT_gc_bigwig,
       OUT_trackList_json,
-      OUT_trackList_json_bak,
+#      OUT_trackList_json_bak,
       ]
   #step4
   create_assembly_readme:
@@ -143,9 +143,9 @@ steps:
       in_tracks: apollo2_data_processing/OUT_tracks
       in_names: apollo2_data_processing/OUT_names
       in_gaps_bigwig: apollo2_data_processing/OUT_gaps_bigwig
-      in_gc_bigwig: apollo2_data_processing/OUT_gc_bigwig
+#      in_gc_bigwig: apollo2_data_processing/OUT_gc_bigwig
       in_trackList_json: apollo2_data_processing/OUT_trackList_json
-      in_trackList_json_bak: apollo2_data_processing/OUT_trackList_json_bak
+#      in_trackList_json_bak: apollo2_data_processing/OUT_trackList_json_bak
     out:
       [out_dummy]
   #step7
