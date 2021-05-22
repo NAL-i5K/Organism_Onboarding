@@ -15,9 +15,9 @@
 #$(inputs.PATH[2])
 #-------------------------------------------------------------------------------
 PATH: [ #don't change this unless you know what you're doing
-/app/data/other_species,
-/app/data/working_files,
-/usr/local/blat/db
+/output/other_species,
+/output/working_files,
+/ouput/db
 ]
 #-------------------------------------------------------------------------------
 #Enter the path of manage.py - don't change this unless you know what you're doing 
