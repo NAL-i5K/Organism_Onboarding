@@ -17,7 +17,7 @@
 PATH: [ #don't change this unless you know what you're doing
 /output/other_species,
 /output/working_files,
-/ouput/db
+/output/db
 ]
 #-------------------------------------------------------------------------------
 #Enter the path of manage.py - don't change this unless you know what you're doing 
