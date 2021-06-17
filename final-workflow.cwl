@@ -24,8 +24,6 @@ inputs:
   url_cds_fasta: string[]
   deepPATH_apollo2_data: string[]
   deepPATH_bigwig: string[]
-#  host_stage: string[]
-#  login_apollo2_stage: string[]
   organization: string
   accession: string
   link_to_publication: string
