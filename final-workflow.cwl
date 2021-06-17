@@ -24,8 +24,6 @@ inputs:
   url_cds_fasta: string[]
   deepPATH_apollo2_data: string[]
   deepPATH_bigwig: string[]
-  host_stage: string[]
-  login_apollo2_stage: string[]
   organization: string
   accession: string
   link_to_publication: string
@@ -148,35 +146,7 @@ steps:
       in_trackList_json_bak: apollo2_data_processing/OUT_trackList_json_bak
     out:
       [out_dummy]
-  #step7
-  apollo2_create_organism:
-    run: createOrganism.cwl
-    in: 
-      in_dummy: dispatch/out_dummy 
-      host: host_stage
-      scientific_name: scientific_name
-      PATH: PATH
-      tree: tree
-      in_2bi: apollo2_data_processing/OUT_2bi
-      deepPATH_apollo2_data: deepPATH_apollo2_data
-      login_apollo2: login_apollo2_stage
-    out:
-      [out_createOrganism_log]
-      
- # #step8 genomics-workspace
- #  genomics-workspace:
- #    run: flow_genomicsWorkspace/genomics-workspace.cwl 
- #    in:
- #      scientific_name: scientific_name
- #      managePy_Path: managePy_Path
- #      blastdb_Path: blastdb_Path_stage
- #      hmmerdb_Path: hmmerdb_Path_stage
- #      tree: tree
- #      in_fasta: md5checksums/OUT_genomic_fasta
- #      in_fasta_protein: md5checksums/OUT_protein_fasta
- #      in_fasta_transcript: md5checksums/OUT_transcript_fasta
- #      in_fasta_cds: md5checksums/OUT_cds_fasta  
- #    out: []
+
 
 
 outputs:  []

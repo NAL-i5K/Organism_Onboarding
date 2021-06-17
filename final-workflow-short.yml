@@ -98,12 +98,12 @@ deepPATH_bigwig: [ #the containing directory for bigwig files generated from the
 scaffold/bigwig
 ]
 #-------------------------------------------------------------------------------
-#where apollo2 lives
-host_stage: [ 
-http://localhost:8080
+#where apollo2-stage-node1 lives. Note that the host for the apollo-content docker container is https://localhost:8080 
+host: [ 
+https://apollo2-stage-node1.nal.usda.gov/apollo
 ]
 host_production: [
-https://apollo.nal.usda.gov
+https://apollo.nal.usda.gov/apollo
 ]
 #authentication in apollo2
 login_apollo2_stage:  [
