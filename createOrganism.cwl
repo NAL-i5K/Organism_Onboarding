@@ -33,7 +33,7 @@ arguments:
     valueFrom: $(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH_apollo2_data[0])
   - position: 11
     prefix: -blatdb
-    valueFrom: $(inputs.PATH[2])/$(inputs.tree[0])/$(inputs.in_2bi.basename)
+    valueFrom: $(inputs.PATH[2])/$(inputs.tree[0])/$(inputs.genome_fasta_name[0]).2bi
   - position: 13
     prefix: -username
     valueFrom: $(inputs.login_apollo2[0])
@@ -44,8 +44,6 @@ arguments:
     valueFrom: -publicMode
 
 inputs:
-  in_dummy: 
-    type: File
   host:
     type: string[]
   scientific_name:
@@ -54,12 +52,12 @@ inputs:
     type: string[]
   tree:
     type: string[]
-  in_2bi:
-    type: File
   deepPATH_apollo2_data:
     type: string[]
   login_apollo2:
     type: string[]
+  genome_fasta_name:
+     type: string[]
   
 outputs:
   out_createOrganism_log:
