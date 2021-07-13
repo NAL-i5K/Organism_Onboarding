@@ -130,6 +130,6 @@ MAIN_PATH: /app/web/drupal7/data/Arthropoda
 #-------------------------------------------------------------------------------
 #scaffold readme information
 organization: NCBI
-accession: GCF0032543952
-link_to_publication: 'Not published, please follow Ft. Lauderdale/Toronto guidelines for data reuse'
+accession: GCF0032543952 #This is the assembly accession number, but without any underscores or periods. E.g. GCF_003254395.2 converts into GCF0032543952
+link_to_publication: 'Not published, please follow Ft. Lauderdale/Toronto guidelines for data reuse' #Change the text if there is a publication link in the github ticket
 #below are variable for django setup, TBD (not implemented yet)
