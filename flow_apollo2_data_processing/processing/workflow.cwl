@@ -59,12 +59,12 @@ steps:
     out:
       [out_names]
   #step 6
-  gap2bigwig:
-    run: gap2bigwig.cwl
-    in:
-      in_fasta: in_fasta
-    out:
-      [out_gaps_bigwig]
+  #gap2bigwig:
+  #  run: gap2bigwig.cwl
+  # in:
+  #   in_fasta: in_fasta
+  #  out:
+  #    [out_gaps_bigwig]
   #step 7
   GCcontent2bigwig:
     run: GCcontent2bigwig.cwl
@@ -73,19 +73,19 @@ steps:
     out:
       [out_gc_bigwig]
   #step 8
-  add-bw-track_gaps:
-    run: add-bw-track_gaps.cwl
-    in:
-      in_gaps_bigwig: gap2bigwig/out_gaps_bigwig
-      in_trackList_json: flatfile-to-json/out_trackList_json
-    out:
-      [out_trackList_json]
+  #add-bw-track_gaps:
+  #  run: add-bw-track_gaps.cwl
+  #  in:
+  #    in_gaps_bigwig: gap2bigwig/out_gaps_bigwig
+  #    in_trackList_json: flatfile-to-json/out_trackList_json
+  #  out:
+  #    [out_trackList_json]
   #step 9
   add-bw-track_gc:
     run: add-bw-track_gc.cwl
     in:
       in_gc_bigwig: GCcontent2bigwig/out_gc_bigwig
-      in_trackList_json: add-bw-track_gaps/out_trackList_json
+      in_trackList_json: flatfile-to-json/out_trackList_json
     out:
       [out_trackList_json]
   #step 10
@@ -113,9 +113,9 @@ outputs:
   OUT_names:
     type: Directory
     outputSource: generate-names/out_names
-  OUT_gaps_bigwig:
-    type: File
-    outputSource: gap2bigwig/out_gaps_bigwig
+  #OUT_gaps_bigwig:
+  #  type: File
+  #  outputSource: gap2bigwig/out_gaps_bigwig
   OUT_gc_bigwig:
     type: File
     outputSource: GCcontent2bigwig/out_gc_bigwig

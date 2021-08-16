@@ -35,7 +35,7 @@ inputs:
   in_trackList_json_bak: File
   #
   deepPATH_bigwig: string[]
-  in_gaps_bigwig: File
+  #in_gaps_bigwig: File
   in_gc_bigwig: File
 
 steps:
@@ -73,7 +73,7 @@ steps:
       in_trackList_json_bak: in_trackList_json_bak
       #
       deepPATH_bigwig: deepPATH_bigwig
-      in_gaps_bigwig: in_gaps_bigwig
+      #in_gaps_bigwig: in_gaps_bigwig
       in_gc_bigwig: in_gc_bigwig
     out: []
   #To working_files
