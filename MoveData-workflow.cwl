@@ -74,7 +74,7 @@ steps:
       PATH: PATH
       tree: tree
     out: [out_dummy]
-  #step6 transfer scaffold to gmod production server and change permission to 755
+  #step6 transfer scaffold to gmod production server
   dataTransfer-scaffold-2gmodProd:
     run: files_4_Apollo2Server/MoveData/dataTransfer-scaffold-2gmod.cwl
     in:
@@ -84,15 +84,6 @@ steps:
       deepPATH_genomic_fasta: deepPATH_genomic_fasta
       in_dummy: createFolder-2gmodProd/out_dummy
     out: [out_dummy]
-  chmod-scaffold-2gmodProd:
-    run: files_4_Apollo2Server/MoveData/chmod-scaffold-2gmod.cwl
-    in:
-      Gmod_account: Gmod_account
-      PATH: PATH
-      tree: tree
-      deepPATH_genomic_fasta: deepPATH_genomic_fasta
-      in_dummy: dataTransfer-scaffold-2gmodProd/out_dummy
-    out: []
   #step7 create folders on gmod stage server
   createFolder-2gmodStage:
     run: files_4_Apollo2Server/MoveData/createFolder-2gmod.cwl
