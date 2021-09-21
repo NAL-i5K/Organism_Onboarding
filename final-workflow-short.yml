@@ -106,10 +106,12 @@ host_production: [
 https://apollo.nal.usda.gov/apollo
 ]
 #authentication in apollo2
-login_apollo2_stage:  [
+#apollo2-stage login
+login_apollo2:  [
 admin@local.host,
 password
 ]
+#apollo2 production login
 login_apollo2_production: [
 user@ars.usda.gov,
 password
