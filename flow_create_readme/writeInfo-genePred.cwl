@@ -25,7 +25,7 @@ inputs:
    
 arguments:
   - position: 1
-    valueFrom: "echo -e '\nInformation about this dataset can be found here: https://i5k.nal.usda.gov/content/ncbi-${ var A = inputs.tree[2].toLowerCase().replace(/_/g, '-'); return A; }\nInformation about the publication of this dataset can be found here: $(inputs.link_to_publication)' >> readme.txt"
+    valueFrom: "echo -e '\nInformation about this dataset can be found here: \nInformation about the publication of this dataset can be found here: $(inputs.link_to_publication)' >> readme.txt"
 
 outputs: 
   out_readme_file:

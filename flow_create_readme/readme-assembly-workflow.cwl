@@ -9,7 +9,6 @@ inputs:
   scientific_name: string[]
   organization: string
   url_genomic_fasta: string[]
-  accession: string
   link_to_publication: string
 
 steps:
@@ -42,7 +41,6 @@ steps:
       readme_file: writeURL/out_readme_file
       tree: tree
       scientific_name: scientific_name
-      accession: accession
       link_to_publication: link_to_publication
     out:
       [out_readme_file]  
