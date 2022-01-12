@@ -25,7 +25,6 @@ inputs:
   deepPATH_apollo2_data: string[]
   deepPATH_bigwig: string[]
   organization: string
-  accession: string
   link_to_publication: string
 
 steps:
@@ -98,7 +97,6 @@ steps:
       scientific_name: scientific_name
       organization: organization
       url_genomic_fasta: url_genomic_fasta
-      accession: accession
       link_to_publication: link_to_publication
     out: [readme_file]
   #step5
