@@ -66,7 +66,17 @@ steps:
       tree: tree
       in_dummy: dataTransfer-jbrowse/out_dummy
     out: [out_dummy] 
-  #step5 create folders on gmod production server
+  #step5 transfer scaffold to apollo production server
+  dataTransfer-scaffold-2apollo:
+    run: files_4_Apollo2Server/MoveData/dataTransfer-scaffold-2apollo.cwl
+    in:
+      Apollo_account: Apollo_account
+      PATH: PATH
+      tree: tree
+      deepPATH_genomic_fasta: deepPATH_genomic_fasta
+      in_dummy: dataTransfer-blat/out_dummy
+    out: [out_dummy]
+  #step6 create folders on gmod production server
   createFolder-2gmodProd:
     run: files_4_Apollo2Server/MoveData/createFolder-2gmod.cwl
     in: 
@@ -74,7 +84,7 @@ steps:
       PATH: PATH
       tree: tree
     out: [out_dummy]
-  #step6 transfer scaffold to gmod production server
+  #step7 transfer scaffold to gmod production server
   dataTransfer-scaffold-2gmodProd:
     run: files_4_Apollo2Server/MoveData/dataTransfer-scaffold-2gmod.cwl
     in:
@@ -84,7 +94,7 @@ steps:
       deepPATH_genomic_fasta: deepPATH_genomic_fasta
       in_dummy: createFolder-2gmodProd/out_dummy
     out: [out_dummy]
-  #step7 create folders on gmod stage server
+  #step8 create folders on gmod stage server
   createFolder-2gmodStage:
     run: files_4_Apollo2Server/MoveData/createFolder-2gmod.cwl
     in:
@@ -92,7 +102,7 @@ steps:
       PATH: PATH
       tree: tree
     out: [out_dummy]
-  #step8 transfer scaffold to gmod stage server
+  #step9 transfer scaffold to gmod stage server
   dataTransfer-scaffold-2gmodStage:
     run: files_4_Apollo2Server/MoveData/dataTransfer-scaffold-2gmod.cwl
     in:
@@ -102,7 +112,7 @@ steps:
       deepPATH_genomic_fasta: deepPATH_genomic_fasta
       in_dummy: createFolder-2gmodStage/out_dummy
     out: [out_dummy]
-  #Step9 create yml file
+  #Step10 create yml file
   create_ymlFile:
     run: flow_create_genomics-workspace_yml/flow_create_yml/workflow.cwl
     in:
