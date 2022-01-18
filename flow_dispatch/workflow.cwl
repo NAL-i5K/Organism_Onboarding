@@ -103,6 +103,13 @@ steps:
       PATH: PATH
       tree: tree
     out: []
+  link_analyses:
+    run: link_analyses.cwl
+    in:
+      in_dummy: setup_folder/out_dummy
+      PATH: PATH
+      tree: tree
+    out: []
 outputs: 
   out_dummy:
     type: File
