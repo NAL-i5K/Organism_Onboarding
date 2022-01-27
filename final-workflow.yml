@@ -17,7 +17,7 @@
 PATH: [ #don't change this unless you know what you're doing
 /app/data/other_species,
 /app/data/working_files,
-/app/data/db
+/app/data/blat/db
 ]
 #-------------------------------------------------------------------------------
 #Enter the path of manage.py - don't change this unless you know what you're doing 
@@ -100,18 +100,21 @@ deepPATH_bigwig: [ #the containing directory for bigwig files generated from the
 scaffold/bigwig
 ]
 #-------------------------------------------------------------------------------
-#where apollo2 lives
-host_stage: [ 
-https://apollo2-stage.nal.usda.gov
+#where apollo2-stage-node1 lives
+host: [ 
+https://apollo2-stage-node1.nal.usda.gov/apollo
 ]
+#where apollo2-node1 lives
 host_production: [
-https://apollo.nal.usda.gov
+https://apollo.nal.usda.gov/apollo
 ]
 #authentication in apollo2
-login_apollo2_stage:  [
+#apollo2-stage login
+login_apollo2:  [
 user@ars.usda.gov,
 password
 ]
+#apollo2 production login
 login_apollo2_production: [
 user@ars.usda.gov,
 password
@@ -129,6 +132,6 @@ MAIN_PATH: /app/web/drupal7/data/Arthropoda
 #-------------------------------------------------------------------------------
 #scaffold readme information
 organization: NCBI
-accession: GCF0032543952
-link_to_publication: 'Not published, please follow Ft. Lauderdale/Toronto guidelines for data reuse'
+accession: GCF0032543952 #This is the assembly accession number, but without any underscores or periods. E.g. GCF_003254395.2 converts into GCF0032543952
+link_to_publication: 'Not published, please follow Ft. Lauderdale/Toronto guidelines for data reuse' #Change the text if there is a publication link in the github ticket
 #below are variable for django setup, TBD (not implemented yet)
