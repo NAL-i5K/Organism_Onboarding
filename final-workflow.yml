@@ -17,7 +17,7 @@
 PATH: [ #don't change this unless you know what you're doing
 /app/data/other_species,
 /app/data/working_files,
-/app/data/db
+/app/data/blat/db
 ]
 #-------------------------------------------------------------------------------
 #Enter the path of manage.py - don't change this unless you know what you're doing 

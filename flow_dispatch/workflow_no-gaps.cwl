@@ -35,7 +35,7 @@ inputs:
   in_trackList_json_bak: File
   #
   deepPATH_bigwig: string[]
-  in_gaps_bigwig: File
+  #in_gaps_bigwig: File
   in_gc_bigwig: File
 
 steps:
@@ -49,7 +49,7 @@ steps:
     out: [out_dummy]  
   #To other_species
   2other_species: 
-    run: 2other_species/workflow.cwl
+    run: 2other_species/workflow_no-gaps.cwl
     in:
       in_dummy: setup_folder/out_dummy
       PATH: PATH
@@ -73,7 +73,7 @@ steps:
       in_trackList_json_bak: in_trackList_json_bak
       #
       deepPATH_bigwig: deepPATH_bigwig
-      in_gaps_bigwig: in_gaps_bigwig
+      #in_gaps_bigwig: in_gaps_bigwig
       in_gc_bigwig: in_gc_bigwig
     out: []
   #To working_files
