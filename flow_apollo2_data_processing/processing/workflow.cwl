@@ -1,12 +1,13 @@
 #!/usr/bin/env cwl-runner
 
-cwlVersion: v1.0
+cwlVersion: v1.2
 class: Workflow
 requirements:
   - class: MultipleInputFeatureRequirement
   - class: InlineJavascriptRequirement
 
 inputs:
+  gap_lines: File
   tree: string[]
   scientific_name: string[]
   gff_release_number: int
@@ -61,7 +62,9 @@ steps:
   #step 6
   gap2bigwig:
     run: gap2bigwig.cwl
+    when: $(inputs.gap_lines.size > 0) # skip step 6 if there are no gaps
     in:
+      gap_lines: gap_lines
       in_fasta: in_fasta
     out:
       [out_gaps_bigwig]
@@ -75,7 +78,9 @@ steps:
   #step 8
   add-bw-track_gaps:
     run: add-bw-track_gaps.cwl
+    when: $(inputs.gap_lines.size > 0) # skip step 8 if there are no gaps
     in:
+      gap_lines: gap_lines
       in_gaps_bigwig: gap2bigwig/out_gaps_bigwig
       in_trackList_json: flatfile-to-json/out_trackList_json
     out:
@@ -85,7 +90,9 @@ steps:
     run: add-bw-track_gc.cwl
     in:
       in_gc_bigwig: GCcontent2bigwig/out_gc_bigwig
-      in_trackList_json: add-bw-track_gaps/out_trackList_json
+      in_trackList_json:
+        source: [add-bw-track_gaps/out_trackList_json, flatfile-to-json/out_trackList_json]
+        pickValue: first_non_null
     out:
       [out_trackList_json]
   #step 10
@@ -113,7 +120,7 @@ outputs:
   OUT_names:
     type: Directory
     outputSource: generate-names/out_names
-  OUT_gaps_bigwig:
+  OUT_gaps_bigwig: # this will be null if there are no gaps
     type: File
     outputSource: gap2bigwig/out_gaps_bigwig
   OUT_gc_bigwig:
