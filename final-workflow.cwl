@@ -96,10 +96,10 @@ steps:
       OUT_trackList_json,
       OUT_trackList_json_bak,
       ]
-#step5
+  #step5
   create_assembly_readme:
     run: flow_create_readme/readme-assembly-workflow.cwl
-    in:
+    in: 
       tree: tree
       scientific_name: scientific_name
       organization: organization
@@ -117,7 +117,7 @@ steps:
       url_cds_fasta: url_cds_fasta
       url_transcript_fasta: url_transcript_fasta
       link_to_publication: link_to_publication
-    out: [readme_file]
+    out: [readme_file] 
   #step7
   dispatch:
     run: flow_dispatch/workflow.cwl
