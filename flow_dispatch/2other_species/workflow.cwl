@@ -1,6 +1,6 @@
 #!/usr/bin/env cwl-runner
 
-cwlVersion: v1.0
+cwlVersion: v1.2
 class: Workflow
 requirements:
   - class: SubworkflowFeatureRequirement
@@ -9,6 +9,7 @@ requirements:
   - class: ScatterFeatureRequirement
 
 inputs:
+  gap_lines: File
   in_dummy: File
   PATH: string[]
   tree: string[]
@@ -32,7 +33,7 @@ inputs:
   in_trackList_json_bak: File
   #
   deepPATH_bigwig: string[]
-  in_gaps_bigwig: File
+  in_gaps_bigwig: File?  # this will be null if there are no gaps
   in_gc_bigwig: File
 
 steps:
@@ -150,7 +151,9 @@ steps:
   #
   cp_gaps_bigwig:
     run: cp_file.cwl
+    when: $(inputs.gap_lines.size > 0)  # skip this step if there are no gaps
     in:
+      gap_lines: gap_lines
       PATH: PATH
       tree: tree
       deepPATH: deepPATH_bigwig

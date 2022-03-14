@@ -1,5 +1,5 @@
 #!/usr/bin/env cwl-runner
-cwlVersion: v1.0
+cwlVersion: v1.2
 class: Workflow
 requirements:
   - class: SubworkflowFeatureRequirement
@@ -65,13 +65,20 @@ steps:
        OUT_transcript_fasta, 
        OUT_cds_fasta
       ]
-
+  #step3
+  gaps_or_not:
+    run: gaps_or_not.cwl
+    in:
+      fasta_file: md5checksums/OUT_genomic_fasta
+    out:
+      [gap_lines]
   #verify:
   #fasta_diff,gff3_QC......
-  #step3
+  #step4
   apollo2_data_processing:
     run: flow_apollo2_data_processing/processing/workflow.cwl
     in:
+      gap_lines: gaps_or_not/gap_lines
       tree: tree
       scientific_name: scientific_name
       gff_release_number: gff_release_number
@@ -89,7 +96,7 @@ steps:
       OUT_trackList_json,
       OUT_trackList_json_bak,
       ]
-  #step4
+  #step5
   create_assembly_readme:
     run: flow_create_readme/readme-assembly-workflow.cwl
     in: 
@@ -99,7 +106,7 @@ steps:
       url_genomic_fasta: url_genomic_fasta
       link_to_publication: link_to_publication
     out: [readme_file]
-  #step5
+  #step6
   create_genePrediction_readme:
     run: flow_create_readme/readme-genePrediction-workflow.cwl
     in:
@@ -111,10 +118,11 @@ steps:
       url_transcript_fasta: url_transcript_fasta
       link_to_publication: link_to_publication
     out: [readme_file] 
-  #step6     
+  #step7
   dispatch:
     run: flow_dispatch/workflow.cwl
     in:
+      gap_lines: gaps_or_not/gap_lines
       PATH: PATH
       tree: tree
       deepPATH_genomic_fasta: deepPATH_genomic_fasta
@@ -138,12 +146,11 @@ steps:
       in_tracks_conf: apollo2_data_processing/OUT_tracks_conf
       in_tracks: apollo2_data_processing/OUT_tracks
       in_names: apollo2_data_processing/OUT_names
-      in_gaps_bigwig: apollo2_data_processing/OUT_gaps_bigwig
+      in_gaps_bigwig: apollo2_data_processing/OUT_gaps_bigwig # this will be null if there are no gaps
       in_gc_bigwig: apollo2_data_processing/OUT_gc_bigwig
       in_trackList_json: apollo2_data_processing/OUT_trackList_json
       in_trackList_json_bak: apollo2_data_processing/OUT_trackList_json_bak
     out:
       [out_dummy]
-
 
 outputs:  []

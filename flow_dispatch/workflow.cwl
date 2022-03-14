@@ -8,6 +8,7 @@ requirements:
   - class: InlineJavascriptRequirement
 
 inputs:
+  gap_lines: File
   PATH: string[]
   tree: string[]
   deepPATH_genomic_fasta: string[]
@@ -35,7 +36,7 @@ inputs:
   in_trackList_json_bak: File
   #
   deepPATH_bigwig: string[]
-  in_gaps_bigwig: File
+  in_gaps_bigwig: File?  # this will be null if there are no gaps
   in_gc_bigwig: File
 
 steps:
@@ -51,6 +52,7 @@ steps:
   2other_species: 
     run: 2other_species/workflow.cwl
     in:
+      gap_lines: gap_lines
       in_dummy: setup_folder/out_dummy
       PATH: PATH
       tree: tree
@@ -73,7 +75,7 @@ steps:
       in_trackList_json_bak: in_trackList_json_bak
       #
       deepPATH_bigwig: deepPATH_bigwig
-      in_gaps_bigwig: in_gaps_bigwig
+      in_gaps_bigwig: in_gaps_bigwig  # this will be null if there are no gaps
       in_gc_bigwig: in_gc_bigwig
     out: []
   #To working_files
