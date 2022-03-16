@@ -15,7 +15,7 @@
 # This one not done yet
 # This one not done yet
 # This one not done yet
-cwlVersion: v1.0
+cwlVersion: v1.2
 class: CommandLineTool
 
 requirements:
