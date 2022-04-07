@@ -9,6 +9,7 @@ requirements:
 
 inputs:
   gap_lines: File
+  url_string: string
   PATH: string[]
   tree: string[]
   deepPATH_genomic_fasta: string[]
@@ -81,7 +82,9 @@ steps:
   #To working_files
   2working_files:
     run: 2working_files/workflow.cwl
+    when: $(inputs.url_string != "\n" ) 
     in:
+      url_string: url_string
       in_dummy: setup_folder/out_dummy
       PATH: PATH
       tree: tree

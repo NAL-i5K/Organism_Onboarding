@@ -38,19 +38,25 @@ scientific_name: [
 Saccharomyces, #genus
 eubayanus #species
 ]
-#Genomic fasta name and URL
+#Genomic fasta name and URL. Here, URL is for metadata. If no URL is available, add 'NA'
 genome_fasta_name: [
 GCF_001298625.1_SEUB3.0_genomic.fna
 ]
 url_genomic_fasta: [
 https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0/GCF_001298625.1_SEUB3.0_genomic.fna.gz
 ]
+path_genomic_fasta: #Use local file instead of downloading. File needs to be unzipped!!!
+  class: File
+  path: /app/data/GCF_001298625.1_SEUB3.0_genomic.fna
 #Protein fasta name(s) and url(s)
 protein_fasta_name: [
 GCF_001298625.1_SEUB3.0_translated_cds.faa
 ]
 url_protein_fasta: [
 https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0/GCF_001298625.1_SEUB3.0_translated_cds.faa.gz
+]
+path_protein_fasta: [
+  {class: File, path: /app/data/GCF_001298625.1_SEUB3.0_translated_cds.faa}
 ]
 #Transcript fasta name and URL
 transcript_fasta_name: [
@@ -59,6 +65,9 @@ GCF_001298625.1_SEUB3.0_rna_from_genomic.fna
 url_transcript_fasta: [
 https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0/GCF_001298625.1_SEUB3.0_rna_from_genomic.fna.gz
 ]
+path_transcript_fasta:
+  class: File
+  path: /app/data/GCF_001298625.1_SEUB3.0_rna_from_genomic.fna
 #CDS fasta name and URL
 cds_fasta_name: [
 GCF_001298625.1_SEUB3.0_cds_from_genomic.fna
@@ -66,10 +75,16 @@ GCF_001298625.1_SEUB3.0_cds_from_genomic.fna
 url_cds_fasta: [
 https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0/GCF_001298625.1_SEUB3.0_cds_from_genomic.fna.gz
 ]
+path_cds_fasta: 
+  class: File
+  path: /app/data/GCF_001298625.1_SEUB3.0_cds_from_genomic.fna
 #GFF name and URL
 url_genomic_gff: [
 https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0/GCF_001298625.1_SEUB3.0_genomic.gff.gz
 ]
+path_genomic_gff:
+  class: File 
+  path: /app/data/GCF_001298625.1_SEUB3.0_genomic.gff
 gff_name: [
 GCF_001298625.1_SEUB3.0_genomic.gff
 ]
