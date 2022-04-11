@@ -16,7 +16,7 @@ inputs:
   readme_file:
     type: File
   url:
-    type: string
+    type: string[]
    
 arguments:
   - position: 1

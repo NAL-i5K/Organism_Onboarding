@@ -2,8 +2,6 @@
 
 cwlVersion: v1.2
 class: Workflow
-requirements:
-  - class: ScatterFeatureRequirement
 
 inputs:
   tree: string[]
@@ -56,7 +54,6 @@ steps:
   #step3 write url - protein
   writeURL-protein:
     run: writeURL-protein.cwl
-    scatter: url
     in:
       readme_file: writeURL-transcript/out_readme_file
       url: url_protein_fasta

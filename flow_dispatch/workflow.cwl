@@ -17,14 +17,14 @@ inputs:
   deepPATH_analyses: string[]
   in_genomic_gff: File
   #
-  in_protein_fasta: File[]
+  in_protein_fasta: File
   in_transcript_fasta: File
   in_cds_fasta: File
   in_assembly_readme: File
   in_genePrediction_readme: File
-  in_md5checksums: File
-  in_extract: File
-  in_check: File
+  in_md5checksums: File?
+  in_extract: File?
+  in_check: File?
   #
   in_2bi: File
   #
@@ -82,7 +82,7 @@ steps:
   #To working_files
   2working_files:
     run: 2working_files/workflow.cwl
-    when: $(inputs.url_string != "\n" ) 
+    when: $(inputs.url_string != "NA NA NA NA NA\n" ) 
     in:
       url_string: url_string
       in_dummy: setup_folder/out_dummy

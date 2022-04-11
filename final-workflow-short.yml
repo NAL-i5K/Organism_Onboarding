@@ -38,7 +38,7 @@ scientific_name: [
 Saccharomyces, #genus
 eubayanus #species
 ]
-#Genomic fasta name and URL. Here, URL is for metadata. If no URL is available, add 'NA'
+#Genomic fasta name and URL. If local data is used, add 'NA' to the URL field.
 genome_fasta_name: [
 GCF_001298625.1_SEUB3.0_genomic.fna
 ]
@@ -48,17 +48,17 @@ https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0
 path_genomic_fasta: #Use local file instead of downloading. File needs to be unzipped!!!
   class: File
   path: /app/data/GCF_001298625.1_SEUB3.0_genomic.fna
-#Protein fasta name(s) and url(s)
+#Protein fasta name(s) and url(s). If local data is used, add 'NA' to the URL field.
 protein_fasta_name: [
 GCF_001298625.1_SEUB3.0_translated_cds.faa
 ]
 url_protein_fasta: [
 https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0/GCF_001298625.1_SEUB3.0_translated_cds.faa.gz
 ]
-path_protein_fasta: [
-  {class: File, path: /app/data/GCF_001298625.1_SEUB3.0_translated_cds.faa}
-]
-#Transcript fasta name and URL
+path_protein_fasta:
+  class: File
+  path: /app/data/GCF_001298625.1_SEUB3.0_translated_cds.faa
+#Transcript fasta name and URL. If local data is used, add 'NA' to the URL field.
 transcript_fasta_name: [
 GCF_001298625.1_SEUB3.0_rna_from_genomic.fna
 ]
@@ -68,7 +68,7 @@ https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0
 path_transcript_fasta:
   class: File
   path: /app/data/GCF_001298625.1_SEUB3.0_rna_from_genomic.fna
-#CDS fasta name and URL
+#CDS fasta name and URL. If local data is used, add 'NA' to the URL field.
 cds_fasta_name: [
 GCF_001298625.1_SEUB3.0_cds_from_genomic.fna
 ]
@@ -78,7 +78,7 @@ https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0
 path_cds_fasta: 
   class: File
   path: /app/data/GCF_001298625.1_SEUB3.0_cds_from_genomic.fna
-#GFF name and URL
+#GFF name and URL. If local data is used, add 'NA' to the URL field.
 url_genomic_gff: [
 https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0/GCF_001298625.1_SEUB3.0_genomic.gff.gz
 ]

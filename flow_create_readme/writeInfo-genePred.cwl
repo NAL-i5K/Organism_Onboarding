@@ -14,7 +14,7 @@ requirements:
    
 inputs:
   in_dummy:
-    type: File[]
+    type: File
   readme_file:
     type: File
   tree:

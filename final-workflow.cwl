@@ -15,16 +15,16 @@ inputs:
   scientific_name: string[]
   url_md5checksums: string[]?
   deepPATH_genomic_fasta: string[]
-  url_genomic_fasta: string[]?
+  url_genomic_fasta: string[]
   path_genomic_fasta: File?
   deepPATH_analyses: string[]
-  url_genomic_gff: string[]?
+  url_genomic_gff: string[]
   path_genomic_gff: File?
   gff_release_number: int
-  url_protein_fasta: string[]?
-  url_transcript_fasta: string[]?
-  url_cds_fasta: string[]?
-  path_protein_fasta: File[]?
+  url_protein_fasta: string[]
+  url_transcript_fasta: string[]
+  url_cds_fasta: string[]
+  path_protein_fasta: File?
   path_transcript_fasta: File?
   path_cds_fasta: File?
   deepPATH_apollo2_data: string[]
@@ -71,6 +71,12 @@ steps:
       path_protein_fasta: path_protein_fasta
       path_transcript_fasta: path_transcript_fasta
       path_cds_fasta: path_cds_fasta
+      url_string: download/url_string
+      url_genomic_fasta: url_genomic_fasta
+      url_genomic_gff: url_genomic_gff
+      url_protein_fasta: url_protein_fasta
+      url_transcript_fasta: url_transcript_fasta
+      url_cds_fasta: url_cds_fasta
     out:
       [
        OUT_extract,  #'*.txt2', extracted from *.txt
@@ -85,7 +91,9 @@ steps:
   gaps_or_not:
     run: gaps_or_not.cwl
     in:
-      fasta_file: md5checksums/OUT_genomic_fasta
+      fasta_file:
+        source: [md5checksums/OUT_genomic_fasta, path_genomic_fasta]
+        pickValue: first_non_null
     out:
       [gap_lines]
   #verify:
