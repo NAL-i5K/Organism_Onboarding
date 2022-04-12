@@ -38,17 +38,17 @@ scientific_name: [
 Saccharomyces, #genus
 eubayanus #species
 ]
-#Genomic fasta name and URL. If local data is used, add 'NA' to the URL field.
+#Genomic fasta name and URL. The path field will be ignored if there is a valid URL. If local data is used, add 'NA' to the URL field, and add the local file path to the path field. The file needs to be unzipped. With singularity, the local file path needs to be in the mounted /work-dir volume
 genome_fasta_name: [
 GCF_001298625.1_SEUB3.0_genomic.fna
 ]
 url_genomic_fasta: [
 https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0/GCF_001298625.1_SEUB3.0_genomic.fna.gz
 ]
-path_genomic_fasta: #Use local file instead of downloading. File needs to be unzipped!!!
+path_genomic_fasta: 
   class: File
   path: /app/data/GCF_001298625.1_SEUB3.0_genomic.fna
-#Protein fasta name(s) and url(s). If local data is used, add 'NA' to the URL field.
+#Protein fasta name and url. The path field will be ignored if there is a valid URL. If local data is used, add 'NA' to the URL field, and add the local file path to the path field. The file needs to be unzipped. With singularity, the local file path needs to be in the mounted /work-dir volume
 protein_fasta_name: [
 GCF_001298625.1_SEUB3.0_translated_cds.faa
 ]
@@ -58,7 +58,7 @@ https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0
 path_protein_fasta:
   class: File
   path: /app/data/GCF_001298625.1_SEUB3.0_translated_cds.faa
-#Transcript fasta name and URL. If local data is used, add 'NA' to the URL field.
+#Transcript fasta name and URL. The path field will be ignored if there is a valid URL. If local data is used, add 'NA' to the URL field, and add the local file path to the path field. The file needs to be unzipped. With singularity, the local file path needs to be in the mounted /work-dir volume
 transcript_fasta_name: [
 GCF_001298625.1_SEUB3.0_rna_from_genomic.fna
 ]
@@ -68,7 +68,7 @@ https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0
 path_transcript_fasta:
   class: File
   path: /app/data/GCF_001298625.1_SEUB3.0_rna_from_genomic.fna
-#CDS fasta name and URL. If local data is used, add 'NA' to the URL field.
+#CDS fasta name and URL. The path field will be ignored if there is a valid URL. If local data is used, add 'NA' to the URL field, and add the local file path to the path field. The file needs to be unzipped. With singularity, the local file path needs to be in the mounted /work-dir volume
 cds_fasta_name: [
 GCF_001298625.1_SEUB3.0_cds_from_genomic.fna
 ]
@@ -78,7 +78,7 @@ https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0
 path_cds_fasta: 
   class: File
   path: /app/data/GCF_001298625.1_SEUB3.0_cds_from_genomic.fna
-#GFF name and URL. If local data is used, add 'NA' to the URL field.
+#GFF name and URL. The path field will be ignored if there is a valid URL. If local data is used, add 'NA' to the URL field, and add the local file path to the path field. The file needs to be unzipped. With singularity, the local file path needs to be in the mounted /work-dir volume
 url_genomic_gff: [
 https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0/GCF_001298625.1_SEUB3.0_genomic.gff.gz
 ]
