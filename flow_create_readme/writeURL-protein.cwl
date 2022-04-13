@@ -20,7 +20,7 @@ inputs:
    
 arguments:
   - position: 1
-    valueFrom: "echo '$(inputs.url)' >> readme.txt"
+    valueFrom: "echo '$(inputs.url[0])' >> readme.txt"
 
 outputs: 
   out_dummy:
