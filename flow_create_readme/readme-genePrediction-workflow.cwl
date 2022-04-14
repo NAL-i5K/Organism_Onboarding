@@ -1,9 +1,7 @@
 #! /usr/bin/env cwl-runner
 
-cwlVersion: v1.0
+cwlVersion: v1.2
 class: Workflow
-requirements:
-  - class: ScatterFeatureRequirement
 
 inputs:
   tree: string[]
@@ -55,19 +53,17 @@ steps:
       [out_readme_file]
   #step3 write url - protein
   writeURL-protein:
-    run: writeURL-protein.cwl
-    scatter: url
+    run: writeURL.cwl
     in:
       readme_file: writeURL-transcript/out_readme_file
       url: url_protein_fasta
     out:
-      [out_dummy]
+      [out_readme_file]
   #step4 write Information
   writeInfo:
     run: writeInfo-genePred.cwl
     in:
-      in_dummy: writeURL-protein/out_dummy
-      readme_file: writeURL-transcript/out_readme_file
+      readme_file: writeURL-protein/out_readme_file
       tree: tree
       link_to_publication: link_to_publication
     out:

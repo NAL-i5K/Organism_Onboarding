@@ -6,7 +6,6 @@ requirements:
   - class: SubworkflowFeatureRequirement
   - class: MultipleInputFeatureRequirement
   - class: InlineJavascriptRequirement
-  - class: ScatterFeatureRequirement
 
 inputs:
   gap_lines: File
@@ -17,7 +16,7 @@ inputs:
   in_genomic_fasta: File
   deepPATH_analyses: string[]
   in_genomic_gff: File
-  in_protein_fasta: File[]
+  in_protein_fasta: File
   in_transcript_fasta: File
   in_cds_fasta: File
   in_assembly_readme: File
@@ -56,7 +55,6 @@ steps:
     out: []
   cp_protein_fasta:
     run: cp_file_4_annotation.cwl
-    scatter: in_data
     in:
       PATH: PATH
       deepPATH_1: deepPATH_genomic_fasta

@@ -1,6 +1,6 @@
 #!/usr/bin/env cwl-runner
 
-cwlVersion: v1.0
+cwlVersion: v1.2
 class: CommandLineTool
 baseCommand: [bash, -c] 
 requirements:
@@ -13,8 +13,6 @@ requirements:
       }
    
 inputs:
-  in_dummy:
-    type: File[]
   readme_file:
     type: File
   tree:

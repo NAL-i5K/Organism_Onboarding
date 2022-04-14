@@ -1,11 +1,10 @@
 #!/usr/bin/env cwl-runner
 
-cwlVersion: v1.0
+cwlVersion: v1.2
 class: Workflow
 requirements:
   - class: MultipleInputFeatureRequirement
   - class: InlineJavascriptRequirement
-  - class: ScatterFeatureRequirement
 
 inputs:
   PATH: string[]
@@ -55,7 +54,6 @@ steps:
   #step4 symlink - analyses_protein files
   analyses_symlink_protein:
     run: flow_reorganize_symlinks/analyses_symlink_protein.cwl
-    scatter: protein_fasta_name
     in:
       in_dummy: scaffold_symlink/out_dummy
       PATH: PATH

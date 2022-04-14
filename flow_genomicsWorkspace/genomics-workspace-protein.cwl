@@ -1,11 +1,10 @@
 #!/usr/bin/env cwl-runner
 
-cwlVersion: v1.0
+cwlVersion: v1.2
 class: Workflow
 requirements:
   - class: MultipleInputFeatureRequirement
   - class: InlineJavascriptRequirement
-  - class: ScatterFeatureRequirement
 
 inputs:
   in_fasta_protein: File[]
@@ -19,7 +18,6 @@ steps:
   #step 0
   addfile_2_db:
     run: addfile_2_db.cwl
-    scatter: in_fasta
     in:
       in_fasta: in_fasta_protein
       blastdb_Path: blastdb_Path
@@ -28,8 +26,6 @@ steps:
   #step 1
   addfile_2_hmmer:
     run: addfile_2_hmmer.cwl
-    scatter: [in_fasta, in_dummy]
-    scatterMethod: dotproduct
     in:
       in_fasta: in_fasta_protein
       hmmerdb_Path: hmmerdb_Path
@@ -39,8 +35,6 @@ steps:
   #step 2
   addblast:
     run: addblast-protein.cwl
-    scatter: [in_fasta, in_dummy]
-    scatterMethod: dotproduct    
     in:
       scientific_name: scientific_name
       managePy_Path: managePy_Path
@@ -52,8 +46,6 @@ steps:
   #step 3
   makeblastdb:
     run: makeblastdb.cwl
-    scatter: [in_fasta, in_dummy]
-    scatterMethod: dotproduct
     in:
       in_fasta: in_fasta_protein
       managePy_Path: managePy_Path
@@ -63,8 +55,6 @@ steps:
   #step 4
   populatesequence:
     run: populatesequence.cwl
-    scatter: [in_fasta, in_dummy]
-    scatterMethod: dotproduct
     in:
       in_fasta: in_fasta_protein
       managePy_Path: managePy_Path
@@ -74,8 +64,6 @@ steps:
   #step 5
   showblast:
     run: showblast.cwl
-    scatter: [in_fasta, in_dummy]
-    scatterMethod: dotproduct
     in:
       in_fasta: in_fasta_protein
       managePy_Path: managePy_Path
@@ -85,8 +73,6 @@ steps:
   #step 6
   addhmmer:
     run: addhmmer-protein.cwl
-    scatter: [in_fasta, in_dummy]
-    scatterMethod: dotproduct
     in:
       in_fasta: in_fasta_protein
       scientific_name: scientific_name
