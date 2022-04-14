@@ -10,7 +10,7 @@ arguments:
   - position: 1
     valueFrom: $(inputs.Apollo_account) 
   - position: 2
-    valueFrom: "mkdir -p $(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH_bigwig[0])"
+    valueFrom: "mkdir -p {$(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH_bigwig[0]),$(inputs.PATH[1])/$(inputs.tree[0])}"
 
 inputs:
   Apollo_account:
