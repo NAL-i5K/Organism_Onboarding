@@ -5,12 +5,13 @@ class: CommandLineTool
 requirements:
   - class: InlineJavascriptRequirement
 
-baseCommand: [ssh]
+baseCommand: [rsync]
 arguments:
-  - position: 1
-    valueFrom: $(inputs.Gmod_account) 
+  - prefix: -rlvP
+    position: 1
+    valueFrom: $(inputs.PATH[1])/$(inputs.tree[0])/$(inputs.tree[1])
   - position: 2
-    valueFrom: "mkdir -p {$(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1]),$(inputs.PATH[1])/$(inputs.tree[0])}"
+    valueFrom: $(inputs.Gmod_account):$(inputs.PATH[1])/$(inputs.tree[0])/
 
 inputs:
   Gmod_account:
@@ -19,8 +20,9 @@ inputs:
     type: string[]
   tree:
     type: string[]
-
+  in_dummy:
+    type: File
 outputs: 
   out_dummy:
     type: stdout
-stdout: createFolder.dummy  
+stdout: dataTransfer-working_files-2gmod.dummy
