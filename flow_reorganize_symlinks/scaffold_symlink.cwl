@@ -21,7 +21,7 @@ arguments:
 
 inputs:
   in_dummy: 
-    type: File
+    type: File?
   PATH:
     type: string[]
   tree:

@@ -5,6 +5,7 @@ class: Workflow
 requirements:
   - class: MultipleInputFeatureRequirement
   - class: InlineJavascriptRequirement
+  - class: SubworkflowFeatureRequirement
 
 inputs:
   PATH: string[]
@@ -30,10 +31,45 @@ steps:
       scientific_name: scientific_name
     out: [out_dummy]
   #step2 gzip - scaffold file
+  gzip-conditional:
+    in:
+      genome_fasta_name: genome_fasta_name
+      PATH: PATH
+      tree: tree
+      deepPATH_genomic_fasta: deepPATH_genomic_fasta
+    out: [gzip_string]
+    run:
+      class: CommandLineTool
+      stdout: conditional-gzip
+      baseCommand: find
+      arguments:
+        - position: 1
+          valueFrom: $(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH_genomic_fasta[0])/
+        - position: 2
+          prefix: -name
+          valueFrom: "$(inputs.genome_fasta_name[0]).gz"
+      inputs:
+        genome_fasta_name:  
+          type: string[]
+        PATH:
+          type: string[]
+        tree:
+          type: string[]
+        deepPATH_genomic_fasta:
+          type: string[]
+      outputs:
+        gzip_string: 
+          type: string
+          outputBinding:
+            glob: conditional-gzip
+            loadContents: true
+            outputEval: $(self[0].contents)
   scaffold_gzip:
     run: flow_reorganize_symlinks/scaffold_gzip.cwl
+    when: $(inputs.gzip_string == "")
     in:
       in_dummy: setup_folder/out_dummy
+      gzip_string: gzip-conditional/gzip_string
       PATH: PATH
       tree: tree
       genome_fasta_name: genome_fasta_name
