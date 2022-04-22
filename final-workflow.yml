@@ -128,7 +128,7 @@ Gmod_stage_account: user@i5k-stage-node1.nal.usda.gov
 
 #-------------------------------------------------------------------------------
 #symlink PATH - don't change this unless you know what you're doing
-MAIN_PATH: /app/web/drupal7/data/Arthropoda
+MAIN_PATH: /app/i5k-tripal/wwwroot/data/Arthropoda
 #-------------------------------------------------------------------------------
 #scaffold readme information
 organization: NCBI
