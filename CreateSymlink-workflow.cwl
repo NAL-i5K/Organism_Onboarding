@@ -116,7 +116,7 @@ steps:
       deepPATH_analyses: deepPATH_analyses
       MAIN_PATH: MAIN_PATH
     out: [out_dummy]
-  #step6 symlink - analyses files
+  #step6 symlink - functional annotation folder
   annotation_symlink:
     run: flow_reorganize_symlinks/annotation_symlink.cwl
     when: $(inputs.tree[3] != "NA")
