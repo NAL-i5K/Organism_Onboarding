@@ -116,11 +116,24 @@ steps:
       deepPATH_analyses: deepPATH_analyses
       MAIN_PATH: MAIN_PATH
     out: [out_dummy]
+  #step6 symlink - analyses files
+  annotation_symlink:
+    run: flow_reorganize_symlinks/annotation_symlink.cwl
+    when: $(inputs.tree[3] != "NA")
+    in:
+      in_dummy: analyses_symlink/out_dummy
+      PATH: PATH
+      tree: tree
+      scientific_name: scientific_name
+      deepPATH_genomic_fasta: deepPATH_genomic_fasta
+      deepPATH_analyses: deepPATH_analyses
+      MAIN_PATH: MAIN_PATH
+    out: [out_dummy]
   #step6 gzip - bigwig files
   bigwig_gzip:
     run: flow_reorganize_symlinks/bigwig_gzip.cwl
     in:
-      in_dummy: analyses_symlink/out_dummy
+      in_dummy: annotation_symlink/out_dummy
       PATH: PATH
       tree: tree
       genome_fasta_name: genome_fasta_name
