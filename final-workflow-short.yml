@@ -33,7 +33,7 @@ tree: [
 saceub, #species abbreviation - format gggsss
 SEUB3.0, #the assembly name
 Saccharomyces_eubayanus_Annotation_Release_100, #the gene set/annotation name
-NA #the functional annotation name. Add 'NA' if not applicable.
+NA #the functional annotation directory name, which should be in the analyses/ folder. Add 'NA' if not applicable.
 ]
 scientific_name: [
 Saccharomyces, #genus
