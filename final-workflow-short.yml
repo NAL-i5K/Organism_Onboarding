@@ -90,6 +90,18 @@ gff_name: [
 GCF_001298625.1_SEUB3.0_genomic.gff
 ]
 gff_release_number: 100
+#NCBI table file URL. If no functional annotation is availble, add 'NA' to the URL field.
+url_table_file: [
+https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0/GCF_001298625.1_SEUB3.0_feature_table.txt.gz
+]
+#GO file path. This path will be ignored if the table file URL is 'NA'. The file needs to be unzipped. With singularity, the local file path needs to be in the mounted /work-dir volume
+path_GO:
+  class: File 
+  path: /app/data/GCF_001298625.1_complete.gaf.tsv
+#KEGG file path. This path will be ignored if the table file URL is 'NA'. The file needs to be unzipped. With singularity, the local file path needs to be in the mounted /work-dir volume
+path_KEGG:
+  class: File 
+  path: /app/data/GCF_001298625.1_KOBAS_acc_pathways.tsv
 #-------------------------------------------------------------------------------
 url_md5checksums: [
 https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0/md5checksums.txt

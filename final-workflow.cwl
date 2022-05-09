@@ -31,6 +31,9 @@ inputs:
   deepPATH_bigwig: string[]
   organization: string
   link_to_publication: string
+  url_table_file: string[]
+  path_GO: File?
+  path_KEGG: File?
 
 steps:
   #step1 
@@ -96,6 +99,22 @@ steps:
         pickValue: first_non_null
     out:
       [gap_lines]
+  #step4
+  add_annotation:
+    run: add-annotation/workflow.cwl
+    when: $(inputs.url_table_file != "NA")
+    in:
+      in_gff: 
+        source: [md5checksums/OUT_genomic_gff, path_genomic_gff]
+        pickValue: first_non_null
+      url_table_file: url_table_file
+      in_GO: path_GO
+      in_KEGG: path_KEGG
+      in_md5checksums: download/OUT_md5checksums
+      url_string: download/url_string
+      url_md5checksums: url_md5checksums
+    out:
+      [processed_gff]
   #verify:
   #fasta_diff,gff3_QC......
   #step4
@@ -111,7 +130,7 @@ steps:
         source: [md5checksums/OUT_genomic_fasta, path_genomic_fasta]
         pickValue: first_non_null
       in_gff: 
-        source: [md5checksums/OUT_genomic_gff, path_genomic_gff]
+        source: [add_annotation/processed_gff, path_genomic_gff]
         pickValue: first_non_null
     out:
       [OUT_2bi,
@@ -160,7 +179,7 @@ steps:
         pickValue: first_non_null
       deepPATH_analyses: deepPATH_analyses
       in_genomic_gff: 
-        source: [md5checksums/OUT_genomic_gff, path_genomic_gff]
+        source: [add_annotation/processed_gff, path_genomic_gff]
         pickValue: first_non_null
       #
       in_protein_fasta: 
