@@ -89,55 +89,58 @@ while ( my $line = <$GFF> ){
 	}
 	my @array = split /\t/, $line;
 	if ( $array[2] =~ /^mRNA$/ ){
-	    if ( $array[8] =~ /transcript_id=([^;]+);*/ ){
-		my $tid = $1;
-		if ( defined $ids{$tid} ){
-		    my $pid = $ids{$tid};
-		    if ( defined $go{$pid} ){
-                       if ( $line =~ /Ontology_term=/ ){                                              
-                           $line =~ s/Ontology_term=/Ontology_term=$go{$pid},/;                      
-                       }                                                                               
-                       else {                                                                          
-                           $line .= ";Ontology_term=$go{$pid};";                                      
-                       }                                                                               
-			$go_counter++;
+	    my @atts = split ';', $array[8];
+	    foreach my $att (@atts) {
+		if ( $att =~ /^transcript_id=([^;]+)$/ ){
+		    my $tid = $1;
+		    if ( defined $ids{$tid} ){
+			my $pid = $ids{$tid};
+			if ( defined $go{$pid} ){
+			    if ( $line =~ /Ontology_term=/ ){                                              
+				$line =~ s/Ontology_term=/Ontology_term=$go{$pid},/;                      
+			    }                                                                               
+			    else {                                                                          
+				$line .= ";Ontology_term=$go{$pid};";                                      
+			    }                                                                               
+			    $go_counter++;
+			}
+			if ( defined $kegg{$pid} ){
+			    if ( $line =~ /Ontology_term=/ ){
+				$line =~ s/Ontology_term=/Ontology_term=$kegg{$pid},/;
+			    }
+			    else {
+				$line .= ";Ontology_term=$kegg{$pid};";
+			    }
+			    $kegg_counter++;
+			}
 		    }
-		    if ( defined $kegg{$pid} ){
-                        if ( $line =~ /Ontology_term=/ ){
-                            $line =~ s/Ontology_term=/Ontology_term=$kegg{$pid},/;
-                        }
-                        else {
-                            $line .= ";Ontology_term=$kegg{$pid};";
-                        }
-			$kegg_counter++;
-		    }
-		}
-		else {
-		    warn "can't find corresponding protein ID for transcript id $tid. You need to look into this.\n";
 		}
 	    }
 	}
 	elsif ( $array[2] =~ /^CDS$/ ){
-	    if ( $array[8] =~ /protein_id=([^;]+);*/ ){
-                my $pid = $1;
-                if ( defined $go{$pid} ){
-                    if ( $line =~ /Ontology_term=/ ){
-                        $line =~ s/Ontology_term=/Ontology_term=$go{$pid},/;
-                    }
-                    else {
-                        $line .= ";Ontology_term=$go{$pid};";
-                    }
-		    $go_counter++;
-                }
-                if ( defined $kegg{$pid} ){
-                    if ( $line =~ /Ontology_term=/ ){
-                        $line =~ s/Ontology_term=/Ontology_term=$kegg{$pid},/;
-                    }
-                    else {
-                        $line .= ";Ontology_term=$kegg{$pid};";
-                    }
-		    $kegg_counter++;
-                }
+            my @atts = split ';', $array[8];
+            foreach my $att (@atts) {
+		if ( $att =~ /^protein_id=([^;]+)$/ ){
+		    my $pid = $1;
+		    if ( defined $go{$pid} ){
+			if ( $line =~ /Ontology_term=/ ){
+			    $line =~ s/Ontology_term=/Ontology_term=$go{$pid},/;
+			}
+			else {
+			    $line .= ";Ontology_term=$go{$pid};";
+			}
+			$go_counter++;
+		    }
+		    if ( defined $kegg{$pid} ){
+			if ( $line =~ /Ontology_term=/ ){
+			    $line =~ s/Ontology_term=/Ontology_term=$kegg{$pid},/;
+			}
+			else {
+			    $line .= ";Ontology_term=$kegg{$pid};";
+			}
+			$kegg_counter++;
+		    }
+		}
             }
 	}
 	$line =~ s/;;/;/;
