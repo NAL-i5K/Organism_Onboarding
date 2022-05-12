@@ -86,8 +86,7 @@ steps:
       url_cds_fasta: url_cds_fasta
       url_table_file: url_table_file
     out:
-      [
-       OUT_extract,  #'*.txt2', extracted from *.txt
+      [OUT_extract,  #'*.txt2', extracted from *.txt
        OUT_check,    #'*.log', log file for execution of md5sum -c
        OUT_genomic_fasta, #'*.fa, '*.fna', '*.faa'
        OUT_genomic_gff,   #'*.gff', '*.gff3'
@@ -212,7 +211,13 @@ steps:
       in_gc_bigwig: apollo2_data_processing/OUT_gc_bigwig
       in_trackList_json: apollo2_data_processing/OUT_trackList_json
       in_trackList_json_bak: apollo2_data_processing/OUT_trackList_json_bak
+      original_gff: 
+        source: [md5checksums/OUT_genomic_gff, path_genomic_gff]
+        pickValue: first_non_null
     out:
-      [out_dummy]
+      [out_dummy,
+      processed_gff,
+      original_gff
+      ]
 
 outputs:  []

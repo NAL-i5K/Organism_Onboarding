@@ -39,6 +39,7 @@ inputs:
   deepPATH_bigwig: string[]
   in_gaps_bigwig: File?  # this will be null if there are no gaps
   in_gc_bigwig: File
+  original_gff: File
 
 steps:
   setup_folder:
@@ -119,3 +120,9 @@ outputs:
   out_dummy:
     type: File
     outputSource: setup_folder/out_dummy
+  processed_gff:
+    type: File
+    outputSource: in_genomic_gff
+  original_gff:
+    type: File
+    outputSource: original_gff
