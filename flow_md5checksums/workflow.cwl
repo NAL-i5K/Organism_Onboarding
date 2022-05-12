@@ -25,7 +25,8 @@ inputs:
   url_protein_fasta: string[]
   url_transcript_fasta: string[]
   url_cds_fasta: string[]
-  
+  url_table_file: string[]
+
 steps:
   extract_md5checksums:
     run: extract_md5checksums.cwl
@@ -98,8 +99,10 @@ steps:
       [out_gz]
   gunzip_table:
     run: gunzip_single.cwl
+    when: $(inputs.url_table_file != "NA" )
     in:
       in_dummy: check_md5checksums/out_check  #dummy data to insure the order of execution
+      url_table_file: url_table_file
       in_gz: in_table
     out:
       [out_gz]

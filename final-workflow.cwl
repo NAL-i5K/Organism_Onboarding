@@ -84,6 +84,7 @@ steps:
       url_protein_fasta: url_protein_fasta
       url_transcript_fasta: url_transcript_fasta
       url_cds_fasta: url_cds_fasta
+      url_table_file: url_table_file
     out:
       [
        OUT_extract,  #'*.txt2', extracted from *.txt
