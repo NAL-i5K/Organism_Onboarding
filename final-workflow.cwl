@@ -132,7 +132,9 @@ steps:
       in_fasta: 
         source: [md5checksums/OUT_genomic_fasta, path_genomic_fasta]
         pickValue: first_non_null
-      in_gff: add_annotation/processed_gff
+      in_gff:
+        source: [add_annotation/processed_gff, md5checksums/OUT_genomic_gff, path_genomic_gff]
+        pickValue: first_non_null
     out:
       [OUT_2bi,
       OUT_seq,
@@ -168,7 +170,9 @@ steps:
       original_gff: 
         source: [md5checksums/OUT_genomic_gff, path_genomic_gff]
         pickValue: first_non_null
-      processed_gff: add_annotation/processed_gff
+      processed_gff:
+        source: [add_annotation/processed_gff, md5checksums/OUT_genomic_gff, path_genomic_gff]
+        pickValue: first_non_null
     out: [readme_file] 
   #step8
   dispatch:
@@ -183,7 +187,9 @@ steps:
         source: [md5checksums/OUT_genomic_fasta, path_genomic_fasta]
         pickValue: first_non_null
       deepPATH_analyses: deepPATH_analyses
-      in_genomic_gff: add_annotation/processed_gff
+      in_genomic_gff:
+        source: [add_annotation/processed_gff, md5checksums/OUT_genomic_gff, path_genomic_gff]
+        pickValue: first_non_null
       #
       in_protein_fasta: 
         source: [md5checksums/OUT_protein_fasta, path_protein_fasta]
