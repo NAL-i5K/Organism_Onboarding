@@ -11,6 +11,8 @@ inputs:
   url_cds_fasta: string[]
   url_transcript_fasta: string[]
   link_to_publication: string
+  original_gff: File
+  processed_gff: File
 
 steps:
   #step1 create_yml_File
@@ -73,6 +75,8 @@ steps:
     run: writeLastLine-genePred.cwl
     in: 
       readme_file: writeInfo/out_readme_file
+      original_gff: original_gff
+      processed_gff: processed_gff
     out:
       [out_readme_file]
 
