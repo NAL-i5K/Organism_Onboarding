@@ -170,9 +170,8 @@ steps:
       original_gff: 
         source: [md5checksums/OUT_genomic_gff, path_genomic_gff]
         pickValue: first_non_null
-      processed_gff:
-        source: [add_annotation/processed_gff, md5checksums/OUT_genomic_gff, path_genomic_gff]
-        pickValue: first_non_null
+      processed_gff: add_annotation/processed_gff
+      url_table_file: url_table_file
     out: [readme_file] 
   #step8
   dispatch:

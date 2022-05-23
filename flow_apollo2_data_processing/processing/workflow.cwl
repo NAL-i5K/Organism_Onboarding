@@ -12,8 +12,8 @@ inputs:
   scientific_name: string[]
   gff_release_number: int
   url_genomic_gff: string[]
-  in_fasta: File
   in_gff: File
+  in_fasta: File
 
 steps:
   #step 1

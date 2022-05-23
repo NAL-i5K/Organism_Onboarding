@@ -12,7 +12,8 @@ inputs:
   url_transcript_fasta: string[]
   link_to_publication: string
   original_gff: File
-  processed_gff: File
+  processed_gff: File?
+  url_table_file: string[]
 
 steps:
   #step1 create_yml_File
@@ -71,9 +72,19 @@ steps:
     out:
       [out_readme_file]  
   #step5 write last line
-  writeLastLine:
+  writeLastLine_v1:
     run: writeLastLine-genePred.cwl
+    when: $(inputs.url_table_file == "NA")
     in: 
+      url_table_file: url_table_file
+      readme_file: writeInfo/out_readme_file
+    out:
+      [out_readme_file]
+  writeLastLine_v2:
+    run: writeLastLine-genePred_annotation.cwl
+    when: $(inputs.url_table_file != "NA")
+    in: 
+      url_table_file: url_table_file
       readme_file: writeInfo/out_readme_file
       original_gff: original_gff
       processed_gff: processed_gff

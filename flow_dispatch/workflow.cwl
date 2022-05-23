@@ -83,7 +83,7 @@ steps:
   #To working_files
   2working_files:
     run: 2working_files/workflow.cwl
-    when: $(inputs.url_string != "NA NA NA NA NA\n" ) 
+    when: $(inputs.url_string != "NA NA NA NA NA NA\n" ) 
     in:
       url_string: url_string
       in_dummy: setup_folder/out_dummy
