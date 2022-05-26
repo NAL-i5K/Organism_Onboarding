@@ -124,9 +124,3 @@ outputs:
   out_dummy:
     type: File
     outputSource: setup_folder/out_dummy
-#  processed_gff:
- #   type: File
-  #  outputSource: processed_gff
-  original_gff:
-    type: File
-    outputSource: original_gff
