@@ -31,6 +31,9 @@ inputs:
   deepPATH_bigwig: string[]
   organization: string
   link_to_publication: string
+  url_table_file: string[]
+  path_GO: File?
+  path_KEGG: File?
 
 steps:
   #step1 
@@ -48,6 +51,7 @@ steps:
       path_transcript_fasta: path_transcript_fasta
       url_cds_fasta: url_cds_fasta
       path_cds_fasta: path_cds_fasta
+      url_table_file: url_table_file
     out:
       [OUT_md5checksums,   #'*.txt'
        OUT_genomic_fasta,  #'*.gz'
@@ -55,7 +59,9 @@ steps:
        OUT_protein_fasta,            #'*.gz'
        OUT_transcript_fasta,         #'*.gz'
        OUT_cds_fasta,                #'*.gz'
-       url_string]                
+       OUT_table,                    #'*.gz'
+       url_string
+       ]                
   #step2  
   md5checksums:
     run: flow_md5checksums/workflow.cwl
@@ -66,6 +72,7 @@ steps:
       in_protein_fasta: download/OUT_protein_fasta
       in_transcript_fasta: download/OUT_transcript_fasta
       in_cds_fasta: download/OUT_cds_fasta
+      in_table: download/OUT_table
       path_genomic_fasta: path_genomic_fasta
       path_genomic_gff: path_genomic_gff
       path_protein_fasta: path_protein_fasta
@@ -77,17 +84,32 @@ steps:
       url_protein_fasta: url_protein_fasta
       url_transcript_fasta: url_transcript_fasta
       url_cds_fasta: url_cds_fasta
+      url_table_file: url_table_file
     out:
-      [
-       OUT_extract,  #'*.txt2', extracted from *.txt
+      [OUT_extract,  #'*.txt2', extracted from *.txt
        OUT_check,    #'*.log', log file for execution of md5sum -c
        OUT_genomic_fasta, #'*.fa, '*.fna', '*.faa'
        OUT_genomic_gff,   #'*.gff', '*.gff3'
        OUT_protein_fasta,
        OUT_transcript_fasta, 
-       OUT_cds_fasta
+       OUT_cds_fasta,
+       OUT_table
       ]
   #step3
+  add_annotation:
+    run: add-annotation/add_annotation.cwl
+    when: $(inputs.url_table_file != "NA")
+    in:
+      url_table_file: url_table_file
+      in_GO: path_GO
+      in_KEGG: path_KEGG
+      in_gff: 
+        source: [md5checksums/OUT_genomic_gff, path_genomic_gff]
+        pickValue: first_non_null
+      in_table: md5checksums/OUT_table
+    out:
+      [processed_gff]
+  #step4
   gaps_or_not:
     run: gaps_or_not.cwl
     in:
@@ -98,7 +120,7 @@ steps:
       [gap_lines]
   #verify:
   #fasta_diff,gff3_QC......
-  #step4
+  #step5
   apollo2_data_processing:
     run: flow_apollo2_data_processing/processing/workflow.cwl
     in:
@@ -110,8 +132,8 @@ steps:
       in_fasta: 
         source: [md5checksums/OUT_genomic_fasta, path_genomic_fasta]
         pickValue: first_non_null
-      in_gff: 
-        source: [md5checksums/OUT_genomic_gff, path_genomic_gff]
+      in_gff:
+        source: [add_annotation/processed_gff, md5checksums/OUT_genomic_gff, path_genomic_gff]
         pickValue: first_non_null
     out:
       [OUT_2bi,
@@ -124,7 +146,7 @@ steps:
       OUT_trackList_json,
       OUT_trackList_json_bak,
       ]
-  #step5
+  #step6
   create_assembly_readme:
     run: flow_create_readme/readme-assembly-workflow.cwl
     in: 
@@ -134,7 +156,7 @@ steps:
       url_genomic_fasta: url_genomic_fasta
       link_to_publication: link_to_publication
     out: [readme_file]
-  #step6
+  #step7
   create_genePrediction_readme:
     run: flow_create_readme/readme-genePrediction-workflow.cwl
     in:
@@ -145,8 +167,13 @@ steps:
       url_cds_fasta: url_cds_fasta
       url_transcript_fasta: url_transcript_fasta
       link_to_publication: link_to_publication
+      original_gff: 
+        source: [md5checksums/OUT_genomic_gff, path_genomic_gff]
+        pickValue: first_non_null
+      processed_gff: add_annotation/processed_gff
+      url_table_file: url_table_file
     out: [readme_file] 
-  #step7
+  #step8
   dispatch:
     run: flow_dispatch/workflow.cwl
     in:
@@ -159,8 +186,8 @@ steps:
         source: [md5checksums/OUT_genomic_fasta, path_genomic_fasta]
         pickValue: first_non_null
       deepPATH_analyses: deepPATH_analyses
-      in_genomic_gff: 
-        source: [md5checksums/OUT_genomic_gff, path_genomic_gff]
+      in_genomic_gff:
+        source: [add_annotation/processed_gff, md5checksums/OUT_genomic_gff, path_genomic_gff]
         pickValue: first_non_null
       #
       in_protein_fasta: 
@@ -189,6 +216,11 @@ steps:
       in_gc_bigwig: apollo2_data_processing/OUT_gc_bigwig
       in_trackList_json: apollo2_data_processing/OUT_trackList_json
       in_trackList_json_bak: apollo2_data_processing/OUT_trackList_json_bak
+      processed_gff: add_annotation/processed_gff
+      original_gff: 
+        source: [md5checksums/OUT_genomic_gff, path_genomic_gff]
+        pickValue: first_non_null
+      url_table_file: url_table_file
     out:
       [out_dummy]
 

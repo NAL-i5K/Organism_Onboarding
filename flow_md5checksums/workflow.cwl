@@ -13,6 +13,7 @@ inputs:
   in_protein_fasta: File?
   in_transcript_fasta: File?
   in_cds_fasta: File?
+  in_table: File?
   path_genomic_fasta: File?
   path_genomic_gff: File?
   path_protein_fasta: File?
@@ -24,28 +25,29 @@ inputs:
   url_protein_fasta: string[]
   url_transcript_fasta: string[]
   url_cds_fasta: string[]
-  
+  url_table_file: string[]
+
 steps:
   extract_md5checksums:
     run: extract_md5checksums.cwl
-    when: $(inputs.url_string != "NA NA NA NA NA\n" )
+    when: $(inputs.url_string != "NA NA NA NA NA NA\n" )
     in:
       url_string: url_string
       in_txt: in_md5checksums
       in_gz: 
-        source: [in_genomic_fasta, in_genomic_gff, in_protein_fasta, in_transcript_fasta, in_cds_fasta]
+        source: [in_genomic_fasta, in_genomic_gff, in_protein_fasta, in_transcript_fasta, in_cds_fasta, in_table]
         pickValue: all_non_null
         linkMerge: merge_flattened
     out:
      [out_extract] #*.txt2 is the extracted version of md5checksums.txt
   check_md5checksums:
     run: check_md5checksums.cwl
-    when: $(inputs.url_string != "NA NA NA NA NA\n" )
+    when: $(inputs.url_string != "NA NA NA NA NA NA\n" )
     in:
       url_string: url_string
       in_check: extract_md5checksums/out_extract
       in_gz:
-        source: [in_genomic_fasta, in_genomic_gff, in_protein_fasta, in_transcript_fasta, in_cds_fasta]
+        source: [in_genomic_fasta, in_genomic_gff, in_protein_fasta, in_transcript_fasta, in_cds_fasta, in_table]
         pickValue: all_non_null
         linkMerge: merge_flattened
     out:
@@ -95,6 +97,15 @@ steps:
       in_gz: in_cds_fasta
     out:
       [out_gz]
+  gunzip_table:
+    run: gunzip_single.cwl
+    when: $(inputs.url_table_file != "NA" )
+    in:
+      in_dummy: check_md5checksums/out_check  #dummy data to insure the order of execution
+      url_table_file: url_table_file
+      in_gz: in_table
+    out:
+      [out_gz]
 outputs:
   OUT_extract:
     type: File
@@ -117,3 +128,6 @@ outputs:
   OUT_cds_fasta:
     type: File
     outputSource: gunzip_cds_fasta/out_gz
+  OUT_table:
+    type: File
+    outputSource: gunzip_table/out_gz
