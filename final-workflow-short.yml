@@ -1,4 +1,4 @@
-#example yml file for specific organism
+#Aexample yml file for specific organism
 
 #The full path look like this:
 #For genomic fasta/scaffold data:
@@ -32,13 +32,14 @@ hmmerdb_Path_production: [/usr/local/i5k/media/hmmer/db]
 tree: [
 saceub, #species abbreviation - format gggsss
 SEUB3.0, #the assembly name
-Saccharomyces_eubayanus_Annotation_Release_100, #the gene set/annotation name
-NA #the functional annotation directory name, which should be in the analyses/ folder. Add 'NA' if not applicable.
+NCBI Saccharomyces eubayanus Annotation Release 100, #the gene set/annotation name
+NCBI Saccharomyces eubayanus Annotation Release 100 functional annotation#the functional annotation directory name, which should be in the analyses/ folder. Add 'NA' if not applicable.
 ]
 scientific_name: [
 Saccharomyces, #genus
 eubayanus #species
 ]
+
 #Genomic fasta name and URL. The path field will be ignored if there is a valid URL. If local data is used, add 'NA' to the URL field, and add the local file path to the path field. The file needs to be unzipped. With singularity, the local file path needs to be in the mounted /work-dir volume
 genome_fasta_name: [
 GCF_001298625.1_SEUB3.0_genomic.fna
@@ -49,6 +50,7 @@ https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0
 path_genomic_fasta: 
   class: File
   path: /app/data/GCF_001298625.1_SEUB3.0_genomic.fna
+
 #Protein fasta name and url. The path field will be ignored if there is a valid URL. If local data is used, add 'NA' to the URL field, and add the local file path to the path field. The file needs to be unzipped. With singularity, the local file path needs to be in the mounted /work-dir volume
 protein_fasta_name: [
 GCF_001298625.1_SEUB3.0_translated_cds.faa
@@ -59,6 +61,7 @@ https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0
 path_protein_fasta:
   class: File
   path: /app/data/GCF_001298625.1_SEUB3.0_translated_cds.faa
+
 #Transcript fasta name and URL. The path field will be ignored if there is a valid URL. If local data is used, add 'NA' to the URL field, and add the local file path to the path field. The file needs to be unzipped. With singularity, the local file path needs to be in the mounted /work-dir volume
 transcript_fasta_name: [
 GCF_001298625.1_SEUB3.0_rna_from_genomic.fna
@@ -69,6 +72,7 @@ https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0
 path_transcript_fasta:
   class: File
   path: /app/data/GCF_001298625.1_SEUB3.0_rna_from_genomic.fna
+
 #CDS fasta name and URL. The path field will be ignored if there is a valid URL. If local data is used, add 'NA' to the URL field, and add the local file path to the path field. The file needs to be unzipped. With singularity, the local file path needs to be in the mounted /work-dir volume
 cds_fasta_name: [
 GCF_001298625.1_SEUB3.0_cds_from_genomic.fna
@@ -79,6 +83,7 @@ https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0
 path_cds_fasta: 
   class: File
   path: /app/data/GCF_001298625.1_SEUB3.0_cds_from_genomic.fna
+
 #GFF name and URL. The path field will be ignored if there is a valid URL. If local data is used, add 'NA' to the URL field, and add the local file path to the path field. The file needs to be unzipped. With singularity, the local file path needs to be in the mounted /work-dir volume
 url_genomic_gff: [
 https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0/GCF_001298625.1_SEUB3.0_genomic.gff.gz
@@ -90,18 +95,21 @@ gff_name: [
 GCF_001298625.1_SEUB3.0_genomic.gff
 ]
 gff_release_number: 100
+
 #NCBI table file URL. If no functional annotation is availble, add 'NA' to the URL field.
 url_table_file: [
 https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0/GCF_001298625.1_SEUB3.0_feature_table.txt.gz
 ]
+
 #GO file path. This path will be ignored if the table file URL is 'NA'. The file needs to be unzipped. With singularity, the local file path needs to be in the mounted /work-dir volume
 path_GO:
   class: File 
-  path: /app/data/GCF_001298625.1_complete.gaf.tsv
+  path: NCBI Saccharomyces eubayanus Annotation Release 100 functional annotation/GCF_001298625.1_complete.gaf.tsv
+
 #KEGG file path. This path will be ignored if the table file URL is 'NA'. The file needs to be unzipped. With singularity, the local file path needs to be in the mounted /work-dir volume
 path_KEGG:
   class: File 
-  path: /app/data/GCF_001298625.1_KOBAS_acc_pathways.tsv
+  path: NCBI Saccharomyces eubayanus Annotation Release 100 functional annotation/KOBAS/GCF_001298625.1_KOBAS_acc_pathways.tsv
 #-------------------------------------------------------------------------------
 url_md5checksums: [
 https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/298/625/GCF_001298625.1_SEUB3.0/md5checksums.txt
