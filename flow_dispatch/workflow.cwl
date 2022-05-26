@@ -39,7 +39,9 @@ inputs:
   deepPATH_bigwig: string[]
   in_gaps_bigwig: File?  # this will be null if there are no gaps
   in_gc_bigwig: File
+  processed_gff: File?
   original_gff: File
+  url_table_file: string[]
 
 steps:
   setup_folder:
@@ -61,7 +63,8 @@ steps:
       deepPATH_genomic_fasta: deepPATH_genomic_fasta
       in_genomic_fasta: in_genomic_fasta
       deepPATH_analyses: deepPATH_analyses
-      in_genomic_gff: in_genomic_gff
+      processed_gff: processed_gff
+      original_gff: original_gff
       in_protein_fasta: in_protein_fasta
       in_transcript_fasta: in_transcript_fasta
       in_cds_fasta: in_cds_fasta
@@ -79,6 +82,7 @@ steps:
       deepPATH_bigwig: deepPATH_bigwig
       in_gaps_bigwig: in_gaps_bigwig  # this will be null if there are no gaps
       in_gc_bigwig: in_gc_bigwig
+      url_table_file: url_table_file
     out: []
   #To working_files
   2working_files:
@@ -120,9 +124,9 @@ outputs:
   out_dummy:
     type: File
     outputSource: setup_folder/out_dummy
-  processed_gff:
-    type: File
-    outputSource: in_genomic_gff
+#  processed_gff:
+ #   type: File
+  #  outputSource: processed_gff
   original_gff:
     type: File
     outputSource: original_gff

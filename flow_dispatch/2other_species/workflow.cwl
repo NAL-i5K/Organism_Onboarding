@@ -15,7 +15,8 @@ inputs:
   deepPATH_genomic_fasta: string[]
   in_genomic_fasta: File
   deepPATH_analyses: string[]
-  in_genomic_gff: File
+  processed_gff: File?
+  original_gff: File
   in_protein_fasta: File
   in_transcript_fasta: File
   in_cds_fasta: File
@@ -34,6 +35,7 @@ inputs:
   deepPATH_bigwig: string[]
   in_gaps_bigwig: File?  # this will be null if there are no gaps
   in_gc_bigwig: File
+  url_table_file: string[]
 
 steps:
   cp_genomic_fasta:
@@ -44,14 +46,25 @@ steps:
       deepPATH: deepPATH_genomic_fasta
       in_data: in_genomic_fasta
     out: []
-  cp_genomic_gff:
+  cp_original_genomic_gff:
     run: cp_file_4_annotation.cwl
     in:
       PATH: PATH
       deepPATH_1: deepPATH_genomic_fasta
       deepPATH_2: deepPATH_analyses
       tree: tree
-      in_data: in_genomic_gff
+      in_data: original_gff
+    out: []
+  cp_annotated_genomic_gff:
+    run: cp_file_4_annotation.cwl
+    when: $(inputs.url_table_file != "NA")
+    in:
+      url_table_file: url_table_file
+      PATH: PATH
+      deepPATH_1: deepPATH_genomic_fasta
+      deepPATH_2: deepPATH_analyses
+      tree: tree
+      in_data: processed_gff
     out: []
   cp_protein_fasta:
     run: cp_file_4_annotation.cwl

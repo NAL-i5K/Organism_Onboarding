@@ -216,13 +216,12 @@ steps:
       in_gc_bigwig: apollo2_data_processing/OUT_gc_bigwig
       in_trackList_json: apollo2_data_processing/OUT_trackList_json
       in_trackList_json_bak: apollo2_data_processing/OUT_trackList_json_bak
+      processed_gff: add_annotation/processed_gff
       original_gff: 
         source: [md5checksums/OUT_genomic_gff, path_genomic_gff]
         pickValue: first_non_null
+      url_table_file: url_table_file
     out:
-      [out_dummy,
-      processed_gff,
-      original_gff
-      ]
+      [out_dummy]
 
 outputs:  []
