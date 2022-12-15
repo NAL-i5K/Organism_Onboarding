@@ -35,6 +35,7 @@ SEUB3.0, #the assembly name
 NCBI Saccharomyces eubayanus Annotation Release 100, #the gene set/annotation name
 NCBI Saccharomyces eubayanus Annotation Release 100 functional annotation#the functional annotation directory name, which should be in the analyses/ folder. Add 'NA' if not applicable.
 ]
+#Genus and species of the organism you are onboarding. If the organism also has a subspecies name, include this in the 'species' field, separated by an underscore from the species name. e.g. 'grandis_grandis #species' for Anthonomus grandis sp. grandis
 scientific_name: [
 Saccharomyces, #genus
 eubayanus #species
