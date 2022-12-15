@@ -136,10 +136,10 @@ scaffold/bigwig
 #-------------------------------------------------------------------------------
 #where apollo2-stage-node1 lives. Note that the host for the apollo-content docker container is https://localhost:8080 
 host: [ 
-https://apollo2-stage-node1.nal.usda.gov/apollo
+https://apollo2-stage-node1-cbo.nal.usda.gov/apollo
 ]
 host_production: [
-https://apollo.nal.usda.gov/apollo
+http://apollo2-node1-cbo.nal.usda.gov/apollo
 ]
 #authentication in apollo2
 #apollo2-stage login
@@ -155,9 +155,9 @@ password
 #-------------------------------------------------------------------------------
 #Apollo server
 #username
-Apollo_account: user@apollo2-node1.nal.usda.gov
-Gmod_account: user@i5k-node1.nal.usda.gov
-Gmod_stage_account: user@i5k-stage-node1.nal.usda.gov
+Apollo_account: apollo@apollo2-node1-cbo.nal.usda.gov
+Gmod_account: i5k@i5k-node1-cbo.nal.usda.gov
+Gmod_stage_account: i5k@i5k-stage-node1-cbo.nal.usda.gov
 
 #-------------------------------------------------------------------------------
 #symlink PATH - don't change this unless you know what you're doing
