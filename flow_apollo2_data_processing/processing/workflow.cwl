@@ -10,7 +10,7 @@ inputs:
   gap_lines: File
   tree: string[]
   scientific_name: string[]
-  gff_release_number: int
+  gff_release_number: string
   url_genomic_gff: string[]
   in_gff: File
   in_fasta: File

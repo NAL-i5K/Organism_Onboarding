@@ -20,7 +20,7 @@ inputs:
   deepPATH_analyses: string[]
   url_genomic_gff: string[]
   path_genomic_gff: File?
-  gff_release_number: int
+  gff_release_number: string
   url_protein_fasta: string[]
   url_transcript_fasta: string[]
   url_cds_fasta: string[]

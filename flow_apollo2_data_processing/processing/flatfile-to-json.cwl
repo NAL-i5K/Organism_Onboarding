@@ -51,7 +51,7 @@ inputs:
   scientific_name:
     type: string[]
   gff_release_number:
-    type: int
+    type: string
   url_genomic_gff:
     type: string[]
   in_gff:
