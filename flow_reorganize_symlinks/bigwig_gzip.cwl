@@ -5,16 +5,19 @@ class: CommandLineTool
 
 requirements:
   - class: InlineJavascriptRequirement
-
-baseCommand: [gzip]
+  - class: ShellCommandRequirement
+  
 arguments:
-  - prefix: '-9'
-    #gc file
-    position: 1
-    valueFrom: $(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH_bigwig[0])/$(inputs.genome_fasta_name[0]).gc.bigwig
-  - position: 2
-    valueFrom: $(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH_bigwig[0])/$(inputs.genome_fasta_name[0]).gaps.bigwig
-    
+  - shellQuote: false
+    valueFrom: |-
+        # gc file
+        gzip -9 $(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH_bigwig[0])/$(inputs.genome_fasta_name[0]).gc.bigwig
+        # If the gaps file exists, compress the gaps file.
+        FILE="$(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH_bigwig[0])/$(inputs.genome_fasta_name[0]).gaps.bigwig"
+        if [ -f "$FILE" ]; then
+            gzip -9 $FILE
+        fi
+       
 inputs:
   in_dummy: 
     type: File?

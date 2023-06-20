@@ -5,20 +5,20 @@ class: CommandLineTool
 
 requirements:
   - class: InlineJavascriptRequirement
+  - class: ShellCommandRequirement
 
-baseCommand: [ln]
 arguments:
-  - prefix: -s
-    #gaps file
-    position: 1
-    valueFrom: $(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH_bigwig[0])/$(inputs.genome_fasta_name[0]).gaps.bigwig.gz
-    #target directory
-  - position: 2
-    valueFrom: $(inputs.MAIN_PATH)/$(inputs.tree[0])-($(inputs.scientific_name[0])_$(inputs.scientific_name[1]))/$(inputs.tree[1])/5.Other files/Gaps in Assembly/.
+  - shellQuote: false
+    valueFrom: |-
+        FILE="$(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH_bigwig[0])/$(inputs.genome_fasta_name[0]).gaps.bigwig.gz"
+        if [ -f "$FILE" ]; then
+            ln -s $FILE "$(inputs.MAIN_PATH)/$(inputs.tree[0])-($(inputs.scientific_name[0])_$(inputs.scientific_name[1]))/$(inputs.tree[1])/5.Other files/Gaps in Assembly/."
+        fi
+  
 
 inputs:
   in_dummy: 
-    type: File
+    type: File?
   PATH:
     type: string[]
   tree:
