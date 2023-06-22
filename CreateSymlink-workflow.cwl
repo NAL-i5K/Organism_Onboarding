@@ -143,7 +143,6 @@ steps:
   #step8 symlink - bigwig files-gaps
   bigwig_symlink-gaps:
     run: flow_reorganize_symlinks/bigwig_symlink-gaps.cwl 
-    when: $($(inputs.PATH[0])/$(inputs.tree[0])/$(inputs.tree[1])/$(inputs.deepPATH_bigwig[0])/$(inputs.genome_fasta_name[0]).gaps.bigwig.gz != "")
     in:
       in_dummy: bigwig_gzip/out_dummy
       PATH: PATH
