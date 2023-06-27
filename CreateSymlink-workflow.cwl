@@ -139,6 +139,7 @@ steps:
       genome_fasta_name: genome_fasta_name
       deepPATH_bigwig: deepPATH_bigwig
     out: [out_dummy]
+
   #step8 symlink - bigwig files-gaps
   bigwig_symlink-gaps:
     run: flow_reorganize_symlinks/bigwig_symlink-gaps.cwl 
