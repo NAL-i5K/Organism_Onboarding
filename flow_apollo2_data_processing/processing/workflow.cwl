@@ -39,7 +39,7 @@ steps:
     out: 
       [out_trackList_json, out_seq, out_tracks_conf,out_data]  
   #step 4
-    modify_refseq_gff_metadata:
+  modify_refseq_gff_metadata:
     run: modify_refseq_gff_metadata.cwl
     in:
       in_gff: in_gff
