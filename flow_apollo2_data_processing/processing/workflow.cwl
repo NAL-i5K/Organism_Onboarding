@@ -39,11 +39,18 @@ steps:
     out: 
       [out_trackList_json, out_seq, out_tracks_conf,out_data]  
   #step 4
+    modify_refseq_gff_metadata:
+    run: modify_refseq_gff_metadata.cwl
+    in:
+      in_gff: in_gff
+    out:
+      [out_gff]
+  #step 4.2
   flatfile-to-json:
     run: flatfile-to-json.cwl
     in:
       tree: tree
-      in_gff: in_gff
+      in_gff: out_gff
       scientific_name: scientific_name
       gff_release_number: gff_release_number
       url_genomic_gff: url_genomic_gff 
@@ -114,6 +121,9 @@ outputs:
   OUT_tracks_conf:
     type: File
     outputSource: prepare-refseqs/out_tracks_conf
+  OUT_gff:
+    type: File
+    outputSource: modify_refseq_gff_metadata/out_gff
   OUT_tracks:
     type: Directory
     outputSource: flatfile-to-json/out_tracks
