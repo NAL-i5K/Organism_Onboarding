@@ -8,7 +8,7 @@ arguments:
   - position: 1
     valueFrom: $(inputs.in_GO)
   - position: 2
-    valueFrom: $(inputs.in_KEGG)
+    valueFrom: $(inputs.in_PathAnnotatorGMT)
   - position: 3
     valueFrom: $(inputs.in_gff)
   - position: 4
@@ -17,7 +17,7 @@ arguments:
 inputs:
   in_GO:
     type: File
-  in_KEGG:
+  in_PathAnnotatorGMT:
     type: File
   in_gff:
     type: File

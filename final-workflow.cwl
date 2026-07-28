@@ -33,7 +33,7 @@ inputs:
   link_to_publication: string
   url_table_file: string[]
   path_GO: File?
-  path_KEGG: File?
+  path_PathAnnotatorGMT: File?
 
 steps:
   #step1 
@@ -102,7 +102,7 @@ steps:
     in:
       url_table_file: url_table_file
       in_GO: path_GO
-      in_KEGG: path_KEGG
+      in_PathAnnotatorGMT: path_PathAnnotatorGMT
       in_gff: 
         source: [md5checksums/OUT_genomic_gff, path_genomic_gff]
         pickValue: first_non_null

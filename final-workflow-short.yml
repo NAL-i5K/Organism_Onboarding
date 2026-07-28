@@ -113,8 +113,8 @@ path_GO:
   path: NCBI Saccharomyces eubayanus Annotation Release 100 functional annotation/GCF_001298625.1_complete.gaf.tsv
 
 
-#KEGG file path. This path will be ignored if the table file URL is 'NA'. The file needs to be unzipped. With singularity, the local file path needs to be in the mounted /work-dir volume
-path_KEGG:
+#PathAnnotatorGMT file path. This path will be ignored if the table file URL is 'NA'. The file needs to be unzipped. With singularity, the local file path needs to be in the mounted /work-dir volume
+path_PathAnnotatorGMT:
   class: File
   path: NCBI Saccharomyces eubayanus Annotation Release 100 functional annotation/KOBAS/GCF_001298625.1_KOBAS_acc_pathways.tsv
 
