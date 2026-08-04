@@ -41,7 +41,6 @@ inputs:
   in_gc_bigwig: File
   processed_gff: File?
   original_gff: File
-  url_table_file: string[]
 
 steps:
   setup_folder:
@@ -82,12 +81,11 @@ steps:
       deepPATH_bigwig: deepPATH_bigwig
       in_gaps_bigwig: in_gaps_bigwig  # this will be null if there are no gaps
       in_gc_bigwig: in_gc_bigwig
-      url_table_file: url_table_file
     out: []
   #To working_files
   2working_files:
     run: 2working_files/workflow.cwl
-    when: $(inputs.url_string != "NA NA NA NA NA NA\n" ) 
+    when: $(inputs.url_string != "NA NA NA NA NA\n" ) 
     in:
       url_string: url_string
       in_dummy: setup_folder/out_dummy

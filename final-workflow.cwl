@@ -31,7 +31,6 @@ inputs:
   deepPATH_bigwig: string[]
   organization: string
   link_to_publication: string
-  url_table_file: string[]
   path_GO: File?
   path_PathAnnotatorGMT: File?
 
@@ -51,7 +50,6 @@ steps:
       path_transcript_fasta: path_transcript_fasta
       url_cds_fasta: url_cds_fasta
       path_cds_fasta: path_cds_fasta
-      url_table_file: url_table_file
     out:
       [OUT_md5checksums,   #'*.txt'
        OUT_genomic_fasta,  #'*.gz'
@@ -59,7 +57,6 @@ steps:
        OUT_protein_fasta,            #'*.gz'
        OUT_transcript_fasta,         #'*.gz'
        OUT_cds_fasta,                #'*.gz'
-       OUT_table,                    #'*.gz'
        url_string
        ]                
   #step2  
@@ -72,7 +69,6 @@ steps:
       in_protein_fasta: download/OUT_protein_fasta
       in_transcript_fasta: download/OUT_transcript_fasta
       in_cds_fasta: download/OUT_cds_fasta
-      in_table: download/OUT_table
       path_genomic_fasta: path_genomic_fasta
       path_genomic_gff: path_genomic_gff
       path_protein_fasta: path_protein_fasta
@@ -84,7 +80,6 @@ steps:
       url_protein_fasta: url_protein_fasta
       url_transcript_fasta: url_transcript_fasta
       url_cds_fasta: url_cds_fasta
-      url_table_file: url_table_file
     out:
       [OUT_extract,  #'*.txt2', extracted from *.txt
        OUT_check,    #'*.log', log file for execution of md5sum -c
@@ -92,21 +87,17 @@ steps:
        OUT_genomic_gff,   #'*.gff', '*.gff3'
        OUT_protein_fasta,
        OUT_transcript_fasta, 
-       OUT_cds_fasta,
-       OUT_table
+      OUT_cds_fasta
       ]
   #step3
   add_annotation:
     run: add-annotation/add_annotation.cwl
-    when: $(inputs.url_table_file != "NA")
     in:
-      url_table_file: url_table_file
       in_GO: path_GO
       in_PathAnnotatorGMT: path_PathAnnotatorGMT
       in_gff: 
         source: [md5checksums/OUT_genomic_gff, path_genomic_gff]
         pickValue: first_non_null
-      in_table: md5checksums/OUT_table
     out:
       [processed_gff]
   #step4
@@ -171,7 +162,7 @@ steps:
         source: [md5checksums/OUT_genomic_gff, path_genomic_gff]
         pickValue: first_non_null
       processed_gff: add_annotation/processed_gff
-      url_table_file: url_table_file
+      path_GO: path_GO
     out: [readme_file] 
   #step8
   dispatch:
@@ -220,7 +211,6 @@ steps:
       original_gff: 
         source: [md5checksums/OUT_genomic_gff, path_genomic_gff]
         pickValue: first_non_null
-      url_table_file: url_table_file
     out:
       [out_dummy]
 

@@ -18,13 +18,12 @@ inputs:
   path_transcript_fasta: File?
   url_cds_fasta: string[]
   path_cds_fasta: File?
-  url_table_file: string[]
 
 steps:
   conditional-wget-md5:
     in:
       all_url: 
-        source: [url_genomic_fasta, url_genomic_gff, url_protein_fasta, url_transcript_fasta, url_cds_fasta, url_table_file]
+        source: [url_genomic_fasta, url_genomic_gff, url_protein_fasta, url_transcript_fasta, url_cds_fasta]
         pickValue: all_non_null
         linkMerge: merge_flattened
     out: [url_string]
@@ -47,7 +46,7 @@ steps:
             outputEval: $(self[0].contents)
   wget_md5checksums:
     run: wget_single.cwl
-    when: $(inputs.url_string != "NA NA NA NA NA NA\n" )
+    when: $(inputs.url_string != "NA NA NA NA NA\n" )
     in:
       url_string: conditional-wget-md5/url_string
       in_url: url_md5checksums
@@ -82,12 +81,6 @@ steps:
     in:
       in_url: url_cds_fasta
     out: [out_wget]
-  wget_table:
-    run: wget_single.cwl
-    when: $(inputs.in_url != "NA")
-    in:
-      in_url: url_table_file
-    out: [out_wget]
 outputs:  
   OUT_md5checksums:
     type: File
@@ -107,9 +100,6 @@ outputs:
   OUT_cds_fasta:
     type: File
     outputSource: wget_cds_fasta/out_wget
-  OUT_table:
-    type: File
-    outputSource: wget_table/out_wget
   url_string:
     type: string
     outputSource: conditional-wget-md5/url_string

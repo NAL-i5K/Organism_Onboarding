@@ -35,7 +35,6 @@ inputs:
   deepPATH_bigwig: string[]
   in_gaps_bigwig: File?  # this will be null if there are no gaps
   in_gc_bigwig: File
-  url_table_file: string[]
 
 steps:
   cp_genomic_fasta:
@@ -57,9 +56,8 @@ steps:
     out: []
   cp_annotated_genomic_gff:
     run: cp_file_4_annotation.cwl
-    when: $(inputs.url_table_file != "NA")
+    when: $(inputs.processed_gff != null)
     in:
-      url_table_file: url_table_file
       PATH: PATH
       deepPATH_1: deepPATH_genomic_fasta
       deepPATH_2: deepPATH_analyses
