@@ -101,6 +101,11 @@ gff_release_number: GCF_027563975.1-RS_2023_02
 
 #GO file path for optional functional annotation. The file needs to be unzipped. With singularity, the local file path needs to be in the mounted /work-dir volume
 
+#Optional flags passed to add-annotation/add_annotation.cwl.
+#Set to true to include EGAP/CDS annotations when available.
+annotate_egap: false
+annotate_cds: false
+
 path_GO:
   class: File 
   path: NCBI Saccharomyces eubayanus Annotation Release 100 functional annotation/GCF_001298625.1_complete.gaf.tsv

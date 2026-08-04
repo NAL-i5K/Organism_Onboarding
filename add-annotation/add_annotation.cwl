@@ -3,7 +3,7 @@
 cwlVersion: v1.2
 class: CommandLineTool
 
-baseCommand: [../content_onboarding_scripts/bin/add_ontology_terms_from_gaf_gmt.pl]
+baseCommand: [add_ontology_terms_from_gaf_gmt.pl]
 arguments:
   - position: 7
     valueFrom: $(inputs.output_name)

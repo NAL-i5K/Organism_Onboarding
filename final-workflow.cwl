@@ -31,6 +31,12 @@ inputs:
   deepPATH_bigwig: string[]
   organization: string
   link_to_publication: string
+  annotate_egap:
+    type: boolean
+    default: false
+  annotate_cds:
+    type: boolean
+    default: false
   path_GO: File?
   path_PathAnnotatorGMT: File?
 
@@ -95,6 +101,8 @@ steps:
     in:
       in_GO: path_GO
       in_PathAnnotatorGMT: path_PathAnnotatorGMT
+      annotate_egap: annotate_egap
+      annotate_cds: annotate_cds
       in_gff: 
         source: [md5checksums/OUT_genomic_gff, path_genomic_gff]
         pickValue: first_non_null

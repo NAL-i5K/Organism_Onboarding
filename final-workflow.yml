@@ -77,6 +77,11 @@ gff_name: [
 GCF_003254395.2_Amel_HAv3.1_genomic.gff
 ]
 gff_release_number: 101
+
+#Optional flags passed to add-annotation/add_annotation.cwl.
+#Set to true to include EGAP/CDS annotations when available.
+annotate_egap: false
+annotate_cds: false
 #-------------------------------------------------------------------------------
 url_md5checksums: [
 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/254/395/GCF_003254395.2_Amel_HAv3.1/md5checksums.txt
