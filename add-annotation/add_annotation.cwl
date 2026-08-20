@@ -36,12 +36,12 @@ inputs:
     inputBinding:
       prefix: --cds
       position: 5
-  output_name:
-    type: string
-    default: $(inputs.in_gff.nameroot).annotated.gff
-    inputBinding:
-      prefix: --out
-      position: 6
+output_name:
+  type: string
+  inputBinding:
+    prefix: --out
+    position: 6
+    valueFrom: $(inputs.in_gff.nameroot + ".annotated.gff")
 outputs:  
   processed_gff:
     type: File
