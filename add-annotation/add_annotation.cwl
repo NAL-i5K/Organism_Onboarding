@@ -38,7 +38,7 @@ inputs:
       position: 5
   output_name:
     type: string
-    default: $(inputs.in_gff.nameroot).annotated.gff
+    default: $(inputs.in_gff.nameroot + ".annotated.gff")
     inputBinding:
       prefix: --out
       position: 6
