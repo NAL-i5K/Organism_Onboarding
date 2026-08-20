@@ -5,8 +5,8 @@ class: CommandLineTool
 
 baseCommand: [add_ontology_terms_from_gaf_gmt.pl]
 arguments:
-  - position: 7
-    valueFrom: $(inputs.output_name)
+  - position: 6
+    valueFrom: $(inputs.in_gff.nameroot + ".annotated.gff")
 
 inputs:
   in_GO:
@@ -36,16 +36,10 @@ inputs:
     inputBinding:
       prefix: --cds
       position: 5
-output_name:
-  type: string
-  inputBinding:
-    prefix: --out
-    position: 6
-    valueFrom: $(inputs.in_gff.nameroot + ".annotated.gff")
 outputs:  
   processed_gff:
     type: File
     outputBinding:
-      glob: $(inputs.output_name)
+      glob: $(inputs.in_gff.nameroot + ".annotated.gff")
     
  
