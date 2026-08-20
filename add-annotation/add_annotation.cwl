@@ -6,7 +6,7 @@ class: CommandLineTool
 baseCommand: [add_ontology_terms_from_gaf_gmt.pl]
 arguments:
   - position: 6
-    valueFrom: $(inputs.output_name)
+    valueFrom: $(inputs.in_gff.nameroot + ".annotated.gff")
 
 inputs:
   in_GO:
