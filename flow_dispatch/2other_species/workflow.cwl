@@ -58,6 +58,7 @@ steps:
     run: cp_file_4_annotation.cwl
     when: $(inputs.processed_gff != null)
     in:
+      processed_gff: processed_gff
       PATH: PATH
       deepPATH_1: deepPATH_genomic_fasta
       deepPATH_2: deepPATH_analyses
