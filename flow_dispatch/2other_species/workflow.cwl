@@ -22,7 +22,7 @@ inputs:
   in_cds_fasta: File
   in_assembly_readme: File
   in_genePrediction_readme: File
-  
+  in_functional_annotation: Directory?  
   #
   deepPATH_apollo2_data: string[]
   in_seq: Directory
@@ -108,6 +108,16 @@ steps:
       deepPATH_2: deepPATH_analyses
       tree: tree
       in_data: in_genePrediction_readme
+    out: []
+  cp_functional_annotation:
+    run: cp_dir_4_annotation.cwl
+    when: $(inputs.in_data !== null && inputs.tree.length > 3 && inputs.tree[3] !== "NA")
+    in:
+      PATH: PATH
+      deepPATH_1: deepPATH_genomic_fasta
+      deepPATH_2: deepPATH_analyses
+      tree: tree
+      in_data: in_functional_annotation
     out: []
   # 
   cp_seq:

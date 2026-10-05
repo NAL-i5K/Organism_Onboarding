@@ -25,6 +25,7 @@ inputs:
   in_md5checksums: File?
   in_extract: File?
   in_check: File?
+  in_functional_annotation: Directory?
   #
   in_2bi: File
   #
@@ -69,6 +70,7 @@ steps:
       in_cds_fasta: in_cds_fasta
       in_assembly_readme: in_assembly_readme
       in_genePrediction_readme: in_genePrediction_readme
+      in_functional_annotation: in_functional_annotation
       #
       deepPATH_apollo2_data: deepPATH_apollo2_data
       in_seq: in_seq
