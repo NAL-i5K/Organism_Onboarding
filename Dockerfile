@@ -53,22 +53,14 @@ RUN mkdir -p \
 
 USER $MAMBA_USER
 
-RUN micromamba create -y -n onboarding \
-        -c conda-forge \
-        -c bioconda \
-        python=3.11 \
-        pip \
-        samtools \
-        htslib \
-        bedtools \
-        pysam \
-        rsem \
-        wiggletools \
-        ucsc-wigtobigwig \
-        ucsc-fatotwobit \
-        jbrowse \
-        pybigwig \
-    && micromamba clean --all --yes
+RUN micromamba create -y -n onboarding -c conda-forge -c bioconda \
+        python=3.11 pip \
+        "perl=5.32.1" "jbrowse=1.16.1" \
+        "conda-forge::perl-db_file=1.858" "libdb=6.2.32" \
+        "samtools=0.1.19" "wiggletools=1.2.1" \
+        htslib bedtools pysam rsem pybigwig ucsc-wigtobigwig ucsc-fatotwobit \
+    && micromamba clean --all --yes \
+ && /opt/conda/envs/onboarding/bin/perl -MDB_File -e 'print "DB_File OK\n"'
 
 
 # ==========================================================================
