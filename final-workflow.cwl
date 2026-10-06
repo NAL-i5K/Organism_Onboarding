@@ -5,7 +5,22 @@ requirements:
   - class: SubworkflowFeatureRequirement
   - class: MultipleInputFeatureRequirement
   - class: InlineJavascriptRequirement
+  - class: StepInputExpressionRequirement
 
+    expressionLib:
+      - |
+        function findFile(dir, pattern) {
+          if (!dir || !dir.listing) { return null; }
+          for (var i = 0; i < dir.listing.length; i++) {
+            var x = dir.listing[i];
+            if (x.class === "File" && pattern.test(x.basename)) { return x; }
+            if (x.class === "Directory") {
+              var hit = findFile(x, pattern);
+              if (hit) { return hit; }
+            }
+          }
+          return null;
+        }
 inputs:
   PATH: string[]
   managePy_Path: string
@@ -37,9 +52,9 @@ inputs:
   annotate_cds:
     type: boolean
     default: false
-  path_functional_annotation: Directory?
-  path_GO: File?
-  path_PathAnnotatorGMT: File?
+  path_functional_annotation:
+    type: Directory?
+    loadListing: deep_listing
 
 steps:
   #step1 
@@ -100,10 +115,12 @@ steps:
   add_annotation:
     run: add-annotation/add_annotation.cwl
     in:
-      in_GO: path_GO
-      in_PathAnnotatorGMT: path_PathAnnotatorGMT
-      annotate_egap: annotate_egap
-      annotate_cds: annotate_cds
+      in_GO:
+        source: path_functional_annotation
+        valueFrom: $(findFile(self, /_complete\.gaf\.tsv$/))
+      in_PathAnnotatorGMT:
+        source: path_functional_annotation
+        valueFrom: $(findFile(self, /_all_pathways\.gmt$/))
       in_gff: 
         source: [md5checksums/OUT_genomic_gff, path_genomic_gff]
         pickValue: first_non_null
