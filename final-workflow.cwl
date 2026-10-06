@@ -188,7 +188,9 @@ steps:
         source: [md5checksums/OUT_genomic_gff, path_genomic_gff]
         pickValue: first_non_null
       processed_gff: add_annotation/processed_gff
-      path_GO: path_GO
+      path_GO:
+        source: path_functional_annotation
+        valueFrom: $(findFile(self, /_complete\.gaf\.tsv$/))
     out: [readme_file] 
   #step8
   dispatch:
