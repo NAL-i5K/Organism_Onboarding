@@ -4,9 +4,8 @@ class: Workflow
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: MultipleInputFeatureRequirement
-  - class: InlineJavascriptRequirement
   - class: StepInputExpressionRequirement
-
+  - class: InlineJavascriptRequirement
     expressionLib:
       - |
         function findFile(dir, pattern) {
