@@ -123,6 +123,8 @@ steps:
       in_gff: 
         source: [md5checksums/OUT_genomic_gff, path_genomic_gff]
         pickValue: first_non_null
+      annotate_egap: annotate_egap
+      annotate_cds: annotate_cds
     out:
       [processed_gff]
   #step4
