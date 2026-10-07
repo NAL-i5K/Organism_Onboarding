@@ -53,16 +53,15 @@ RUN mkdir -p \
 
 USER $MAMBA_USER
 
-RUN micromamba create -y -n onboarding -c conda-forge -c bioconda \
-        python=3.11 pip \
-        "perl=5.32.1" "jbrowse=1.16.1" \
-        "conda-forge::perl-db_file=1.858" "libdb=6.2.32" \
-        "samtools=0.1.19" "wiggletools=1.2.1" \
-        htslib bedtools pysam rsem pybigwig ucsc-wigtobigwig ucsc-fatotwobit \
-    && micromamba clean --all --yes \
- && /opt/conda/envs/onboarding/bin/perl -MDB_File -e 'print "DB_File OK\n"'
+USER $MAMBA_USER
+COPY --chown=$MAMBA_USER:$MAMBA_USER onboarding.lock requirements.lock /tmp/
+RUN micromamba create -y -n onboarding -f /tmp/onboarding.lock \
+ && micromamba clean --all --yes
+RUN /opt/conda/envs/onboarding/bin/pip install --no-cache-dir -r /tmp/requirements.lock
+RUN /opt/conda/envs/onboarding/bin/perl -MDB_File -e 'print "DB_File OK\n"' \
+ && micromamba list -n onboarding | grep -E '^\s*jbrowse\s+1\.16\.1'
 
-
+RUN micromamba env export -n onboarding --explicit
 # ==========================================================================
 # PATH
 # ==========================================================================
@@ -86,7 +85,7 @@ RUN pip install --no-cache-dir \
 WORKDIR /opt
 
 RUN git clone \
-        --branch update-functional-annotation \
+        --branch dispatch_func_annot \
         --single-branch \
         https://github.com/NAL-i5K/Organism_Onboarding.git \
         Organism_Onboarding
@@ -508,6 +507,6 @@ RUN echo "========================================" \
 
 USER $MAMBA_USER
 
-WORKDIR /work
+WORKDIR /cwork-dir
 
 CMD ["/bin/bash"]

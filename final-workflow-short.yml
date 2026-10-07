@@ -106,7 +106,8 @@ annotate_egap: false
 annotate_cds: false
 
 
-#Functional annotation directory. CWL uses this to copy the functional annotations into the analyses directory; needs to be in the mounted /work-dir volume
+#Functional annotation directory. CWL uses this to copy the functional annotations into the analyses directory
+#If this directory isn't in your working directory then it's parent directory should be mounted to /annotations
 path_functional_annotation:
   class: Directory
   path: NCBI Saccharomyces eubayanus Annotation Release 100 functional annotation
